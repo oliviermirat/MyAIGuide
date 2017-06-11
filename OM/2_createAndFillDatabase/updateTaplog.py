@@ -14,8 +14,7 @@ csvFile='../1_initialRawData/taplog.csv'
 csvToDatabase.csvToDatabase(csvFile,tabDef.taplogTab)
 
 db = dataset.connect('sqlite:///olidata.db')
-db.query('UPDATE taplog SET insttime=ms/1000')
 
-db.query('UPDATE taplog SET insttime=insttime-3600 WHERE id>210 AND id<237')
-
-"db.query('UPDATE taplog SET insttime=ms/1000+timezoneoffset/1000')"
+db.query('UPDATE taplog SET insttime=(ms/1000)')
+# Not entirely sure why the following is necessary
+db.query('UPDATE taplog SET insttime=insttime-32400 WHERE id>=501')

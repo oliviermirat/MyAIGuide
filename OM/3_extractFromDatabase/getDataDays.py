@@ -8,14 +8,9 @@ Created on Thu Jul 14 10:55:58 2016
 import utilities as ut
 import math
 
-# New and weird: this timeShift (60*60*9=32400), California Time maybe ???
-timeShift  = 32400   # (60*60*9= 32400) #
-timeShift2 = 28800   # (60*60*8= 28800) #
-# WhatPulsePerDay: Should it be changed (time zone specific???) (line 98)
-
 class painByLocation(ut.getData):
     def sql(self,db,data,startLin,endLin,param):
-        
+
         param=ut.returnParam(param,'location')
 
         result = db.query('SELECT starttime,endtime,intensity ' +
@@ -23,10 +18,10 @@ class painByLocation(ut.getData):
                           ' starttime>=' + startLin + ' AND endtime<=' + endLin)
 
         ut.initialiseData(data,['intensity'])
-        
+
         for row in result:
             ut.fillData(data,
-                        (row['starttime']+row['endtime'])/2+timeShift2,
+                        (row['starttime']+row['endtime'])/2,
                          [['intensity',row['intensity']]])
 
 
@@ -36,14 +31,14 @@ class sportDurByAct(ut.getData):
         param=ut.returnParam(param,'activity')
 
         result= db.query('SELECT starttime,endtime,activity FROM sports' +
-              ' WHERE (activity="'+ param +'") AND starttime>' + startLin + 
+              ' WHERE (activity="'+ param +'") AND starttime>' + startLin +
               ' AND endtime<' + endLin)
-        
+
         ut.initialiseData(data,['duration'])
-        
+
         for row in result:
             ut.fillData(data,
-                        math.floor((row['starttime']+timeShift)/86400)*86400+43200,
+                        math.floor((row['starttime'])/86400)*86400+43200,
                         [['duration',row['endtime']-row['starttime']]])
 
 
@@ -53,9 +48,9 @@ class climbViaIntensity(ut.getData):
         result= db.query('SELECT starttime,endtime,effortInt FROM sports' +
               ' WHERE (activity="Via Ferrata" OR activity="Climbing") '+
               'AND starttime>' + startLin + ' AND endtime<' + endLin)
-        
-        ut.initialiseData(data,['effortInt'])        
-        
+
+        ut.initialiseData(data,['effortInt'])
+
         for row in result:
             ut.fillData(data,
                         math.floor(row['starttime']/86400)*86400+43200,
@@ -64,14 +59,14 @@ class climbViaIntensity(ut.getData):
 
 class manicTimePerDay(ut.getData):
     def sql(self,db,data,startLin,endLin,param):
-        
+
         result = db.query("SELECT starttime,(starttime)/86400,"+
         "sum(endtime-starttime) FROM manicTime WHERE name='ActivitÃ©' "+
         "AND starttime>"+startLin+" AND endtime<"+endLin+
-        " GROUP BY (starttime +"+str(timeShift)+")/86400")
-        
-        ut.initialiseData(data,['duration'])        
-        
+        " GROUP BY ((starttime)/86400)")
+
+        ut.initialiseData(data,['duration'])
+
         for row in result:
             ut.fillData(data,
                      row['(starttime)/86400']*86400+86400/2,
@@ -80,62 +75,62 @@ class manicTimePerDay(ut.getData):
 
 class whatPulsePerDay(ut.getData):
     def sql(self,db,data,startLin,endLin,param):
-        
+
         result = db.query("SELECT starttime,(starttime)/86400,keys,clicks "+
         "FROM whatPulse WHERE "+
         "starttime>"+startLin+" AND endtime<"+endLin+
         " AND id IN (SELECT max(id) FROM "+
         "whatPulse GROUP BY date)"
         )
-        
+
         ut.initialiseData(data,['keys','clicks'])
-        
+
         for row in result:
             vals=[ ['keys'  ,row['keys']] ,
                    ['clicks',row['clicks']] ]
-                       
+
             ut.fillData(data,
                     row['starttime']+86400/2+86400, # Should this be changed ??? #
                      vals)
 
 class basisPerDay(ut.getData):
     def sql(self,db,data,startLin,endLin,param):
-        
+
         result = db.query("SELECT (insttime)/86400,"+
         "sum(steps),sum(calories) FROM basis WHERE "+
         " insttime>"+startLin+" AND insttime<"+endLin+
-        " GROUP BY (insttime +"+str(timeShift)+")/86400")
-                     
+        " GROUP BY (insttime/86400)")
+
         ut.initialiseData(data,['steps','calories'])
-        
+
         for row in result:
             vals=[ ['steps'  ,row['sum(steps)']] ,
                    ['calories',row['sum(calories)']] ]
-                       
+
             ut.fillData(data,
                      row['(insttime)/86400']*86400+86400/2,
                      vals)
 
 class sportBasisByAct(ut.getData):
     def sql(self,db,data,startLin,endLin,param):
-        
+
         param=ut.returnParam(param,'activity')
 
         result = db.query('SELECT starttime,endtime,activity,'+
         'sum(calories),sum(steps) '+
-        'FROM sports s INNER JOIN basis b ' 
+        'FROM sports s INNER JOIN basis b '
         'ON b.insttime>=s.starttime AND b.insttime<=s.endtime '
         'WHERE (activity="'+ param +'") AND starttime>'+startLin+
         ' AND endtime<'+endLin+' GROUP BY starttime')
 
         ut.initialiseData(data,['steps','calories'])
-        
+
         for row in result:
             vals=[ ['steps'  ,row['sum(steps)']] ,
                    ['calories',row['sum(calories)']] ]
-                       
+
             ut.fillData(data,
-                     math.floor((row['starttime']+timeShift)/86400)*86400+43200,
+                     math.floor((row['starttime'])/86400)*86400+43200,
                      vals)
 
 
@@ -144,16 +139,16 @@ class general(ut.getData):
 
         result= db.query('SELECT stress,mood,socquant,weight,starttime FROM general' +
               ' WHERE starttime>' + startLin +' AND endtime<' + endLin)
-        
-        ut.initialiseData(data,['stress','mood','socquant','weight'])        
-        
+
+        ut.initialiseData(data,['stress','mood','socquant','weight'])
+
         for row in result:
 
             vals=[ ['stress'   , row['stress']] ,
                    ['mood'    , row['mood']],
                    ['socquant', row['socquant']],
                    ['weight'  , row['weight']] ]
-            
+
             ut.fillData(data,math.floor((row['starttime']+43200)/86400)*86400+43200,vals)
 
 class generalAct(ut.getData):
@@ -162,17 +157,17 @@ class generalAct(ut.getData):
         result= db.query('SELECT paper,ubuntu,driving,ridingcar,store,starttime '+
           'FROM generalactivities WHERE starttime>' + startLin +
           ' AND endtime<' + endLin)
-        
-        ut.initialiseData(data,['paper','ubuntu','driving','store','ridingcar'])        
-        
+
+        ut.initialiseData(data,['paper','ubuntu','driving','store','ridingcar'])
+
         for row in result:
 
             vals=[ ['paper'    , row['paper']] ,
                    ['ubuntu'   , row['ubuntu']],
                    ['driving'  , row['driving']],
-                   ['store'    , row['store']], 
+                   ['store'    , row['store']],
                    ['ridingcar', row['ridingcar']]]
-            
+
             ut.fillData(data,math.floor((row['starttime']+43200)/86400)*86400+43200,vals)
 
 class painStats(ut.getData):
@@ -184,7 +179,7 @@ class painStats(ut.getData):
                           ' GROUP BY starttime')
 
         ut.initialiseData(data,['meanIntensity','maxIntensity'])
-        
+
         for row in result:
             vals=[ ['meanIntensity', row['avg(intensity)']] ,
                    ['maxIntensity' , row['max(intensity)']] ]

@@ -11,9 +11,6 @@ import csvToDatabase
 import time
 import datetime
 
-# New and weird: this timeShift (60*60*9), California Time maybe ???
-timeShift=32400
-
 def toLinuxTime2(s,formatTime):
     t=time.mktime(datetime.datetime.strptime(s,formatTime).timetuple())
     return t
@@ -38,7 +35,7 @@ result = db.query("SELECT s.id,t.insttime FROM sports s INNER JOIN taplog t ON s
 for row in result:
 	if (row['id']>lastid):
 		if (row['insttime']>lasttime):
-			db.query('UPDATE sports SET starttime='+str(row['insttime']+timeShift)+' WHERE id='+str(row['id']))
+			db.query('UPDATE sports SET starttime='+str(row['insttime'])+' WHERE id='+str(row['id']))
 			lastid=row['id']
 			lasttime=row['insttime']
 
@@ -48,6 +45,15 @@ result = db.query("SELECT s.id,t.insttime FROM sports s INNER JOIN taplog t ON s
 for row in result:
 	if (row['id']>lastid):
 		if (row['insttime']>lasttime):
-			db.query('UPDATE sports SET endtime='+str(row['insttime']+timeShift)+' WHERE id='+str(row['id']))
+			db.query('UPDATE sports SET endtime='+str(row['insttime'])+' WHERE id='+str(row['id']))
 			lastid=row['id']
 			lasttime=row['insttime']
+
+# DELETING sports on days with basis peak "mis-recording"
+# THIS NEEDS TO BE IMPROVED IN THE FUTURE
+db.query('DELETE FROM sports WHERE (year=2016 AND month=3 AND day=28)')
+db.query('DELETE FROM sports WHERE (year=2016 AND month=4 AND day=21)')
+db.query('DELETE FROM sports WHERE (year=2016 AND month=8 AND day=24)')
+db.query('DELETE FROM sports WHERE (year=2016 AND month=10 AND day=10)')
+db.query('DELETE FROM sports WHERE (year=2016 AND month=10 AND day=11)')
+db.query('DELETE FROM sports WHERE (year=2016 AND month=10 AND day=26)')
