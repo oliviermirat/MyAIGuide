@@ -27,6 +27,7 @@ The code works well and the data is valid, but there are still a lot of improvem
 <h4>Data Extraction</h4>
 -ManicTime doesn't only log the hours where a computer is on, off and locked, it also logs the application used. These logs should be taken into account (for example, I have an application that turns off the screen...).<br/>
 -BasisPeak went out of business at the end of 2016. So since September of 2016, I also started using a FitBit. However, I haven't implemented the solution to extract my data from FitBit yet. And the data from Basis Peak and Fitbit will need to be normalized.<br/>
+-Extract data from gps files: this could be useful to better quantify physical activities.<br/>
 -There are many other variables I'm tracking manually (in spreadsheets) that would need to be extracted and added to the database.<br/>
 
 <h4>Data Enhancement</h4>
