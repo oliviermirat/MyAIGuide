@@ -44,7 +44,7 @@ and 'sport end' (see part 6). </SPAN>
 1-Create an Excel or Open Office spreadsheet
 that you will fill in every evening. This spreadsheet should look
 like this: </br>
-![Alt text](images/painSpreadsheetExample.png?raw=truoe
+![Alt text](https://github.com/oliviermirat/OptimizeUs/blob/master/images/painSpreadsheetExample.png?raw=truoe
 &quot;Per Day&quot;) 
 </br>
 2-Use taplog: create a folder called Pain and
@@ -64,7 +64,7 @@ in which you can simply write about your day.
 <P>If you've created a 'sport str' and a 'sport end' buttons in
 taplog (see section 3), then you can also create a spreadsheet where you
 can add details about the activity you did. It should look like this:</br>
-![Alt text](images/general.png?raw=truoe &quot;Per Day&quot;) 
+![Alt text](https://github.com/oliviermirat/OptimizeUs/blob/master/images/general.png?raw=truoe &quot;Per Day&quot;) 
 </br>
 </P>
 <H3 CLASS="western">7) GPS:</H3>
