@@ -16,7 +16,7 @@ The aim is to try to figure out if the pain intensity is somehow correlated with
 So far I've tried to make linear combinations of environmental variables and see how they correlate with symptoms.<br/>
 Here's an example for the knees:
 
-![Alt text](https://github.com/oliviermirat/OptimizeUs/blob/master/OM/5_documentation/images/knees2016.png?raw=truoe "Per Day")
+![Alt text](https://github.com/oliviermirat/OptimizeUs/blob/master/OM/5_documentation/images/knees2016.png?raw=true "Per Day")
 
 So far, this analysis is inconclusive, but feel free to play with the data and don't hesitate to contact me if you have any questions.
 <br/><br/>
