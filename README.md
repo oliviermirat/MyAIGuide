@@ -9,7 +9,7 @@ If you are suffering from long lasting pain problems and want to contribute to O
 This project is open-source: anybody can contribute to the analysis of the data and our creation and its benefits 
 belong to everyone. The data is also open-source by default. If you want to donate data but you don't want it to 
 be made open-source for privacy reasons, this isn't a problem at all, we understand that not everyone is comfortable 
-publicly sharing sensitive information. In that case, you can either send us an email or upload your data to <a href='http://robinhood.scientizen.com/' target='_blank'>Scientizen</a><br/>
+publicly sharing sensitive information. In that case, you can either send us an email or upload your data to <a href='http://robinhood.scientizen.com/' target='_blank'>Scientizen</a>.<br/>
 This project is hosted here on Github, here's a project we've already done: 
 <a href='OM/README.md' target='_blank'>First Experiment</a>. <br/>
 In the future, we also hope to tackle other medical conditions.<br/>
