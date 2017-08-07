@@ -46,6 +46,14 @@ that you will fill in every evening. This spreadsheet should look
 like this: </br>
 ![Alt text](https://github.com/oliviermirat/OptimizeUs/blob/master/images/painSpreadsheetExample.png?raw=true "Per Day") 
 </br>
+Because of its subjective nature, the quantification of pain is complex. Here's an idea of how to do it:
+Log every evening an average pain intensity for each body region over the the 6 worst hours of the day, using the following scale:<br/>
+<2         : almost imperceivable most of the time<br/>
+2   to 2.9 : not too bad, but can still "feel" it<br/>
+3   to 3.4 : uncomfortable (3.4 is seriously uncomfortable)<br/>
+3.5 to 3.9 : very uncomfortable almost painfull<br/>
+4.0 to 5.0 : painfull<br/>
+greater than 5.0 : very painfull<br/><br/>
 2-Use taplog: create a folder called Pain and
 create buttons inside it for each painful body region. Add the
 possibility to add a quantity to these buttons. Every evening, press
