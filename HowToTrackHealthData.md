@@ -87,6 +87,8 @@ be exported to your computer. The data from WhatPulse needs to be
 exported every 7 days (the 'per day' is what's needed). For
 ManicTime, you should export both 'app' and 'time'. Preferably, you
 should backup your data in case your computer crashes, for example
-with Google Drive. If you want to share your data with us, please
-contact us at: olivier.mirat.om@gmail.com 
+with Google Drive. If you want to share your data with us, you can either upload data to  
+<a href='http://robinhood.scientizen.com/' target='_blank'>Scientizen</a> (your data won't be made open-source
+in that case), upload it to github (in that case it will be made open-source), or you can contact us at: 
+olivier.mirat.om@gmail.com 
 </P>
