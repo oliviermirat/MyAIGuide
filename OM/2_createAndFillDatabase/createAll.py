@@ -13,6 +13,7 @@ import updatePain
 import updateTaplog
 import updateSport
 import updateWhatPulse
+import updateScreenSaver
 import updateBasis
 # import updateGeneral
 import updateGeneralActivities

@@ -1,6 +1,6 @@
 # How to track health data
 
-<H2 CLASS="western">Indispensable tracking:</H2>
+<H2 CLASS="western">Primary non-optional tracking:</H2>
 <H3 CLASS="western">1) Fitness Tracker:</H3>
 <P><SPAN LANG="en-US">Use a fitness tracker to track the amount of
 physical activity you do everyday. To avoid uncomfortable skin

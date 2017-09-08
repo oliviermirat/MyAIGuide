@@ -73,6 +73,22 @@ class manicTimePerDay(ut.getData):
                      [['duration',
                       row['sum(endtime-starttime)']]])
 
+class screenSaverPerDay(ut.getData):
+    def sql(self,db,data,startLin,endLin,param):
+
+        result = db.query("SELECT starttime,(starttime)/86400,"+
+        "sum(endtime-starttime) FROM screenSaver WHERE "+
+        "starttime>"+startLin+" AND endtime<"+endLin+
+        " GROUP BY ((starttime)/86400)")
+
+        ut.initialiseData(data,['duration'])
+
+        for row in result:
+            ut.fillData(data,
+                     row['(starttime)/86400']*86400+86400/2,
+                     [['duration',
+                      row['sum(endtime-starttime)']]])
+
 class whatPulsePerDay(ut.getData):
     def sql(self,db,data,startLin,endLin,param):
 

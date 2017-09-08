@@ -74,6 +74,9 @@ dataHands=painByLocation.getData(info,'Hands And Fingers')
 manicTimePerDay = gd.manicTimePerDay()
 dataManicTime=manicTimePerDay.getData(info)
 
+screenSaverPerDay = gd.screenSaverPerDay()
+dataScreenSaver=screenSaverPerDay.getData(info)
+
 sportDurByAct = gd.sportDurByAct()
 dataAlpiSkiDuration=sportDurByAct.getData(info,'Alpi Ski')
 dataClimbingDuration=sportDurByAct.getData(info,'Climbing')
@@ -119,6 +122,7 @@ convertDataToLocalDayNumber(dataHead)
 convertDataToLocalDayNumber(dataHands)
 
 convertDataToLocalDayNumber(dataManicTime)
+convertDataToLocalDayNumber(dataScreenSaver)
 convertDataToLocalDayNumber(dataAlpiSkiDuration)
 convertDataToLocalDayNumber(dataClimbingDuration)
 convertDataToLocalDayNumber(dataDownSkiDuration)
@@ -145,7 +149,7 @@ convertDataToLocalDayNumber(dataClimbViaIntensity)
 
 ### Create Final Data
 
-environment=np.zeros((nbTime,39))
+environment=np.zeros((nbTime,40))
 symptoms=np.zeros((nbTime,5))
 
 def getQuantification(val):
@@ -196,6 +200,7 @@ fillFinalData(environment,dataWalkBasis,[[27,'calories'],[28,'steps']])
 fillFinalData(environment,dataGeneral,[[29,'stress'],[30,'mood'],[31,'socquant'],[32,'weight']])
 fillFinalData(environment,dataGeneralAct,[[33,'paper'],[34,'ubuntu'],[35,'driving'],[36,'store'],[38,'ridingcar']])
 fillFinalData(environment,dataClimbViaIntensity,[[37,'effortInt']])
+fillFinalData(environment,dataScreenSaver,[[39,'duration']])
 
 fillFinalData(symptoms,dataKnees,[[0,'intensity']])
 fillFinalData(symptoms,dataHead ,[[1,'intensity']])

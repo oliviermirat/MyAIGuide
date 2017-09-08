@@ -37,6 +37,7 @@
 36:'store'
 37:'effortInt' climbOrViaMaxInt
 38:'ridingcar'
+39:'screenSaver'
 
 0:'Knees'
 1:'Head'

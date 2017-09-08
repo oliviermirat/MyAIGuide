@@ -12,6 +12,7 @@ createDataBase.createTable(tabDef.basisTab)
 createDataBase.createTable(tabDef.painTab)
 createDataBase.createTable(tabDef.sportTab)
 createDataBase.createTable(tabDef.manicTimeTab)
+createDataBase.createTable(tabDef.screenSaverTab)
 createDataBase.createTable(tabDef.whatPulseTab)
 createDataBase.createTable(tabDef.taplogTab)
 

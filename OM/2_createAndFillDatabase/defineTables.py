@@ -76,6 +76,20 @@ class manicTimeTab:
     tableName='manicTime'
     linesToSkip=1
     maxcolumns=4
+
+class screenSaverTab:
+    m=np.array([['name',0,'varchar',0],
+                ['start',0,'varchar',1],
+                ['end',0,'varchar',2],
+                ['duration',0,'varchar',0],
+                ['starttime',0,'int',0],
+                ['endtime',0,'int',0]
+                ])
+    timeFormat=['%d/%m/%Y %H:%M:%S','%d/%m/%Y %H:%M:%S']
+    timeShift=0
+    tableName='screenSaver'
+    linesToSkip=1
+    maxcolumns=4
     
 class whatPulseTab:
     m=np.array([['date',0,'varchar',1],

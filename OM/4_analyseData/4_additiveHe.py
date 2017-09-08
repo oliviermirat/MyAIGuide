@@ -7,7 +7,7 @@ input.close()
 symptoms=localData[0]
 environment=localData[1]
 
-environment[:,0]=environment[:,0]+environment[:,34]*60 # Add Ubuntu time to Computer Time #
+environment[:,0]=environment[:,0]+environment[:,34]*60-environment[:,39] # Add Ubuntu time to Computer Time minus screen saver. #
 environment[:,35]=environment[:,35]+0.75*environment[:,38] # Add riding car to driving time #
 xaxis=localData[2]
 
