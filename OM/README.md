@@ -18,7 +18,6 @@ Here's an example for the knees:
 
 ![Alt text](https://github.com/oliviermirat/OptimizeUs/blob/master/OM/5_documentation/images/knees2016.png?raw=true "Per Day")
 
-So far, this analysis is inconclusive, but feel free to play with the data and don't hesitate to contact me if you have any questions.
 <br/><br/>
 <h3>To Do:</h3>
 The code works well and the data is valid, but there are still a lot of improvements left to be made:
