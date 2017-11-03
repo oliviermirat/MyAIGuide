@@ -12,11 +12,16 @@ Here's a summary for 2016:
 
 ![Alt text](https://github.com/oliviermirat/OptimizeUs/blob/master/OM/5_documentation/images/summary2016.png?raw=true "Per Day")
 
-The aim is to try to figure out if the pain intensity is somehow correlated with the other variables (physical and daily activities). These other variables will be called environmental variables in the following. My intuition is that a correlation between symptoms and environmental variables does exist, however this correlation is unproven.<br/>
-So far I've tried to make linear combinations of environmental variables and see how they correlate with symptoms.<br/>
-Here's an example for the knees:
+The aim is to try to figure out if the pain intensity is somehow correlated with the other variables (physical and daily activities). These other variables will be called environmental variables in the following.<br/>
+So far, I've tried to create linear combinations of environmental variables. Here's an example for the knees:<br/><br/>
+For 2017, the correlation is pretty obvious:<br/>
 
-![Alt text](https://github.com/oliviermirat/OptimizeUs/blob/master/OM/5_documentation/images/knees2016.png?raw=true "Per Day")
+![Alt text](https://github.com/oliviermirat/OptimizeUs/blob/master/OM/5_documentation/images/2017Knees.png?raw=true "Per Day")
+
+For 2016, the correlation is a little more tricky to see. It seems like there are "eyes",
+where the symptoms go up and the environment variables go down:<br/>
+
+![Alt text](https://github.com/oliviermirat/OptimizeUs/blob/master/OM/5_documentation/images/2016Knees.png?raw=true "Per Day")
 
 <br/><br/>
 <h3>To Do:</h3>
