@@ -1,4 +1,4 @@
-# How to track health dataa
+# How to track health data
 
 <H2 CLASS="western">Primary non-optional tracking:</H2>
 <H3 CLASS="western">1) Fitness Tracker:</H3>
