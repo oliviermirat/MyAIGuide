@@ -1,9 +1,8 @@
 # MonsterMizer
 
-This is the open-source part of <a href=http://www.monstermizer.com target="_blank">MonsterMizer</a>.<br/>
-We will be releasing code and data here.<br/>
-Here's a project we've already done: 
-<a href='OM/2019analysis/README.md' target='_blank'>First Experiment</a>. 
+This is the open-source part of the <a href=http://www.monstermizer.com target="_blank">MonsterMizer</a>.<br/>
+You can find open-sourced data here: <a href='MonsterMizerOpenData/README.md' target='_blank'>MonsterMizer Open Data</a>.<br/>
+You can find a first analysis of some of the data and the corresponding open-sourced code here: <a href='firstExperimentsAndCode/README.md' target='_blank'>first experiment</a>.<br/>
 If you want to collect data in the same way than what was done in this experiment, 
 please read this: 
 <a href='HowToTrackHealthData.md' target='_blank'>hard core self-tracking</a>. 

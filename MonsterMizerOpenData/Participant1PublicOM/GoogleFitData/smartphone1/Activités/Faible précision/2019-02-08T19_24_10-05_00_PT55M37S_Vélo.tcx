@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+    xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+    xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2"
+    xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+    xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1"
+    xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
+    <Activities>
+        <Activity Sport="Biking">
+            <Id>2019-02-09T00:24:10.865Z</Id>
+            <Notes>Biking</Notes>
+            <Lap StartTime="2019-02-09T00:24:10.865Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2019-02-09T00:24:10.865Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>247.81546020507812</DistanceMeters>
+                        <Time>2019-02-09T00:26:23.431Z</Time>
+                        <Position>
+                            <LatitudeDegrees>34.41547814</LatitudeDegrees>
+                            <LongitudeDegrees>-119.8588085</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>-44.0</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>521.2374572753906</DistanceMeters>
+                        <Time>2019-02-09T00:27:22.426Z</Time>
+                        <Position>
+                            <LatitudeDegrees>34.41301646</LatitudeDegrees>
+                            <LongitudeDegrees>-119.858816</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>-40.0</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>783.6602172851562</DistanceMeters>
+                        <Time>2019-02-09T00:28:22.426Z</Time>
+                        <Position>
+                            <LatitudeDegrees>34.41065699</LatitudeDegrees>
+                            <LongitudeDegrees>-119.85877951</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>-41.0</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>935.0052642822266</DistanceMeters>
+                        <Time>2019-02-09T00:35:12.839Z</Time>
+                        <Position>
+                            <LatitudeDegrees>34.40930083</LatitudeDegrees>
+                            <LongitudeDegrees>-119.85860486</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>-36.0</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>1621.5731964111328</DistanceMeters>
+                        <Time>2019-02-09T00:39:37.696Z</Time>
+                        <Position>
+                            <LatitudeDegrees>34.41547814</LatitudeDegrees>
+                            <LongitudeDegrees>-119.8588085</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>-44.0</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>1621.5731964111328</DistanceMeters>
+                        <Time>2019-02-09T00:45:22.648Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>1621.5731964111328</DistanceMeters>
+                <TotalTimeSeconds>1271.783</TotalTimeSeconds>
+                <Calories>104.5688247680664</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+        <Activity Sport="Biking">
+            <Id>2019-02-09T01:15:58.973Z</Id>
+            <Notes>Biking</Notes>
+            <Lap StartTime="2019-02-09T01:15:58.973Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2019-02-09T01:15:58.973Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2019-02-09T01:41:16.212Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>0.0</DistanceMeters>
+                <TotalTimeSeconds>1517.239</TotalTimeSeconds>
+                <Calories>124.75077056884766</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+    </Activities>
+    <Author xsi:type="Application_t">
+        <Name>Google Fit</Name>
+        <Build>
+            <Version>
+                <VersionMajor>0</VersionMajor>
+                <VersionMinor>0</VersionMinor>
+                <BuildMajor>0</BuildMajor>
+                <BuildMinor>0</BuildMinor>
+            </Version>
+        </Build>
+        <LangID>en</LangID>
+        <PartNumber>000-00000-00</PartNumber>
+    </Author>
+</TrainingCenterDatabase>
