@@ -1,8 +1,8 @@
 # MonsterMizer data
 
-Participant1PublicOM is data collected by the founder of the MonsterMizer, partly through the MonsterMizer's website, and partly through this method: <a href='../HowToTrackHealthData.md' target='_blank'>hard core self-tracking</a>.
+<a href='https://github.com/oliviermirat/MonsterMizer/tree/master/MonsterMizerOpenData/Participant1PublicOM' target='_blank'>Participant1PublicOM</a> is data collected by the founder of the MonsterMizer, partly through the MonsterMizer's website, and partly through this method: <a href='../HowToTrackHealthData.md' target='_blank'>hard core self-tracking</a>.
 
-Participant2Anonymized and Participant3Anonymized is data collected throught the MonsterMizer's website by two different MonsterMizer participants.
+<a href='https://github.com/oliviermirat/MonsterMizer/tree/master/MonsterMizerOpenData/Participant2Anonymized' target='_blank'>Participant2Anonymized</a> and <a href='https://github.com/oliviermirat/MonsterMizer/tree/master/MonsterMizerOpenData/Participant3Anonymized' target='_blank'>Participant3Anonymized</a> is data collected throught the MonsterMizer's website by two different MonsterMizer participants.
 
 The main aim objective is to create an algorithm that takes as an input the activities and pain intensities recorded up to a certain day and gives as an output a recommendation about what activities should be performed or avoided on that given day (to avoid having symptoms increase). The validity of this algorithm should be access by using the symptoms recorded for that day.
 
