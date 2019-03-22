@@ -4,7 +4,7 @@
 
 <a href='https://github.com/oliviermirat/MonsterMizer/tree/master/MonsterMizerOpenData/Participant2Anonymized' target='_blank'>Participant2Anonymized</a> and <a href='https://github.com/oliviermirat/MonsterMizer/tree/master/MonsterMizerOpenData/Participant3Anonymized' target='_blank'>Participant3Anonymized</a> contain data collected throught the MonsterMizer's website by two different MonsterMizer participants.
 
-The main aim objective is to create an algorithm that takes as an input the activities and pain intensities recorded up to a certain day and gives as an output a recommendation about what activities should be performed or avoided on that given day to avoid having symptoms increase. The validity of this algorithm should be access by using the symptoms recorded for that day.
+The main objective is to create an algorithm that takes as an input the activities and pain intensities recorded up to a certain day and gives as an output a recommendation about what activities should be performed or avoided on that given day to avoid having symptoms increase. The validity of this algorithm should be access by using the symptoms recorded for that day.
 
 More broadly, the aim is also to better understand chronic pain.
 
