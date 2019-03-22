@@ -8,7 +8,7 @@ I've been experiencing muscle and joint pain since 2009. Since December 2015, I'
 -the number of key press and mouse clicks I make (with a software called WhatPulse)<br/>
 -and more<br/>
 
-The main objective is to create an algorithm that takes as an input the activities and pain intensities recorded up to a certain day and gives as an output a recommendation about what activities should be performed or avoided on that given day (to avoid having symptoms increase). The validity of this algorithm should be access by using the symptoms recorded for that day.
+The main objective is to create an algorithm that takes as an input the activities and pain intensities recorded up to a certain day and gives as an output a recommendation about what activities should be performed or avoided on that given day to avoid having symptoms increase. The validity of this algorithm should be access by using the symptoms recorded for that day.
 
 From personal experience it seems very likely that the intensity of symptoms and the activities performed are correlated. As shown below, simple visualizations of the data collected seems to confirm that hypothesis.
 
