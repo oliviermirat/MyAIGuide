@@ -5766,6 +5766,2628 @@
      ]
     }
    ]
+  },
+  {
+   "startTimeMillis": "1553007600000",
+   "endTimeMillis": "1553094000000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1553008487252000000",
+       "endTimeNanos": "1553088234132428701",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 4273,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1553094000000",
+   "endTimeMillis": "1553180400000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1553097637400224942",
+       "endTimeNanos": "1553176694141899457",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 10278,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1553180400000",
+   "endTimeMillis": "1553266800000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1553181782798544162",
+       "endTimeNanos": "1553263251418000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 3772,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1553266800000",
+   "endTimeMillis": "1553353200000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1553271428492000000",
+       "endTimeNanos": "1553350078816000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 1167,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1553353200000",
+   "endTimeMillis": "1553439600000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1553356880792002048",
+       "endTimeNanos": "1553428754527000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 3583,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1553439600000",
+   "endTimeMillis": "1553526000000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1553439689975000000",
+       "endTimeNanos": "1553526000000000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 5758,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1553526000000",
+   "endTimeMillis": "1553612400000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1553526000000000000",
+       "endTimeNanos": "1553586494305000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 5061,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1553612400000",
+   "endTimeMillis": "1553698800000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1553618577792000000",
+       "endTimeNanos": "1553693261637000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 2680,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1553698800000",
+   "endTimeMillis": "1553785200000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1553702018805000000",
+       "endTimeNanos": "1553779881497000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 6226,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1553785200000",
+   "endTimeMillis": "1553871600000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1553788586079000000",
+       "endTimeNanos": "1553867799631000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 3370,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1553871600000",
+   "endTimeMillis": "1553958000000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1553871646867000000",
+       "endTimeNanos": "1553957632162000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 5162,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1553958000000",
+   "endTimeMillis": "1554044400000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1553958260039000000",
+       "endTimeNanos": "1554043741403000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 5617,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1554044400000",
+   "endTimeMillis": "1554130800000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1554046585467000000",
+       "endTimeNanos": "1554123583739000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 5373,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1554130800000",
+   "endTimeMillis": "1554217200000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1554139780152000000",
+       "endTimeNanos": "1554217200000000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 1690,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1554217200000",
+   "endTimeMillis": "1554303600000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1554217200000000000",
+       "endTimeNanos": "1554294556388282226",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 1354,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1554303600000",
+   "endTimeMillis": "1554390000000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1554303787588266601",
+       "endTimeNanos": "1554379097549841376",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 2565,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1554390000000",
+   "endTimeMillis": "1554476400000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1554390838118129193",
+       "endTimeNanos": "1554474429449000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 7453,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1554476400000",
+   "endTimeMillis": "1554562800000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1554482892288000000",
+       "endTimeNanos": "1554547835308000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 1026,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1554562800000",
+   "endTimeMillis": "1554649200000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1554570879272000000",
+       "endTimeNanos": "1554631362962000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 3012,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1554649200000",
+   "endTimeMillis": "1554735600000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1554651645231000000",
+       "endTimeNanos": "1554727561905000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 3679,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1554735600000",
+   "endTimeMillis": "1554822000000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1554758555745000000",
+       "endTimeNanos": "1554811666850000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 962,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1554822000000",
+   "endTimeMillis": "1554908400000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1554822212514000000",
+       "endTimeNanos": "1554907896616000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 1432,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1554908400000",
+   "endTimeMillis": "1554994800000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1554910793241000000",
+       "endTimeNanos": "1554975384687000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 5265,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1554994800000",
+   "endTimeMillis": "1555081200000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1555013961483000000",
+       "endTimeNanos": "1555077792443000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 3400,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1555081200000",
+   "endTimeMillis": "1555167600000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1555110063969000000",
+       "endTimeNanos": "1555167120741000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 1239,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1555167600000",
+   "endTimeMillis": "1555254000000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1555168144693000000",
+       "endTimeNanos": "1555253378924000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 4107,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1555254000000",
+   "endTimeMillis": "1555340400000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1555254773300000000",
+       "endTimeNanos": "1555338519527000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 11851,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1555340400000",
+   "endTimeMillis": "1555426800000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1555340988870000000",
+       "endTimeNanos": "1555425850313000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 7460,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1555426800000",
+   "endTimeMillis": "1555513200000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1555427147446000000",
+       "endTimeNanos": "1555513200000000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 2175,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1555513200000",
+   "endTimeMillis": "1555599600000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1555513200000000000",
+       "endTimeNanos": "1555595955299000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 2085,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1555599600000",
+   "endTimeMillis": "1555686000000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1555605069195000000",
+       "endTimeNanos": "1555683885030000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 12902,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1555686000000",
+   "endTimeMillis": "1555772400000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1555711809737000000",
+       "endTimeNanos": "1555771267442000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 6425,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1555772400000",
+   "endTimeMillis": "1555858800000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1555773352388000000",
+       "endTimeNanos": "1555858429849000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 3432,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1555858800000",
+   "endTimeMillis": "1555945200000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1555878806929000000",
+       "endTimeNanos": "1555926549497000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 14,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1555945200000",
+   "endTimeMillis": "1556031600000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1555948639665000000",
+       "endTimeNanos": "1556031248172000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 1111,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1556031600000",
+   "endTimeMillis": "1556118000000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1556034581376000000",
+       "endTimeNanos": "1556117935499000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 860,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1556118000000",
+   "endTimeMillis": "1556204400000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1556118336805000000",
+       "endTimeNanos": "1556193167540000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 9576,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1556204400000",
+   "endTimeMillis": "1556290800000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1556223397193000000",
+       "endTimeNanos": "1556290396023000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 1417,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1556290800000",
+   "endTimeMillis": "1556377200000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1556293835958000000",
+       "endTimeNanos": "1556376575429000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 26967,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1556377200000",
+   "endTimeMillis": "1556463600000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1556377926866000000",
+       "endTimeNanos": "1556463600000000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 1110,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1556463600000",
+   "endTimeMillis": "1556550000000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1556463600000000000",
+       "endTimeNanos": "1556539326349000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 7534,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1556550000000",
+   "endTimeMillis": "1556636400000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1556554530630000000",
+       "endTimeNanos": "1556630033249000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 937,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1556636400000",
+   "endTimeMillis": "1556722800000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1556659076342000000",
+       "endTimeNanos": "1556722365170000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 26280,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1556722800000",
+   "endTimeMillis": "1556809200000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1556726186121000000",
+       "endTimeNanos": "1556805956488626818",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 2454,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1556809200000",
+   "endTimeMillis": "1556895600000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1556825212788000000",
+       "endTimeNanos": "1556887872034000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 84,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1556895600000",
+   "endTimeMillis": "1556982000000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1556903532024000000",
+       "endTimeNanos": "1556965293249000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 1547,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1556982000000",
+   "endTimeMillis": "1557068400000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1556991847162000000",
+       "endTimeNanos": "1557068400000000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 7469,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1557068400000",
+   "endTimeMillis": "1557154800000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1557068400000000000",
+       "endTimeNanos": "1557151145591000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 12275,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1557154800000",
+   "endTimeMillis": "1557241200000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1557155916742000000",
+       "endTimeNanos": "1557240477963000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 3854,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1557241200000",
+   "endTimeMillis": "1557327600000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1557241487080000000",
+       "endTimeNanos": "1557327128575000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 1152,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1557327600000",
+   "endTimeMillis": "1557414000000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1557328009431000000",
+       "endTimeNanos": "1557414000000000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 7575,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1557414000000",
+   "endTimeMillis": "1557500400000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1557414000000000000",
+       "endTimeNanos": "1557496031682000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 10514,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1557500400000",
+   "endTimeMillis": "1557586800000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1557527623407000000",
+       "endTimeNanos": "1557586800000000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 2273,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1557586800000",
+   "endTimeMillis": "1557673200000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1557586800000000000",
+       "endTimeNanos": "1557671481560000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 13142,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1557673200000",
+   "endTimeMillis": "1557759600000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1557696462901000000",
+       "endTimeNanos": "1557753255004000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 62,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1557759600000",
+   "endTimeMillis": "1557846000000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1557765615812000000",
+       "endTimeNanos": "1557823823944000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 2463,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1557846000000",
+   "endTimeMillis": "1557932400000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1557854274795315572",
+       "endTimeNanos": "1557932236590792087",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 5880,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1557932400000",
+   "endTimeMillis": "1558018800000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1557934173401998976",
+       "endTimeNanos": "1557995458013000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 2104,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1558018800000",
+   "endTimeMillis": "1558105200000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1558026953981000000",
+       "endTimeNanos": "1558076005003203158",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 2186,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1558105200000",
+   "endTimeMillis": "1558191600000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1558113270069000000",
+       "endTimeNanos": "1558191600000000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 5567,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1558191600000",
+   "endTimeMillis": "1558278000000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1558191600000000000",
+       "endTimeNanos": "1558270889649000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 1015,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1558278000000",
+   "endTimeMillis": "1558364400000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1558284384744000000",
+       "endTimeNanos": "1558337126482000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 67,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1558364400000",
+   "endTimeMillis": "1558450800000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1558366684299998976",
+       "endTimeNanos": "1558450693266000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 5293,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1558450800000",
+   "endTimeMillis": "1558537200000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1558475287799000000",
+       "endTimeNanos": "1558536409455000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 479,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1558537200000",
+   "endTimeMillis": "1558623600000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1558537803291992832",
+       "endTimeNanos": "1558600445240000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 4241,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1558623600000",
+   "endTimeMillis": "1558710000000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1558627682695000000",
+       "endTimeNanos": "1558707365392000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 8953,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1558710000000",
+   "endTimeMillis": "1558796400000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1558710351603000000",
+       "endTimeNanos": "1558773531430000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 50,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1558796400000",
+   "endTimeMillis": "1558882800000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1558804710355000000",
+       "endTimeNanos": "1558881067359000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 2884,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1558882800000",
+   "endTimeMillis": "1558969200000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1558883863402000000",
+       "endTimeNanos": "1558964273177000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 2070,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1558969200000",
+   "endTimeMillis": "1559055600000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1558990360404000000",
+       "endTimeNanos": "1559027049901964569",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 43,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1559055600000",
+   "endTimeMillis": "1559142000000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1559077392776000000",
+       "endTimeNanos": "1559142000000000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 687,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1559142000000",
+   "endTimeMillis": "1559228400000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1559142000000000000",
+       "endTimeNanos": "1559228400000000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 7994,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1559228400000",
+   "endTimeMillis": "1559314800000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1559228400000000000",
+       "endTimeNanos": "1559296722161000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 270,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1559314800000",
+   "endTimeMillis": "1559401200000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1559316933656000000",
+       "endTimeNanos": "1559401069955086479",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 11766,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1559401200000",
+   "endTimeMillis": "1559487600000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1559406501571000000",
+       "endTimeNanos": "1559487600000000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 14706,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1559487600000",
+   "endTimeMillis": "1559574000000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1559487600000000000",
+       "endTimeNanos": "1559544350286000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 1260,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1559574000000",
+   "endTimeMillis": "1559660400000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1559580178222000000",
+       "endTimeNanos": "1559650753960000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 2941,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1559660400000",
+   "endTimeMillis": "1559746800000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1559660424715000000",
+       "endTimeNanos": "1559745857888000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 3073,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1559746800000",
+   "endTimeMillis": "1559833200000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1559752769240996928",
+       "endTimeNanos": "1559833002524000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 11717,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1559833200000",
+   "endTimeMillis": "1559919600000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1559833219467000000",
+       "endTimeNanos": "1559915969212000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 7241,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1559919600000",
+   "endTimeMillis": "1560006000000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1559923883593000000",
+       "endTimeNanos": "1560000251268000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 13553,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1560006000000",
+   "endTimeMillis": "1560092400000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1560009679594000000",
+       "endTimeNanos": "1560073792700000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 1300,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1560092400000",
+   "endTimeMillis": "1560178800000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1560096873662000000",
+       "endTimeNanos": "1560171666845000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 36,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1560178800000",
+   "endTimeMillis": "1560265200000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1560182400000000000",
+       "endTimeNanos": "1560254510731000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.activity.segment:com.google.android.apps.fitness:user_input",
+       "value": [
+        {
+         "intVal": 4389,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1560265200000",
+   "endTimeMillis": "1560351600000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1560267461286000000",
+       "endTimeNanos": "1560350452986000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 3168,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1560351600000",
+   "endTimeMillis": "1560438000000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1560353326180000000",
+       "endTimeNanos": "1560423650033000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 5061,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1560438000000",
+   "endTimeMillis": "1560524400000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1560457587834000000",
+       "endTimeNanos": "1560509824612000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 5085,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1560524400000",
+   "endTimeMillis": "1560610800000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1560544287716000000",
+       "endTimeNanos": "1560609485827000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 17473,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1560610800000",
+   "endTimeMillis": "1560697200000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1560611219751000000",
+       "endTimeNanos": "1560697116459000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 1674,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1560697200000",
+   "endTimeMillis": "1560783600000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1560697833756000000",
+       "endTimeNanos": "1560781734818000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 821,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1560783600000",
+   "endTimeMillis": "1560870000000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1560784021673000000",
+       "endTimeNanos": "1560865266478000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 2234,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1560870000000",
+   "endTimeMillis": "1560956400000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1560882443659998976",
+       "endTimeNanos": "1560953088568000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 3569,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1560956400000",
+   "endTimeMillis": "1561042800000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1560958031207000000",
+       "endTimeNanos": "1561042800000000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 4610,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1561042800000",
+   "endTimeMillis": "1561129200000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1561042800000000000",
+       "endTimeNanos": "1561102719383409382",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 615,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1561129200000",
+   "endTimeMillis": "1561215600000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1561152506295000000",
+       "endTimeNanos": "1561215600000000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 4232,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1561215600000",
+   "endTimeMillis": "1561302000000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1561215600000000000",
+       "endTimeNanos": "1561298440089000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 5071,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1561302000000",
+   "endTimeMillis": "1561388400000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1561305887944000000",
+       "endTimeNanos": "1561381908743000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 7253,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1561388400000",
+   "endTimeMillis": "1561474800000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1561391970438995904",
+       "endTimeNanos": "1561471627290000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 5332,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1561474800000",
+   "endTimeMillis": "1561561200000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1561477125285000000",
+       "endTimeNanos": "1561560499834009927",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 2453,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1561561200000",
+   "endTimeMillis": "1561647600000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1561564131397508692",
+       "endTimeNanos": "1561624400143000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 4195,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1561647600000",
+   "endTimeMillis": "1561734000000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1561649234966000000",
+       "endTimeNanos": "1561721423020804905",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 53,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1561734000000",
+   "endTimeMillis": "1561820400000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1561790058656000000",
+       "endTimeNanos": "1561790124654000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 15,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1561820400000",
+   "endTimeMillis": "1561906800000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1561846803020000000",
+       "endTimeNanos": "1561902754478000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 223,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1561906800000",
+   "endTimeMillis": "1561993200000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1561908120589000000",
+       "endTimeNanos": "1561981254986000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 3370,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1561993200000",
+   "endTimeMillis": "1562079600000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1562000750729000000",
+       "endTimeNanos": "1562052921036000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 30,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1562079600000",
+   "endTimeMillis": "1562166000000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1562091687233990784",
+       "endTimeNanos": "1562160260527000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 518,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1562166000000",
+   "endTimeMillis": "1562252400000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1562166296373000000",
+       "endTimeNanos": "1562229219683000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 4916,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1562252400000",
+   "endTimeMillis": "1562338800000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1562254345768000000",
+       "endTimeNanos": "1562338006605000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 3863,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1562338800000",
+   "endTimeMillis": "1562425200000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1562341250766000000",
+       "endTimeNanos": "1562422889605000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 7450,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1562425200000",
+   "endTimeMillis": "1562511600000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1562438433749000000",
+       "endTimeNanos": "1562438497755000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 12,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1562511600000",
+   "endTimeMillis": "1562598000000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1562513963572000000",
+       "endTimeNanos": "1562589276388000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 5141,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1562598000000",
+   "endTimeMillis": "1562684400000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1562600594194000000",
+       "endTimeNanos": "1562676563719000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.activity.segment:com.google.android.apps.fitness:user_input",
+       "value": [
+        {
+         "intVal": 3665,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1562684400000",
+   "endTimeMillis": "1562770800000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1562685375509000000",
+       "endTimeNanos": "1562762558213000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 1676,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "startTimeMillis": "1562770800000",
+   "endTimeMillis": "1562857200000",
+   "dataset": [
+    {
+     "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:aggregated",
+     "point": [
+      {
+       "startTimeNanos": "1562771964362000000",
+       "endTimeNanos": "1562784838548000000",
+       "dataTypeName": "com.google.step_count.delta",
+       "originDataSourceId": "raw:com.google.step_count.cumulative:redacted:Step Counter",
+       "value": [
+        {
+         "intVal": 2124,
+         "mapVal": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
   }
  ]
 }

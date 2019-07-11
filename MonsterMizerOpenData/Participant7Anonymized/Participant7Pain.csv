@@ -1,0 +1,26 @@
+name,startday,startmonth,startyear,intensity
+"Hip Pain",30,6,2019,3.6
+"Shoulder Pain",30,6,2019,2
+happiness,30,6,2019,2
+"Hip Pain",2,7,2019,3.6
+"Shoulder Pain",2,7,2019,2
+happiness,2,7,2019,4
+"Hip Pain",2,7,2019,3.2
+"Hip Pain",4,7,2019,3.4
+"Shoulder Pain",4,7,2019,1
+happiness,4,7,2019,4
+"Shoulder Pain",4,7,2019,2
+happiness,4,7,2019,2
+"Hip Pain",6,7,2019,3.2
+"Shoulder Pain",6,7,2019,2
+happiness,6,7,2019,4
+"Hip Pain",6,7,2019,3.4
+"Hip Pain",7,7,2019,3.4
+"Shoulder Pain",7,7,2019,2
+happiness,7,7,2019,4
+"Hip Pain",8,7,2019,3.4
+"Shoulder Pain",8,7,2019,2
+happiness,8,7,2019,6
+"Hip Pain",9,7,2019,3.4
+"Shoulder Pain",9,7,2019,2
+happiness,9,7,2019,4

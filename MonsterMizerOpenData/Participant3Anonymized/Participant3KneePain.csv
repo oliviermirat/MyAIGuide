@@ -1,5 +1,6 @@
 name,startday,startmonth,startyear,intensity
 "Knee Pain",22,10,2018,3
+happiness,22,10,2018,4
 "Knee Pain",22,10,2018,2
 "Knee Pain",26,10,2018,3
 "Knee Pain",27,10,2018,3.2
@@ -26,9 +27,12 @@ name,startday,startmonth,startyear,intensity
 "Knee Pain",3,12,2018,2
 "Knee Pain",7,12,2018,2.5
 "Knee Pain",8,12,2018,2.5
+happiness,8,12,2018,2
 "Knee Pain",10,12,2018,2.5
+happiness,10,12,2018,2
 "Knee Pain",11,12,2018,2
 "Knee Pain",12,12,2018,1
+happiness,12,12,2018,4
 "Knee Pain",14,12,2018,2
 "Knee Pain",16,12,2018,2
 "Knee Pain",17,12,2018,2
@@ -74,3 +78,16 @@ name,startday,startmonth,startyear,intensity
 "Knee Pain",10,3,2019,1
 "Knee Pain",17,3,2019,1
 "Knee Pain",20,3,2019,1
+"Knee Pain",21,3,2019,1
+"Knee Pain",25,3,2019,2
+"Knee Pain",27,3,2019,1
+"Knee Pain",3,4,2019,2
+happiness,3,4,2019,4
+"Knee Pain",8,4,2019,1
+"Knee Pain",15,4,2019,1
+"Knee Pain",23,4,2019,1
+happiness,23,4,2019,4
+"Knee Pain",8,5,2019,1
+"Knee Pain",15,5,2019,1
+"Knee Pain",12,6,2019,1
+happiness,12,6,2019,6
