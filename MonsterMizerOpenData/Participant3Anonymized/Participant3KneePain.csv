@@ -1,6 +1,7 @@
 name,startday,startmonth,startyear,intensity
 "Knee Pain",22,10,2018,3
 happiness,22,10,2018,4
+"Patellar Tendon Throbbing",22,10,2018,3
 "Knee Pain",22,10,2018,2
 "Knee Pain",26,10,2018,3
 "Knee Pain",27,10,2018,3.2
@@ -91,3 +92,5 @@ happiness,23,4,2019,4
 "Knee Pain",15,5,2019,1
 "Knee Pain",12,6,2019,1
 happiness,12,6,2019,6
+"Knee Pain",6,8,2019,1
+happiness,6,8,2019,6
