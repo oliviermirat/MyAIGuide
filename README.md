@@ -9,4 +9,5 @@ olivier.mirat.om@gmail.com
 
 # Notebooks 
 
-The notebooks are analyzed together with Olivier and CorrelAid-Paris (Liubov Tupikina, Franziska)
+The notebooks are analyzed together with Olivier Mirat and CorrelAid-Paris (Liubov Tupikina). 
+More data can be collected on the webstie http://www.monstermizer.com/
