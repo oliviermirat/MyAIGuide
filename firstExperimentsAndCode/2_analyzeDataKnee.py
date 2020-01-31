@@ -10,7 +10,7 @@ input = open('data.txt', 'rb')
 data = pickle.load(input)
 input.close()
 
-timeSelected = selectTime(data, '2016-09-01', '2019-03-06')
+timeSelected = selectTime(data, '2016-09-01', '2019-10-20')
 
 pain = selectColumns(timeSelected, ['kneePain'])
 pain = addRollingMeanColumns(pain, ['kneePain'], 21)
