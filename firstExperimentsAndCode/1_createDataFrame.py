@@ -10,7 +10,7 @@ import re
 i = pd.date_range('2015-11-19', periods=1550, freq='1D')
 sLength = len(i)
 empty = pd.Series(np.zeros(sLength)).values
-d = {'basisPeakSteps': empty, 'steps': empty, 'denivelation': empty, 'kneePain': empty, 'handsAndFingerPain': empty, 'foreheadAndEyesPain': empty, 'forearmElbowPain': empty, 'aroundEyesPain': empty, 'shoulderNeckPain': empty, 'painthreshold': np.full((sLength),3.4), 'whatPulseKeysC1': empty, 'whatPulseClicksC1': empty, 'manicTimeC1': empty, 'whatPulseKeysC2': empty, 'whatPulseClicksC2': empty, 'manicTimeC2': empty, 'whatPulseKeysC3': empty, 'whatPulseClicksC3': empty, 'manicTimeC3': empty, 'whatPulseKeysT': empty, 'whatPulseClicksT': empty, 'whatPulseT': empty, 'manicTimeT': empty, 'walk': empty, 'roadBike': empty, 'mountainBike': empty, 'swimming': empty, 'surfing': empty, 'climbing': empty, 'viaFerrata': empty, 'alpiSki': empty, 'downSki': empty, 'eyeRelatedActivities': empty, }
+d = {'basisPeakSteps': empty, 'steps': empty, 'denivelation': empty, 'kneePain': empty, 'handsAndFingerPain': empty, 'foreheadAndEyesPain': empty, 'forearmElbowPain': empty, 'aroundEyesPain': empty, 'shoulderNeckPain': empty, 'painthreshold': np.full((sLength),3.4), 'whatPulseKeysC1': empty, 'whatPulseClicksC1': empty, 'manicTimeC1': empty, 'whatPulseKeysC2': empty, 'whatPulseClicksC2': empty, 'manicTimeC2': empty, 'whatPulseKeysC3': empty, 'whatPulseClicksC3': empty, 'manicTimeC3': empty, 'whatPulseKeysT': empty, 'whatPulseClicksT': empty, 'whatPulseT': empty, 'manicTimeT': empty, 'walk': empty, 'roadBike': empty, 'mountainBike': empty, 'swimming': empty, 'surfing': empty, 'climbing': empty, 'viaFerrata': empty, 'alpiSki': empty, 'downSki': empty, 'eyeRelatedActivities': empty, 'scooterRiding': empty, }
 data = pd.DataFrame(data=d, index=i)
 
 # Storing BasisPeak data in dataframe
@@ -189,7 +189,14 @@ with open(filename, newline='') as csvfile:
       if len(row[6]):
         tot = tot + int(row[6])
       data.loc[date,'eyeRelatedActivities'] = tot
-
+      if len(row[9]):
+        if len(row[10]):
+          data.loc[date,'scooterRiding'] = int(row[9]) + int(row[10])
+        else:
+          data.loc[date,'scooterRiding'] = int(row[9])
+      else:
+        data.loc[date,'scooterRiding'] = 0
+      
 # Saving the dataframe in a txt
 output = open('data.txt', 'wb')
 pickle.dump(data, output)
