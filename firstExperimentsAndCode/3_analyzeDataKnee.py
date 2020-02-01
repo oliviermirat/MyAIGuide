@@ -19,8 +19,6 @@ timeSelected = selectTime(data, '2016-09-01', '2019-10-20')
 
 # Removing "steps" caused by scooter riding
 
-fig, axes = plt.subplots(nrows=2, ncols=1)
-
 timeSelected['steps'] = timeSelected['steps'] - 37 * timeSelected['scooterRiding']
 timeSelected['steps'][timeSelected['steps'] < 0] = 0
 
