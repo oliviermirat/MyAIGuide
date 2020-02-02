@@ -8,14 +8,14 @@ I've been experiencing muscle and joint pain since 2009. Since December 2015, I'
 -the number of key press and mouse clicks I make (with a software called WhatPulse)<br/>
 -and more<br/>
 
-The main objective is to create an algorithm that takes as an input the activities and pain intensities recorded up to a certain day and gives as an output a recommendation about what activities should be performed or avoided on that given day to avoid having symptoms increase. The validity of this algorithm should be access by using the symptoms recorded for that day.
+The main objective is to create an algorithm that takes as an input the activities and pain intensities recorded up to a certain day and gives as an output a recommendation about what activities should be performed or avoided on that given day to avoid having symptoms increase. The validity of this algorithm should be accessed by using the symptoms recorded for that day.
 
 From personal experience it seems very likely that the intensity of symptoms and the activities performed are correlated. The graphs below are a first attempt to visualize those correlations, but there's a lot more work left to do.
 
 <H3 CLASS="western"> "Stress" applied on the knee vs knee pain:</H3>
 
 ![Alt text](https://github.com/oliviermirat/OptimizeUs/blob/master/firstExperimentsAndCode/images/kneeStressVsPain.png?raw=true "Per Day")
-This graph was generated with the script 3_analyzeDataKnee.py, it shows the daily calculation of the stress applied on the knees and of the knee pain. The calculation of the stress applied on the knee is based on the number of steps taken (coming from Fitbit) and of the amount of knee pain in previous days. The calculation of the stress applied on the knee needs to be improved to use the current variables better and to take into account more variables.
+This graph was generated with the script 3_analyzeDataKnee.py, it shows the daily calculation of the stress applied on the knees and of the knee pain. The calculation of the stress applied on the knee is based on the number of steps taken (coming from Fitbit) and of the amount of knee pain in previous days. The calculation of the stress applied on the knees needs to be improved to use the current variables better and to take into account more variables (coming from other trackers for instance).
 
 <H3 CLASS="western"> Simpler Visualizations:</H3>
 
