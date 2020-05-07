@@ -10,11 +10,11 @@ import re
 i = pd.date_range('2015-11-19', periods=1550, freq='1D')
 sLength = len(i)
 empty = pd.Series(np.zeros(sLength)).values
-d = {'basisPeakSteps': empty, 'steps': empty, 'denivelation': empty, 'kneePain': empty, 'handsAndFingerPain': empty, 'foreheadAndEyesPain': empty, 'forearmElbowPain': empty, 'aroundEyesPain': empty, 'shoulderNeckPain': empty, 'painthreshold': np.full((sLength),3.4), 'whatPulseKeysC1': empty, 'whatPulseClicksC1': empty, 'manicTimeC1': empty, 'whatPulseKeysC2': empty, 'whatPulseClicksC2': empty, 'manicTimeC2': empty, 'whatPulseKeysC3': empty, 'whatPulseClicksC3': empty, 'manicTimeC3': empty, 'whatPulseKeysT': empty, 'whatPulseClicksT': empty, 'whatPulseT': empty, 'manicTimeT': empty, 'walk': empty, 'roadBike': empty, 'mountainBike': empty, 'swimming': empty, 'surfing': empty, 'climbing': empty, 'viaFerrata': empty, 'alpiSki': empty, 'downSki': empty, 'eyeRelatedActivities': empty, 'scooterRiding': empty, }
+d = {'basisPeakSteps': empty, 'steps': empty, 'denivelation': empty, 'kneePain': empty, 'handsAndFingerPain': empty, 'foreheadAndEyesPain': empty, 'forearmElbowPain': empty, 'aroundEyesPain': empty, 'shoulderNeckPain': empty, 'painthreshold': np.full((sLength),3.4), 'whatPulseKeysC1': empty, 'whatPulseClicksC1': empty, 'manicTimeC1': empty, 'whatPulseKeysC2': empty, 'whatPulseClicksC2': empty, 'manicTimeC2': empty, 'whatPulseKeysC3': empty, 'whatPulseClicksC3': empty, 'manicTimeC3': empty, 'whatPulseKeysT': empty, 'whatPulseClicksT': empty, 'whatPulseT': empty, 'manicTimeT': empty, 'walk': empty, 'roadBike': empty, 'mountainBike': empty, 'swimming': empty, 'surfing': empty, 'climbing': empty, 'viaFerrata': empty, 'alpiSki': empty, 'downSki': empty, 'eyeRelatedActivities': empty, 'scooterRiding': empty, 'movesSteps' : empty, 'googlefitSteps' : empty }
 data = pd.DataFrame(data=d, index=i)
 
 # Storing BasisPeak data in dataframe
-if False: # This step takes a long time, put to False if you want to skip it, and to True otherwise
+if True: # This step takes a long time, put to False if you want to skip it, and to True otherwise
   filename = '../MonsterMizerOpenData/Participant1PublicOM/bodymetrics.csv'
   with open(filename, newline='') as csvfile:
     spamreader = csv.reader(csvfile)
@@ -23,7 +23,8 @@ if False: # This step takes a long time, put to False if you want to skip it, an
       count=count+1
       if (count>2 and len(row)):
         date  = row[0][0:10]
-        data.loc[date,'basisPeakSteps'] = data.loc[date,'basisPeakSteps'] + int(row[5])
+        if len(row[5]):
+          data.loc[date,'basisPeakSteps'] = data.loc[date,'basisPeakSteps'] + int(row[5])
         if count % 10000 == 0:
           print(count,'lines done out of the 532 330 needed for the basis peak')
 
@@ -45,6 +46,67 @@ for file in os.listdir(directory):
           date  = year+'-'+month+'-'+day
           data.loc[date,'steps']        = int(row[2].replace(',',''))
           data.loc[date,'denivelation'] = int(row[4])
+
+# Storing moves data in dataframe
+directory = os.fsencode('../MonsterMizerOpenData/Participant1PublicOM/MovesAppData/yearly/summary/')
+for file in os.listdir(directory):
+  name = os.fsdecode(file)
+  if name.endswith(".csv"): 
+    filename = '../MonsterMizerOpenData/Participant1PublicOM/MovesAppData/yearly/summary/'+name
+    with open(filename, newline='') as csvfile:
+      spamreader = csv.reader(csvfile)
+      count = 0
+      for row in spamreader:
+        count=count+1
+        if (count > 1 and len(row)):
+          dateMoves = re.split("/", row[0])
+          month = dateMoves[0]
+          day   = dateMoves[1]
+          year  = dateMoves[2]
+          if int(day) < 10:
+            day = '0' + str(day)
+          if int(month) < 10:
+            month = '0' + str(month)
+          year = '20' + year
+          date  = year+'-'+month+'-'+day
+          if row[1] == "walking":
+            data.loc[date,'movesSteps'] = int(row[5])
+
+# Storing google fit data in dataframe
+filename='../MonsterMizerOpenData/Participant1PublicOM/GoogleFitData/smartphone1/dailyAggregations/dailySummaries.csv'
+with open(filename, newline='') as csvfile:
+  spamreader = csv.reader(csvfile)
+  count = 0
+  for row in spamreader:
+    count = count + 1
+    if (count>1 and len(row)):
+      dateMoves = re.split("-", row[0])
+      year  = dateMoves[0]
+      month = dateMoves[1]
+      day   = dateMoves[2]
+      date  = year+'-'+month+'-'+day
+      if len(row[13]):
+        data.loc[date,'googlefitSteps'] = int(row[13])
+      else:
+        data.loc[date,'googlefitSteps'] = 0
+
+filename='../MonsterMizerOpenData/Participant1PublicOM/GoogleFitData/smartphone2/dailyAggregations/dailySummaries.csv'
+with open(filename, newline='') as csvfile:
+  spamreader = csv.reader(csvfile)
+  count = 0
+  for row in spamreader:
+    count = count + 1
+    if (count>1 and len(row)):
+      dateMoves = re.split("-", row[0])
+      year  = dateMoves[0]
+      month = dateMoves[1]
+      day   = dateMoves[2]
+      date  = year+'-'+month+'-'+day
+      if len(row[10]):
+        data.loc[date,'googlefitSteps'] = int(row[10])
+      else:
+        data.loc[date,'googlefitSteps'] = 0
+
 
 # Storing pain intensities in dataframe
 filename = '../MonsterMizerOpenData/Participant1PublicOM/pain.csv'

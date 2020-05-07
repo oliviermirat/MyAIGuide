@@ -1,9 +1,11 @@
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
+import numpy as np
+from sklearn.linear_model import LinearRegression
 
 def selectTime(data, deb, end):
-  data2 = data.loc[data.index > deb]
-  data2 = data2.loc[data2.index < end]
+  data2 = data.loc[data.index >= deb]
+  data2 = data2.loc[data2.index <= end]
   return data2
 
 def selectColumns(data, columnList):
@@ -52,4 +54,16 @@ def getInsultAboveThreshold(data, columnName, thres2):
       data[columnName+'Threshed'][i] = 1
     else:
       data[columnName+'Threshed'][i] = 0
+  return data
+
+def adjustVarAndPlaceInData(period, data, varToAdjustName, mainVarName, startDate, endDate):
+  varToAdjust = period[varToAdjustName].values.reshape(-1,1)
+  mainVar     = period[mainVarName].values.reshape(-1,1)
+  reg  = LinearRegression().fit(varToAdjust, mainVar)
+  pred = reg.predict(varToAdjust)
+  data['trackerMeanSteps'].loc[np.logical_and(data.index >= startDate, data.index <= endDate)] = (pred.reshape(1,-1)[0] + period[mainVarName].values) / 2
+  return data
+
+def addDataToTrackerMeanSteps(period, data, mainVarName, startDate, endDate):
+  data['trackerMeanSteps'].loc[np.logical_and(data.index >= startDate, data.index <= endDate)] = period[mainVarName].values
   return data
