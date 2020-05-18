@@ -4,3 +4,5 @@
 /MonsterMizerData/Participant4KneePain.csv
 firstExperimentsAndCode/data.txt
 firstExperimentsAndCode/__pycache__/
+moreData/*
+!moreData/README.md
