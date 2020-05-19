@@ -2,3 +2,5 @@
 *
 # Except this file
 !.gitignore
+!ParticipantData.zip
+!README.md
