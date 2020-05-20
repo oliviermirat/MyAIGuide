@@ -1,0 +1,5470 @@
+No value = similar as previous day for:,,,region,side  and ,intensity
+year,month,day,region,side,intensity
+2015,11,25,Knees,,5.7
+,,25,Hands And Fingers,,3
+,,25,Forehead and Eyes,,3
+,,26,Knees,,5
+,,26,Hands And Fingers,,2.8
+,,26,Forehead and Eyes,,3.9
+,,27,Knees,,5
+,,27,Hands And Fingers,,2.8
+,,27,Forehead and Eyes,,3.9
+,,28,Knees,,6
+,,28,Hands And Fingers,,2
+,,28,Forehead and Eyes,,2
+,,29,Knees,,3.9
+,,29,Hands And Fingers,,2
+,,29,Forehead and Eyes,,2.5
+,,30,Knees,,5
+,,30,Hands And Fingers,,1.5
+,,30,Forehead and Eyes,,4.7
+2015,12,1,Knees,,4.7
+,,1,Hands And Fingers,,3
+,,1,Forehead and Eyes,,4.7
+,,2,Knees,,4.7
+,,2,Hands And Fingers,,2.5
+,,2,Forehead and Eyes,,4.7
+,,3,Knees,,3.7
+,,3,Hands And Fingers,,2.5
+,,3,Forehead and Eyes,,2.5
+,,3,Forearm close to elbow,,3
+,,4,Knees,,3.5
+,,4,Hands And Fingers,,3
+,,4,Forehead and Eyes,,3
+,,4,Forearm close to elbow,,3
+,,5,Knees,,4.5
+,,5,Hands And Fingers,,4.5
+,,5,Forehead and Eyes,,2.8
+,,5,Forearm close to elbow,,2
+,,6,Knees,,5
+,,6,Hands And Fingers,,5
+,,6,Forehead and Eyes,,2
+,,6,Forearm close to elbow,,1
+,,7,Knees,,4.5
+,,7,Hands And Fingers,,4.3
+,,7,Forehead and Eyes,,2.5
+,,8,Knees,,4
+,,8,Hands And Fingers,,4
+,,8,Forehead and Eyes,,4
+,,9,Knees,,4
+,,9,Hands And Fingers,,4
+,,9,Forehead and Eyes,,5
+,,10,Knees,,4
+,,10,Hands And Fingers,,4
+,,10,Forehead and Eyes,,4
+,,11,Knees,,4
+,,11,Hands And Fingers,,2
+,,11,Forehead and Eyes,,3
+,,12,Knees,,4
+,,12,Hands And Fingers,,2.5
+,,12,Forehead and Eyes,,3
+,,13,Knees,,5
+,,13,Hands And Fingers,,2
+,,13,Forehead and Eyes,,5.8
+,,13,Sick/Tired,,4
+,,14,Knees,,4
+,,14,Hands And Fingers,,1.5
+,,14,Forehead and Eyes,,4.5
+,,15,Knees,,3
+,,15,Hands And Fingers,,3
+,,15,Forehead and Eyes,,6
+,,15,Sick/Tired,,5
+,,16,Knees,,3
+,,16,Hands And Fingers,,2
+,,16,Forehead and Eyes,,5.4
+,,17,Knees,,2
+,,17,Hands And Fingers,,2.5
+,,17,Forehead and Eyes,,5.5
+,,18,Knees,,2.5
+,,18,Hands And Fingers,,2.5
+,,18,Forehead and Eyes,,5.8
+,,19,Knees,,2.8
+,,19,Hands And Fingers,,1.8
+,,19,Forehead and Eyes,,5
+,,20,Knees,,2.5
+,,20,Hands And Fingers,,2.5
+,,20,Forehead and Eyes,,4.8
+,,20,Sick/Tired,,2.5
+,,21,Knees,,2.8
+,,21,Hands And Fingers,,2
+,,21,Forehead and Eyes,,3.2
+,,22,Knees,,4.5
+,,22,Hands And Fingers,,2
+,,22,Forehead and Eyes,,3
+,,23,Knees,,3
+,,23,Hands And Fingers,,4
+,,23,Forehead and Eyes,,3
+,,24,Knees,,4.5
+,,24,Hands And Fingers,,3
+,,24,Forehead and Eyes,,2.5
+,,25,Knees,,2.8
+,,25,Hands And Fingers,,4.5
+,,25,Forehead and Eyes,,2
+,,26,Knees,,3
+,,26,Hands And Fingers,,3
+,,26,Forehead and Eyes,,3
+,,27,Knees,,4.8
+,,27,Hands And Fingers,,2
+,,27,Forehead and Eyes,,2.5
+,,27,Low back,,3
+,,28,Knees,,4.2
+,,28,Hands And Fingers,,2
+,,28,Forehead and Eyes,,2
+,,28,Low back,,3
+,,29,Knees,,5.9
+,,29,Hands And Fingers,,1.5
+,,29,Forehead and Eyes,,2.5
+,,29,Low back,,3
+,,30,Hands And Fingers,,3
+,,30,Forehead and Eyes,,3
+,,30,Knees,,4.3
+,,31,Hands And Fingers,,2
+,,31,Forehead and Eyes,,2.3
+,,31,Knees,,6
+2016,1,1,Hands And Fingers,,1.9
+,,,Forehead and Eyes,,2.5
+,,,Knees,,6.5
+,,,Hip,Right Only,4
+,,2,Hands And Fingers,,2
+,,,Forehead and Eyes,,2.5
+,,,Knees,,5.8
+,,3,Hands And Fingers,,2.8
+,,,Forehead and Eyes,,3.8
+,,,Knees,,4.5
+,,4,Hands And Fingers,,1.5
+,,,Forehead and Eyes,,4
+,,,Knees,,4.5
+,,,Sick/Tired,,3.4
+,,5,Hands And Fingers,,1.5
+,,,Forehead and Eyes,,3.8
+,,,Knees,,3.5
+,,,Sick/Tired,,2
+,,6,Hands And Fingers,,1.6
+,,,Forehead and Eyes,,3
+,,,Knees,,3.5
+,,,Sick/Tired,,1.5
+,,7,Hands And Fingers,,3
+,,,Forehead and Eyes,,3
+,,,Knees,,3.4
+,,8,Hands And Fingers,,1.5
+,,,Forehead and Eyes,,4
+,,,Knees,,3.2
+,,9,Hands And Fingers,,2.8
+,,,Forehead and Eyes,,4.7
+,,,Knees,,2.8
+,,10,Hands And Fingers,,1.5
+,,,Forehead and Eyes,,5
+,,,Knees,,2.5
+,,11,Hands And Fingers,,2.9
+,,,Forehead and Eyes,,4.8
+,,,Knees,,2.5
+,,12,Hands And Fingers,,3
+,,,Forehead and Eyes,,3.2
+,,,Knees,,3
+,,13,Hands And Fingers,,2
+,,,Forehead and Eyes,,3.7
+,,,Knees,,2.9
+,,14,Hands And Fingers,,2.2
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3
+,,15,Hands And Fingers,,3
+,,,Forehead and Eyes,,2.2
+,,,Knees,,3
+,,,abs,,1
+,,16,Hands And Fingers,,2
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.5
+,,,abs,,1.8
+,,17,Hands And Fingers,,1.7
+,,,Forehead and Eyes,,3.2
+,,,Knees,,3.2
+,,,abs,,0.5
+,,18,Hands And Fingers,,1.2
+,,,Forehead and Eyes,,5.4
+,,,Knees,,3.9
+,,19,Hands And Fingers,,1.1
+,,,Forehead and Eyes,,5
+,,,Knees,,2.8
+,,20,Hands And Fingers,,1.2
+,,,Forehead and Eyes,,5
+,,,Knees,,3.8
+,,21,Hands And Fingers,,1
+,,,Forehead and Eyes,,5.3
+,,,Knees,,3
+,,22,Hands And Fingers,,1
+,,,Forehead and Eyes,,4.5
+,,,Knees,,3
+,,23,Hands And Fingers,,1
+,,,Forehead and Eyes,,2
+,,,Knees,,3
+,,,abs,,4
+,,24,Hands And Fingers,,1
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.3
+,,,abs,,3.6
+,,25,Hands And Fingers,,1
+,,,Forehead and Eyes,,4.5
+,,,Knees,,3
+,,,abs,,2
+,,26,Hands And Fingers,,1
+,,,Forehead and Eyes,,4.7
+,,,Knees,,3
+,,27,Hands And Fingers,,3
+,,,Forehead and Eyes,,4.3
+,,,Knees,,3
+,,28,Hands And Fingers,,2.9
+,,,Forehead and Eyes,,4.8
+,,,Knees,,3.2
+,,29,Hands And Fingers,,2.9
+,,,Forehead and Eyes,,5.1
+,,,Knees,,3.2
+,,30,Hands And Fingers,,2.9
+,,,Forehead and Eyes,,4.3
+,,,Knees,,3.4
+,,31,Hands And Fingers,,2
+,,,Forehead and Eyes,,4.5
+,,,Knees,,3.2
+,2,1,Hands And Fingers,,2.2
+,,,Forehead and Eyes,,4.2
+,,,Knees,,2.9
+,,2,Hands And Fingers,,3
+,,,Forehead and Eyes,,3.7
+,,,Knees,,3.5
+,,3,Hands And Fingers,,3.3
+,,,Forehead and Eyes,,3.5
+,,,Knees,,2.8
+,,4,Hands And Fingers,,3.8
+,,,Forehead and Eyes,,3.8
+,,,Knees,,3.2
+,,5,Hands And Fingers,,3.7
+,,,Forehead and Eyes,,3.9
+,,,Knees,,3.2
+,,6,Hands And Fingers,,3.9
+,,,Forehead and Eyes,,3.9
+,,,Knees,,3.4
+,,7,Hands And Fingers,,3
+,,,Forehead and Eyes,,4
+,,,Knees,,3.3
+,,8,Hands And Fingers,,3.1
+,,,Forehead and Eyes,,3.8
+,,,Knees,,2.8
+,,9,Hands And Fingers,,2.3
+,,,Forehead and Eyes,,4
+,,,Knees,,3
+,,,Sick,,3.3
+,,10,Hands And Fingers,,2.5
+,,,Forehead and Eyes,,3.8
+,,,Knees,,2.9
+,,,Sick,,3
+,,11,Hands And Fingers,,2.2
+,,,Forehead and Eyes,,4
+,,,Knees,,3
+,,12,Hands And Fingers,,2.5
+,,,Forehead and Eyes,,3.8
+,,,Knees,,2.9
+,,,Sick,,1
+,,13,Hands And Fingers,,3
+,,,Forehead and Eyes,,3.8
+,,,Knees,,3.3
+,,,Sick,,0.5
+,,14,Hands And Fingers,,3
+,,,Forehead and Eyes,,3.7
+,,,Knees,,3
+,,,Sick,,0.5
+,,15,Hands And Fingers,,3.8
+,,,Forehead and Eyes,,3
+,,,Knees,,3.2
+,,,Sick,,0.5
+,,16,Hands And Fingers,,3
+,,,Forehead and Eyes,,3.8
+,,,Knees,,3.4
+,,,Sick,,0.7
+,,17,Hands And Fingers,,2.8
+,,,Forehead and Eyes,,3.7
+,,,é,,2.9
+,,,Sick,,0.2
+,,18,Hands And Fingers,,2.9
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.6
+,,,Sick,,0.2
+,,19,Hands And Fingers,,3.3
+,,,Forehead and Eyes,,3
+,,,Knees,,3.4
+,,20,Hands And Fingers,,3
+,,,Forehead and Eyes,,3
+,,,Knees,,3.3
+,,,Forearm close to elbow,Left Only,3
+,,21,Hands And Fingers,,3.9
+,,,Forehead and Eyes,,2.3
+,,,Knees,,3.4
+,,22,Hands And Fingers,,3.5
+,,,Forehead and Eyes,,3
+,,,Knees,,3
+,,,Forearm close to elbow,Left Only,2.5
+,,23,Hands And Fingers,,2.5
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.6
+,,24,Hands And Fingers,,2.5
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.5
+,,25,Hands And Fingers,,2.3
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.6
+,,26,Hands And Fingers,,2
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.4
+,,27,Hands And Fingers,,2.9
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.4
+,,,Sick/Tired,,1.8
+,,28,Hands And Fingers,,2.8
+,,,Forehead and Eyes,,3.2
+,,,Knees,,3.6
+,,29,Hands And Fingers,,2.0
+,,,Forehead and Eyes,,3.7
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3
+,3,1,Hands And Fingers,,2.0
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3
+,,,Forearm close to elbow,,3
+,,2,Hands And Fingers,,2.0
+,,,Forehead and Eyes,,3.0
+,,,Knees,,3.2
+,,3,Hands And Fingers,,2.7
+,,,Forehead and Eyes,,3.7
+,,,Knees,,3.4
+,,4,Hands And Fingers,,2.5
+,,,Forehead and Eyes,,3.7
+,,,Knees,,3.4
+,,5,Hands And Fingers,,3
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3
+,,6,Hands And Fingers,,3.2
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3
+,,7,Hands And Fingers,,3.5
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3
+,,8,Hands And Fingers,,2.6
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.1
+,,9,Hands And Fingers,,2.2
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.5
+,,,Sick/Tired,,2
+,,10,Hands And Fingers,,3.5
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.3
+,,,Sick/Tired,,3
+,,11,Hands And Fingers,,3.2
+,,,Forehead and Eyes,,3.3
+,,,Knees,,3
+,,,Sick/Tired,,3
+,,12,Hands And Fingers,,3
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3
+,,,Sick/Tired,,2
+,,13,Hands And Fingers,,2.4
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3
+,,,Sick/Tired,,2
+,,14,Hands And Fingers,,2.8
+,,,Forehead and Eyes,,3.2
+,,,Knees,,2.8
+,,,Sick/Tired,,2.5
+,,15,Hands And Fingers,,2.9
+,,,Forehead and Eyes,,3.3
+,,,Knees,,3.4
+,,,Sick/Tired,,1.9
+,,16,Hands And Fingers,,2.7
+,,,Forehead and Eyes,,3.3
+,,,Knees,,3.3
+,,,Sick/Tired,,1
+,,17,Hands And Fingers,,2.7
+,,,Forehead and Eyes,,3
+,,,Knees,,3.4
+,,18,Hands And Fingers,,3
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.3
+,,19,Hands And Fingers,,3.3
+,,,Forehead and Eyes,,2.9
+,,,Knees,,3.9
+,,20,Hands And Fingers,,2.7
+,,,Forehead and Eyes,,3.8
+,,,Knees,,3.1
+,,21,Hands And Fingers,,2.2
+,,,Forehead and Eyes,,3.9
+,,,Knees,,3.3
+,,22,Hands And Fingers,,3
+,,,Forehead and Eyes,,3.7
+,,,Knees,,2.7
+,,23,Hands And Fingers,,3
+,,,Forehead and Eyes,,3.3
+,,,Knees,,3.3
+,,24,Hands And Fingers,,3.3
+,,,Forehead and Eyes,,3.3
+,,,Knees,,3.3
+,,25,Hands And Fingers,,3.2
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.5
+,,26,Hands And Fingers,,3.2
+,,,Forehead and Eyes,,3.3
+,,,Knees,,3.4
+,,27,Hands And Fingers,,3
+,,,Forehead and Eyes,,3.3
+,,,Knees,,3.3
+,,28,Hands And Fingers,,2.6
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.3
+,,29,Hands And Fingers,,2.4
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3
+,,30,Hands And Fingers,,2.6
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3
+,,31,Hands And Fingers,,2.5
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.3
+,4,1,Hands And Fingers,,2.4
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.6
+,,2,Hands And Fingers,,3
+,,,Forehead and Eyes,,4.3
+,,,Knees,,3.5
+,,3,Hands And Fingers,,3.6
+,,,Forehead and Eyes,,3.5
+,,,Knees,,4
+,,4,Hands And Fingers,,3.9
+,,,Forehead and Eyes,,3.2
+,,,Knees,,3.2
+,,5,Hands And Fingers,,3.5
+,,,Forehead and Eyes,,3.9
+,,,Knees,,3.3
+,,6,Hands And Fingers,,3.4
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.5
+,,7,Hands And Fingers,,3
+,,,Forehead and Eyes,,3.7
+,,,Knees,,3.5
+,,8,Hands And Fingers,,3.4
+,,,Forehead and Eyes,,3.7
+,,,Knees,,3
+,,9,Hands And Fingers,,3.5
+,,,Forehead and Eyes,,3.8
+,,,Knees,,3.5
+,,10,Hands And Fingers,,3.9
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.6
+,,11,Hands And Fingers,,3.8
+,,,Eyes (or around them),Right Mostly,3.9
+,,,Knees,,3.3
+,,,Forehead,,3
+,,12,Hands And Fingers,,3.8
+,,,Eyes (or around them),Right Mostly,4.9
+,,,Knees,,3.5
+,,,Forehead,,2.2
+,,13,Hands And Fingers,,3.4
+,,,Eyes (or around them),Right Mostly,4.2
+,,,Knees,,3.4
+,,,Forehead,,3
+,,14,Hands And Fingers,,3.4
+,,,Eyes (or around them),,3.9
+,,,Knees,,3.6
+,,,Forehead,,3
+,,15,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.9
+,,,Knees,,3.2
+,,,Forehead,,3
+,,,Quadricepts,,3.2
+,,16,Hands And Fingers,,2.9
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.4
+,,,Quadricepts,,3.4
+,,17,Hands And Fingers,,2.8
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.5
+,,,Quadricepts,,2.9
+,,18,Hands And Fingers,,3.2
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.6
+,,,Quadricepts,,2
+,,19,Hands And Fingers,,3.6
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.6
+,,20,Hands And Fingers,,3.3
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.6
+,,21,Hands And Fingers,,3.2
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.3
+,,22,Hands And Fingers,,2.9
+,,,Forehead and Eyes,,3.3
+,,,Knees,,3.8
+,,23,Hands And Fingers,,2.9
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.8
+,,24,Hands And Fingers,,3.1
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.2
+,,25,Hands And Fingers,,3.7
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.3
+,,26,Hands And Fingers,,3.3
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.1
+,,27,Hands And Fingers,,3.9
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.3
+,,28,Hands And Fingers,,3.8
+,,,Forehead and Eyes,,3.3
+,,,Knees,,3.3
+,,29,Hands And Fingers,,3.7
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.4
+,,30,Hands And Fingers,,3.6
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.3
+,5,1,Hands And Fingers,,3.3
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.3
+,,2,Hands And Fingers,,3.7
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.2
+,,3,Hands And Fingers,,3.9
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.3
+,,4,Hands And Fingers,,3.7
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.3
+,,5,Hands And Fingers,,3.6
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.7
+,,6,Hands And Fingers,,3.6
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.5
+,,7,Hands And Fingers,,3.7
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.4
+,,8,Hands And Fingers,,4.0
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.5
+,,9,Hands And Fingers,,3.5
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.5
+,,10,Hands And Fingers,,3.5
+,,,Forehead and Eyes,,3.7
+,,,Knees,,3.3
+,,11,Hands And Fingers,,3.2
+,,,Forehead and Eyes,,3.7
+,,,Knees,,3.0
+,,12,Hands And Fingers,,3.4
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.2
+,,13,Hands And Fingers,,3.3
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.5
+,,14,Hands And Fingers,,3.5
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.4
+,,15,Hands And Fingers,,3.6
+,,,Forehead and Eyes,,3.2
+,,,Knees,,3.3
+,,16,Hands And Fingers,,3.7
+,,,Forehead and Eyes,,3.3
+,,,Knees,,3.1
+,,17,Hands And Fingers,,3.7
+,,,Forehead and Eyes,,3.2
+,,,Knees,,3.4
+,,18,Hands And Fingers,,3.8
+,,,Forehead and Eyes,,3.7
+,,,Knees,,3
+,,19,Hands And Fingers,,3.7
+,,,Forehead and Eyes,,3.7
+,,,Knees,,3.4
+,,20,Hands And Fingers,,3.4
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.3
+,,21,Hands And Fingers,,3.4
+,,,Forehead and Eyes,,3.7
+,,,Knees,,3.3
+,,22,Hands And Fingers,,3.2
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.2
+,,23,Hands And Fingers,,3.2
+,,,Forehead and Eyes,,3.5
+,,,Knees,,2.9
+,,,Neck,,3.7
+,,24,Hands And Fingers,,3.4
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.0
+,,,Neck,,3.6
+,,25,Hands And Fingers,,3.6
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.0
+,,,Neck,,3.5
+,,26,Hands And Fingers,,3.7
+,,,Forehead and Eyes,,3.3
+,,,Knees,,3.3
+,,,Neck,,2.5
+,,27,Hands And Fingers,,3.9
+,,,Forehead and Eyes,,3.3
+,,,Knees,,3.1
+,,28,Hands And Fingers,,4.1
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.3
+,,29,Hands And Fingers,,3.9
+,,,Forehead and Eyes,,3.3
+,,,Knees,,3.3
+,,30,Hands And Fingers,,3.8
+,,,Forehead and Eyes,,3.2
+,,,Knees,,3.3
+,,31,Hands And Fingers,,3.7
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.4
+,6,1,Hands And Fingers,,3.4
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.4
+,,,Sick/Tired,,4
+,,,Quadricepts,,2.8
+,,2,Hands And Fingers,,3.4
+,,,Forehead and Eyes,,3.3
+,,,Knees,,3.6
+,,,Sick/Tired,,2
+,,,Quadricepts,,2.3
+,,3,Hands And Fingers,,3.2
+,,,Forehead and Eyes,,3.3
+,,,Knees,,3.6
+,,,Sick/Tired,,3.8
+,,,Quadricepts,,3.6
+,,4,Hands And Fingers,,3.1
+,,,Forehead and Eyes,,2.9
+,,,Knees,Right Mostly,4.5
+,,,Sick/Tired,,3
+,,,Quadricepts,,3
+,,5,Hands And Fingers,,3
+,,,Forehead and Eyes,,3.5
+,,,Knees,,4.0
+,,,Sick/Tired,,2
+,,,Quadricepts,,2
+,,6,Hands And Fingers,,3.6
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.4
+,,7,Hands And Fingers,,3.7
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.2
+,,8,Hands And Fingers,,3.4
+,,,Forehead and Eyes,,3.3
+,,,Knees,,3.3
+,,9,Hands And Fingers,,3.4
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.1
+,,10,Hands And Fingers,,3.4
+,,,Forehead and Eyes,,3.1
+,,,Knees,,2.9
+,,11,Hands And Fingers,,3.6
+,,,Forehead and Eyes,,3.7
+,,,Knees,,3.3
+,,12,Hands And Fingers,,3.1
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.5
+,,13,Hands And Fingers,,3.5
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.2
+,,14,Hands And Fingers,,3.5
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.3
+,,15,Hands And Fingers,,3.5
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.1
+,,16,Hands And Fingers,,3.2
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.2
+,,,Sick,,2.7
+,,17,Hands And Fingers,,2.8
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.2
+,,,Sick,,2.3
+,,18,Hands And Fingers,,3.5
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.0
+,,19,Hands And Fingers,,3.3
+,,,Knees,,2.8
+,,,Eyes (or around them),,3.6
+,,,Forehead,,2.5
+,,20,Hands And Fingers,,3.3
+,,,Knees,,2.8
+,,,Eyes (or around them),,4.0
+,,,Forehead,,2.2
+,,21,Hands And Fingers,,3.3
+,,,Knees,,3.3
+,,,Eyes (or around them),,3.7
+,,,Forehead,,2.8
+,,22,Hands And Fingers,,3.5
+,,,Knees,,3.3
+,,,Eyes (or around them),,3.5
+,,,Forehead,,2.7
+,,23,Hands And Fingers,,3.6
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.4
+,,24,Hands And Fingers,,3.5
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.4
+,,25,Hands And Fingers,,3.3
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.4
+,,26,Hands And Fingers,,3.0
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.4
+,,27,Hands And Fingers,,3.4
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.4
+,,28,Hands And Fingers,,3.3
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.3
+,,29,Hands And Fingers,,3.6
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.4
+,,30,Hands And Fingers,Right Mostly,3.6
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.4
+,7,1,Hands And Fingers,Right Mostly,3.6
+,,,Forehead and Eyes,,3.3
+,,,Knees,,3.5
+,,2,Hands And Fingers,Right Mostly,3.4
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.4
+,,3,Hands And Fingers,Right Mostly,3.6
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.3
+,,4,Hands And Fingers,,3.3
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.4
+,,5,Hands And Fingers,,3.2
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.3
+,,6,Hands And Fingers,,3.2
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.3
+,,7,Hands And Fingers,,3.4
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.4
+,,,Forehead,,2.9
+,,8,Hands And Fingers,,3.5
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.3
+,,,Forehead,,2.9
+,,9,Hands And Fingers,Right Mostly,3.8
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,,Forehead,,2.9
+,,10,Hands And Fingers,Right Mostly,3.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,,Forehead,,2.8
+,,11,Hands And Fingers,,3.6
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Forehead,,2.5
+,,12,Hands And Fingers,,3.6
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.3
+,,,Forehead,,2.2
+,,13,Hands And Fingers,,3.4
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.4
+,,,Forehead,,2.5
+,,,Sick/Tired,,2.9
+,,,Quadricepts,,2.5
+,,14,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.4
+,,,Forehead,,2.9
+,,,Sick/Tired,,3.6
+,,,Quadricepts,,3.4
+,,15,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.5
+,,,Forehead,,3.3
+,,,Sick/Tired,,3.3
+,,,Quadricepts,,3.6
+,,16,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.5
+,,,Forehead,,3.0
+,,,Sick/Tired,,3.5
+,,,Quadricepts,,3.5
+,,17,Hands And Fingers,,3.1
+,,,Forehead and Eyes,,3.3
+,,,Knees,,3.4
+,,,Quadricepts,,3.4
+,,,Sick/Tired,,3.2
+,,18,Hands And Fingers,Right Mostly,3.5
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.3
+,,,Quadricepts,,2.8
+,,19,Hands And Fingers,Right Mostly,3.6
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.3
+,,20,Hands And Fingers,Right Mostly,3.5
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.3
+,,21,Hands And Fingers,Right Mostly,3.6
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.2
+,,22,Hands And Fingers,Right Mostly,3.4
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.3
+,,23,Hands And Fingers,,3.3
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.2
+,,,Sick/Tired,,3.5
+,,24,Hands And Fingers,,3.3
+,,,Forehead and Eyes,,3.7
+,,,Knees,,3.2
+,,,Sick/Tired,,3.4
+,,25,Hands And Fingers,,3.4
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.2
+,,26,Hands And Fingers,,3.2
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.2
+,,27,Hands And Fingers,,3.5
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.0
+,,28,Hands And Fingers,,3.5
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.2
+,,29,Hands And Fingers,,3.3
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.3
+,,30,Hands And Fingers,,3.2
+,,,Forehead and Eyes,,3.9
+,,,Knees,,3.4
+,,,Quadricepts,,3.2
+,,31,Hands And Fingers,,3.2
+,,,Forehead and Eyes,,3.7
+,,,Knees,,3.4
+,,,Quadricepts,,3.4
+,8,1,Hands And Fingers,,3.2
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.3
+,,,Quadricepts,,3.3
+,,2,Hands And Fingers,,3.1
+,,,Forehead and Eyes,,3.9
+,,,Knees,,3.4
+,,,Quadricepts,,3.3
+,,3,Hands And Fingers,,3.0
+,,,Forehead and Eyes,,3.8
+,,,Knees,,3.5
+,,,Quadricepts,,2.7
+,,4,Hands And Fingers,,2.8
+,,,Forehead and Eyes,,3.8
+,,,Knees,,3.5
+,,,Quadricepts,,3.4
+,,5,Hands And Fingers,,3.2
+,,,Forehead and Eyes,,3.7
+,,,Knees,,3.4
+,,,Quadricepts,,2.9
+,,,Sick/Tired,,3.4
+,,6,Hands And Fingers,,2.7
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.4
+,,,Quadricepts,,3.5
+,,,Sick/Tired,,3.4
+,,7,Hands And Fingers,,2.8
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.4
+,,,Quadricepts,,3.2
+,,,Sick/Tired,,3.4
+,,8,Hands And Fingers,,2.8
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.3
+,,,Sick/Tired,,3.0
+,,9,Hands And Fingers,,2.4
+,,,Forehead and Eyes,,3.3
+,,,Knees,,3.3
+,,10,Hands And Fingers,,2.9
+,,,Forehead and Eyes,,3.2
+,,,Knees,,3.5
+,,11,Hands And Fingers,,2.9
+,,,Forehead and Eyes,,3.1
+,,,Knees,,3.6
+,,12,Hands And Fingers,,3.2
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.5
+,,13,Hands And Fingers,,3.3
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.5
+,,14,Hands And Fingers,,3.3
+,,,Forehead and Eyes,,3.3
+,,,Knees,,3.7
+,,15,Hands And Fingers,,3.0
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.3
+,,16,Hands And Fingers,,3.1
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.3
+,,17,Hands And Fingers,,2.9
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.8
+,,18,Hands And Fingers,,3.0
+,,,Forehead and Eyes,,3.3
+,,,Knees,,3.5
+,,,Forearm close to elbow,Right Mostly,3.7
+,,19,Hands And Fingers,,2.9
+,,,Forehead and Eyes,,3.2
+,,,Knees,,3.6
+,,,Forearm close to elbow,Right Mostly,3.7
+,,20,Hands And Fingers,,3.0
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.7
+,,,Forearm close to elbow,Right Mostly,3.5
+,,21,Hands And Fingers,,2.6
+,,,Forehead and Eyes,,3.0
+,,,Knees,,3.6
+,,,Forearm close to elbow,,3.7
+,,22,Hands And Fingers,,2.7
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.4
+,,,Forearm close to elbow,Right Mostly,3.4
+,,23,Hands And Fingers,,2.7
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.5
+,,,Forearm close to elbow,Right Mostly,3.0
+,,24,Hands And Fingers,,2.9
+,,,Forehead and Eyes,,3.3
+,,,Knees,,3.6
+,,,Forearm close to elbow,Right Mostly,2.9
+,,,Sick/Tired,,2.5
+,,25,Hands And Fingers,,2.5
+,,,Forehead and Eyes,,3.0
+,,,Knees,,3.5
+,,,Forearm close to elbow,Right Mostly,3.0
+,,26,Hands And Fingers,,2.3
+,,,Forehead and Eyes,,2.9
+,,,Knees,,3.3
+,,,Forearm close to elbow,Left Mostly,3.3
+,,,right big toe,,3.0
+,,27,Hands And Fingers,,2.5
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,,right big toe,,3.4
+,,28,Hands And Fingers,,3.0
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.9
+,,,right big toe,,3.0
+,,29,Hands And Fingers,,2.8
+,,,Forehead and Eyes,,3.5
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.0
+,,,right big toe,,2.5
+,,30,Hands And Fingers,,2.8
+,,,Forehead and Eyes,,3.4
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.1
+,,,right big toe,,2.5
+,,31,Hands And Fingers,,2.3
+,,,Forehead and Eyes,,3.2
+,,,Knees,,3.4
+,,,Forearm close to elbow,,3.3
+,,,right big toe,,2.5
+,9,1,Hands And Fingers,,2.2
+,,,Forehead and Eyes,,3.2
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.8
+,,,right big toe,,1.8
+,,,Quadricepts,,1.9
+,,2,Hands And Fingers,,2.0
+,,,Forehead and Eyes,,3.2
+,,,Knees,,3.3
+,,,Forearm close to elbow,,3.0
+,,,right big toe,,1.8
+,,,Quadricepts,,1.8
+,,3,Hands And Fingers,,2.2
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.8
+,,4,Hands And Fingers,,2.2
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.3
+,,,Forearm close to elbow,,2.8
+,,5,Hands And Fingers,,2.2
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.4
+,,,Forearm close to elbow,,2.7
+,,6,Hands And Fingers,,3.1
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.3
+,,,Forearm close to elbow,,2.5
+,,7,Hands And Fingers,,2.9
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.3
+,,,Forearm close to elbow,,2.5
+,,8,Hands And Fingers,,2.9
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.3
+,,,Forearm close to elbow,,1.8
+,,9,Hands And Fingers,,3.1
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.3
+,,,Forearm close to elbow,,3.2
+,,10,Hands And Fingers,,3.0
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.4
+,,,Forearm close to elbow,,3.4
+,,11,Hands And Fingers,,2.5
+,,,Forehead and Eyes,,3.6
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.4
+,,12,Hands And Fingers,,2.5
+,,,Forehead and Eyes,,3.6
+,,,Knees,,2.7
+,,,Forearm close to elbow,,3.1
+,,13,Hands And Fingers,,2.8
+,,,Forehead and Eyes,,3.7
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.0
+,,,Sick/Tired,,3.0
+,,14,Hands And Fingers,,2.5
+,,,Forehead and Eyes,,3.7
+,,,Knees,,3.4
+,,,Forearm close to elbow,,2.5
+,,,Sick/Tired,,3.0
+,,15,Hands And Fingers,,3.0
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.3
+,,,Sick/Tired,,3.0
+,,16,Hands And Fingers,,2.5
+,,,Forehead and Eyes,,3.7
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.3
+,,,Sick/Tired,,2.9
+,,17,Hands And Fingers,,2.0
+,,,Forehead and Eyes,,3.4
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.6
+,,18,Hands And Fingers,,2.0
+,,,Forehead and Eyes,,3.7
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.9
+,,19,Hands And Fingers,,2.0
+,,,Forehead and Eyes,,3.7
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.9
+,,20,Hands And Fingers,,2.5
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.5
+,,21,Hands And Fingers,,2.0
+,,,Forehead and Eyes,,3.7
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.3
+,,22,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.7
+,,,Forehead,,3.4
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.3
+,,23,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.8
+,,,Forehead,,3.4
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.4
+,,24,Hands And Fingers,,1.0
+,,,Eyes (or around them),,3.6
+,,,Forehead,,3.4
+,,,Knees,,3.1
+,,,Forearm close to elbow,,1.6
+,,25,Hands And Fingers,,1.0
+,,,Eyes (or around them),,3.8
+,,,Forehead,,3.4
+,,,Knees,,3.2
+,,,Forearm close to elbow,,1.6
+,,26,Hands And Fingers,,1.0
+,,,Eyes (or around them),,3.9
+,,,Forehead,,3.4
+,,,Knees,,2.8
+,,,Forearm close to elbow,,1.6
+,,27,Hands And Fingers,,1.0
+,,,Eyes (or around them),,3.6
+,,,Forehead,,3.6
+,,,Knees,,3.2
+,,,Forearm close to elbow,,1.6
+,,28,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.6
+,,,Forehead,,3.5
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.5
+,,29,Hands And Fingers,,3.4
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.3
+,,30,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.6
+,,,Forehead,,3.6
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.9
+,10,1,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.6
+,,,Forehead,,3.4
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.0
+,,,Sick/Tired,,2.0
+,,,Quadricepts,,2.0
+,,2,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.5
+,,,Forehead,,3.4
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.0
+,,3,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.5
+,,,Forehead,,3.5
+,,,Knees,,2.5
+,,,Forearm close to elbow,,2.0
+,,4,Hands And Fingers,,2.5
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.5
+,,5,Hands And Fingers,Right Mostly,3.2
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.0
+,,6,Hands And Fingers,Right Mostly,3.3
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.0
+,,7,Hands And Fingers,Right Mostly,3.2
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.0
+,,8,Hands And Fingers,Right Mostly,3.4
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.0
+,,,Sick/Tired,,2.0
+,,9,Hands And Fingers,Right Mostly,3.1
+,,,Forehead and Eyes,,3.4
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.0
+,,10,Hands And Fingers,,3.2
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.0
+,,11,Hands And Fingers,,3.1
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.8
+,,12,Hands And Fingers,,3.7
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.0
+,,13,Hands And Fingers,,3.5
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.4
+,,,Forearm close to elbow,,1.8
+,,14,Hands And Fingers,,3.5
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.2
+,,,Forearm close to elbow,,1.5
+,,15,Hands And Fingers,,3.4
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.0
+,,16,Hands And Fingers,,3.7
+,,,Forehead and Eyes,,3.6
+,,,Knees,,3.0
+,,17,Hands And Fingers,,3.4
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.4
+,,,Quadricepts,,3.3
+,,18,Hands And Fingers,,3.1
+,,,Forehead and Eyes,,3.5
+,,,Knees,,3.5
+,,,Quadricepts,,3.3
+,,19,Hands And Fingers,,3.4
+,,,Forehead and Eyes,,3.3
+,,,Knees,,3.4
+,,,Quadricepts,,2.8
+,,20,Hands And Fingers,,3.4
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.3
+,,,Sick/Tired,,1.5
+,,21,Hands And Fingers,,3.3
+,,,Forehead and Eyes,,3.4
+,,,Knees,,3.3
+,,,Sick/Tired,,2.8
+,,,Quadricepts,,2.8
+,,22,Hands And Fingers,,3.2
+,,,Forehead,,3.2
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.2
+,,,Sick/Tired,,4.0
+,,23,Hands And Fingers,,3.2
+,,,Forehead,,3.2
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.2
+,,,Sick/Tired,,3.5
+,,24,Hands And Fingers,,3.1
+,,,Forehead,,3.2
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.4
+,,,Sick/Tired,,3.0
+,,25,Hands And Fingers,,2.5
+,,,Forehead,,3.2
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,,Sick/Tired,,2.0
+,,26,Hands And Fingers,,2.5
+,,,Forehead,,3.2
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.4
+,,27,Hands And Fingers,,2.8
+,,,Forehead,,3.2
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.4
+,,28,Hands And Fingers,,2.9
+,,,Forehead,,3.3
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.1
+,,29,Hands And Fingers,,3.3
+,,,Forehead,,3.2
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.3
+,,,Quadricepts,,3.2
+,,30,Hands And Fingers,,3.2
+,,,Forehead,,3.2
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.4
+,,,Sick/Tired,,3.4
+,,31,Hands And Fingers,,3.2
+,,,Forehead,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.4
+,,,Sick/Tired,,2.9
+,11,1,Hands And Fingers,,3.3
+,,,Forehead,,3.2
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.3
+,,2,Hands And Fingers,,3.4
+,,,Forehead,,3.2
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,3,Hands And Fingers,,3.2
+,,,Forehead,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.1
+,,4,Hands And Fingers,,2.8
+,,,Forehead,,3.0
+,,,Eyes (or around them),,3.6
+,,,Knees,,3.4
+,,5,Hands And Fingers,,2.8
+,,,Forehead,,3.2
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.2
+,,6,Hands And Fingers,,3.3
+,,,Forehead,,3.3
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.5
+,,,Sick/Tired,,2.7
+,,7,Hands And Fingers,Right Only,3.5
+,,,Forehead,,3.2
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,8,Hands And Fingers,Left Mostly,3.5
+,,,Forehead,,3.2
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,9,Hands And Fingers,Left Mostly,3.4
+,,,Forehead,,3.1
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.2
+,,10,Hands And Fingers,Right Only,3.5
+,,,Forehead,,3.2
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.2
+,,11,Hands And Fingers,Right Only,3.5
+,,,Forehead,,3.2
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.2
+,,12,Hands And Fingers,Right Only,3.6
+,,,Forehead,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.1
+,,13,Hands And Fingers,Right Only,3.5
+,,,Forehead,,3.1
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.3
+,,14,Hands And Fingers,Right Only,3.6
+,,,Forehead,,3.1
+,,,Eyes (or around them),,3.6
+,,,Knees,,3.2
+,,15,Hands And Fingers,,3.4
+,,,Forehead,,3.1
+,,,Eyes (or around them),,3.7
+,,,Knees,,3.2
+,,16,Hands And Fingers,,3.3
+,,,Forehead,,3.2
+,,,Eyes (or around them),,4.2
+,,,Knees,,3.2
+,,17,Hands And Fingers,,3.3
+,,,Forehead,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,,Sick/Tired,,2.8
+,,18,Hands And Fingers,,3.2
+,,,Forehead,,3.1
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.3
+,,,Sick/Tired,,3.4
+,,19,Hands And Fingers,,3.2
+,,,Forehead,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,,Sick/Tired,,3.3
+,,20,Hands And Fingers,,3.4
+,,,Forehead,,3.0
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.2
+,,,Sick/Tired,,2.2
+,,21,Hands And Fingers,,3.4
+,,,Forehead,,3.0
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.2
+,,22,Hands And Fingers,,3.4
+,,,Forehead,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,23,Hands And Fingers,,3.3
+,,,Forehead,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,24,Hands And Fingers,,3.2
+,,,Forehead,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,,Sick/Tired,,2.0
+,,25,Hands And Fingers,,3.3
+,,,Forehead,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,,Sick/Tired,,1.8
+,,26,Hands And Fingers,,3.3
+,,,Forehead,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,,Sick/Tired,,1.5
+,,27,Hands And Fingers,,3.2
+,,,Forehead,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,,Sick/Tired,,1.5
+,,28,Hands And Fingers,,3.2
+,,,Forehead,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,29,Hands And Fingers,,3.1
+,,,Forehead,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.3
+,,30,Hands And Fingers,,3.4
+,,,Forehead,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.3
+,12,1,Hands And Fingers,,3.3
+,,,Forehead,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.1
+,,,Sick/Tired,,2.8
+,,2,Hands And Fingers,,2.8
+,,,Forehead,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,,Sick/Tired,,3.4
+,,,Neck,,3.2
+,,3,Hands And Fingers,,3.5
+,,,Forehead,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.3
+,,,Sick/Tired,,3.1
+,,,Neck,,3.3
+,,4,Hands And Fingers,,3.4
+,,,Forehead,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.3
+,,,Sick/Tired,,3.0
+,,,Neck,,2.9
+,,5,Hands And Fingers,,3.4
+,,,Forehead,,3.2
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.3
+,,,Sick/Tired,,2.5
+,,,Neck,,2.3
+,,6,Hands And Fingers,,3.3
+,,,Forehead,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.3
+,,,Sick/Tired,,2.9
+,,7,Hands And Fingers,,3.3
+,,,Forehead,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.3
+,,,Sick/Tired,,2.5
+,,8,Hands And Fingers,,3.2
+,,,Forehead,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.3
+,,9,Hands And Fingers,,3.1
+,,,Forehead,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.3
+,,10,Hands And Fingers,Right Mostly,3.3
+,,,Forehead,,3.2
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,11,Hands And Fingers,Right Mostly,3.7
+,,,Forehead,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,12,Hands And Fingers,,3.3
+,,,Forehead,,3.1
+,,,Eyes (or around them),,3.6
+,,,Knees,,3.3
+,,13,Hands And Fingers,,3.3
+,,,Forehead,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,,Sick/Tired,,2.5
+,,14,Hands And Fingers,,3.0
+,,,Forehead,,3.0
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.2
+,,,Sick/Tired,,3.1
+,,15,Hands And Fingers,,3.3
+,,,Forehead,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,,Sick/Tired,,2.8
+,,16,Hands And Fingers,,3.4
+,,,Forehead,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,17,Hands And Fingers,,3.0
+,,,Forehead,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,18,Hands And Fingers,,3.3
+,,,Forehead,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,19,Hands And Fingers,,3.3
+,,,Forehead,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,20,Hands And Fingers,,3.0
+,,,Forehead,,2.5
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,21,Hands And Fingers,,3.1
+,,,Forehead,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,,Sick/Tired,,3.5
+,,22,Hands And Fingers,,3.3
+,,,Forehead,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.1
+,,,Sick/Tired,,3.5
+,,23,Hands And Fingers,,3.3
+,,,Forehead,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,,Sick/Tired,,3.4
+,,24,Hands And Fingers,,3.0
+,,,Forehead,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,,Sick/Tired,,2.6
+,,25,Hands And Fingers,,2.7
+,,,Forehead,,2.9
+,,,Eyes (or around them),,3.6
+,,,Knees,,3.3
+,,26,Hands And Fingers,,2.8
+,,,Forehead,,2.8
+,,,Eyes (or around them),,3.7
+,,,Knees,,3.3
+,,27,Hands And Fingers,,2.9
+,,,Forehead,,2.5
+,,,Eyes (or around them),,3.6
+,,,Knees,,3.3
+,,28,Hands And Fingers,,3.2
+,,,Forehead,,2.5
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.3
+,,29,Hands And Fingers,,2.8
+,,,Forehead,,2.5
+,,,Eyes (or around them),,3.7
+,,,Knees,,3.2
+,,30,Hands And Fingers,,2.8
+,,,Forehead,,2.5
+,,,Eyes (or around them),,3.7
+,,,Knees,,3.3
+,,31,Hands And Fingers,,3.0
+,,,Forehead,,2.5
+,,,Eyes (or around them),,3.6
+,,,Knees,,3.2
+,,,Sick/Tired,,2.8
+2017,1,1,Hands And Fingers,,3.1
+,,,Forehead,,2.8
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.2
+,,2,Hands And Fingers,,3.0
+,,,Forehead,,2.7
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.1
+,,,Sick/Tired,,2.8
+,,3,Hands And Fingers,,2.5
+,,,Forehead,,2.5
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.1
+,,,Sick/Tired,,3.4
+,,4,Hands And Fingers,,2.5
+,,,Forehead,,2.8
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.2
+,,5,Hands And Fingers,,2.5
+,,,Forehead,,2.9
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.0
+,,6,Hands And Fingers,,2.5
+,,,Forehead,,2.9
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,7,Hands And Fingers,,2.9
+,,,Forehead,,2.9
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.3
+,,8,Hands And Fingers,,3.0
+,,,Forehead,,2.8
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.4
+,,9,Hands And Fingers,,2.5
+,,,Forehead,,2.9
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.3
+,,,Quadricepts,,3.1
+,,10,Hands And Fingers,,2.7
+,,,Forehead,,2.7
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.4
+,,,Quadricepts,,3.2
+,,11,Hands And Fingers,,3.0
+,,,Forehead,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.3
+,,,Quadricepts,,3.0
+,,12,Hands And Fingers,,3.1
+,,,Forehead,,2.9
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,13,Hands And Fingers,,3.1
+,,,Forehead,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,14,Hands And Fingers,,3.3
+,,,Forehead,,2.7
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,15,Hands And Fingers,,3.0
+,,,Forehead,,2.7
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,16,Hands And Fingers,,3.1
+,,,Forehead,,2.7
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.3
+,,17,Hands And Fingers,,2.8
+,,,Forehead,,2.5
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,18,Hands And Fingers,,2.7
+,,,Forehead,,2.8
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,19,Hands And Fingers,,2.8
+,,,Forehead,,2.7
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,20,Hands And Fingers,,2.6
+,,,Forehead,,2.6
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,21,Hands And Fingers,,2.9
+,,,Forehead,,2.5
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,22,Hands And Fingers,,3.0
+,,,Forehead,,2.5
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.1
+,,23,Hands And Fingers,,2.2
+,,,Forehead,,2.5
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.8
+,,24,Hands And Fingers,,2.5
+,,,Forehead,,2.5
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,25,Hands And Fingers,,3.1
+,,,Forehead,,2.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,26,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,27,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.8
+,,,Forearm close to elbow,,2.9
+,,28,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.1
+,,29,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,30,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.8
+,,31,Hands And Fingers,,2.6
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.1
+,2,1,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,2,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.1
+,,,Headache,,3.4
+,,3,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.8
+,,4,Hands And Fingers,Right Mostly,3.4
+,,,Eyes (or around them),,3.4
+,,,Knees,Right Mostly,3.4
+,,5,Hands And Fingers,Right Mostly,3.4
+,,,Eyes (or around them),,3.4
+,,,Knees,Right Mostly,3.4
+,,6,Hands And Fingers,Right Mostly,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.3
+,,7,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.1
+,,8,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.0
+,,9,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.0
+,,10,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,11,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.4
+,,12,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.3
+,,13,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,14,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,15,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,16,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,17,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,18,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,19,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.3
+,,20,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.2
+,,21,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.9
+,,22,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.0
+,,23,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.1
+,,24,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,25,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.1
+,,26,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,27,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.3
+,,28,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.3
+,3,1,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.4
+,,2,Hands And Fingers,,3.4
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,3,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,4,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.3
+,,5,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.3
+,,6,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,7,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,8,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,9,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.7
+,,10,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.7
+,,11,Hands And Fingers,,3.4
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.4
+,,12,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,13,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,14,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,15,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.1
+,,16,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,17,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,18,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,19,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,20,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.1
+,,21,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,22,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,23,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,24,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.8
+,,25,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,,Sick/Tired,,3.2
+,,26,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,,Sick/Tired,,3.0
+,,27,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,28,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,29,Hands And Fingers,,3.5
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,30,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,31,Hands And Fingers,,3.4
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,4,1,Hands And Fingers,,3.4
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,2,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.3
+,,3,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.3
+,,4,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.3
+,,5,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.8
+,,6,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,7,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,8,Hands And Fingers,,3.4
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,9,Hands And Fingers,,3.5
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,10,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.8
+,,11,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,12,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,13,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,14,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,15,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.9
+,,16,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,17,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,18,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,19,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.3
+,,20,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.3
+,,21,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.1
+,,22,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,23,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.3
+,,24,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,25,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.8
+,,26,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.8
+,,27,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.9
+,,28,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.5
+,,,Knees,,2.9
+,,29,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,,Acute Pain,,3.8
+,,30,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.8
+,,,Acute Pain,,3.7
+,5,1,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,,Acute Pain,,3.4
+,,2,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,,Acute Pain,,3.4
+,,3,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.5
+,,,Knees,,2.9
+,,,Acute Pain,,3.0
+,,4,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.7
+,,,Knees,,3.0
+,,,Acute Pain,,2.8
+,,5,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,,Acute Pain,,3.0
+,,6,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,,Acute Pain,,2.8
+,,7,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.8
+,,,Acute Pain,,2.8
+,,8,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,,Acute Pain,,3.1
+,,9,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,,Acute Pain,,2.8
+,,10,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,,Acute Pain,,2.8
+,,11,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.9
+,,,Acute Pain,,2.9
+,,12,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.9
+,,,Acute Pain,,2.8
+,,13,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.9
+,,,Acute Pain,,2.8
+,,14,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.5
+,,,Knees,,2.9
+,,,Acute Pain,,2.4
+,,15,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.9
+,,,Acute Pain,,2.4
+,,16,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.9
+,,,Acute Pain,,2.0
+,,17,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.8
+,,,Acute Pain,,2.0
+,,18,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.8
+,,,Acute Pain,,2.0
+,,19,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.8
+,,,Acute Pain,,1.8
+,,20,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.7
+,,,Knees,,2.8
+,,,Acute Pain,,1.5
+,,21,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.6
+,,,Knees,,3.0
+,,,Acute Pain,,1.1
+,,22,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.6
+,,,Knees,,2.7
+,,23,Hands And Fingers,,2.2
+,,,Eyes (or around them),,3.5
+,,,Knees,,2.9
+,,,Eyes,Right Only,3.5
+,,24,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.7
+,,,Knees,,2.9
+,,,Eyes,Right Only,3.7
+,,25,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.1
+,,,Eyes,Right Only,3.4
+,,26,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.6
+,,,Knees,,2.9
+,,,Eyes,Right Only,3.5
+,,27,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.0
+,,,Eyes,Right Only,3.5
+,,28,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,,Eyes,Right Only,3.5
+,,29,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,,Eyes,Right Only,3.3
+,,30,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.7
+,,31,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.5
+,,,Knees,,2.8
+,,,Eyes,Right Only,3.4
+,6,1,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.1
+,,,Eyes,Right Only,3.3
+,,2,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.5
+,,,Knees,,3.0
+,,,Eyes,Right Only,3.1
+,,3,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,,Eyes,Right Only,3.1
+,,4,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,,Eyes,Right Only,2.9
+,,5,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,,Eyes,Right Only,2.9
+,,6,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,,Eyes,Right Only,2.2
+,,7,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,,Eyes,Right Only,2.5
+,,8,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.9
+,,9,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,10,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.1
+,,11,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.1
+,,12,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.3
+,,13,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.4
+,,14,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,,Eyes,,3.2
+,,15,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.3
+,,,Eyes,,3.1
+,,16,Hands And Fingers,,3.4
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,17,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,18,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.1
+,,19,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.9
+,,20,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,21,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.9
+,,22,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.8
+,,23,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.8
+,,24,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,25,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,26,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.8
+,,27,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.5
+,,,Knees,,2.8
+,,28,Hands And Fingers,,2.6
+,,,Eyes (or around them),,3.5
+,,,Knees,,2.6
+,,29,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,30,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.9
+,7,1,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,2,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,3,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.7
+,,4,Hands And Fingers,Right Only,3.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,5,Hands And Fingers,Right Only,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.2
+,,,Shoulder Neck,,3.1
+,,6,Hands And Fingers,Right Only,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,,Shoulder Neck,,3.6
+,,7,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,,Shoulder Neck,,3.6
+,,8,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,,Shoulder Neck,,3.5
+,,9,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.1
+,,,Shoulder Neck,,3.5
+,,10,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,,Shoulder Neck,,4.5
+,,11,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,,Shoulder Neck,,3.7
+,,12,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.8
+,,,Shoulder Neck,,4.0
+,,13,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.7
+,,,Shoulder Neck,,3.7
+,,14,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.7
+,,,Shoulder Neck,,3.5
+,,15,Hands And Fingers,,2.6
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,,Shoulder Neck,,3.2
+,,16,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,,Shoulder Neck,,3.2
+,,17,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,,Shoulder Neck,,2.8
+,,18,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,,Shoulder Neck,,2.9
+,,19,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,,Shoulder Neck,,2.8
+,,20,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,,Shoulder Neck,,2.0
+,,21,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,,Shoulder Neck,,2.0
+,,22,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,23,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,24,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,,Shoulder Neck,,2.8
+,,25,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.9
+,,26,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.9
+,,27,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,28,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,29,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.9
+,,30,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,31,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,8,1,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.9
+,,2,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.9
+,,3,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.9
+,,4,Hands And Fingers,,2.6
+,,,Eyes (or around them),,3.6
+,,,Knees,,2.7
+,,5,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.5
+,,,Knees,,2.8
+,,6,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.7
+,,7,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.7
+,,8,Hands And Fingers,,2.6
+,,,Eyes (or around them),,3.5
+,,,Knees,,2.6
+,,9,Hands And Fingers,,2.6
+,,,Eyes (or around them),,3.5
+,,,Knees,,2.7
+,,10,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.9
+,,11,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.7
+,,12,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,,Headache,,3.3
+,,13,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.3
+,,,Headache,,3.3
+,,14,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.3
+,,15,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.3
+,,16,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.3
+,,17,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.4
+,,18,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.5
+,,19,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.4
+,,20,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,21,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.5
+,,,Knees,,2.9
+,,22,Hands And Fingers,,2.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,23,Hands And Fingers,,2.1
+,,,Eyes (or around them),,3.6
+,,,Knees,,2.9
+,,24,Hands And Fingers,,2.1
+,,,Eyes (or around them),,3.5
+,,,Knees,,2.8
+,,25,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,26,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.1
+,,27,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,28,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,29,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,30,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,31,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,9,1,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,2,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,3,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,4,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,5,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,6,Hands And Fingers,Right Mostly,3.4
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Forearm close to elbow,Right Mostly,1.8
+,,7,Hands And Fingers,Right Mostly,3.4
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,8,Hands And Fingers,Right Mostly,3.5
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,9,Hands And Fingers,Right Mostly,3.4
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,10,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,11,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,12,Hands And Fingers,,3.4
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.8
+,,13,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.9
+,,14,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.7
+,,15,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,16,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.3
+,,17,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,18,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.8
+,,19,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.8
+,,20,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.8
+,,21,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,22,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.5
+,,23,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,24,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.7
+,,25,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,26,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.4
+,,,Knees,,2.9
+,,27,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.5
+,,,Knees,,2.9
+,,28,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,29,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,30,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.1
+,10,1,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.0
+,,2,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.2
+,,3,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.5
+,,,Forearm close to elbow,,3.1
+,,4,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.9
+,,5,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,,Forearm close to elbow,,2.6
+,,6,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.5
+,,,Forearm close to elbow,Right Only,3.9
+,,,Shoulder,Right Only,3.9
+,,7,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.5
+,,,Forearm close to elbow,Right Only,3.3
+,,,Shoulder,Right Only,3.3
+,,8,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.3
+,,,Forearm close to elbow,,3.3
+,,,Shoulder,,3.2
+,,9,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.7
+,,,Forearm close to elbow,,3.0
+,,,Shoulder,,3.0
+,,10,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.3
+,,,Forearm close to elbow,,2.5
+,,,Shoulder,,2.5
+,,11,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,,Forearm close to elbow,,2.8
+,,,Shoulder,,2.8
+,,12,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.0
+,,,Shoulder,,2.0
+,,,Sick/Tired,,3.4
+,,13,Hands And Fingers,,2.6
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.0
+,,,Shoulder,,2.0
+,,,Sick/Tired,,3.3
+,,14,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.3
+,,,Forearm close to elbow,,1.5
+,,,Shoulder,,1.5
+,,,Sick/Tired,,3.2
+,,15,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,,Forearm close to elbow,,1.5
+,,,Shoulder,,1.5
+,,,Sick/Tired,,3.2
+,,16,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.5
+,,,Forearm close to elbow,,2.2
+,,,Shoulder,,2.2
+,,,Sick/Tired,,3.2
+,,17,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.7
+,,,Forearm close to elbow,,2.0
+,,,Shoulder,,2.0
+,,,Sick/Tired,,3.1
+,,18,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.4
+,,,Forearm close to elbow,,2.8
+,,,Shoulder,,2.8
+,,,Sick/Tired,,2.9
+,,19,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.5
+,,,Forearm close to elbow,,2.5
+,,,Shoulder,,2.5
+,,,Sick/Tired,,2.5
+,,20,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,,Forearm close to elbow,,2.3
+,,,Shoulder,,1.8
+,,,Sick/Tired,,2.2
+,,21,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,,Forearm close to elbow,,2.5
+,,,Shoulder,,2.5
+,,,Sick/Tired,,1.5
+,,22,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.9
+,,,Shoulder,,2.0
+,,,Sick/Tired,,1.5
+,,23,Hands And Fingers,,2.4
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.0
+,,,Shoulder,,2.1
+,,,Sick/Tired,,1.0
+,,24,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.5
+,,,Forearm close to elbow,Right Mostly,3.3
+,,,Shoulder,,2.2
+,,25,Hands And Fingers,,2.2
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,,Forearm close to elbow,Right Mostly,3.3
+,,,Shoulder,,0.5
+,,26,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.3
+,,,Shoulder,,2.0
+,,27,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.3
+,,,Shoulder,,1.0
+,,28,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.3
+,,,Shoulder,,1.0
+,,29,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.3
+,,,Forearm close to elbow,,2.8
+,,,Shoulder,,1.0
+,,,Sick/Tired,,3.0
+,,30,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.2
+,,,Forearm close to elbow,,3.1
+,,,Shoulder,,1.5
+,,,Sick/Tired,,2.0
+,,31,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.6
+,,,Shoulder,,0.5
+,11,1,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.9
+,,2,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.5
+,,,Forearm close to elbow,,3.3
+,,3,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.0
+,,4,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.8
+,,5,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,,Forearm close to elbow,,1.5
+,,6,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.7
+,,,Forearm close to elbow,,2.0
+,,7,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.7
+,,,Forearm close to elbow,,2.0
+,,,Shoulder,,1.0
+,,8,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.8
+,,,Shoulder,,1.0
+,,9,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.4
+,,,Forearm close to elbow,,1.8
+,,,Shoulder,,1.5
+,,10,Hands And Fingers,,2.4
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,,Forearm close to elbow,,1.8
+,,,Shoulder,,1.0
+,,11,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.0
+,,,Shoulder,,1.0
+,,12,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.3
+,,,Forearm close to elbow,,1.8
+,,,Shoulder,,1.0
+,,13,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.3
+,,,Forearm close to elbow,,1.0
+,,,Shoulder,,1.0
+,,14,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,15,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,,,Sick/Tired,,1.5
+,,16,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.7
+,,,Sick/Tired,,3.5
+,,17,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.5
+,,,Sick/Tired,,3.4
+,,18,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,,Sick/Tired,,3.3
+,,19,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,,Sick/Tired,,2.5
+,,,Forearm close to elbow,,1.0
+,,20,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.2
+,,,Sick/Tired,,2.8
+,,,Forearm close to elbow,,1.9
+,,,Hip,,1.5
+,,21,Hands And Fingers,,2.5
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.2
+,,,Sick/Tired,,3.1
+,,,Forearm close to elbow,,1.5
+,,,Hip,,1.0
+,,22,Hands And Fingers,,2.0
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.3
+,,,Sick/Tired,,2.0
+,,,Forearm close to elbow,,1.0
+,,23,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.0
+,,24,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.6
+,,25,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.7
+,,,Quadricepts,,1.7
+,,26,Hands And Fingers,,2.2
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.4
+,,27,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Under the foot,Right Only,1.5
+,,28,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,,Under the foot,Right Only,1.5
+,,29,Hands And Fingers,Right Only,3.3
+,,,Eyes (or around them),,3.2
+,,,Knees,Right Only,3.3
+,,30,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,12,1,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,,Thoracic region,,2.2
+,,,Under the foot,,2.0
+,,2,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,,Under the foot,,2.0
+,,3,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Under the foot,,2.0
+,,4,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Under the foot,,2.0
+,,5,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Sick/Tired,,2.7
+,,6,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.2
+,,,Sick/Tired,,2.7
+,,,Quadricepts,,2.2
+,,7,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.2
+,,,Sick/Tired,,1.0
+,,,Under the foot,,3.0
+,,8,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Sick/Tired,,1.9
+,,,Under the foot,,2.0
+,,9,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.3
+,,10,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.2
+,,11,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,12,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.8
+,,,Knees,,2.9
+,,,Sick/Tired,,1.5
+,,13,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,14,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.7
+,,15,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.8
+,,,Knees,,2.9
+,,16,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.7
+,,,Knees,,2.7
+,,17,Hands And Fingers,,3.5
+,,,Eyes (or around them),,2.7
+,,,Knees,,2.7
+,,18,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.7
+,,19,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.5
+,,20,Hands And Fingers,,3.0
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.5
+,,21,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.7
+,,,Knees,,2.8
+,,22,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,23,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,24,Hands And Fingers,,3.0
+,,,Eyes (or around them),,2.6
+,,,Knees,,3.1
+,,25,Hands And Fingers,,2.8
+,,,Eyes (or around them),,2.5
+,,,Knees,,3.3
+,,26,Hands And Fingers,,2.6
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.2
+,,27,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.1
+,,28,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.7
+,,29,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,30,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.0
+,,31,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.7
+,,,Knees,,2.7
+2018,1,1,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.8
+,,2,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.7
+,,3,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.8
+,,4,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,5,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.7
+,,6,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.7
+,,7,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,8,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.5
+,,9,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,,10,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,11,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,12,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,13,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,14,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.7
+,,15,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,16,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.5
+,,17,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,18,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.8
+,,19,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.8
+,,20,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,21,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.8
+,,,Knees,,2.8
+,,22,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.0
+,,23,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.7
+,,,Knees,,2.7
+,,24,Hands And Fingers,,3.4
+,,,Eyes (or around them),,2.7
+,,,Knees,,2.7
+,,25,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.7
+,,,Knees,,2.9
+,,26,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.2
+,,27,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.1
+,,28,Hands And Fingers,,3.1
+,,,Eyes (or around them),,2.7
+,,,Knees,,3.1
+,,,Quadricepts,,3.1
+,,29,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.8
+,,,Knees,,2.8
+,,,Quadricepts,,2.0
+,,30,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.7
+,,,Knees,,2.6
+,,31,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.2
+,,,Quadricepts,,2.3
+,2,1,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,2,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.6
+,,,Knees,,3.0
+,,3,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.6
+,,,Knees,,2.9
+,,4,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.7
+,,5,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.7
+,,,Knees,,2.8
+,,6,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.8
+,,,Knees,,2.6
+,,7,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.7
+,,,Knees,,3.1
+,,8,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,9,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.7
+,,10,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,11,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.7
+,,,Knees,,2.7
+,,12,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.7
+,,,Knees,,3.0
+,,13,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,14,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.8
+,,,Knees,,2.8
+,,15,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,16,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,17,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,18,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,19,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.7
+,,20,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.2
+,,21,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,22,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,23,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,,24,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,,25,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,,26,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.8
+,,27,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,28,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,3,1,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.8
+,,,Knees,,2.9
+,,2,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.7
+,,,Knees,,2.6
+,,3,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.7
+,,4,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,5,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.8
+,,6,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.7
+,,7,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.7
+,,8,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.7
+,,9,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.5
+,,10,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.8
+,,11,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.7
+,,12,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.7
+,,13,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.8
+,,14,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,,15,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,16,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,17,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,18,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,19,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,20,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,,21,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,,,Under the foot,,2.5
+,,22,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.8
+,,,Knees,,2.9
+,,,Under the foot,,2.9
+,,23,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.0
+,,,Under the foot,,3.1
+,,24,Hands And Fingers,,3.1
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.1
+,,,Under the foot,,3.2
+,,25,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Under the foot,,3.0
+,,26,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.8
+,,,Knees,,2.8
+,,,Under the foot,,2.8
+,,27,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.1
+,,,Under the foot,,3.0
+,,28,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Under the foot,,2.8
+,,29,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.8
+,,,Under the foot,,2.4
+,,30,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.8
+,,,Knees,,2.7
+,,,Under the foot,,2.2
+,,31,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,4,1,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.7
+,,2,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.5
+,,3,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,4,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.2
+,,5,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.8
+,,,Knees,,2.8
+,,,Under the foot,,2.8
+,,6,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.0
+,,,Under the foot,,2.9
+,,7,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.7
+,,,Knees,,2.9
+,,,Under the foot,,2.7
+,,8,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.0
+,,,Under the foot,,2.8
+,,9,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.0
+,,,Under the foot,,2.6
+,,10,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.7
+,,,Knees,,3.0
+,,,Under the foot,,2.0
+,,11,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.2
+,,,Under the foot,,2.4
+,,12,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.1
+,,,Under the foot,,2.0
+,,13,Hands And Fingers,,3.1
+,,,Eyes (or around them),,2.6
+,,,Knees,,3.1
+,,14,Hands And Fingers,,3.1
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.2
+,,15,Hands And Fingers,,3.1
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.1
+,,16,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,17,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.2
+,,18,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.0
+,,19,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.8
+,,,Knees,,2.8
+,,,Low back,,2.2
+,,20,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.6
+,,,Knees,,2.8
+,,,Under the foot,,2.4
+,,21,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.6
+,,,Knees,,2.9
+,,,Under the foot,,2.5
+,,22,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.8
+,,,Knees,,2.8
+,,,Under the foot,,2.0
+,,23,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,,Under the foot,,2.5
+,,24,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.2
+,,,Under the foot,,2.2
+,,25,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.4
+,,,Knees,,3.2
+,,26,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.7
+,,,Knees,,3.1
+,,27,Hands And Fingers,,3.4
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,28,Hands And Fingers,,3.4
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.7
+,,29,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.0
+,,30,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.1
+,5,1,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,,2,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,,3,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,4,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,5,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.8
+,,,Knees,,2.9
+,,6,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.8
+,,,Knees,,2.9
+,,7,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.0
+,,8,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.2
+,,,Sick/Tired,,1.5
+,,9,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.7
+,,,Knees,,3.3
+,,,Sick/Tired,,1.2
+,,10,Hands And Fingers,,3.0
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.3
+,,11,Hands And Fingers,,3.1
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.2
+,,12,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.7
+,,,Knees,,3.0
+,,13,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,14,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.7
+,,15,Hands And Fingers,,3.3
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,16,Hands And Fingers,,3.1
+,,,Eyes (or around them),,2.7
+,,,Knees,,2.8
+,,17,Hands And Fingers,,3.1
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.3
+,,18,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.0
+,,19,Hands And Fingers,,3.1
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.2
+,,20,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.2
+,,21,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.2
+,,22,Hands And Fingers,,3.1
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.2
+,,23,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.7
+,,,Knees,,3.1
+,,24,Hands And Fingers,,3.1
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.2
+,,25,Hands And Fingers,,3.1
+,,,Eyes (or around them),,2.7
+,,,Knees,,3.3
+,,26,Hands And Fingers,,3.1
+,,,Eyes (or around them),,2.7
+,,,Knees,,3.3
+,,27,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.2
+,,28,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.7
+,,,Knees,,3.3
+,,29,Hands And Fingers,,3.1
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.3
+,,30,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,31,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,6,1,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.3
+,,2,Hands And Fingers,,3.1
+,,,Eyes (or around them),,2.7
+,,,Knees,,3.2
+,,3,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.2
+,,4,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,5,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,6,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.8
+,,,Knees,,2.9
+,,7,Hands And Fingers,,3.3
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,8,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.2
+,,9,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,,Shoulder Neck,,3.7
+,,10,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,,Shoulder Neck,,3.2
+,,11,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,,Shoulder Neck,,3.1
+,,12,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,,Shoulder Neck,,3.3
+,,13,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,,Shoulder Neck,,3.1
+,,14,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,,Shoulder Neck,,3.1
+,,15,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,,Shoulder Neck,,2.3
+,,16,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,,Shoulder Neck,,2.0
+,,17,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,,Shoulder Neck,,2.0
+,,18,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.2
+,,19,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,20,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,21,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Elbow,,2.0
+,,22,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Elbow,,2.0
+,,23,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.4
+,,,Elbow,,1.5
+,,,Hip,,3.0
+,,24,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.3
+,,,Elbow,,2.0
+,,25,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.2
+,,26,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,27,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,28,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,29,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,30,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.8
+,7,1,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,2,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,3,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.2
+,,4,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,5,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.2
+,,6,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,7,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,8,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,9,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,10,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,11,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,12,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.4
+,,,Knees,,3.0
+,,13,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,14,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,15,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,16,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,17,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,18,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.2
+,,19,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,20,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,21,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,22,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,23,Hands And Fingers,,2.6
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,24,Hands And Fingers,,2.6
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,25,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.8
+,,26,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,27,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.7
+,,28,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.7
+,,29,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.7
+,,30,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,31,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,8,1,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,2,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.8
+,,3,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,4,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.2
+,,5,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.3
+,,6,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.3
+,,7,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.3
+,,8,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.3
+,,9,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.3
+,,10,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.3
+,,11,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.3
+,,12,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.3
+,,13,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.3
+,,14,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.3
+,,15,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.3
+,,16,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,17,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.3
+,,18,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.2
+,,19,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.1
+,,20,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.2
+,,21,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.3
+,,22,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.3
+,,23,Hands And Fingers,,2.7
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.2
+,,24,Hands And Fingers,,2.7
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.2
+,,25,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,26,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,27,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,28,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,29,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,30,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,31,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.2
+,9,1,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.2
+,,2,Hands And Fingers,,2.8
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.8
+,,3,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,,4,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,5,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,6,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,,7,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.7
+,,8,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,,9,Hands And Fingers,,3.1
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,10,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,11,Hands And Fingers,,3.1
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.7
+,,12,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.7
+,,13,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.7
+,,14,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.7
+,,15,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,16,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.8
+,,17,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,,18,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,19,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,20,Hands And Fingers,,3.1
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.8
+,,21,Hands And Fingers,,3.0
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.1
+,,22,Hands And Fingers,,3.0
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.4
+,,23,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.5
+,,24,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,,Forearm close to elbow,,2.2
+,,25,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,,26,Hands And Fingers,,3.1
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.8
+,,27,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.7
+,,28,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,29,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,,30,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,10,1,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,2,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,,3,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,4,Hands And Fingers,,3.2
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.7
+,,5,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.7
+,,,Forearm close to elbow,,2.2
+,,6,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Forearm close to elbow,,1.5
+,,7,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.7
+,,,Forearm close to elbow,,2.0
+,,8,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,9,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.0
+,,10,Hands And Fingers,,2.9
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.1
+,,11,Hands And Fingers,,2.8
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.1
+,,12,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.2
+,,13,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.2
+,,14,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.7
+,,,Forearm close to elbow,,3.1
+,,15,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.3
+,,16,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.2
+,,17,Hands And Fingers,,2.7
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.2
+,,18,Hands And Fingers,,2.7
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.2
+,,19,Hands And Fingers,,2.2
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,20,Hands And Fingers,,2.2
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.2
+,,21,Hands And Fingers,,2.2
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.2
+,,22,Hands And Fingers,,2.4
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.2
+,,,Sick/Tired,,3.3
+,,23,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.0
+,,,Sick/Tired,,2.9
+,,24,Hands And Fingers,,2.3
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.1
+,,,Sick/Tired,,3.0
+,,25,Hands And Fingers,,2.5
+,,,Eyes (or around them),,2.7
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.1
+,,,Sick/Tired,,2.8
+,,26,Hands And Fingers,,2.3
+,,,Eyes (or around them),,2.8
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.1
+,,,Sick/Tired,,2.8
+,,27,Hands And Fingers,,2.2
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,,Sick/Tired,,2.5
+,,28,Hands And Fingers,,2.0
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.7
+,,,Forearm close to elbow,,3.2
+,,29,Hands And Fingers,,1.5
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.7
+,,,Forearm close to elbow,,3.2
+,,30,Hands And Fingers,,1.5
+,,,Eyes (or around them),,2.8
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.2
+,,31,Hands And Fingers,,1.8
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.0
+,11,1,Hands And Fingers,,1.5
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.1
+,,2,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.0
+,,3,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.1
+,,4,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.2
+,,5,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.1
+,,6,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.0
+,,7,Hands And Fingers,,1.8
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.7
+,,,Forearm close to elbow,,3.1
+,,8,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.1
+,,9,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,10,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,11,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.3
+,,,Forearm close to elbow,,3.2
+,,12,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.3
+,,,Forearm close to elbow,,3.1
+,,13,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.2
+,,14,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.2
+,,15,Hands And Fingers,,1.5
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,16,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.1
+,,17,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,18,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,19,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,20,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,21,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,22,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.2
+,,23,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.1
+,,24,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.1
+,,25,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.2
+,,26,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.2
+,,27,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.2
+,,28,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.2
+,,29,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,30,Hands And Fingers,,1.5
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.0
+,12,1,Hands And Fingers,,1.5
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,2,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,3,Hands And Fingers,,1.5
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,4,Hands And Fingers,,1.5
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,5,Hands And Fingers,,1.5
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.0
+,,,Gastrocnemius,,3.2
+,,6,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.0
+,,,Gastrocnemius,,3.0
+,,7,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.2
+,,,Gastrocnemius,,2.5
+,,8,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,,Gastrocnemius,,2.5
+,,9,Hands And Fingers,,2.5
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,,Gastrocnemius,,2.0
+,,10,Hands And Fingers,,2.5
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.0
+,,,Gastrocnemius,,2.8
+,,11,Hands And Fingers,,2.0
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.0
+,,,Gastrocnemius,,3.1
+,,12,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.9
+,,,Gastrocnemius,,3.1
+,,13,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.2
+,,,Gastrocnemius,,2.5
+,,14,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.2
+,,,Gastrocnemius,,2.0
+,,15,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,,Gastrocnemius,,2.5
+,,16,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,,Gastrocnemius,,2.0
+,,17,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.2
+,,18,Hands And Fingers,,1.5
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.2
+,,19,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.1
+,,20,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.2
+,,21,Hands And Fingers,,2.0
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,22,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,23,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.1
+,,24,Hands And Fingers,,2.0
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,25,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.2
+,,26,Hands And Fingers,,2.0
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,27,Hands And Fingers,,2.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.0
+,,28,Hands And Fingers,,2.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.9
+,,29,Hands And Fingers,,2.2
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,30,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.0
+,,31,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+2019,1,1,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.2
+,,2,Hands And Fingers,,2.0
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,3,Hands And Fingers,,2.4
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,4,Hands And Fingers,,2.5
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,5,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.2
+,,6,Hands And Fingers,,2.0
+,,,Eyes (or around them),,2.8
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.1
+,,7,Hands And Fingers,,2.0
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.2
+,,8,Hands And Fingers,,2.9
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,,Gastrocnemius,,3.0
+,,9,Hands And Fingers,,2.5
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,,Gastrocnemius,,3.1
+,,10,Hands And Fingers,,2.9
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.0
+,,,Gastrocnemius,,2.0
+,,11,Hands And Fingers,,3.0
+,,,Eyes (or around them),,2.8
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,,Gastrocnemius,,2.0
+,,12,Hands And Fingers,,3.0
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.2
+,,,Gastrocnemius,,2.5
+,,13,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.2
+,,,Gastrocnemius,,2.8
+,,14,Hands And Fingers,,3.1
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.2
+,,,Gastrocnemius,,2.9
+,,15,Hands And Fingers,,3.2
+,,,Eyes (or around them),,2.8
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.1
+,,,Gastrocnemius,,2.0
+,,16,Hands And Fingers,,3.0
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.2
+,,17,Hands And Fingers,,3.0
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.2
+,,18,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,19,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.2
+,,20,Hands And Fingers,,3.0
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.1
+,,21,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.2
+,,22,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.9
+,,23,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.0
+,,24,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.9
+,,25,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.0
+,,26,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.1
+,,27,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.2
+,,28,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.0
+,,29,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.1
+,,30,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,31,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.1
+,2,1,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.2
+,,2,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.2
+,,3,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.1
+,,4,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.7
+,,,Forearm close to elbow,,3.1
+,,5,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.1
+,,6,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.2
+,,7,Hands And Fingers,,2.9
+,,,Eyes (or around them),,2.9
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.2
+,,8,Hands And Fingers,,2.9
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.2
+,,9,Hands And Fingers,,2.8
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.0
+,,10,Hands And Fingers,,2.8
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.0
+,,11,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.0
+,,12,Hands And Fingers,,2.8
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.0
+,,13,Hands And Fingers,,2.8
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.9
+,,14,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.1
+,,15,Hands And Fingers,,2.8
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.1
+,,16,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.0
+,,17,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.0
+,,18,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,19,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,20,Hands And Fingers,,2.7
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,21,Hands And Fingers,,2.8
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,22,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,23,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.9
+,,24,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,25,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,26,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,27,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,28,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.0
+,3,1,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.9
+,,2,Hands And Fingers,,2.5
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.9
+,,3,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.1
+,,4,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.2
+,,5,Hands And Fingers,,3.0
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.2
+,,6,Hands And Fingers,,3.1
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,7,Hands And Fingers,,2.8
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.0
+,,8,Hands And Fingers,,2.9
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,9,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.0
+,,10,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.0
+,,11,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.0
+,,12,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.0
+,,13,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.9
+,,14,Hands And Fingers,,2.4
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.0
+,,15,Hands And Fingers,,2.4
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.0
+,,16,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.0
+,,17,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.3
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.9
+,,18,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.8
+,,19,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.8
+,,20,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.7
+,,21,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.7
+,,22,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.3
+,,,Forearm close to elbow,,2.7
+,,23,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,24,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.2
+,,25,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.2
+,,26,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.0
+,,,Sick/Tired,,7.0
+,,27,Hands And Fingers,,2.5
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,28,Hands And Fingers,,2.4
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.0
+,,29,Hands And Fingers,,2.4
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.2
+,,30,Hands And Fingers,,2.3
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.0
+,,31,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.8
+,4,1,Hands And Fingers,,2.4
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.0
+,,2,Hands And Fingers,,2.4
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.9
+,,3,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,4,Hands And Fingers,,2.2
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.9
+,,5,Hands And Fingers,,2.4
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.9
+,,6,Hands And Fingers,,2.7
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.1
+,,7,Hands And Fingers,,2.4
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.2
+,,8,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.9
+,,9,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.9
+,,10,Hands And Fingers,,2.0
+,,,Eyes (or around them),,2.9
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.7
+,,11,Hands And Fingers,,2.4
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.8
+,,12,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.8
+,,13,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.7
+,,14,Hands And Fingers,,2.4
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.0
+,,15,Hands And Fingers,,2.4
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.9
+,,16,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.7
+,,17,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,18,Hands And Fingers,,2.4
+,,,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.0
+,,19,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.9
+,,20,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.1
+,,21,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.0
+,,22,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,23,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.1
+,,24,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.1
+,,25,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.0
+,,26,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,27,Hands And Fingers,,2.0
+,,,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,,Shoulder Neck,,3.2
+,,28,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.0
+,,29,Eyes (or around them),,2.8
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.8
+,,30,Eyes (or around them),,2.8
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.9
+,5,1,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.0
+,,2,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.0
+,,3,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.0
+,,4,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.9
+,,5,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.9
+,,6,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.1
+,,7,Eyes (or around them),,3.0
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.1
+,,8,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,9,Eyes (or around them),,3.0
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.1
+,,10,Eyes (or around them),,3.0
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.0
+,,11,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,12,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,13,Eyes (or around them),,3.0
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.1
+,,14,Eyes (or around them),,3.0
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.0
+,,15,Eyes (or around them),,2.9
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.0
+,,16,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.9
+,,17,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.9
+,,18,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.0
+,,19,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.0
+,,20,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.0
+,,21,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,22,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,23,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.3
+,,24,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.2
+,,25,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,26,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.0
+,,27,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.0
+,,28,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.9
+,,29,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.9
+,,30,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,31,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.2
+,6,1,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.2
+,,2,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.2
+,,3,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,4,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,5,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.2
+,,6,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.2
+,,7,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.2
+,,8,Eyes (or around them),,3.2
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.2
+,,9,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,10,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.1
+,,11,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,12,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.2
+,,13,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.0
+,,14,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.0
+,,,Low back,,3.0
+,,15,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,,Low back,,3.0
+,,16,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.0
+,,,Low back,,3.0
+,,17,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.9
+,,18,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.9
+,,19,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.9
+,,20,Eyes (or around them),,3.2
+,,,Knees,,2.8
+,,,Forearm close to elbow,,2.9
+,,21,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.9
+,,22,Eyes (or around them),,3.2
+,,,Knees,,2.8
+,,,Forearm close to elbow,,2.8
+,,23,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,,Forearm close to elbow,,2.8
+,,24,Eyes (or around them),,3.3
+,,,Knees,,2.8
+,,,Forearm close to elbow,,2.8
+,,25,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.0
+,,26,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,27,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.2
+,,28,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.3
+,,29,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.3
+,,30,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.3
+,7,1,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.2
+,,2,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,,Gastrocnemius,,3.2
+,,3,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.1
+,,,Gastrocnemius,,3.2
+,,4,Eyes (or around them),,3.1
+,,,Knees,,3.3
+,,,Forearm close to elbow,,3.1
+,,,Gastrocnemius,,3.1
+,,5,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.9
+,,,Gastrocnemius,,2.9
+,,6,Eyes (or around them),,3.2
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.0
+,,7,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.0
+,,8,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.0
+,,9,Eyes (or around them),,3.0
+,,,Knees,,3.3
+,,,Forearm close to elbow,,3.0
+,,10,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.9
+,,11,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,12,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.2
+,,13,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.1
+,,14,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,15,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,16,Eyes (or around them),,3.2
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.2
+,,17,Eyes (or around them),,3.2
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.0
+,,18,Eyes (or around them),,3.2
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.9
+,,19,Eyes (or around them),,3.3
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.8
+,,20,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.6
+,,21,Eyes (or around them),,3.2
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.5
+,,22,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.8
+,,23,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.8
+,,,Sick/Tired,,2.5
+,,24,Eyes (or around them),,3.2
+,,,Knees,,2.8
+,,,Forearm close to elbow,,2.9
+,,,Sick/Tired,,2.9
+,,25,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.7
+,,,Sick/Tired,,2.5
+,,26,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.8
+,,,Sick/Tired,,2.5
+,,27,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.7
+,,,Sick/Tired,,2.0
+,,28,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.8
+,,,Sick/Tired,,1.8
+,,29,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.0
+,,,Sick/Tired,,1.8
+,,30,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.8
+,,,Sick/Tired,,1.8
+,,31,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.0
+,,,Sick/Tired,,1.7
+,8,1,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.9
+,,,Sick/Tired,,1.0
+,,2,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.9
+,,,Sick/Tired,,2.0
+,,3,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,,Sick/Tired,,1.0
+,,4,Eyes (or around them),,3.3
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.7
+,,,Sick/Tired,,3.3
+,,5,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.7
+,,,Sick/Tired,,3.2
+,,6,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.7
+,,,Sick/Tired,,3.2
+,,7,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.8
+,,,Sick/Tired,,2.4
+,,8,Eyes (or around them),,3.2
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.7
+,,,Sick/Tired,,1.8
+,,9,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.8
+,,,Sick/Tired,,1.9
+,,10,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.8
+,,,Sick/Tired,,2.0
+,,11,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.8
+,,,Sick/Tired,,2.1
+,,12,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.8
+,,,Sick/Tired,,2.4
+,,,Hands And Fingers,,2.0
+,,13,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,,Sick/Tired,,2.0
+,,,Hands And Fingers,,2.5
+,,14,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.1
+,,,Sick/Tired,,2.2
+,,,Hands And Fingers,,1.5
+,,15,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.2
+,,,Sick/Tired,,1.5
+,,,Hands And Fingers,,1.5
+,,16,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.0
+,,,Sick/Tired,,1.5
+,,17,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,,,Forearm close to elbow,,2.8
+,,,Sick/Tired,,2.5
+,,18,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.5
+,,,Sick/Tired,,2.8
+,,19,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,,,Forearm close to elbow,,2.8
+,,,Sick/Tired,,3.2
+,,20,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.8
+,,,Sick/Tired,,3.1
+,,21,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.8
+,,,Sick/Tired,,2.9
+,,22,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.9
+,,,Sick/Tired,,2.7
+,,23,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.9
+,,,Sick/Tired,,3.1
+,,24,Eyes (or around them),,2.8
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.9
+,,,Sick/Tired,,3.1
+,,25,Eyes (or around them),,2.8
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.9
+,,,Sick/Tired,,3.0
+,,26,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.0
+,,,Sick/Tired,,3.0
+,,27,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,,Sick/Tired,,2.9
+,,28,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,,Sick/Tired,,2.5
+,,29,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,,Sick/Tired,,2.4
+,,30,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.1
+,,,Sick/Tired,,1.8
+,,31,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.1
+,,,Sick/Tired,,1.5
+,9,1,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.9
+,,,Sick/Tired,,1.5
+,,2,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.9
+,,,Sick/Tired,,2.0
+,,3,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.9
+,,,Sick/Tired,,2.7
+,,4,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.9
+,,,Sick/Tired,,2.0
+,,5,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.7
+,,,Sick/Tired,,2.8
+,,6,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.9
+,,,Sick/Tired,,2.8
+,,7,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.9
+,,,Sick/Tired,,2.7
+,,8,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.9
+,,,Sick/Tired,,2.9
+,,9,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.1
+,,,Sick/Tired,,2.4
+,,10,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.1
+,,,Sick/Tired,,2.4
+,,11,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.9
+,,,Sick/Tired,,2.4
+,,12,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.8
+,,,Sick/Tired,,2.7
+,,13,Eyes (or around them),,3.2
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.8
+,,,Sick/Tired,,3.0
+,,14,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.8
+,,,Sick/Tired,,2.6
+,,,Hands And Fingers,,2.5
+,,15,Eyes (or around them),,3.2
+,,,Knees,,2.7
+,,,Forearm close to elbow,,2.8
+,,,Sick/Tired,,2.6
+,,16,Eyes (or around them),,3.2
+,,,Knees,,2.7
+,,,Forearm close to elbow,,2.7
+,,,Sick/Tired,,2.6
+,,,Hands And Fingers,,2.8
+,,17,Eyes (or around them),,3.3
+,,,Knees,,2.7
+,,,Forearm close to elbow,,2.3
+,,,Sick/Tired,,2.6
+,,,Hands And Fingers,,2.0
+,,18,Eyes (or around them),,3.2
+,,,Knees,,2.7
+,,,Forearm close to elbow,,2.7
+,,,Sick/Tired,,2.5
+,,,Hands And Fingers,,2.8
+,,19,Eyes (or around them),,3.2
+,,,Knees,,2.8
+,,,Forearm close to elbow,,2.4
+,,,Sick/Tired,,2.0
+,,,Hands And Fingers,,3.0
+,,20,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.8
+,,,Sick/Tired,,2.6
+,,,Hands And Fingers,,3.1
+,,21,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.8
+,,,Sick/Tired,,3.3
+,,,Hands And Fingers,,2.9
+,,22,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.8
+,,,Sick/Tired,,2.6
+,,,Hands And Fingers,,2.9
+,,23,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,,,Forearm close to elbow,,2.6
+,,,Sick/Tired,,2.6
+,,,Hands And Fingers,,3.0
+,,24,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.4
+,,,Sick/Tired,,2.1
+,,,Hands And Fingers,,2.9
+,,25,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.4
+,,,Sick/Tired,,2.3
+,,,Hands And Fingers,,2.0
+,,26,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,,Forearm close to elbow,,2.4
+,,,Sick/Tired,,2.6
+,,,Hands And Fingers,,3.1
+,,27,Eyes (or around them),,3.0
+,,,Knees,,2.7
+,,,Forearm close to elbow,,2.4
+,,,Sick/Tired,,3.4
+,,,Hands And Fingers,,3.1
+,,28,Eyes (or around them),,3.0
+,,,Knees,,2.7
+,,,Forearm close to elbow,,2.4
+,,,Sick/Tired,,2.2
+,,,Hands And Fingers,,2.9
+,,29,Eyes (or around them),,3.2
+,,,Knees,,2.7
+,,,Forearm close to elbow,,2.6
+,,,Sick/Tired,,2.3
+,,,Hands And Fingers,,2.9
+,,30,Eyes (or around them),,3.1
+,,,Knees,,2.7
+,,,Forearm close to elbow,,2.9
+,,,Sick/Tired,,2.1
+,,,Hands And Fingers,,3.1
+,10,1,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,,Forearm close to elbow,,2.7
+,,,Sick/Tired,,1.8
+,,,Hands And Fingers,,2.9
+,,,Bellow Ankle,,2.7
+,,2,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.7
+,,,Sick/Tired,,1.5
+,,,Hands And Fingers,,2.9
+,,,Bellow Ankle,,2.7
+,,3,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,,Forearm close to elbow,,2.4
+,,,Sick/Tired,,1.2
+,,,Hands And Fingers,,2.8
+,,,Bellow Ankle,,2.2
+,,4,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,,Forearm close to elbow,,2.4
+,,,Sick/Tired,,2.2
+,,,Hands And Fingers,,2.9
+,,,Bellow Ankle,,0.8
+,,5,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,,Forearm close to elbow,,2.6
+,,,Sick/Tired,,2.5
+,,,Hands And Fingers,,2.8
+,,6,Eyes (or around them),,3.2
+,,,Knees,,2.6
+,,,Forearm close to elbow,,2.2
+,,,Sick/Tired,,3.0
+,,,Hands And Fingers,,2.6
+,,7,Eyes (or around them),,3.1
+,,,Knees,,2.6
+,,,Forearm close to elbow,,2.2
+,,,Sick/Tired,,2.3
+,,,Hands And Fingers,,2.9
+,,8,Eyes (or around them),,3.2
+,,,Knees,,2.8
+,,,Forearm close to elbow,,2.0
+,,,Sick/Tired,,2.3
+,,,Hands And Fingers,,2.2
+,,9,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,,Forearm close to elbow,,2.0
+,,,Sick/Tired,,2.0
+,,,Hands And Fingers,,2.2
+,,10,Eyes (or around them),,3.2
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.4
+,,,Sick/Tired,,1.9
+,,,Hands And Fingers,,2.6
+,,11,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.0
+,,,Sick/Tired,,1.7
+,,,Hands And Fingers,,3.0
+,,12,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.8
+,,,Sick/Tired,,1.6
+,,,Hands And Fingers,,2.8
+,,13,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.0
+,,,Sick/Tired,,2.1
+,,,Hands And Fingers,,2.2
+,,14,Eyes (or around them),,3.1
+,,,Knees,,2.7
+,,,Forearm close to elbow,,2.0
+,,,Sick/Tired,,1.3
+,,,Hands And Fingers,,2.2
+,,15,Eyes (or around them),,3.2
+,,,Knees,,2.7
+,,,Forearm close to elbow,,2.2
+,,,Sick/Tired,,0.5
+,,,Hands And Fingers,,2.2
+,,16,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.7
+,,,Sick/Tired,,0.5
+,,,Hands And Fingers,,2.3
+,,17,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.0
+,,,Sick/Tired,,0.2
+,,,Hands And Fingers,,3.0
+,,18,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.0
+,,,Hands And Fingers,,2.9
+,,19,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.2
+,,,Hands And Fingers,,2.8
+,,20,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.1
+,,,Hands And Fingers,,2.8
+,,21,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.1
+,,,Hands And Fingers,,2.7
+,,22,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.1
+,,,Hands And Fingers,,2.5
+,,,Bellow Ankle,,2.4
+,,23,Eyes (or around them),,3.0
+,,,Knees,,2.7
+,,,Forearm close to elbow,,3.0
+,,,Hands And Fingers,,2.5
+,,,Bellow Ankle,,3.1
+,,24,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.8
+,,,Hands And Fingers,,2.2
+,,,Ankle,,2.9
+,,25,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.0
+,,,Hands And Fingers,,2.2
+,,26,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.8
+,,,Hands And Fingers,,2.2
+,,27,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.7
+,,,Hands And Fingers,,2.1
+,,28,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.9
+,,,Hands And Fingers,,2.1
+,,29,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.8
+,,,Hands And Fingers,,2.1
+,,30,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.8
+,,,Hands And Fingers,,2.1
+,,31,Eyes (or around them),,3.1
+,,,Knees,,2.8
+,,,Forearm close to elbow,,2.7
+,,,Hands And Fingers,,3.0
+,11,1,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.7
+,,,Hands And Fingers,,3.0
+,,2,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.0
+,,,Hands And Fingers,,2.9
+,,3,Eyes (or around them),,3.1
+,,,Knees,,2.7
+,,,Forearm close to elbow,,2.8
+,,,Hands And Fingers,,2.4
+,,4,Eyes (or around them),,3.1
+,,,Knees,,2.7
+,,,Forearm close to elbow,,2.7
+,,,Hands And Fingers,,2.3
+,,5,Eyes (or around them),,3.1
+,,,Knees,,2.6
+,,,Forearm close to elbow,,2.9
+,,,Hands And Fingers,,2.3
+,,6,Eyes (or around them),,3.0
+,,,Knees,,2.5
+,,,Forearm close to elbow,,3.2
+,,,Hands And Fingers,,2.3
+,,7,Eyes (or around them),,3.0
+,,,Knees,,2.5
+,,,Forearm close to elbow,,3.2
+,,,Hands And Fingers,,2.3
+,,8,Eyes (or around them),,3.0
+,,,Knees,,2.5
+,,,Forearm close to elbow,,3.1
+,,,Hands And Fingers,,2.3
+,,9,Eyes (or around them),,3.0
+,,,Knees,,2.5
+,,,Forearm close to elbow,,3.2
+,,,Hands And Fingers,,2.3
+,,10,Eyes (or around them),,3.0
+,,,Knees,,2.5
+,,,Forearm close to elbow,,3.2
+,,,Hands And Fingers,,2.3
+,,11,Eyes (or around them),,2.9
+,,,Knees,,2.5
+,,,Forearm close to elbow,,3.0
+,,,Hands And Fingers,,2.3
+,,12,Eyes (or around them),,2.9
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.0
+,,,Hands And Fingers,,2.3
+,,13,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.0
+,,,Hands And Fingers,,2.3
+,,14,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.0
+,,,Hands And Fingers,,2.3
+,,15,Eyes (or around them),,2.9
+,,,Knees,,3.1
+,,,Forearm close to elbow,,3.2
+,,,Hands And Fingers,,2.3
+,,16,Eyes (or around them),,2.9
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.9
+,,,Hands And Fingers,,2.3
+,,17,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.8
+,,,Hands And Fingers,,2.3
+,,18,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.0
+,,,Hands And Fingers,,2.3
+,,19,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.8
+,,,Hands And Fingers,,2.0
+,,20,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.9
+,,,Hands And Fingers,,2.0
+,,21,Eyes (or around them),,3.0
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.6
+,,,Hands And Fingers,,1.5
+,,22,Eyes (or around them),,3.1
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.6
+,,,Hands And Fingers,,1.5
+,,23,Eyes (or around them),,3.0
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.9
+,,,Hands And Fingers,,1.5
+,,24,Eyes (or around them),,2.9
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.2
+,,,Hands And Fingers,,1.5
+,,25,Eyes (or around them),,2.9
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,,Hands And Fingers,,1.5
+,,26,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.8
+,,,Hands And Fingers,,1.5
+,,27,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.0
+,,,Hands And Fingers,,1.5
+,,28,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.9
+,,,Hands And Fingers,,1.5
+,,29,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.7
+,,,Hands And Fingers,,1.5
+,,30,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.8
+,,,Hands And Fingers,,1.2
+,12,1,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.8
+,,,Hands And Fingers,,1.2
+,,2,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.0
+,,,Hands And Fingers,,1.2
+,,3,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.1
+,,4,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,,,Forearm close to elbow,,3.2
+,,5,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.3
+,,6,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.3
+,,7,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.3
+,,8,Eyes (or around them),,3.0
+,,,Knees,,3.2
+,,,Forearm close to elbow,,3.0
+,,9,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.8
+,,10,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,3.1
+,,11,Eyes (or around them),,2.9
+,,,Knees,,3.2
+,,,Forearm close to elbow,,2.8
+,,12,Eyes (or around them),,3.1
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.0
+,,13,Eyes (or around them),,3.0
+,,,Knees,,2.8
+,,,Forearm close to elbow,,2.8
+,,14,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,,Forearm close to elbow,,2.8
+,,,Hands And Fingers,,2.5
+,,15,Eyes (or around them),,3.0
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.9
+,,,Hands And Fingers,,1.5
+,,16,Eyes (or around them),,3.0
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.0
+,,,Hands And Fingers,,1.5
+,,17,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.9
+,,,Hands And Fingers,,2.2
+,,18,Eyes (or around them),,3.1
+,,,Knees,,3.1
+,,,Forearm close to elbow,,2.9
+,,,Hands And Fingers,,2.2
+,,19,Eyes (or around them),,3.1
+,,,Knees,,3.0
+,,,Forearm close to elbow,,2.8
+,,,Hands And Fingers,,2.2
+,,20,Eyes (or around them),,3.1
+,,,Knees,,2.7
+,,,Forearm close to elbow,,3.1
+,,,Hands And Fingers,,2.9
+,,21,Eyes (or around them),,3.1
+,,,Knees,,2.7
+,,,Forearm close to elbow,,3.3
+,,,Hands And Fingers,,3.1
+,,22,Eyes (or around them),,3.0
+,,,Knees,,2.7
+,,,Forearm close to elbow,,3.3
+,,,Hands And Fingers,,2.2
+,,23,Eyes (or around them),,2.9
+,,,Knees,,2.9
+,,,Forearm close to elbow,,3.1
+,,,Hands And Fingers,,3.1
