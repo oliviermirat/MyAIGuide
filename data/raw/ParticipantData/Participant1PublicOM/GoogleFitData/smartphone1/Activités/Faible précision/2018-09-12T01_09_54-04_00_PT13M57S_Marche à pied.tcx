@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+    xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+    xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2"
+    xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+    xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1"
+    xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
+    <Activities>
+        <Activity Sport="Other">
+            <Id>2018-09-12T05:09:54.408Z</Id>
+            <Notes>Walking</Notes>
+            <Lap StartTime="2018-09-12T05:09:54.408Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2018-09-12T05:09:54.408Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2018-09-12T05:11:49.239Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>3.3367819786071777</DistanceMeters>
+                        <Time>2018-09-12T05:14:05.944Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>28.696324825286865</DistanceMeters>
+                        <Time>2018-09-12T05:15:21.944Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>189.78502416610718</DistanceMeters>
+                        <Time>2018-09-12T05:23:52.262Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>189.78502416610718</DistanceMeters>
+                <TotalTimeSeconds>837.854</TotalTimeSeconds>
+                <Calories>65.4457015991211</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+    </Activities>
+    <Author xsi:type="Application_t">
+        <Name>Google Fit</Name>
+        <Build>
+            <Version>
+                <VersionMajor>0</VersionMajor>
+                <VersionMinor>0</VersionMinor>
+                <BuildMajor>0</BuildMajor>
+                <BuildMinor>0</BuildMinor>
+            </Version>
+        </Build>
+        <LangID>en</LangID>
+        <PartNumber>000-00000-00</PartNumber>
+    </Author>
+</TrainingCenterDatabase>

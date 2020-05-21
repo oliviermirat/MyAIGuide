@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+    xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+    xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2"
+    xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+    xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1"
+    xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
+    <Activities>
+        <Activity Sport="Other">
+            <Id>2018-11-05T19:25:56.538Z</Id>
+            <Notes>Walking</Notes>
+            <Lap StartTime="2018-11-05T19:25:56.538Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2018-11-05T19:25:56.538Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2018-11-05T19:26:47.565Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>48.71701431274414</DistanceMeters>
+                        <Time>2018-11-05T19:27:53.676Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>50.051727056503296</DistanceMeters>
+                        <Time>2018-11-05T19:36:56.538Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>50.051727056503296</DistanceMeters>
+                <TotalTimeSeconds>660.0</TotalTimeSeconds>
+                <Calories>51.5533332824707</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+    </Activities>
+    <Author xsi:type="Application_t">
+        <Name>Google Fit</Name>
+        <Build>
+            <Version>
+                <VersionMajor>0</VersionMajor>
+                <VersionMinor>0</VersionMinor>
+                <BuildMajor>0</BuildMajor>
+                <BuildMinor>0</BuildMinor>
+            </Version>
+        </Build>
+        <LangID>en</LangID>
+        <PartNumber>000-00000-00</PartNumber>
+    </Author>
+</TrainingCenterDatabase>

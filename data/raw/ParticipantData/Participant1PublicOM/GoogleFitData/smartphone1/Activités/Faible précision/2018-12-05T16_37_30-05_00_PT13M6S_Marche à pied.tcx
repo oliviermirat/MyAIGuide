@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+    xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+    xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2"
+    xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+    xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1"
+    xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
+    <Activities>
+        <Activity Sport="Other">
+            <Id>2018-12-05T21:37:30.491Z</Id>
+            <Notes>Walking</Notes>
+            <Lap StartTime="2018-12-05T21:37:30.491Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2018-12-05T21:37:30.491Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>16.016551971435547</DistanceMeters>
+                        <Time>2018-12-05T21:38:17.572Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>93.93024063110352</DistanceMeters>
+                        <Time>2018-12-05T21:39:27.659Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>96.59966611862183</DistanceMeters>
+                        <Time>2018-12-05T21:39:30.866Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>170.67622709274292</DistanceMeters>
+                        <Time>2018-12-05T21:42:17.692Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>174.1604425907135</DistanceMeters>
+                        <Time>2018-12-05T21:42:20.904Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>210.1976854801178</DistanceMeters>
+                        <Time>2018-12-05T21:43:20.865Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>245.56757378578186</DistanceMeters>
+                        <Time>2018-12-05T21:44:44.699Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>261.9215967655182</DistanceMeters>
+                        <Time>2018-12-05T21:44:56.895Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>341.9888880252838</DistanceMeters>
+                        <Time>2018-12-05T21:45:53.649Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>677.9935266971588</DistanceMeters>
+                        <Time>2018-12-05T21:47:31.842Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>839.9458887577057</DistanceMeters>
+                        <Time>2018-12-05T21:50:36.858Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>839.9458887577057</DistanceMeters>
+                <TotalTimeSeconds>786.367</TotalTimeSeconds>
+                <Calories>61.42399597167969</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+    </Activities>
+    <Author xsi:type="Application_t">
+        <Name>Google Fit</Name>
+        <Build>
+            <Version>
+                <VersionMajor>0</VersionMajor>
+                <VersionMinor>0</VersionMinor>
+                <BuildMajor>0</BuildMajor>
+                <BuildMinor>0</BuildMinor>
+            </Version>
+        </Build>
+        <LangID>en</LangID>
+        <PartNumber>000-00000-00</PartNumber>
+    </Author>
+</TrainingCenterDatabase>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+    xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+    xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2"
+    xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+    xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1"
+    xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
+    <Activities>
+        <Activity Sport="Other">
+            <Id>2016-05-05T15:34:00.797Z</Id>
+            <Notes>Walking</Notes>
+            <Lap StartTime="2016-05-05T15:34:00.797Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2016-05-05T15:34:00.797Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>17.19870376586914</DistanceMeters>
+                        <Time>2016-05-05T15:34:23.312Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>17.19870376586914</DistanceMeters>
+                <TotalTimeSeconds>22.515</TotalTimeSeconds>
+                <Calories>0.0</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+        <Activity Sport="Other">
+            <Id>2016-05-05T15:34:23.312Z</Id>
+            <Notes>Walking</Notes>
+            <Lap StartTime="2016-05-05T15:34:23.312Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2016-05-05T15:34:23.312Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>227.80130004882812</DistanceMeters>
+                        <Time>2016-05-05T15:39:21.529Z</Time>
+                        <Position>
+                            <LatitudeDegrees>47.44401550292969</LatitudeDegrees>
+                            <LongitudeDegrees>6.376920700073242</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>492.0</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>227.80130004882812</DistanceMeters>
+                        <Time>2016-05-05T15:39:21.529Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>227.80130004882812</DistanceMeters>
+                <TotalTimeSeconds>298.217</TotalTimeSeconds>
+                <Calories>0.0</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+        <Activity Sport="Running">
+            <Id>2016-05-05T15:40:01.781Z</Id>
+            <Notes>Running</Notes>
+            <Lap StartTime="2016-05-05T15:40:01.781Z">
+                <Track>
+                    <Trackpoint>
+                        <Time>2016-05-05T15:40:01.781Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <Time>2016-05-05T15:42:20.785Z</Time>
+                    </Trackpoint>
+                </Track>
+                <TotalTimeSeconds>139.004</TotalTimeSeconds>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+        <Activity Sport="Other">
+            <Id>2016-05-05T15:45:35.437Z</Id>
+            <Notes>Walking</Notes>
+            <Lap StartTime="2016-05-05T15:45:35.437Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2016-05-05T15:45:35.437Z</Time>
+                        <Position>
+                            <LatitudeDegrees>47.44270324707031</LatitudeDegrees>
+                            <LongitudeDegrees>6.374962329864502</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>407.0</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2016-05-05T15:45:35.437Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>0.0</DistanceMeters>
+                <TotalTimeSeconds>0.0</TotalTimeSeconds>
+                <Calories>0.0</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+    </Activities>
+    <Author xsi:type="Application_t">
+        <Name>Google Fit</Name>
+        <Build>
+            <Version>
+                <VersionMajor>0</VersionMajor>
+                <VersionMinor>0</VersionMinor>
+                <BuildMajor>0</BuildMajor>
+                <BuildMinor>0</BuildMinor>
+            </Version>
+        </Build>
+        <LangID>en</LangID>
+        <PartNumber>000-00000-00</PartNumber>
+    </Author>
+</TrainingCenterDatabase>
