@@ -14,23 +14,23 @@ From personal experience it seems very likely that the intensity of symptoms and
 
 <H3 CLASS="western"> "Stress" applied on the knee vs knee pain:</H3>
 
-![Alt text](https://github.com/oliviermirat/OptimizeUs/blob/master/firstExperimentsAndCode/images/kneeStressVsPain.png?raw=true "Per Day")
+![Alt text](./../reports/figures/kneeStressVsPain.png?raw=true "Per Day")
 This graph was generated with the script 3_analyzeDataKnee.py, it shows the daily calculation of the stress applied on the knees and of the knee pain. The calculation of the stress applied on the knee is based on the number of steps taken (coming from Fitbit) and of the amount of knee pain in previous days. The calculation of the stress applied on the knees needs to be improved to use the current variables better and to take into account more variables (coming from other trackers for instance).
 
 <H3 CLASS="western"> Simpler Visualizations:</H3>
 
 The graphs below were generated with the scripts 2_analyzeData*.py. They show the pain for different body parts as well as different activities that may be related to the pain generation for those body parts.
 
-![Alt text](https://github.com/oliviermirat/OptimizeUs/blob/master/firstExperimentsAndCode/images/elbow.png?raw=true "Per Day")
+![Alt text](./../reports/figures/elbow.png?raw=true "Per Day")
 Possible correlation between the number of clicks made on a computer (whatPulseT), various physical activities (surfing, swimming, climbing) and elbow pain.
 
-![Alt text](https://github.com/oliviermirat/OptimizeUs/blob/master/firstExperimentsAndCode/images/foreheadEyes.png?raw=true "Per Day")
+![Alt text](./../reports/figures/foreheadEyes.png?raw=true "Per Day")
 Possible correlation between the time spent on the computer (manicTimeT), the time spent doing various activities "stressing" the eyes and forehead and eyes pain.
 
-![Alt text](https://github.com/oliviermirat/OptimizeUs/blob/master/firstExperimentsAndCode/images/handsFingers.png?raw=true "Per Day")
+![Alt text](./../reports/figures/handsFingers.png?raw=true "Per Day")
 Possible correlation between the number of clicks made on a computer (whatPulseT), various sports (surfing, swimming, climbing) and hands and fingers pain.
 
-![Alt text](https://github.com/oliviermirat/OptimizeUs/blob/master/firstExperimentsAndCode/images/knees.png?raw=true "Per Day")
+![Alt text](./../reports/figures/knees.png?raw=true "Per Day")
 Possible correlation between the number of steps taken, denivalation and knee pain.
 
-For more details, you can also look at the <a href='OM_old2017experiments/README.md' target='_blank'>previous analysis performed for 2016 and 2017</a>
+For more details, you can also look at the <a href='./OM_old2017experiments/README.md' target='_blank'>previous analysis performed for 2016 and 2017</a>
