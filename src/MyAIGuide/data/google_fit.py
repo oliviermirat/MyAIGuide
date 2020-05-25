@@ -33,7 +33,7 @@ class GoogleFitData(object):
         elif self.path.suffix != '.json':
             raise ValueError('Provided path should lead to a .json file.')
 
-    # @cached_property
+    @property
     def raw_json(self) -> dict:
         """Retrieves the object from the json file provided in path_to_json.
 
@@ -76,7 +76,7 @@ class GoogleFitData(object):
 
         return intervals
 
-    # @cached_property
+    @property
     def df(self) -> pd.DataFrame:
         """Converts the processed json to a `pd.DataFrame`.
 
