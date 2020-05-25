@@ -44,6 +44,9 @@ data = googleFitGatheredFromWebExport(filename1, filename2, data)
 filename = "../data/raw/ParticipantData/Participant1PublicOM/pain.csv"
 data = storePainIntensitiesForParticipant1(filename, data)
 
+# Prints the dataframe
+print(data)
+
 # Saving the dataframe in a txt
 output = open("../data/preprocessed/preprocessedDataParticipant1.txt", "wb")
 pickle.dump(data, output)
