@@ -8,6 +8,15 @@ import re
 import numpy as np
 import pandas as pd
 
+import sys
+sys.path.insert(1, '../src/MyAIGuide/data')
+
+from storeBasisPeakInDataFrame import storeBasisPeakInDataFrame
+from fitbitDataGatheredFromWebExport import fitbitDataGatheredFromWebExport
+from movesDataGatheredFromWebExport import movesDataGatheredFromWebExport
+from googleFitGatheredFromWebExport import googleFitGatheredFromWebExport
+from storePainIntensitiesForParticipant1 import storePainIntensitiesForParticipant1
+
 # Creation of the dataframe where everything will be stored
 i = pd.date_range("2015-11-19", periods=1550, freq="1D")
 sLength = len(i)
@@ -53,155 +62,36 @@ d = {
 data = pd.DataFrame(data=d, index=i)
 
 # Storing BasisPeak data in dataframe
-if (
-    True
-):  # This step takes a long time, put to False if you want to skip it, and to True otherwise
-    filename = "../MonsterMizerOpenData/Participant1PublicOM/bodymetrics.csv"
-    with open(filename, newline="") as csvfile:
-        spamreader = csv.reader(csvfile)
-        count = 0
-        for row in spamreader:
-            count = count + 1
-            if count > 2 and len(row):
-                date = row[0][0:10]
-                if len(row[5]):
-                    data.loc[date, "basisPeakSteps"] = data.loc[
-                        date, "basisPeakSteps"
-                    ] + int(row[5])
-                if count % 10000 == 0:
-                    print(
-                        count, "lines done out of the 532 330 needed for the basis peak"
-                    )
+if (False):  # This step takes a long time, put to False if you want to skip it, and to True otherwise
+    filename = "../data/raw/ParticipantData/Participant1PublicOM/bodymetrics.csv"
+    data = storeBasisPeakInDataFrame(filename, data)
 
 # Storing fitbit data in dataframe
-directory = os.fsencode(
-    "../MonsterMizerOpenData/Participant1PublicOM/dailyFitBitPerMonth/"
-)
-for file in os.listdir(directory):
-    name = os.fsdecode(file)
-    if name.endswith(".csv"):
-        filename = (
-            "../MonsterMizerOpenData/Participant1PublicOM/dailyFitBitPerMonth/" + name
-        )
-        with open(filename, newline="") as csvfile:
-            spamreader = csv.reader(csvfile)
-            count = 0
-            for row in spamreader:
-                count = count + 1
-                if count > 2 and len(row):
-                    day = row[0][0:2]
-                    month = row[0][3:5]
-                    year = row[0][6:10]
-                    date = year + "-" + month + "-" + day
-                    data.loc[date, "steps"] = int(row[2].replace(",", ""))
-                    data.loc[date, "denivelation"] = int(row[4])
+fname = "../data/raw/ParticipantData/Participant1PublicOM/dailyFitBitPerMonth/"
+data = fitbitDataGatheredFromWebExport(fname, data)
 
 # Storing moves data in dataframe
-directory = os.fsencode(
-    "../MonsterMizerOpenData/Participant1PublicOM/MovesAppData/yearly/summary/"
-)
-for file in os.listdir(directory):
-    name = os.fsdecode(file)
-    if name.endswith(".csv"):
-        filename = (
-            "../MonsterMizerOpenData/Participant1PublicOM/MovesAppData/yearly/summary/"
-            + name
-        )
-        with open(filename, newline="") as csvfile:
-            spamreader = csv.reader(csvfile)
-            count = 0
-            for row in spamreader:
-                count = count + 1
-                if count > 1 and len(row):
-                    dateMoves = re.split("/", row[0])
-                    month = dateMoves[0]
-                    day = dateMoves[1]
-                    year = dateMoves[2]
-                    if int(day) < 10:
-                        day = "0" + str(day)
-                    if int(month) < 10:
-                        month = "0" + str(month)
-                    year = "20" + year
-                    date = year + "-" + month + "-" + day
-                    if row[1] == "walking":
-                        data.loc[date, "movesSteps"] = int(row[5])
+fname = "../data/raw/ParticipantData/Participant1PublicOM/MovesAppData/yearly/summary/"
+data = movesDataGatheredFromWebExport(fname, data)
 
 # Storing google fit data in dataframe
-filename = "../MonsterMizerOpenData/Participant1PublicOM/GoogleFitData/smartphone1/dailyAggregations/dailySummaries.csv"
-with open(filename, newline="") as csvfile:
-    spamreader = csv.reader(csvfile)
-    count = 0
-    for row in spamreader:
-        count = count + 1
-        if count > 1 and len(row):
-            dateMoves = re.split("-", row[0])
-            year = dateMoves[0]
-            month = dateMoves[1]
-            day = dateMoves[2]
-            date = year + "-" + month + "-" + day
-            if len(row[13]):
-                data.loc[date, "googlefitSteps"] = int(row[13])
-            else:
-                data.loc[date, "googlefitSteps"] = 0
-
-filename = "../MonsterMizerOpenData/Participant1PublicOM/GoogleFitData/smartphone2/dailyAggregations/dailySummaries.csv"
-with open(filename, newline="") as csvfile:
-    spamreader = csv.reader(csvfile)
-    count = 0
-    for row in spamreader:
-        count = count + 1
-        if count > 1 and len(row):
-            dateMoves = re.split("-", row[0])
-            year = dateMoves[0]
-            month = dateMoves[1]
-            day = dateMoves[2]
-            date = year + "-" + month + "-" + day
-            if len(row[10]):
-                data.loc[date, "googlefitSteps"] = int(row[10])
-            else:
-                data.loc[date, "googlefitSteps"] = 0
-
+filename1 = "../data/raw/ParticipantData/Participant1PublicOM/GoogleFitData/smartphone1/dailyAggregations/dailySummaries.csv"
+filename2 = "../data/raw/ParticipantData/Participant1PublicOM/GoogleFitData/smartphone2/dailyAggregations/dailySummaries.csv"
+data = googleFitGatheredFromWebExport(filename1, filename2, data)
 
 # Storing pain intensities in dataframe
-filename = "../MonsterMizerOpenData/Participant1PublicOM/pain.csv"
-curYear = ""
-curMonth = ""
-curDay = ""
-with open(filename, newline="") as csvfile:
-    spamreader = csv.reader(csvfile)
-    count = 0
-    for row in spamreader:
-        count = count + 1
-        if count > 2 and len(row):
-            if len(row[0]):
-                curYear = row[0]
-            if len(row[1]):
-                curMonth = row[1]
-                if len(curMonth) == 1:
-                    curMonth = "0" + curMonth
-            if len(row[2]):
-                curDay = row[2]
-                if len(curDay) == 1:
-                    curDay = "0" + curDay
-            date = curYear + "-" + curMonth + "-" + curDay
-            dict = {
-                "Knees": "kneePain",
-                "Hands And Fingers": "handsAndFingerPain",
-                "Forehead and Eyes": "foreheadAndEyesPain",
-                "Forearm close to elbow": "forearmElbowPain",
-                "Eyes (or around them)": "aroundEyesPain",
-                "Shoulder Neck": "shoulderNeckPain",
-            }
-            if row[3] in dict:
-                data.loc[date, dict[row[3]]] = float(row[5])
+filename = "../data/raw/ParticipantData/Participant1PublicOM/pain.csv"
+data = storePainIntensitiesForParticipant1(filename, data)
 
 # Storing whatPulse data in dataFrame
-for num in ["1", "2", "3"]:
+fname = "../data/raw/ParticipantData/Participant1PublicOM/computerUsage/computer"
+numberlist = ["1", "2", "3"]
+for num in numberlist:
     nbFiles = len(
         [
             name
             for name in os.listdir(
-                "../MonsterMizerOpenData/Participant1PublicOM/computerUsage/computer"
+                fname
                 + num
                 + "/whatPulse/"
             )
@@ -212,7 +102,7 @@ for num in ["1", "2", "3"]:
     )
     for i in range(1, nbFiles + 1):
         filename = (
-            "../MonsterMizerOpenData/Participant1PublicOM/computerUsage/computer"
+            fname
             + num
             + "/whatPulse/whatpulse-input-history"
             + str(i)
@@ -236,9 +126,11 @@ data["whatPulseClicksT"] = (
 data["whatPulseT"] = data["whatPulseKeysT"] + data["whatPulseClicksT"]
 
 # Storing Manic Time data in dataFrame
-for num in ["1", "2", "3"]:
+fname = "../data/raw/ParticipantData/Participant1PublicOM/computerUsage/computer"
+numberlist = ["1", "2", "3"]
+for num in numberlist:
     filename = (
-        "../MonsterMizerOpenData/Participant1PublicOM/computerUsage/computer"
+        fname
         + num
         + "/manicTime/manicTime.csv"
     )
@@ -270,7 +162,7 @@ for num in ["1", "2", "3"]:
 data["manicTimeT"] = data["manicTimeC1"] + data["manicTimeC2"] + data["manicTimeC3"]
 
 # Storing Sport data in dataframe
-filename = "../MonsterMizerOpenData/Participant1PublicOM/sport.csv"
+filename = "../data/raw/ParticipantData/Participant1PublicOM/sport.csv"
 curYear = ""
 curMonth = ""
 curDay = ""
@@ -306,7 +198,7 @@ with open(filename, newline="") as csvfile:
                 data.loc[date, dict[row[3]]] = 1
 
 # Storing Eye related activity hours in dataframe
-filename = "../MonsterMizerOpenData/Participant1PublicOM/eyeRelatedActivities.csv"
+filename = "../data/raw/ParticipantData/Participant1PublicOM/eyeRelatedActivities.csv"
 curYear = ""
 curMonth = ""
 curDay = ""
