@@ -24,7 +24,7 @@ from pandas.io.json import json_normalize
 
 #%% Function to convert a single fitbit.json file to dataframe
 
-def get_fitbit(file):
+def get_fitbit_dataframe(file):
     
     """This function takes as input a fitbit.json file and 
     returns the data as a pandas dataframe"""
@@ -43,10 +43,11 @@ def get_fitbit(file):
 
 #%% Function to get all fitbit.json files in one dataframe
     
-def get_all_fitbit():
+def get_all_fitbit_data_for_participants():
     
     """This function loops over all datafolders and returns 
-    the fitbit.json files as one single dataframe """
+    the fitbit.json files as one single dataframe with an extra column
+    to indicate for the participant number"""
 
     # Path to data directory
     DATA_DIR = '../data/raw/ParticipantData/'
