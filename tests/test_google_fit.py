@@ -1,4 +1,4 @@
-from MyAIGuide.data.google_fit import GoogleFitData, DATA_DIR
+from MyAIGuide.data import GoogleFitData, DATA_DIR, get_google_fit_steps
 
 TEST_PARTICIPANT_JSON = DATA_DIR / 'Participant2Anonymized' / 'GoogleFitParticipant2.json'
 instance = GoogleFitData(TEST_PARTICIPANT_JSON)
@@ -22,7 +22,17 @@ def test_df():
     df = instance.df
 
     # check if we have step data as columns
-    assert list(df.columns) == ['steps']
+    assert list(df.columns) == ['GoogleFitSteps']
+
+    # indexed by days
+    assert df.index.dtype == 'datetime64[ns]'
+
+
+def test_get_google_fit_steps():
+    df = get_google_fit_steps(TEST_PARTICIPANT_JSON)
+
+    # check if we have step data as columns
+    assert list(df.columns) == ['GoogleFitSteps']
 
     # indexed by days
     assert df.index.dtype == 'datetime64[ns]'

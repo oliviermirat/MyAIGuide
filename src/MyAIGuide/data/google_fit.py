@@ -18,6 +18,13 @@ class GoogleFitData(object):
 
     Args:
         path_to_json (:obj:`Path`, `str`): Path to json data dump.
+
+    Properties:
+        - raw_json (dict): raw json extracted from the json file.
+        - df (pd.Dataframe): Dataframe of steps per day.
+
+    Methods:
+        - _process_json: Converts raw json into an easy to use dict.
     """
     def __init__(self, path_to_json: Union[Path, str]):
         self.path = Path(path_to_json)
@@ -90,9 +97,16 @@ class GoogleFitData(object):
         # resample so that we have steps per day
         df = df.set_index('start_time')
         df = df.resample('D').sum()
-        df = df.rename(columns={'start_time': 'day'})
+        df = df.rename(columns={'start_time': 'day', 'steps': 'GoogleFitSteps'})
 
         return df
 
 
+def get_google_fit_steps(path_to_json: Union[Path, str]) -> pd.DataFrame:
+
+    # initiate interface to file
+    json_interface = GoogleFitData(path_to_json)
+
+    # return the extracted dataframe
+    return json_interface.df
 
