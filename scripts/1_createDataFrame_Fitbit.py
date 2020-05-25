@@ -6,14 +6,6 @@ Created on Mon May 25 18:45:01 2020
 @author: anniewong
 """
 
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Mon May 25 10:21:46 2020
-
-@author: anniewong
-"""
-
 #%% Import libraries
 import os
 import logging
