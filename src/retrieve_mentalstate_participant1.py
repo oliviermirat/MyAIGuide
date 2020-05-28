@@ -31,14 +31,14 @@ def retrieve_mentalstate_participant1(fname, data):
               date = Year + "-" + Month + "-" + Day
 
               dict = {
-                  "Really Good": "reallyGood",
-		  "Good": "good",
-		  "Fine": "fine",
-                  "Variable but mostly good": "variableButMostlyGood",
-		  "Ok, but also not really that great": "okButAlsoNotReallyThatGreat",
-                  "Variable but mostly not great": "variableButMostlyNotGreat",
-                  "Tired": "tired",
-		  "Depressed": "depressed",  
+                  "Really Good": 8,
+		  "Good": 7,
+		  "Fine": 6,
+                  "Variable but mostly good": 5,
+		  "Ok, but also not really that great": 4,
+                  "Variable but mostly not great": 3,
+                  "Tired": 2,
+		  "Depressed": 1,  
               }
               if i[3] in dict:
                   data.loc[date, dict[i[3]]] = 1
