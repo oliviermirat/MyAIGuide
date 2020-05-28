@@ -20,7 +20,6 @@ def test__process_json():
 
 def test_df():
     df = instance.df
-
     # check if we have step data as columns
     assert list(df.columns) == ['GoogleFitSteps']
 

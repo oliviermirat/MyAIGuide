@@ -97,13 +97,27 @@ class GoogleFitData(object):
         # resample so that we have steps per day
         df = df.set_index('start_time')
         df = df.resample('D').sum()
-        df = df.rename(columns={'start_time': 'day', 'steps': 'GoogleFitSteps'})
+        df = df.rename(columns={'start_time': 'dateTime', 'steps': 'GoogleFitSteps'})
 
         return df
 
 
-def get_google_fit_steps(path_to_json: Union[Path, str]) -> pd.DataFrame:
+def get_google_fit_steps(fname: Union[Path, str], data: pd.DataFrame) -> pd.DataFrame:
+    """
+    This function updates a dataframe with the JSON data
+    gathered from the GoogleFit API.
 
+    Params:
+        fname: path to datafolder for participant X
+        data:  pandas dataframe to store data
+    """
+
+    directory = Path(fname)
+
+    # find json file
+    for child in directory.iterdir():
+        if child.suffix == ".json":
+            print(child)
     # initiate interface to file
     json_interface = GoogleFitData(path_to_json)
 
