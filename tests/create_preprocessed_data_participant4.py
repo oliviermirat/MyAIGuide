@@ -11,9 +11,10 @@ import pickle
 import numpy as np
 import pandas as pd
 import sys
+from MyAIGuide.data.fitbitDataGatheredFromAPI import fitbitDataGatheredFromAPI
+
 sys.path.insert(1, '../src/MyAIGuide/data')
 
-from fitbitDataGatheredFromAPI import fitbitDataGatheredFromAPI
 
 #%% Creation of the dataframe where everything will be stored
 

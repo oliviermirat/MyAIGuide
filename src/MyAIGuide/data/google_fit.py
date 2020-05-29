@@ -6,11 +6,10 @@ __license__ = 'mit'
 
 from pathlib import Path
 from typing import Union, List
-# from functools import cached_property
 import pandas as pd
 import json
 
-DATA_DIR = Path('../data/raw/ParticipantData')
+DATA_DIR = Path('./data/raw/ParticipantData')
 
 
 class GoogleFitData(object):
@@ -95,18 +94,39 @@ class GoogleFitData(object):
         df['start_time'] = pd.to_datetime(df['start_time'], unit="ns")
 
         # resample so that we have steps per day
-        df = df.set_index('start_time')
+        df = df.rename(columns={'start_time': 'dateTime', 'steps': 'googlefitSteps'})
+        df = df.set_index('dateTime')
         df = df.resample('D').sum()
-        df = df.rename(columns={'start_time': 'day', 'steps': 'GoogleFitSteps'})
 
         return df
 
 
-def get_google_fit_steps(path_to_json: Union[Path, str]) -> pd.DataFrame:
+def get_google_fit_steps(fname: Union[Path, str], data: pd.DataFrame) -> pd.DataFrame:
+    """
+    This function updates a dataframe with the JSON data
+    gathered from the GoogleFit API.
+    It updates the values in the `googlefitSteps` column.
+
+    Params:
+        fname: path to data folder for participant X
+        data:  pandas data frame to store data
+    """
+
+    directory = Path(fname)
+
+    # find json file with GoogleFit data
+    for child in directory.iterdir():
+        if child.suffix == ".json" and "GoogleFit" in child.stem:
+            path_to_json = child
 
     # initiate interface to file
     json_interface = GoogleFitData(path_to_json)
 
     # return the extracted dataframe
-    return json_interface.df
+    new_data = json_interface.df
+
+    # update data
+    data.update(new_data)
+
+    return data
 
