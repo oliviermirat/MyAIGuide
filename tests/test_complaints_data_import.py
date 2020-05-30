@@ -10,7 +10,7 @@ from pathlib import Path
 import pandas as pd
 
 
-fname = '../data/raw/ParticipantData/Participant8Anonymized'
+fname = 'data/raw/ParticipantData/Participant8Anonymized'
 # create empty (full of 0s) test dataframe
 i = pd.date_range('2015-11-19', periods=1550, freq='1D')
 sLength = len(i)
