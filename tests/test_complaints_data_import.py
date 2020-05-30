@@ -62,4 +62,3 @@ def test_complaintsData():
 
     # indexed by days
     assert df.index.dtype == 'datetime64[ns]'
-
