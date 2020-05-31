@@ -5,18 +5,12 @@ import pickle
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from dataFrameUtilities import (
-    addInsultIntensityColumns,
-    getInsultAboveThreshold,
-    getPainAboveThreshold,
-    selectColumns,
-    selectTime,
-)
+from dataFrameUtilities import addInsultIntensityColumns, getInsultAboveThreshold, getPainAboveThreshold, selectColumns,selectTime
 from sklearn.preprocessing import MinMaxScaler
 
 # Getting data
 
-input = open("data.txt", "rb")
+input = open("../data/preprocessed/preprocessedDataParticipant1.txt", "rb")
 data = pickle.load(input)
 input.close()
 
@@ -64,11 +58,7 @@ betterMaxInsult = envMaxInsultDiff.copy()
 scaler = MinMaxScaler()
 betterMaxInsultArray = scaler.fit_transform(betterMaxInsult)
 for i in range(0, len(betterMaxInsult)):
-    betterMaxInsult["stepsMaxInsultDiff"][i] = (
-        betterMaxInsultArray[i]
-        + envBrut["steps"][i]
-        + kneePainRollingMean["kneePainInsultIntensity"][i]
-    )
+    betterMaxInsult["stepsMaxInsultDiff"][i] = betterMaxInsultArray[i] + envBrut["steps"][i] + kneePainRollingMean["kneePainInsultIntensity"][i]
 
 
 # Finding time points where knee pain and knee stress are above a certain threshold
@@ -76,36 +66,24 @@ for i in range(0, len(betterMaxInsult)):
 painAboveThresh = getPainAboveThreshold(kneePain, "kneePain", 3.3)
 painAboveThresh = selectColumns(painAboveThresh, ["kneePainThreshed"])
 
-stepsMaxInsultDiffThresh = getInsultAboveThreshold(
-    betterMaxInsult, "stepsMaxInsultDiff", thres2
-)
-stepsMaxInsultDiffThresh = selectColumns(
-    stepsMaxInsultDiffThresh, ["stepsMaxInsultDiffThreshed"]
-)
+stepsMaxInsultDiffThresh = getInsultAboveThreshold(betterMaxInsult, "stepsMaxInsultDiff", thres2)
+stepsMaxInsultDiffThresh = selectColumns(stepsMaxInsultDiffThresh, ["stepsMaxInsultDiffThreshed"])
 
 
 # Plotting results
 
 fig, axes = plt.subplots(nrows=3, ncols=1)
 
-selectColumns(kneePain, ["kneePain"]).rename(columns={"kneePain": "knee pain"}).plot(
-    ax=axes[0]
-)
+selectColumns(kneePain, ["kneePain"]).rename(columns={"kneePain": "knee pain"}).plot(ax=axes[0])
 thres.rename(columns={"kneePain": "pain threshold"}).plot(ax=axes[0])
 
-selectColumns(betterMaxInsult, ["stepsMaxInsultDiff"]).rename(
-    columns={"stepsMaxInsultDiff": "knee stress"}
-).plot(ax=axes[1])
+selectColumns(betterMaxInsult, ["stepsMaxInsultDiff"]).rename(columns={"stepsMaxInsultDiff": "knee stress"}).plot(ax=axes[1])
 thres2.rename(columns={"kneePain": "knee stress threshold"}).plot(ax=axes[1])
 
-painAboveThresh.rename(
-    columns={"kneePainThreshed": "knee pain is above threshold"}
-).plot(ax=axes[2])
+painAboveThresh.rename(columns={"kneePainThreshed": "knee pain is above threshold"}).plot(ax=axes[2])
 stepsMaxInsultDiffThresh = 0.95 * stepsMaxInsultDiffThresh
-stepsMaxInsultDiffThresh.rename(
-    columns={"stepsMaxInsultDiffThreshed": "knee stress is above threshold"}
-).plot(ax=axes[2])
+stepsMaxInsultDiffThresh.rename(columns={"stepsMaxInsultDiffThreshed": "knee stress is above threshold"}).plot(ax=axes[2])
 
 leg = plt.legend(loc="best")
-# leg.draggable()
+leg.set_draggable(True)
 plt.show()

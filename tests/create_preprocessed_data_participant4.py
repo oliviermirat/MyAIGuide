@@ -11,10 +11,15 @@ import pickle
 import numpy as np
 import pandas as pd
 import sys
+from MyAIGuide.data.fitbitDataGatheredFromAPI import fitbitDataGatheredFromAPI
+
 sys.path.insert(1, '../src/MyAIGuide/data')
 
+<<<<<<< HEAD:tests/test_create_preprocessed_data_participant4.py
 from fitbitDataGatheredFromAPI import fitbitDataGatheredFromAPI
 from storePainIntensitiesForParticipants2to9 import storePainIntensitiesForParticipants2to9
+=======
+>>>>>>> master:tests/create_preprocessed_data_participant4.py
 
  
 #%% Creation of the dataframe where everything will be stored

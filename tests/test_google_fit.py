@@ -1,38 +1,30 @@
+from unittest import TestCase
+
 from MyAIGuide.data import GoogleFitData, DATA_DIR, get_google_fit_steps
+import pandas as pd
+import numpy as np
 
-TEST_PARTICIPANT_JSON = DATA_DIR / 'Participant2Anonymized' / 'GoogleFitParticipant2.json'
-instance = GoogleFitData(TEST_PARTICIPANT_JSON)
+TEST_PARTICIPANT = DATA_DIR / 'Participant2Anonymized'
 
-
-def test_raw_json():
-    raw_json = instance._raw_json()
-    assert TEST_PARTICIPANT_JSON.exists()
-    assert 'bucket' in raw_json
-
-
-def test__process_json():
-    processed_json = instance._process_json()
-    first_int = processed_json[0]
-
-    assert isinstance(processed_json, list)
-    assert list(first_int.keys()) == ['start_time', 'end_time', 'steps']
-
-
-def test_df():
-    df = instance.df
-
-    # check if we have step data as columns
-    assert list(df.columns) == ['GoogleFitSteps']
-
-    # indexed by days
-    assert df.index.dtype == 'datetime64[ns]'
+i = pd.date_range("2015-11-19", periods=1550, freq="1D")
+sLength = len(i)
+empty = pd.Series(np.zeros(sLength)).values
+d = {
+    "steps": empty,
+    "denivelation": empty,
+    "kneePain": empty,
+    "handsAndFingerPain": empty,
+    "foreheadAndEyesPain": empty,
+    "forearmElbowPain": empty,
+    "aroundEyesPain": empty,
+    "shoulderNeckPain": empty,
+    "movesSteps": empty,
+    "googlefitSteps": empty,
+}
+data = pd.DataFrame(data=d, index=i)
 
 
 def test_get_google_fit_steps():
-    df = get_google_fit_steps(TEST_PARTICIPANT_JSON)
-
-    # check if we have step data as columns
-    assert list(df.columns) == ['GoogleFitSteps']
-
-    # indexed by days
-    assert df.index.dtype == 'datetime64[ns]'
+    new_data = get_google_fit_steps(fname=TEST_PARTICIPANT, data=data)
+    assert isinstance(new_data, pd.DataFrame)
+    assert sum(new_data["googlefitSteps"]) > 0

@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 from dataFrameUtilities import addRollingMeanColumns, selectColumns, selectTime
 
-input = open("data.txt", "rb")
+input = open("../data/preprocessed/preprocessedDataParticipant1.txt", "rb")
 data = pickle.load(input)
 input.close()
 
@@ -26,5 +26,6 @@ pain.plot(ax=axes[0])
 envBrut.plot(ax=axes[1])
 envRollingMean.plot(ax=axes[2])
 
-plt.legend(loc="best")
+leg = plt.legend(loc="best")
+leg.set_draggable(True)
 plt.show()

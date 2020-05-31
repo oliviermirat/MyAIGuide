@@ -31,3 +31,4 @@ dependencies:
   - sphinx
   - recommonmark
   - coverage
+  - PyScaffold

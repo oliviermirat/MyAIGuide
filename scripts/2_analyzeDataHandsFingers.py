@@ -8,7 +8,7 @@ import pandas as pd
 from dataFrameUtilities import addRollingMeanColumns, selectColumns, selectTime
 from sklearn.preprocessing import MinMaxScaler
 
-input = open("data.txt", "rb")
+input = open("../data/preprocessed/preprocessedDataParticipant1.txt", "rb")
 data = pickle.load(input)
 input.close()
 
@@ -24,9 +24,7 @@ env = addRollingMeanColumns(timeSelected, ["whatPulseT", "swimAndSurf", "climbs"
 
 envOrdi = env[["whatPulseT"]]
 envSport = env[["swimAndSurf", "climbs"]]
-envSportMean = env[
-    ["whatPulseTRollingMean", "swimAndSurfRollingMean", "climbsRollingMean"]
-]
+envSportMean = env[["whatPulseTRollingMean", "swimAndSurfRollingMean", "climbsRollingMean"]]
 
 fig, axes = plt.subplots(nrows=4, ncols=1)
 
@@ -35,5 +33,6 @@ envOrdi.plot(ax=axes[1])
 envSport.plot(ax=axes[2])
 envSportMean.plot(ax=axes[3])
 
-plt.legend(loc="best")
+leg = plt.legend(loc="best")
+leg.set_draggable(True)
 plt.show()
