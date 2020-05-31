@@ -17,7 +17,7 @@ def coords_to_query_string(coords:List[Tuple[float, float]]) -> str:
     by https://open-elevation.com/.
 
     Args:
-        coords: List of lat,lon tuples.
+        coords: List of (lat,lon) tuples.
 
     Returns:
         Query string.
@@ -38,10 +38,10 @@ def get_elevation(locations: List[Tuple[float, float]]) -> List[float]:
         This API is HORRENDOUSLY slow. So it is important to treasure its outputs!
 
     Args:
-        locations: List of lat,lon tuples.
+        locations: List of (lat,lon) tuples.
 
     Returns:
-        List of respective elevations.
+        List of respective elevations in meters.
 
     """
 
