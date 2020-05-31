@@ -3,7 +3,6 @@ import numpy as np
 import pandas as pd
 import sys
 sys.path.insert(1, '../src/MyAIGuide/data')
-
 from fitbitDataGatheredFromWebExport import fitbitDataGatheredFromWebExport
 from movesDataGatheredFromWebExport import movesDataGatheredFromWebExport
 from googleFitGatheredFromWebExport import googleFitGatheredFromWebExport
