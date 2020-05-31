@@ -10,18 +10,9 @@ Created on Tue May 26 15:16:41 2020
 import pickle
 import numpy as np
 import pandas as pd
-import sys
 from MyAIGuide.data.fitbitDataGatheredFromAPI import fitbitDataGatheredFromAPI
+from MyAIGuide.data.storePainIntensitiesForParticipants2to9 import storePainIntensitiesForParticipants2to9
 
-sys.path.insert(1, '../src/MyAIGuide/data')
-
-<<<<<<< HEAD:tests/test_create_preprocessed_data_participant4.py
-from fitbitDataGatheredFromAPI import fitbitDataGatheredFromAPI
-from storePainIntensitiesForParticipants2to9 import storePainIntensitiesForParticipants2to9
-=======
->>>>>>> master:tests/create_preprocessed_data_participant4.py
-
- 
 #%% Creation of the dataframe where everything will be stored
 dates = pd.date_range("2019-04-09", periods=80, freq="1D")
 
@@ -48,8 +39,6 @@ columnnames = [
            ]
 
 data = pd.DataFrame(np.nan, columns = columnnames, index = dates)
-
-# datadir = "../data/raw/ParticipantData/Participant9Anonymized/"
 
 #%% Fill dataframe with data
 
