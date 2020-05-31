@@ -7,40 +7,54 @@ Created on Tue May 26 15:16:41 2020
 """
 
 #%% import libraries
+
+
 import pickle
 import numpy as np
 import pandas as pd
 import sys
 from MyAIGuide.data.fitbitDataGatheredFromAPI import fitbitDataGatheredFromAPI
+from MyAIGuide.data.storePainIntensitiesForParticipants2to9 import storePainIntensitiesForParticipants2to9
 
 sys.path.insert(1, '../src/MyAIGuide/data')
 
-
 #%% Creation of the dataframe where everything will be stored
+dates = pd.date_range("2019-04-09", periods=80, freq="1D")
 
-i = pd.date_range("2019-04-09", periods=80, freq="1D")
-sLength = len(i)
-empty = pd.Series(np.zeros(sLength)).values
-d = {
-    "steps": empty,
-    "denivelation": empty,
-    "kneePain": empty,
-    "handsAndFingerPain": empty,
-    "foreheadAndEyesPain": empty,
-    "forearmElbowPain": empty,
-    "aroundEyesPain": empty,
-    "shoulderNeckPain": empty,
-    "movesSteps": empty,
-    "googlefitSteps": empty,
-}
-data = pd.DataFrame(data=d, index=i)
+columnnames = [
+        "abdominalPain",
+        "anklePain",
+        "aroundEyesPain",     
+        "denivelation",
+        "foreheadAndEyesPain",
+        "footPain",
+        "forearmElbowPain",
+        "googlefitSteps",
+        "handsAndFingerPain",
+        "happiness",
+        "headache", 
+        "hipPain", 
+        "kneePain", 
+        "legPain",
+        "lowBackPain",
+        "movesSteps",
+        "patellarTendonThrobbing",
+        "shoulderNeckPain",
+        "steps"
+           ]
+
+data = pd.DataFrame(np.nan, columns = columnnames, index = dates)
 
 #%% Fill dataframe with data
 
-# Storing fitbit data in dataframe
-fname = "../data/raw/ParticipantData/Participant4Anonymized/"
-data = fitbitDataGatheredFromAPI(fname, data)
+# Directory to participant4 data
+datadir = "../data/raw/ParticipantData/Participant4Anonymized/"
 
+# Storing fitbit data in dataframe
+data = fitbitDataGatheredFromAPI(datadir, data)
+
+# Storing pain intensities in dataframe
+data= storePainIntensitiesForParticipants2to9(datadir, data)
 
 #%%
 # Saving the dataframe in a txt

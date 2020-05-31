@@ -12,10 +12,12 @@ import json
 import pandas as pd
 from pandas.io.json import json_normalize
 
+import logging
+logging.getLogger().setLevel(logging.INFO)
 
 #%% 
 
-def fitbitDataGatheredFromAPI(fname, data):
+def fitbitDataGatheredFromAPI(datadir, data):
   
     """This function updates a dataframe with the JSON data
     gathered from the fitbit API 
@@ -25,17 +27,16 @@ def fitbitDataGatheredFromAPI(fname, data):
         data:  pandas dataframe to store data
     
     """
-    # Look for all json files in directory
-    directory = os.fsencode(fname)
-    
-    for file in os.listdir(directory):
-      name = os.fsdecode(file)
-      
-      if name.endswith("Fitbit.json"):
-          file = (fname + name)
+    # Look for json files in directory
+    for file in os.listdir(datadir):
+        file = file.lower()
+        if file.endswith("fitbit.json"):
+          jsonfile = (datadir + file)
+          
+          logging.info(f"Parsing file '{file}' for fitbit data")
           
           # Open and load json into dataframe
-          with open(file) as data_file:    
+          with open(jsonfile) as data_file:    
             jsondata = json.load(data_file) 
             
             df = json_normalize(jsondata, 'activities-steps')
@@ -49,6 +50,8 @@ def fitbitDataGatheredFromAPI(fname, data):
             
             # Update empty dataframe with fitbit data from df
             data.update(df)
-
+            
+            logging.info(f"Fitbit from API added to data")
+            
     return data
      
