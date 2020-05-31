@@ -3,11 +3,11 @@ import numpy as np
 import pandas as pd
 import sys
 sys.path.insert(1, '../src/MyAIGuide/data')
-
 from fitbitDataGatheredFromWebExport import fitbitDataGatheredFromWebExport
 from movesDataGatheredFromWebExport import movesDataGatheredFromWebExport
 from googleFitGatheredFromWebExport import googleFitGatheredFromWebExport
 from storePainIntensitiesForParticipant1 import storePainIntensitiesForParticipant1
+from retrieve_mentalstate_participant1 import retrieve_mentalstate_participant1
 
 # Creation of the dataframe where everything will be stored
 i = pd.date_range("2015-11-19", periods=1550, freq="1D")
@@ -24,6 +24,7 @@ d = {
     "shoulderNeckPain": empty,
     "movesSteps": empty,
     "googlefitSteps": empty,
+    "generalmood": empty
 }
 data = pd.DataFrame(data=d, index=i)
 
@@ -43,6 +44,10 @@ data = googleFitGatheredFromWebExport(filename1, filename2, data)
 # Storing pain intensities in dataframe
 filename = "../data/raw/ParticipantData/Participant1PublicOM/pain.csv"
 data = storePainIntensitiesForParticipant1(filename, data)
+
+# Storing mental state in dataframe
+filename = "../data/external/moodAndOtherVariables.csv"
+data = retrieve_mentalstate_participant1(filename, data)
 
 # Prints the dataframe
 print(data)
