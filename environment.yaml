@@ -32,3 +32,4 @@ dependencies:
   - recommonmark
   - coverage
   - PyScaffold
+  - requests
