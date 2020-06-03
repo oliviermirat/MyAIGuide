@@ -7,8 +7,6 @@ Created on Tue May 26 15:16:41 2020
 """
 
 #%% import libraries
-
-
 import pickle
 import numpy as np
 import pandas as pd
@@ -22,24 +20,23 @@ sys.path.insert(1, '../src/MyAIGuide/data')
 dates = pd.date_range("2019-04-09", periods=80, freq="1D")
 
 columnnames = [
-        "abdominalPain",
-        "anklePain",
-        "aroundEyesPain",     
+        "abdominalpain",
+        "anklepain",
+        "aroundeyespain",     
         "denivelation",
-        "foreheadAndEyesPain",
-        "footPain",
-        "forearmElbowPain",
-        "googlefitSteps",
-        "handsAndFingerPain",
+        "foreheadandeyespain",
+        "footpain",
+        "forearmelbowpain",
+        "googlefitsteps",
+        "handsandfingerpain",
         "happiness",
         "headache", 
-        "hipPain", 
-        "kneePain", 
-        "legPain",
-        "lowBackPain",
-        "movesSteps",
-        "patellarTendonThrobbing",
-        "shoulderNeckPain",
+        "hippain", 
+        "kneepain", 
+        "legpain",
+        "lowbackpain",
+        "movessteps",
+        "shoulderneckpain",
         "steps"
            ]
 
