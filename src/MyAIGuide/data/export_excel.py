@@ -3,9 +3,10 @@ Created on Mon June 02 2020
 
 @author: evadatinez
 """
-
+from datetime import datetime
+from math import isnan
 import pandas as pd
-# import xlsxwriter
+import xlsxwriter
 
 
 def get_col_widths(df):
@@ -47,20 +48,12 @@ def exportParticipantDataframeToExcel(data, start_date, end_date, export_cols,
     dateRange = pd.date_range(start=start_date, end=end_date, freq='D')
     data2export = data2export[data2export.index.isin(dateRange)]
 
-    # Create a Pandas Excel writer using XlsxWriter as the engine.
-    writer = pd.ExcelWriter(fname + '.xlsx', engine='xlsxwriter',
-                            datetime_format='yyyy-mm-dd')
-
-    # Convert the dataframe to an XlsxWriter Excel object.
-    data2export.to_excel(writer, sheet_name='Sheet1',
-                         startrow=1, header=False)
-
-    # Get the xlsxwriter objects from the dataframe writer object.
-    workbook = writer.book
-    worksheet = writer.sheets['Sheet1']
+    # Create an XlsxWriter workbook and worksheet objects.
+    workbook = xlsxwriter.Workbook(fname + '.xlsx')
+    worksheet = workbook.add_worksheet()
 
     # Add a format. Bold text.
-    format_bold = workbook.add_format({'bold': True})
+    bold_format = workbook.add_format({'bold': True, 'fg_color': '#FFC7CE'})
 
     # Add a header format.
     header_format = workbook.add_format({
@@ -69,18 +62,30 @@ def exportParticipantDataframeToExcel(data, start_date, end_date, export_cols,
         'fg_color': '#D7E4BC',
         'border': 1})
 
-    # Write a conditional format over a range.
-    worksheet.conditional_format('A1:Z6', {'type': 'no_blanks',
-                                           'format': format_bold})
+    # Add a date  format.
+    date_format = workbook.add_format({'num_format': 'dd-mm-yyyy'})
 
-    col_names = [data2export.index.name] + export_cols
     # Write the column headers with the defined format.
+    col_names = ['date'] + export_cols
     for col_num, value in enumerate(col_names):
         worksheet.write(0, col_num, value, header_format)
+    nrows, ncols = data2export.shape
+    for i in range(0, nrows):
+        for j in range(0, ncols):
+            if not isnan(data2export.iloc[i][j]):
+                worksheet.write(i + 1, j + 1,
+                                data2export.iloc[i][j], bold_format)
+
+    # Write the column headers with the defined format.
+    for idx_num, value in enumerate(data2export.index.values):
+        trans_value = datetime.strptime(str(value)[:10], '%Y-%m-%d')
+        worksheet.write_datetime(idx_num + 1, 0, trans_value, date_format)
 
     # Set column width
-    for i, width in enumerate(get_col_widths(data2export)):
+    col_widths = get_col_widths(data2export)
+    col_widths[0] = 10
+    for i, width in enumerate(col_widths):
         worksheet.set_column(i, i, width)
 
-    # Close the Pandas Excel writer and output the Excel file.
-    writer.save()
+    # Close the Excel workbook and output the Excel file.
+    workbook.close()
