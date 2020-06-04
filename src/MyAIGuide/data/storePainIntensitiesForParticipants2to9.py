@@ -14,7 +14,6 @@ import datetime
 import logging
 logging.getLogger().setLevel(logging.INFO)
 
-
 #%%
 
 def storePainIntensitiesForParticipants2to9(datadir, data):
@@ -24,25 +23,12 @@ def storePainIntensitiesForParticipants2to9(datadir, data):
     
     Params:
         datadir: path to datafolder for participant X
-        data:  pandas dataframe to store data """
-    
-    # Define column dictionary to map column names later on
-    coldict = {
-              "abdominal pain": "abdominalPain",
-              "ankle pain": "anklePain",
-              "elbow pain": "forearmElbowPain",
-              "foot pain": "footPain",
-              "hand pain":"handsAndFingerPain",
-              "headache":"headache",
-              "hip pain": "hipPain",
-              "knee pain":"kneePain",
-              "leg pain": "legPain",
-              "low back pain":"lowBackPain",
-              "ndate": "date",
-              "patellar tendon throbbing":"patellarTendonThrobbing",
-              "shoulder pain": "shoulderNeckPain", 
-              }
-    
+        data:  pandas dataframe to store data 
+        
+    Returns:
+        data: dataframe data updated with pain intensities
+        """
+
     # Look for all Pain.csv files in directory
     for file in os.listdir(datadir):
       if file.endswith("Pain.csv"):
@@ -60,7 +46,7 @@ def storePainIntensitiesForParticipants2to9(datadir, data):
           # For the rest of the participants, create date column from 'startyear', 'startmonth' and 'startday' 
           else:  
               df['ndate']=df.apply(lambda x: datetime.date(x['startyear'], x['startmonth'], x['startday']), axis=1)
-          
+            
           # Pivot 
           df = df.pivot_table(values='intensity', index=df.ndate, columns='name', aggfunc='first')
           df.index= pd.DatetimeIndex(df.index).normalize()
@@ -68,14 +54,15 @@ def storePainIntensitiesForParticipants2to9(datadir, data):
           # Resample at day level to correct data for participant8 as some dates occur multiple time in index
           df = df.resample('D').mean()
           
-          # column names to lower case
-          df.columns = [x.lower() for x in df.columns]
-          # Rename columns with coldict           
-          df.rename(columns=coldict, inplace = True)
+          # clean df.columns for merging with data
+          df.columns = [col.lower().replace(' ','') for col in df.columns]
           
-          # Update data with pain intensities
-          data.update(df)
+          # Join data with pain intensities dataframe
+          data.columns = [col.lower().replace(' ', '') for col in data.columns]
           
+          # Update data with values from df (automatically combines columns)
+          data=data.combine_first(df)
+              
           logging.info(f"Pain intensities added to data")
     
     return data
