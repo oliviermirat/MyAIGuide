@@ -1,5 +1,5 @@
 """
-Created on Mon June 02 2020
+Created on Tue June 02 2020
 
 @author: evadatinez
 """
@@ -89,3 +89,6 @@ def exportParticipantDataframeToExcel(data, start_date, end_date, export_cols,
 
     # Close the Excel workbook and output the Excel file.
     workbook.close()
+
+    # return data2export for testing purposes
+    return data2export
