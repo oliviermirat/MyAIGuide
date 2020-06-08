@@ -8,6 +8,7 @@ from movesDataGatheredFromWebExport import movesDataGatheredFromWebExport
 from googleFitGatheredFromWebExport import googleFitGatheredFromWebExport
 from storePainIntensitiesForParticipant1 import storePainIntensitiesForParticipant1
 from retrieve_mentalstate_participant1 import retrieve_mentalstate_participant1
+from storeSportDataParticipant1 import storeSportDataParticipant1
 
 # Creation of the dataframe where everything will be stored
 i = pd.date_range("2015-11-19", periods=1650, freq="1D")
@@ -24,7 +25,20 @@ d = {
     "shoulderNeckPain": empty,
     "movesSteps": empty,
     "googlefitSteps": empty,
-    "generalmood": empty
+    "generalmood": empty,
+    "walk": empty,
+    "roadBike": empty,
+    "mountainBike": empty,
+    "swimming": empty,
+    "surfing": empty,
+    "climbing": empty,
+    "viaFerrata": empty,
+    "alpiSki": empty,
+    "downSki": empty,
+    "climbingDenivelation": empty,
+    "climbingMaxEffortIntensity": empty,
+    "climbingMeanEffortIntensity": empty,
+    "swimmingKm": empty,
 }
 data = pd.DataFrame(data=d, index=i)
 
@@ -49,7 +63,12 @@ data = storePainIntensitiesForParticipant1(filename, data)
 filename = "../data/external/moodAndOtherVariables.csv"
 data = retrieve_mentalstate_participant1(filename, data)
 
+# Storing sport data in dataframe
+filename = "../data/raw/ParticipantData/Participant1PublicOM/sport.csv"
+data = storeSportDataParticipant1(filename, data)
+
 # Prints the dataframe
+pd.set_option('display.max_rows', None)
 print(data)
 
 # Saving the dataframe in a txt
