@@ -42,4 +42,25 @@ def storeSportDataParticipant1(filename, data):
             }
             if row[3] in dict:
                 data.loc[date, dict[row[3]]] = 1
+            
+            if row[3] == 'Climbing':
+                try:
+                    data.loc[date, 'climbingDenivelation'] = float(row[7])
+                except:
+                    data.loc[date, 'climbingDenivelation'] = 0
+                try:
+                    data.loc[date, 'climbingMaxEffortIntensity'] = float(row[13])
+                except:
+                    data.loc[date, 'climbingMaxEffortIntensity'] = 0
+                try:
+                    data.loc[date, 'climbingMeanEffortIntensity'] = float(row[15])
+                except:
+                    data.loc[date, 'climbingMeanEffortIntensity'] = 0
+
+            if row[3] == 'Swimming':
+                try:
+                    data.loc[date, 'swimmingKm'] = float(row[6])
+                except:
+                    data.loc[date, 'swimmingKm'] = 0
+                
   return data
