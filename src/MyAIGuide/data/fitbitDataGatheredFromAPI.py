@@ -23,7 +23,7 @@ def fitbitDataGatheredFromAPI(datadir, data):
     gathered from the fitbit API 
     
     Params:
-        fname: path to datafolder for participant X
+        datadir: path to datafolder for participant X
         data:  pandas dataframe to store data
     
     """
