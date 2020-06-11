@@ -9,9 +9,10 @@ from googleFitGatheredFromWebExport import googleFitGatheredFromWebExport
 from storePainIntensitiesForParticipant1 import storePainIntensitiesForParticipant1
 from retrieve_mentalstate_participant1 import retrieve_mentalstate_participant1
 from storeSportDataParticipant1 import storeSportDataParticipant1
+from storeManicTimeBlankScreen import storeManicTimeBlankScreen
 
 # Creation of the dataframe where everything will be stored
-i = pd.date_range("2015-11-19", periods=1650, freq="1D")
+i = pd.date_range("2015-11-19", periods=1700, freq="1D")
 sLength = len(i)
 empty = pd.Series(np.zeros(sLength)).values
 d = {
@@ -39,6 +40,10 @@ d = {
     "climbingMaxEffortIntensity": empty,
     "climbingMeanEffortIntensity": empty,
     "swimmingKm": empty,
+    "manicTimeBlankScreenC1": empty,
+    "manicTimeBlankScreenC2": empty,
+    "manicTimeBlankScreenC3": empty,
+    "manicTimeBlankScreenT": empty,
 }
 data = pd.DataFrame(data=d, index=i)
 
@@ -66,6 +71,11 @@ data = retrieve_mentalstate_participant1(filename, data)
 # Storing sport data in dataframe
 filename = "../data/raw/ParticipantData/Participant1PublicOM/sport.csv"
 data = storeSportDataParticipant1(filename, data)
+
+# Storing Manic Time Blank Screen data in dataFrame
+fname = "../data/raw/ParticipantData/Participant1PublicOM/computerUsage/computer"
+numberlist = ["1", "2", "3"]
+data = storeManicTimeBlankScreen(fname, numberlist, data)
 
 # Prints the dataframe
 pd.set_option('display.max_rows', None)
