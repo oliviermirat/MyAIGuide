@@ -10,6 +10,7 @@ from storePainIntensitiesForParticipant1 import storePainIntensitiesForParticipa
 from retrieve_mentalstate_participant1 import retrieve_mentalstate_participant1
 from storeSportDataParticipant1 import storeSportDataParticipant1
 from storeManicTimeBlankScreen import storeManicTimeBlankScreen
+from storeManicTime import storeManicTime
 
 # Creation of the dataframe where everything will be stored
 i = pd.date_range("2015-11-19", periods=1700, freq="1D")
@@ -40,10 +41,16 @@ d = {
     "climbingMaxEffortIntensity": empty,
     "climbingMeanEffortIntensity": empty,
     "swimmingKm": empty,
+    "manicTimeC1": empty,
+    "manicTimeC2": empty,
+    "manicTimeC3": empty,
+    "manicTimeT": empty,
     "manicTimeBlankScreenC1": empty,
     "manicTimeBlankScreenC2": empty,
     "manicTimeBlankScreenC3": empty,
     "manicTimeBlankScreenT": empty,
+    "manicTimeDelta": empty,
+    "manicTimeT": empty,
 }
 data = pd.DataFrame(data=d, index=i)
 
@@ -72,10 +79,18 @@ data = retrieve_mentalstate_participant1(filename, data)
 filename = "../data/raw/ParticipantData/Participant1PublicOM/sport.csv"
 data = storeSportDataParticipant1(filename, data)
 
-# Storing Manic Time Blank Screen data in dataFrame
+# Storing Manic Time data in dataFrame
+fname = "../data/raw/ParticipantData/Participant1PublicOM/computerUsage/computer"
+numberlist = ["1", "2", "3"]
+data = storeManicTime(fname, numberlist, data)
+
+# Storing Manic Time Blank Screen data in dataframe
 fname = "../data/raw/ParticipantData/Participant1PublicOM/computerUsage/computer"
 numberlist = ["1", "2", "3"]
 data = storeManicTimeBlankScreen(fname, numberlist, data)
+
+# Create Manic Time Delta Column in dataframe
+data['manicTimeDelta'] = data['manicTimeT'] - data['manicTimeBlankScreenT'].astype(int)
 
 # Prints the dataframe
 pd.set_option('display.max_rows', None)
