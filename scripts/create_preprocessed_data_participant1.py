@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import sys
 sys.path.insert(1, '../src/MyAIGuide/data')
+
 from fitbitDataGatheredFromWebExport import fitbitDataGatheredFromWebExport
 from movesDataGatheredFromWebExport import movesDataGatheredFromWebExport
 from googleFitGatheredFromWebExport import googleFitGatheredFromWebExport
@@ -50,7 +51,6 @@ d = {
     "manicTimeBlankScreenC3": empty,
     "manicTimeBlankScreenT": empty,
     "manicTimeDelta": empty,
-    "manicTimeT": empty,
 }
 data = pd.DataFrame(data=d, index=i)
 

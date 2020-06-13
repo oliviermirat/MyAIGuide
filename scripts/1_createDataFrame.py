@@ -22,7 +22,7 @@ from storeEyeRelatedActivitiesParticipant1 import storeEyeRelatedActivitiesParti
 from storeSportDataParticipant1 import storeSportDataParticipant1
 
 # Creation of the dataframe where everything will be stored
-i = pd.date_range("2015-11-19", periods=1550, freq="1D")
+i = pd.date_range("2015-11-19", periods=1700, freq="1D")
 sLength = len(i)
 empty = pd.Series(np.zeros(sLength)).values
 d = {
