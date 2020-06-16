@@ -47,6 +47,11 @@ def manualDataImport(fname, data):
         # manually filled column has same col name + _manualFill suffix
         mcol = icol + '_manualFill'
         # iterate over rows of dataframe to apply selection of data input
-        df[mcol] = df.apply(lambda row: select_data_input(row, icol), axis=1)
+        df[mcol] = df.apply(lambda row: select_data_input(row, icol),
+                            axis=1)
+
+    # drop columns ending with '_filled' as they were auxiliary columns
+    df.drop([col for col in df.columns if '_filled' in col],
+            axis=1, inplace=True)
 
     return df
