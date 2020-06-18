@@ -4,54 +4,61 @@
 Created on Mon Jun  8 19:05:14 2020
 
 @author: anniewong
+
+[DESCRIPTION]
+Functions to calculate cumulate elevation gain for the moves_export files 
+from the confidential repos for participants 1 and 2.
+
+[INFORMATION ABOUT FOLDERS]
+For both participants, the geojson, gpx and georss folders contain the best 
+information about gps coordinates. Read the files from the 'full' folder
+to get the data for the total period.
+
+Description per folder:
+    - geojson: coordinates are stored in places.geojson
+        indicates how long one has stayed at a particular location
+      
+    - gpx: coordinates are stored in places.gpx
+        indicates the tracks of a person
+        
+    - georss: coordinates are stored in places.atom
+        gives a lat/lon (location) along with timestamp
+        
+[TO DO LIST]
+1a. Retrieve gps coordinates and timestamp and store in dataframe [DONE]
+1b. merge all files from 1a
+2. Using the gps coordinates, retrieve elevation with Google API
+3. Calculate cumulated elevation gain
+
 """
-# ISSUE DESCRIPTION
-#To solve this issue, you will need to use the solution proposed in issue #20 to get the elevation from GPS coordinates.
-#The aim is to calculate the cumulated elevation gain for physical activities recorded by Moves for Participant 1 and Participant 2.
-#For both of these participants, you will find the data inside the confidential repo (there's a zip file for both of those called "moves_export").
-#For both participants, the gpx, georss and geojson folders contain the best information about gps coordinates.
 
-# STEP 1: EXTRACT INFORMATION PER FOLDER (ues the file in the 'full' folder to get total instances)
-### folders description
-#### 1. GEOJSON ####
-# Coordinates are stored in places.geojson. 
-# Indicates how long one has stayed at a particular location 
 
-#### GPX ####
-# timestamps and coordinates of tracks
-# A track consists of segments, segments consist of gps points
-
-### GEORSS ###
-# timestamps and coordinates of locations
-
-# STEP 2: USE LAT/LON TO GET ELEVATION FROM GOOGLE API
-
-#%% Import libraries
+#%% Imports
 import pandas as pd
 import geopandas as gpd
 from pandas.io.json import json_normalize
-
-import logging
-logging.getLogger().setLevel(logging.INFO)
-
-#%%  1. GEOJSON FOLDER (places.geojson)
-# places.geojson files give the start and endtime of a location (lat/lon)
-
-fname = "../data/external/myaiguideconfidentialdata/Participant1/moves_export/geojson/full/places.geojson"
+import gpxpy
+from bs4 import BeautifulSoup
 
 
-def places_geojson_to_dataframe(fname):
+#%%  1. GEOJSON: places.geojson
+
+# fname = "../data/external/myaiguideconfidentialdata/Participant1/moves_export/geojson/full/places.geojson"
+
+
+def geojson_to_dataframe(fname):
     
     """This function retrieves the starttime, endtime and the 
-    lat/lon coordinates of a location from a places.geojson file 
+    lat/lon of a location from places.geojson file 
     and returns it as a pandas dataframe
     
     params:
-        fname: path to file
+        fname: path to geojson file
         
     return:
-       df: pandas dataframe with the columns starttime, endtime, date, location.lat, 
-        location.lon
+       df: pandas dataframe with the columns starttime, endtime, date, 
+       latitude and longitude
+       
     """
     # Read file    
     df = gpd.read_file(fname)
@@ -70,26 +77,26 @@ def places_geojson_to_dataframe(fname):
     df=df[['startTime', 'endTime', 'date', 'location.lat', 'location.lon']]
     
     # Rename
-    df.columns = ['startTime', 'endTime', 'date', 'latitude', 'longitude']
+    df.columns = ['startTime', 'endTime', 'date', 'lat', 'lon']
     
     return df
 
 
-#%% GPX FOLDER 
-    
-import gpxpy
-fname = "../data/external/myaiguideconfidentialdata/Participant1/moves_export/gpx/full/places.gpx"
+#%% GPX: places.gpx
+
+# fname = "../data/external/myaiguideconfidentialdata/Participant1/moves_export/gpx/full/places.gpx"
 
 def gpx_to_dataframe(fname):
     
-    """ This functions retrieves the lat,lon and timestamp from a gpx 
-    file and returns it as a pandas dataframe
+    """ This functions retrieves the lat, lon and timestamp 
+    from a gpx file and returns it as a pandas dataframe
     
     params:
-        fname: filename
+        fname: path to gpx file
         
     Return:
-        df: pandas dataframe with the columns lat, lon, elevation and time
+        df: pandas dataframe with the columns latitude, longitude, 
+        elevation and time
     
     """
     
@@ -99,9 +106,6 @@ def gpx_to_dataframe(fname):
     # Initialize empty list to store data
     data = []
     
-    # How many tracks are there
-    logging.info("Parsing {} track(s) from {}".format(len(gpx.tracks), fname))
-    
     # Get latitudem longitude and time 
     for track in gpx.tracks:
         for segment in track.segments:
@@ -110,21 +114,20 @@ def gpx_to_dataframe(fname):
                      point.elevation, point.time,])
     
     # Create dataframe
-    columns = ['Longitude', 'Latitude', 'Elevation', 'Time']
+    columns = ['lon', 'lat', 'elevation', 'time']
     df = pd.DataFrame(data, columns=columns)    
     
     return df
 
 
-#%% GEORSS FOLDER
+#%% GEORSS FOLDER: places.atomß
 
-from bs4 import BeautifulSoup
-fname = "../data/external/myaiguideconfidentialdata/Participant1/moves_export/georss/full/places.atom"
+# fname = "../data/external/myaiguideconfidentialdata/Participant1/moves_export/georss/full/places.atom"
 
 def georss_to_dataframe(fname):
     
-    """This functions retrieves the lat,lon and time from a georss file 
-    and returns it as a pandas dataframe 
+    """This functions retrieves the lat, lon and time from 
+    a georss file and returns it as a pandas dataframe 
     
     params:
         fname: path to georss file
@@ -150,10 +153,13 @@ def georss_to_dataframe(fname):
     df = pd.DataFrame(data, columns=columns)
     
     # Split location into lat and lon (note:check if correct!)
-    df[['lon', 'lat']] = df.location.str.split(expand=True)
+    df[['lat', 'lon']] = df.location.str.split(expand=True)
     
-    # drop location col
+    # Drop location col
     df.drop('location', axis=1, inplace = True)
+    
+    # Convert time column to datetime format
+    df['time']=pd.to_datetime(df.time)
     
     return df
     
