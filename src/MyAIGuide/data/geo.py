@@ -7,7 +7,7 @@ __license__ = 'mit'
 import requests
 from typing import List, Tuple
 
-# OpenStreetMaps elevation api
+# Google Maps Elevation api
 ELEVATION_BASE_URL = r'https://maps.googleapis.com/maps/api/elevation/'
 
 
