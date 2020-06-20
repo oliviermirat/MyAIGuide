@@ -68,3 +68,29 @@ def get_elevation(locations: List[Tuple[float, float]], api_key: str) -> List[fl
                 elevations.append(result['elevation'])
             return elevations
     raise TimeoutError('ElevationAPI timed out!')
+
+
+def get_cum_elevation_gain(elevations: List[float]) -> float:
+    """
+    Function that given the ordered sequence of elevation measurements during an
+    activity, returns the total elevation gain.
+    :param elevations: List of elevation measurements.
+    :return: Cumulative elevation gain.
+    """
+
+    gain = 0
+    last_elevation = elevations[0]
+    del elevations[0]
+
+    for elevation in elevations:
+
+        # signed increase within the last change
+        delta = elevation - last_elevation
+
+        # only add uphill change
+        gain += max(delta, 0)
+
+        # update last_elevation to current elevation
+        last_elevation = elevation
+
+    return gain
