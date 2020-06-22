@@ -12,8 +12,8 @@ import tcxparser
 from MyAIGuide.data.geo import get_cum_elevation_gain
 from datetime import date
 
-# TODO: remove ".." for global testing
-DATA_DIR = Path('../data/raw/ParticipantData')
+
+DATA_DIR = Path('./data/raw/ParticipantData')
 
 
 class GoogleFitDataJSON(object):
@@ -216,4 +216,26 @@ def collect_activities_from_dir(path_to_dir: Union[str, Path]) -> pd.DataFrame:
     df = df.resample("D").sum()
     return df
 
-# TODO: Create function that updates the master df with activities from a dir.
+
+def get_google_fit_activities(fname: Union[Path, str], data: pd.DataFrame) -> pd.DataFrame:
+    """
+    This function updates a dataframe with the data
+    gathered from the tcx files contained in fname.
+
+    It updates the "elevation_gain", "elevation_loss" and "calories" columns of
+    the master df.
+
+    Params:
+        fname: path to data folder containing tcx data
+        data:  pandas data frame to store data
+    """
+
+    directory = Path(fname)
+
+    # return the extracted dataframe
+    new_data = collect_activities_from_dir(fname)
+
+    # update data
+    data.update(new_data)
+
+    return data

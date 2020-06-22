@@ -1,4 +1,4 @@
-from MyAIGuide.data import GoogleFitDataTCX, DATA_DIR, get_google_fit_steps, collect_activities_from_dir
+from MyAIGuide.data import GoogleFitDataTCX, DATA_DIR, get_google_fit_steps, collect_activities_from_dir, get_google_fit_activities
 import pandas as pd
 import numpy as np
 
@@ -22,6 +22,9 @@ d = {
     "shoulderNeckPain": empty,
     "movesSteps": empty,
     "googlefitSteps": empty,
+    "elevation_gain": empty,
+    "elevation_loss": empty,
+    "calories": empty,
 }
 data = pd.DataFrame(data=d, index=i)
 
@@ -35,7 +38,16 @@ def test_get_google_fit_steps():
 def test_google_fit_data_tcx():
     instance = GoogleFitDataTCX(TEST_TCX)
 
+
 def test_collect_activities_from_dir():
     df = collect_activities_from_dir(TCX_DIR)
     assert "calories", "elevation_gain" in df
     assert "dateTime", "elevation_loss" in df
+
+
+def test_get_google_fit_activities():
+    new_data = get_google_fit_activities(fname=TCX_DIR, data=data)
+    assert isinstance(new_data, pd.DataFrame)
+    assert sum(new_data["elevation_gain"]) > 0
+    assert sum(new_data["elevation_loss"]) > 0
+    assert sum(new_data["calories"]) > 0
