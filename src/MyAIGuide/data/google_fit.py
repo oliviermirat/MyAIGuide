@@ -8,6 +8,9 @@ from pathlib import Path
 from typing import Union, List
 import pandas as pd
 import json
+import tcxparser
+from MyAIGuide.data.geo import get_cum_elevation_gain
+from datetime import datetime
 
 DATA_DIR = Path('./data/raw/ParticipantData')
 
@@ -129,3 +132,55 @@ def get_google_fit_steps(fname: Union[Path, str], data: pd.DataFrame) -> pd.Data
     data.update(new_data)
 
     return data
+
+
+class GoogleFitDataTCX(object):
+    """Class that allows us to parse the relevant information from
+    GoogleGit TCX files.
+
+    Access the df attribute to get the parsed dataframe.
+
+    Args:
+        path_to_tcx: Path to the tcx file to be parsed.
+    """
+    def __init__(self, path_to_tcx: Union[Path, str]):
+
+        self.path = Path(path_to_tcx)
+        if not self.path.exists():
+            raise FileNotFoundError(f'Provided path {self.path} does not exist.')
+        elif self.path.suffix != '.tcx':
+            raise ValueError('Provided path should lead to a .tcx file.')
+
+        # needs string path for internal reasons
+        self.tcx = tcxparser.TCXParser(str(self.path))
+
+    @property
+    def elevations(self) -> list:
+        return self.tcx.altitude_points()
+
+    @property
+    def elevation_gain(self) -> float:
+        return get_cum_elevation_gain(self.elevations)
+
+    @property
+    def elevation_loss(self) -> float:
+        return self.tcx.descent
+
+    @property
+    def calories(self) -> int:
+        return int(self.tcx.calories)
+
+    @property
+    def date(self) -> datetime:
+        return pd.to_datetime(self.tcx.started_at).date()
+
+    @property
+    def dict(self) -> dict:
+        return dict(dateTime=[self.date],
+                    elevation_gain=[self.elevation_gain],
+                    elevation_loss=[self.elevation_loss],
+                    calories=[self.calories])
+
+    @property
+    def df(self) -> pd.DataFrame:
+        return pd.DataFrame.from_dict(self.dict).set_index("dateTime")
