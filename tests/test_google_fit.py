@@ -1,13 +1,12 @@
-from unittest import TestCase
-
-from MyAIGuide.data import GoogleFitDataTCX, DATA_DIR, get_google_fit_steps
+from MyAIGuide.data import GoogleFitDataTCX, DATA_DIR, get_google_fit_steps, collect_activities_from_dir
 import pandas as pd
 import numpy as np
 
 TEST_PARTICIPANT = DATA_DIR / 'Participant2Anonymized'
 
 TCX_FILE = "2018-11-05T16_46_19-05_00_PT17M6S_Marche à pied.tcx"
-TEST_TCX = DATA_DIR / "Participant1PublicOM" / "GoogleFitData" / "smartphone1" / "Activités" / TCX_FILE
+TCX_DIR = DATA_DIR / "Participant1PublicOM" / "GoogleFitData" / "smartphone1" / "Activités"
+TEST_TCX = TCX_DIR / TCX_FILE
 
 i = pd.date_range("2015-11-19", periods=1550, freq="1D")
 sLength = len(i)
@@ -35,5 +34,8 @@ def test_get_google_fit_steps():
 
 def test_google_fit_data_tcx():
     instance = GoogleFitDataTCX(TEST_TCX)
-    assert "calories", "elevation_gain" in instance.df
-    assert "dateTime", "elevation_loss" in instance.df
+
+def test_collect_activities_from_dir():
+    df = collect_activities_from_dir(TCX_DIR)
+    assert "calories", "elevation_gain" in df
+    assert "dateTime", "elevation_loss" in df

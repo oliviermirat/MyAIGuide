@@ -10,9 +10,10 @@ import pandas as pd
 import json
 import tcxparser
 from MyAIGuide.data.geo import get_cum_elevation_gain
-from datetime import datetime
+from datetime import date
 
-DATA_DIR = Path('./data/raw/ParticipantData')
+# TODO: remove ".." for global testing
+DATA_DIR = Path('../data/raw/ParticipantData')
 
 
 class GoogleFitDataJSON(object):
@@ -171,7 +172,7 @@ class GoogleFitDataTCX(object):
         return int(self.tcx.calories)
 
     @property
-    def date(self) -> datetime:
+    def date(self) -> date:
         return pd.to_datetime(self.tcx.started_at).date()
 
     @property
@@ -184,3 +185,35 @@ class GoogleFitDataTCX(object):
     @property
     def df(self) -> pd.DataFrame:
         return pd.DataFrame.from_dict(self.dict).set_index("dateTime")
+
+
+def collect_activities_from_dir(path_to_dir: Union[str, Path]) -> pd.DataFrame:
+    """
+    Function that takes a directory and collects a df of relevant information from
+    the GoogleGit TCX files contained inside of it.
+
+    Args:
+        path_to_dir: Path to directory containing the TCX files.
+
+    Returns:
+        Df with date, daily elevation gain/loss & calories.
+
+    """
+    path = Path(path_to_dir)
+    first = True
+    if not path.exists():
+        raise FileNotFoundError(f'Provided folder {path} does not exist.')
+    for file in path.iterdir():
+        try:
+            if first:
+                df = GoogleFitDataTCX(file).df
+                first = False
+            else:
+                df = df.append(GoogleFitDataTCX(file).df)
+        except ValueError:
+            print(f"{file} is not a .txc file.")
+    df.index = pd.to_datetime(df.index)
+    df = df.resample("D").sum()
+    return df
+
+# TODO: Create function that updates the master df with activities from a dir.
