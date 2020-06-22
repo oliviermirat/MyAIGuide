@@ -12,7 +12,7 @@ import json
 DATA_DIR = Path('./data/raw/ParticipantData')
 
 
-class GoogleFitData(object):
+class GoogleFitDataJSON(object):
     """Class providing a link to the Google Fit json files.
 
     Args:
@@ -120,7 +120,7 @@ def get_google_fit_steps(fname: Union[Path, str], data: pd.DataFrame) -> pd.Data
             path_to_json = child
 
     # initiate interface to file
-    json_interface = GoogleFitData(path_to_json)
+    json_interface = GoogleFitDataJSON(path_to_json)
 
     # return the extracted dataframe
     new_data = json_interface.df
@@ -129,4 +129,3 @@ def get_google_fit_steps(fname: Union[Path, str], data: pd.DataFrame) -> pd.Data
     data.update(new_data)
 
     return data
-

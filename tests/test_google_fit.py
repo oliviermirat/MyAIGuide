@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from MyAIGuide.data import GoogleFitData, DATA_DIR, get_google_fit_steps
+from MyAIGuide.data import GoogleFitDataJSON, DATA_DIR, get_google_fit_steps
 import pandas as pd
 import numpy as np
 
