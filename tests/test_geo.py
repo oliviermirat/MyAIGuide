@@ -18,3 +18,4 @@ def get_elevation():
 
 def test_get_cum_elevation_gain():
     assert get_cum_elevation_gain(ELEVATIONS) == GAIN
+    assert get_cum_elevation_gain([]) == 0

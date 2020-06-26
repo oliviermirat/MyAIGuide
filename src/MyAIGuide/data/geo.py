@@ -79,6 +79,11 @@ def get_cum_elevation_gain(elevations: List[float]) -> float:
     """
 
     gain = 0
+
+    # 0 gain if elevations empty
+    if not elevations:
+        return 0
+
     last_elevation = elevations[0]
     del elevations[0]
 
