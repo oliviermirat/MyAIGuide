@@ -3,4 +3,6 @@
 # Except these files
 !.gitignore
 !ParticipantData
+!excelFilesForMissingDataFill
 !README.md
+!*.xlsx
