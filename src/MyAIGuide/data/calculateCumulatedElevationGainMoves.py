@@ -7,84 +7,28 @@ Created on Mon Jun  8 19:05:14 2020
 
 [DESCRIPTION]
 Functions to calculate cumulate elevation gain for the moves_export files 
-from the confidential repos for participants 1 and 2.
-
-[INFORMATION ABOUT FOLDERS]
-For both participants, the geojson, gpx and georss folders contain the best 
-information about gps coordinates. Read the files from the 'full' folder
-to get the data for the total period.
-
-Description per folder:
-    - geojson: coordinates are stored in places.geojson
-        indicates how long one has stayed at a particular location
-      
-    - gpx: coordinates are stored in places.gpx
-        indicates the tracks of a person
-        
-    - georss: coordinates are stored in places.atom
-        gives a lat/lon (location) along with timestamp
-        
-[TO DO LIST]
-1a. Retrieve gps coordinates and timestamp and store in dataframe [DONE]
-1b. merge all files from 1a
-2. Using the gps coordinates, retrieve elevation with Google API
-3. Calculate cumulated elevation gain
+(the .gpx files) from the confidential repos for participants 1 and 2.
+       
+1. Retrieve gps coordinates and timestamp and store in dataframe
+2. Group gps per day  
+2. Retrieve elevation with Google API
+3. Calculate cumulated elevation gain per day
 
 """
 
 
 #%% Imports
 import pandas as pd
-import geopandas as gpd
-from pandas.io.json import json_normalize
 import gpxpy
-from bs4 import BeautifulSoup
+import os
 
-
-#%%  1. GEOJSON: places.geojson
-
-# fname = "../data/external/myaiguideconfidentialdata/Participant1/moves_export/geojson/full/places.geojson"
-
-
-def geojson_to_dataframe(fname):
-    
-    """This function retrieves the starttime, endtime and the 
-    lat/lon of a location from places.geojson file 
-    and returns it as a pandas dataframe
-    
-    params:
-        fname: path to geojson file
-        
-    return:
-       df: pandas dataframe with the columns starttime, endtime, date, 
-       latitude and longitude
-       
-    """
-    # Read file    
-    df = gpd.read_file(fname)
-    
-    # Convert geodataframe to pandas dataframe
-    df = pd.DataFrame(df)
-    
-    # Split 'place' column to separate variables and append to df
-    df = pd.concat([df, json_normalize(df.place)], axis=1)
-    
-    # Parse starttime, endtime and date to datetime format
-    df[['date','startTime', 'endTime']] = df[['date','startTime', 'endTime']].applymap(
-            lambda x:pd.to_datetime(x))
-    
-    # Filter relevant columns
-    df=df[['startTime', 'endTime', 'date', 'location.lat', 'location.lon']]
-    
-    # Rename
-    df.columns = ['startTime', 'endTime', 'date', 'lat', 'lon']
-    
-    return df
-
+import MyAIGuide.data.geo as geo
 
 #%% GPX: places.gpx
 
-# fname = "../data/external/myaiguideconfidentialdata/Participant1/moves_export/gpx/full/places.gpx"
+CYCLING = "../data/external/myaiguideconfidentialdata/Participant1/moves_export/gpx/full/cycling.gpx"
+RUNNING = "../data/external/myaiguideconfidentialdata/Participant1/moves_export/gpx/full/running.gpx"
+WALKING = "../data/external/myaiguideconfidentialdata/Participant1/moves_export/gpx/full/walking.gpx"
 
 def gpx_to_dataframe(fname):
     
@@ -96,7 +40,7 @@ def gpx_to_dataframe(fname):
         
     Return:
         df: pandas dataframe with the columns latitude, longitude, 
-        elevation and time
+        elevation, time, lat_lon
     
     """
     
@@ -115,52 +59,90 @@ def gpx_to_dataframe(fname):
     
     # Create dataframe
     columns = ['lon', 'lat', 'elevation', 'time']
-    df = pd.DataFrame(data, columns=columns)    
+    df = pd.DataFrame(data, columns=columns)
+    #df.set_index('time', inplace=True)    
+    df.time=pd.to_datetime(df.time)
+    # add columns with tuple of lat lon
+    df['lat_lon'] = df[['lat', 'lon']].apply(tuple, axis=1)
     
     return df
 
+#cycling=gpx_to_dataframe(CYCLING)
+#running=gpx_to_dataframe(RUNNING)
+#walking=gpx_to_dataframe(WALKING)
 
-#%% GEORSS FOLDER: places.atomß
 
-# fname = "../data/external/myaiguideconfidentialdata/Participant1/moves_export/georss/full/places.atom"
+#%% For each day, get list of tuples with lat/lon
 
-def georss_to_dataframe(fname):
+def to_latlon_for_days(dataframe):
     
-    """This functions retrieves the lat, lon and time from 
-    a georss file and returns it as a pandas dataframe 
+    """For each day get list of typles with lat lon that is needed
+    for api call 
     
     params:
-        fname: path to georss file
+        dataframe: dataframe with colums lat, lon, time
         
-    return:
-       df: pandas dataframe with the columns time, lon and lat 
+    returns:
+        dict(key:date, value: list of tuples with latlon)
     
     """
+    
+    result = dict()
+    for index, row in dataframe.iterrows():
+        row_date = str(row['time'].date())
+        result[row_date] = result[row_date] + [row['lat_lon']] if row_date in result else [row['lat_lon']]
+    return result
 
-    handler=open(fname).read()
-    soup=BeautifulSoup(handler)
-    
-    data = []
-    
-    results = soup.findAll('entry')
-    for r in results:
-        time = r.find('published').text
-        coordinates = r.find('gml:pos').text
-        data.append([time, coordinates])
-    
-    # Create dataframe
-    columns = ['time', 'location']
-    df = pd.DataFrame(data, columns=columns)
-    
-    # Split location into lat and lon (note:check if correct!)
-    df[['lat', 'lon']] = df.location.str.split(expand=True)
-    
-    # Drop location col
-    df.drop('location', axis=1, inplace = True)
-    
-    # Convert time column to datetime format
-    df['time']=pd.to_datetime(df.time)
-    
-    return df
-    
+#cycling_daily=to_latlon_for_days(cycling)
+#running_daily=to_latlon_for_days(running)
+#walking_daily=to_latlon_for_days(walking)
 
+#%% Get elevations from google api
+
+def add_elevation_to_daily(data_daily: dict):
+    
+    """ Get elevation from google API 
+    
+    params:
+        data_daily: dict(key:date, value: list of tuples with latlon)
+    
+    returns:
+        list of tuples(date, (lat,lon), elevation)
+    
+    """
+    
+    result = []
+    for day, daily_latlongs in data_daily.items():
+        for daily_latlong in daily_latlongs:
+            elevation = geo.get_elevation(locations=[daily_latlong], api_key=os.environ['GOOGLE_API_KEY'])[0]
+            result.append((day, daily_latlong, elevation))
+    return result
+
+#result_cycling = add_elevation_to_daily(cycling_daily)
+#result_walking = add_elevation_to_daily(walking_daily)
+#result_running = add_elevation_to_daily(running_daily)
+
+    
+#%% Get cumulated elevation gain 
+
+def get_cum_gain(apires):
+    
+    """Calculates cumulate elevation gain.
+    
+    Params:
+        apires: list of tuples(date, (lat,lon), elevation)
+    
+    Returns a dataframe with date, list of elevation and cum gain
+    
+    """
+    
+    apires_df=pd.DataFrame(apires, columns=['date', 'latlon', 'elevation'])
+    # Group elevations per day in a list
+    get_daily= pd.DataFrame(apires_df.groupby('date')['elevation'].apply(list))
+    # Calculate cum elevation gain 
+    get_daily['cum_gain']=[geo.get_cum_elevation_gain(i) for i in get_daily.elevation]
+    return get_daily
+
+# cumgain_cycling=get_cum_gain(result_cycling)
+# cumgain_walking=get_cum_gain(result_walking)
+# cumgain_running=get_cum_gain(result_running)
