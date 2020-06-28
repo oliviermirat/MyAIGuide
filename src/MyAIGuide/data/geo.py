@@ -11,7 +11,7 @@ from typing import List, Tuple
 ELEVATION_BASE_URL = r'https://maps.googleapis.com/maps/api/elevation/'
 
 
-def coords_to_query_string(coords:List[Tuple[float, float]], api_key:str, num_samples: int = 3) -> str:
+def coords_to_query_string(coords:List[Tuple[float, float]], api_key:str) -> str:
     """
     Converts a list of lat,lon tuples into the query format required
     by Google Maps Elevation API.
@@ -19,7 +19,6 @@ def coords_to_query_string(coords:List[Tuple[float, float]], api_key:str, num_sa
     Args:
         coords: List of (lat,lon) tuples.
         api_key: Api key for Google Elevation API
-        num_samples: Number of samples including endpoints to consider.
 
     Returns:
         Query string.
@@ -31,7 +30,7 @@ def coords_to_query_string(coords:List[Tuple[float, float]], api_key:str, num_sa
         path_string += f"{str(lat)},{str(lon)}|"
     path_string = path_string[:-1]
 
-    sample_string = f"&samples={str(num_samples)}" if len(coords) > 1 else ""
+    sample_string = f"&samples={len(coords)}" if len(coords) > 1 else ""
     key_string = f"&key={api_key}"
 
     return prefix + path_string + sample_string + key_string
@@ -63,10 +62,9 @@ def get_elevation(locations: List[Tuple[float, float]], api_key: str) -> List[fl
         response = requests.get(url)
         if response.status_code == 200:
             results = response.json()["results"]
-            elevations = []
-            for result in results:
-                elevations.append(result['elevation'])
-            return elevations
+            return [i['elevation'] for i in results]
+            
+        
     raise TimeoutError('ElevationAPI timed out!')
 
 
