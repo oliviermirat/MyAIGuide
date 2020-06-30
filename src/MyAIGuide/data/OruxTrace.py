@@ -10,35 +10,10 @@ import numpy as np
 import pandas as pd
 import requests
 from typing import List, Tuple
+import sys
+sys.path.insert(1, '../src/MyAIGuide/data')
 
-def get_cum_elevation_gain(elevations: List[float]) -> float:
-    """
-    Function that given the ordered sequence of elevation measurements during an
-    activity, returns the total elevation gain.
-    :param elevations: List of elevation measurements.
-    :return: Cumulative elevation gain.
-    """
-
-    gain = 0
-
-    if not elevations:
-        return 0
-
-    last_elevation = elevations[0]
-    del elevations[0]
-
-    for elevation in elevations:
-
-        # signed increase within the last change
-        delta = float(elevation) - float(last_elevation)
-
-        # only add uphill change
-        gain += max(delta, 0)
-
-        # update last_elevation to current elevation
-        last_elevation = elevation
-
-    return gain
+from geo import get_cum_elevation_gain
 
 
 def get_date(fname):      
