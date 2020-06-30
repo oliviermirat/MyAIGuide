@@ -72,8 +72,10 @@ def get_cum_elevation_gain(elevations: List[float]) -> float:
     """
     Function that given the ordered sequence of elevation measurements during an
     activity, returns the total elevation gain.
-    :param elevations: List of elevation measurements.
-    :return: Cumulative elevation gain.
+    Args:
+        elevations: List of elevation measurements.
+    Returns:
+        Cumulative elevation gain.
     """
 
     gain = 0
