@@ -6,7 +6,7 @@ from pathlib import Path
 # TODO: remove .. for global testing
 TEST_DIR = Path('../data/raw/ParticipantData/Participant1PublicOM/GPSData/Participant1/GPSdata')
 
-i = pd.date_range("2015-11-19", periods=1550, freq="1D")
+i = pd.date_range("2015-12-28", periods=1604, freq="D")
 sLength = len(i)
 empty = pd.Series(np.zeros(sLength)).values
 d = {
