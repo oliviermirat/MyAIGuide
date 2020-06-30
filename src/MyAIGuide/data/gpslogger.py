@@ -35,7 +35,7 @@ def get_df_from_file(file: Path) -> pd.DataFrame:
 
     # return as dataframe
     df = pd.DataFrame(data={
-        'elevation_gain': [float(elevation_gain)]
+        'elevation_gain': [elevation_gain]
     }, index=[date_time])
     return df
 
@@ -73,7 +73,6 @@ def collect_gpslogger_activities(path_to_dir: Union[Path, str]) -> pd.DataFrame:
     # NOTE: strangly important to do this as having timezone info breaks
     # .update with the master df which has no timezone.
     df.index = df.index.astype("datetime64[ns]")
-    print(df.elevation_gain)
     return df
 
 
