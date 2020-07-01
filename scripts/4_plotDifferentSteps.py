@@ -5,6 +5,8 @@ import pickle
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import sys
+
 from dataFrameUtilities import (
     addDataToTrackerMeanSteps,
     addInsultIntensityColumns,
@@ -15,6 +17,11 @@ from dataFrameUtilities import (
     selectTime,
 )
 from sklearn.preprocessing import MinMaxScaler
+
+
+# Set global plot parameters
+plt.rcParams['figure.figsize'] = [12, 6]
+plt.rcParams['figure.dpi'] = 80
 
 # Getting data
 input = open("../data/preprocessed/preprocessedDataParticipant1.txt", "rb")
@@ -49,7 +56,7 @@ data = adjustVarAndPlaceInData(period7, data, "googlefitSteps", "steps", "2018-0
 steps = selectColumns(data, ["steps", "movesSteps", "googlefitSteps", "basisPeakSteps", "trackerMeanSteps"])
 fig, axes = plt.subplots(nrows=2, ncols=1)
 steps.plot(ax=axes[0])
+axes[0].legend(loc='center left', bbox_to_anchor=(1, 0.5))
 selectColumns(data, ["trackerMeanSteps"]).plot(ax=axes[1])
-leg = plt.legend(loc="best")
-leg.set_draggable(True)
+axes[1].legend(loc='center left', bbox_to_anchor=(1, 0.5))
 plt.show()
