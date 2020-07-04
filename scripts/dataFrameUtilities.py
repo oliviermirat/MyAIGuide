@@ -75,21 +75,64 @@ def getInsultAboveThreshold(data, columnName, thres2):
     return data
 
 
-def adjustVarAndPlaceInData(
-    period, data, varToAdjustName, mainVarName, startDate, endDate
+def adjust_var_and_place_in_data(
+    period, data, var_to_adjust_name, main_var_name
 ):
-    varToAdjust = period[varToAdjustName].values.reshape(-1, 1)
-    mainVar = period[mainVarName].values.reshape(-1, 1)
-    reg = LinearRegression().fit(varToAdjust, mainVar)
-    pred = reg.predict(varToAdjust)
-    data["trackerMeanSteps"].loc[
-        np.logical_and(data.index >= startDate, data.index <= endDate)
-    ] = (pred.reshape(1, -1)[0] + period[mainVarName].values) / 2
+    """This function adjusts a variable within a time period
+    with respect to a main variable and updates the
+    "tracker_mean_steps" variable in the dataset
+
+    Params:
+        period: subset of data in a time period
+        data: original dataframe
+        var_to_adjust_name: name of the variable to adjust
+        main_var_name: name of the main variable
+
+    """
+
+    # define start and end date of the period
+    start_date = period.index.values.min()
+    end_date = period.index.values.max()
+
+    # subset the meaningful variables from period
+    var_to_adjust = period[var_to_adjust_name].values.reshape(-1, 1)
+    main_var = period[main_var_name].values.reshape(-1, 1)
+
+    # Fit Linear Regression with:
+    # X=var_to_adjust, Y=main_var
+    reg = LinearRegression().fit(var_to_adjust, main_var)
+
+    # Calculate pred = reg.coef_*X + reg.intercept_
+    pred = reg.predict(var_to_adjust)
+
+    # Update the period tracker_mean_steps in original dataset
+    # by averaging pred with the main_var
+    data["tracker_mean_steps"].loc[
+        np.logical_and(data.index >= start_date, data.index <= end_date)
+    ] = (pred.reshape(1, -1)[0] + period[main_var_name].values) / 2
+
     return data
 
 
-def addDataToTrackerMeanSteps(period, data, mainVarName, startDate, endDate):
-    data["trackerMeanSteps"].loc[
-        np.logical_and(data.index >= startDate, data.index <= endDate)
-    ] = period[mainVarName].values
+def insert_data_to_tracker_mean_steps(period, data, main_var_name):
+    """This function insert the values of a variable within a time
+    period in the "tracker_mean_steps" variable in the dataset
+
+    Params:
+        period: subset of data in a time period
+        data: original dataframe
+        main_var_name: name of the variable to insert
+
+    """
+
+    # define start and end date of the period
+    start_date = period.index.values.min()
+    end_date = period.index.values.max()
+
+    # Update the period tracker_mean_steps in original dataset
+    # with the main_var values
+    data["tracker_mean_steps"].loc[
+        np.logical_and(data.index >= start_date, data.index <= end_date)
+    ] = period[main_var_name].values
+
     return data
