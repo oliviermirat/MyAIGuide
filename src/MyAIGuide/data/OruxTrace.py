@@ -72,7 +72,7 @@ def OruxTrace(data, fname):
     gain = get_gain(fname)
     date = get_date(fname)
     # load data into dataframe                
-    df = pd.DataFrame(gain, columns= ['gain'])
+    df = pd.DataFrame(gain, columns= ['oruxCumulatedElevationGain'])
                 
     df['dateTime'] = pd.to_datetime(date)
     df.set_index('dateTime', inplace=True)

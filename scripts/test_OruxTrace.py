@@ -11,7 +11,7 @@ from OruxTrace import get_gain
 # Creation of the dataframe where everything will be stored
 dates = pd.date_range("2015-11-19", periods=1700, freq="1D")
 
-columnname = ['gain']
+columnname = ['oruxCumulatedElevationGain']
 
 data = pd.DataFrame(np.nan, columns=columnname, index=dates)
 
