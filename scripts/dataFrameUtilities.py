@@ -99,7 +99,7 @@ def adjust_var_and_place_in_data(
     "tracker_mean_steps" variable in the dataset
 
     Params:
-        period: subset of data in a time period
+        period: tuple with start and end dates of time period
         data: original dataframe
         var_to_adjust_name: name of the variable to adjust
         main_var_name: name of the main variable
@@ -107,12 +107,14 @@ def adjust_var_and_place_in_data(
     """
 
     # define start and end date of the period
-    start_date = period.index.values.min()
-    end_date = period.index.values.max()
+    start_date = period[0]
+    end_date = period[1]
 
-    # subset the meaningful variables from period
-    var_to_adjust = period[var_to_adjust_name].values.reshape(-1, 1)
-    main_var = period[main_var_name].values.reshape(-1, 1)
+    # subset the meaningful variables within period
+    period_df = subset_period(data, start_date, end_date)
+
+    var_to_adjust = period_df[var_to_adjust_name].values.reshape(-1, 1)
+    main_var = period_df[main_var_name].values.reshape(-1, 1)
 
     # Fit Linear Regression with:
     # X=var_to_adjust, Y=main_var
@@ -135,20 +137,23 @@ def insert_data_to_tracker_mean_steps(period, data, main_var_name):
     period in the "tracker_mean_steps" variable in the dataset
 
     Params:
-        period: subset of data in a time period
+        period: tuple with start and end dates of time period
         data: original dataframe
         main_var_name: name of the variable to insert
 
     """
 
     # define start and end date of the period
-    start_date = period.index.values.min()
-    end_date = period.index.values.max()
+    start_date = period[0]
+    end_date = period[1]
+
+    # subset the meaningful variables within period
+    period_df = subset_period(data, start_date, end_date)
 
     # Update the period tracker_mean_steps in original dataset
     # with the main_var values
     data["tracker_mean_steps"].loc[
         np.logical_and(data.index >= start_date, data.index <= end_date)
-    ] = period[main_var_name].values
+    ] = period_df[main_var_name].values
 
     return data
