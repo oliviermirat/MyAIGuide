@@ -16,7 +16,7 @@ columnname = ['oruxCumulatedElevationGain']
 data = pd.DataFrame(np.nan, columns=columnname, index=dates)
 
 # Directory to participant2 data 
-fname = "../data/raw/ParticipantData/Participant2Anonymized/OruxTrace/" # path in local repo --> needs to be adjusted for general testing
+fname = "../data/external/OruxTrace/" # path in local repo --> needs to be adjusted for general testing
 
 # Storing OruxTrace data in dataframe
 data = OruxTrace(data, fname)
