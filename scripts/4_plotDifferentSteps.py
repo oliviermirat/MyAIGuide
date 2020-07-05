@@ -3,16 +3,11 @@
 import pickle
 
 import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
-import sys
 
 from dataFrameUtilities import (
     insert_data_to_tracker_mean_steps,
     adjust_var_and_place_in_data
 )
-from sklearn.preprocessing import MinMaxScaler
-
 
 # Set global plot parameters
 plt.rcParams['figure.figsize'] = [12, 6]
