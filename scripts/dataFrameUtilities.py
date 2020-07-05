@@ -4,15 +4,31 @@ from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import MinMaxScaler
 
 
-def selectTime(data, deb, end):
-    data2 = data.loc[data.index >= deb]
-    data2 = data2.loc[data2.index <= end]
-    return data2
+def subset_period(data, start_period, end_period):
+    """This function subsets a dataframe with datetime index
+    within a time period
+
+    Params:
+        data: original dataframe
+        start_period: start date of the period to subset
+        end_period: end date of the period to subset
+
+    """
+    data2 = data.loc[data.index >= start_period].copy()
+    return data2.loc[data2.index <= end_period]
 
 
-def selectColumns(data, columnList):
-    data2 = data[columnList]
-    return data2
+def select_columns(data, column_list):
+    """This function selects the columns of a dataframe
+    according to a provided list of strings
+
+    Params:
+        data: original dataframe
+        column_list: list of columns to select
+
+    """
+
+    return data[column_list].copy()
 
 
 def addRollingMeanColumns(data, columnList, window):
