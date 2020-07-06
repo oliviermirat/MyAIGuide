@@ -30,9 +30,9 @@ import MyAIGuide.data.geo as geo
 
 #%% Retrieve data from GPX files and store in pandas dataframe
 
-CYCLING = "../data/external/myaiguideconfidentialdata/Participant2/moves_export/gpx/full/cycling.gpx"
-RUNNING = "../data/external/myaiguideconfidentialdata/Participant2/moves_export/gpx/full/running.gpx"
-WALKING = "../data/external/myaiguideconfidentialdata/Participant2/moves_export/gpx/full/walking.gpx"
+# CYCLING = "../data/external/myaiguideconfidentialdata/Participant1/moves_export/gpx/full/cycling.gpx"
+# RUNNING = "../data/external/myaiguideconfidentialdata/Participant1/moves_export/gpx/full/running.gpx"
+# WALKING = "../data/external/myaiguideconfidentialdata/Participant1/moves_export/gpx/full/walking.gpx"
 
 def gpx_to_dataframe(fname):
     
