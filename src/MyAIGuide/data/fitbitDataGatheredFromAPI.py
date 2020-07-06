@@ -26,6 +26,9 @@ def fitbitDataGatheredFromAPI(datadir, data):
         datadir: path to datafolder for participant X
         data:  pandas dataframe to store data
     
+    Returns:
+        dataframe data updated with fitbit API data
+    
     """
     # Look for json files in directory
     for file in os.listdir(datadir):
