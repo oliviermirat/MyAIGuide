@@ -7,12 +7,14 @@ Created on Mon Jun  8 19:05:14 2020
 
 [DESCRIPTION]
 Functions to calculate cumulate elevation gain for the moves_export files 
-(the .gpx files) from the confidential repos for participants 1 and 2.
+(the .gpx files) from the confidential repos for participants 1 and 2. 
        
 1. Retrieve gps coordinates and timestamp and store in dataframe
 2. Group gps per day  
 2. Retrieve elevation with Google API
-3. Calculate cumulated elevation gain per day
+3. Calculate cumulated elevation gain (CEG) per day
+4. Combine CEV for running, cycling and walking into one dataframe, export to csv
+5. Create function to update dataframe with CEG data
 
 """
 
@@ -21,14 +23,16 @@ Functions to calculate cumulate elevation gain for the moves_export files
 import pandas as pd
 import gpxpy
 import os
+import logging
+logging.getLogger().setLevel(logging.INFO)
 
 import MyAIGuide.data.geo as geo
 
-#%% GPX: places.gpx
+#%% Retrieve data from GPX files and store in pandas dataframe
 
-CYCLING = "../data/external/myaiguideconfidentialdata/Participant1/moves_export/gpx/full/cycling.gpx"
-RUNNING = "../data/external/myaiguideconfidentialdata/Participant1/moves_export/gpx/full/running.gpx"
-WALKING = "../data/external/myaiguideconfidentialdata/Participant1/moves_export/gpx/full/walking.gpx"
+CYCLING = "../data/external/myaiguideconfidentialdata/Participant2/moves_export/gpx/full/cycling.gpx"
+RUNNING = "../data/external/myaiguideconfidentialdata/Participant2/moves_export/gpx/full/running.gpx"
+WALKING = "../data/external/myaiguideconfidentialdata/Participant2/moves_export/gpx/full/walking.gpx"
 
 def gpx_to_dataframe(fname):
     
@@ -118,16 +122,16 @@ def add_elevation_to_daily(data_daily: dict):
             result.append((day, daily_latlong, elevation))
     return result
 
-#result_cycling = add_elevation_to_daily(cycling_daily)
-#result_walking = add_elevation_to_daily(walking_daily)
-#result_running = add_elevation_to_daily(running_daily)
+# result_cycling = add_elevation_to_daily(cycling_daily)
+# result_walking = add_elevation_to_daily(walking_daily)
+# result_running = add_elevation_to_daily(running_daily)
 
     
 #%% Get cumulated elevation gain 
 
 def get_cum_gain(apires):
     
-    """Calculates cumulate elevation gain.
+    """Calculates cumulated elevation gain.
     
     Params:
         apires: list of tuples(date, (lat,lon), elevation)
@@ -145,4 +149,61 @@ def get_cum_gain(apires):
 
 # cumgain_cycling=get_cum_gain(result_cycling)
 # cumgain_walking=get_cum_gain(result_walking)
-# cumgain_running=get_cum_gain(result_running)
+#cumgain_running=get_cum_gain(result_running)
+
+#%% Get total dataframe with cumulated gains for participant 1 and 2 and export to folder
+
+def export_cum_gain(cumgain_cycling=None, cumgain_walking=None, cumgain_running=None, filename="cum_gains_moves_participant.csv"):
+    
+    """ Combines the cumulated elevation gains dataframes (cycling, running, walking)  into one
+    dataframe and exports it to a csv file"""
+
+    # Rename columns
+    cumgain_cycling.columns = ['elevation', 'cum_gain_cycling']
+    cumgain_walking.columns = ['elevation', 'cum_gain_walking']
+    
+    # Participant2 does not have running data
+    if cumgain_running==None:
+            total_cumulated_elevation_gain = pd.concat([cumgain_cycling['cum_gain_cycling'], cumgain_walking['cum_gain_walking']], axis=1, sort=True)
+    
+    else:
+        cumgain_running.columns = ['elevation', 'cum_gain_running']
+        total_cumulated_elevation_gain = pd.concat([cumgain_cycling['cum_gain_cycling'], cumgain_walking['cum_gain_walking'], cumgain_running['cum_gain_running']], axis=1, sort=True)
+    
+    # Export 
+    total_cumulated_elevation_gain.to_csv(filename, index=True)
+
+#%%  Retrieve the cumulated elevation gains and add the data to a dataframe
+
+def store_CEG_moves(fpath, data):
+  
+    """This function updates a dataframe with the cumulated
+    elevation gain (CEG) data from moves (for participant 1 and 2)
+        
+    Params:
+        fpath: path to datafile with CEG data
+        data:  pandas dataframe to store data
+    
+    Return:
+        dataframe updated with cumulated elevation gains data from moves
+        
+    [NOTE] You can find the cumulated elevation gains dataframes here:
+        CEV_PARTC1 = "./MyAIGuide/data/cumulatedElevationGainsMoves/Participant1/cum_gains_moves_participant1.csv"
+        CEV_PARTC2 = "./MyAIGuide/data/cumulatedElevationGainsMoves/Participant1/cum_gains_moves_participant2.csv"        
+    
+    """
+    # Read file
+    cumulated_elevation_gains=pd.read_csv(fpath, index_col=0)
+    
+    # Index as datetime index
+    cumulated_elevation_gains.index=pd.to_datetime(cumulated_elevation_gains.index)
+                
+    # Update empty dataframe with CEV data from df (updates missing values)
+    data.update(cumulated_elevation_gains)
+    
+    # Combine (updates new columns)
+    res = data.combine_first(cumulated_elevation_gains)
+            
+    logging.info(f"Cumulated elevation gains from Moves added to dataframe")
+            
+    return res
