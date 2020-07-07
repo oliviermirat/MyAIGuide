@@ -4,7 +4,7 @@ import pickle
 
 import matplotlib.pyplot as plt
 
-from MyAIGuide.data.dataFrameUtilities import (
+from MyAIGuide.utilities.dataFrameUtilities import (
     insert_data_to_tracker_mean_steps,
     adjust_var_and_place_in_data
 )
