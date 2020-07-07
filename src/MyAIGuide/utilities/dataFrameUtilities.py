@@ -17,19 +17,6 @@ def subset_period(data, start_period, end_period):
     return data2.loc[data2.index <= end_period]
 
 
-def select_columns(data, column_list):
-    """This function selects the columns of a dataframe
-    according to a provided list of strings
-
-    Params:
-        data: original dataframe
-        column_list: list of columns to select
-
-    """
-
-    return data[column_list].copy()
-
-
 def add_rolling_mean_columns(data, column_list, window):
     """This function selects the columns of a dataframe
     according to a provided list of strings, re-scales its
