@@ -17,7 +17,7 @@ def subset_period(data, start_period, end_period):
     return data2.loc[data2.index <= end_period]
 
 
-def add_rolling_mean_columns(data, column_list, window):
+def insert_rolling_mean_columns(data, column_list, window):
     """This function selects the columns of a dataframe
     according to a provided list of strings, re-scales its
     values and inserts a new column in the dataframe with the
