@@ -30,10 +30,23 @@ def select_columns(data, column_list):
     return data[column_list].copy()
 
 
-def addRollingMeanColumns(data, columnList, window):
+def add_rolling_mean_columns(data, column_list, window):
+    """This function selects the columns of a dataframe
+    according to a provided list of strings, re-scales its
+    values and inserts a new column in the dataframe with the
+    rolling mean of each variable in the column list and the
+    provided window length.
+
+    Params:
+        data: original dataframe
+        column_list: list of columns to select
+        window: window length to calculate rolling mean
+
+    """
+
     scaler = MinMaxScaler()
-    data[columnList] = scaler.fit_transform(data[columnList])
-    for var in columnList:
+    data[column_list] = scaler.fit_transform(data[column_list])
+    for var in column_list:
         data[var + "RollingMean"] = data[var].rolling(window).mean()
     return data
 
