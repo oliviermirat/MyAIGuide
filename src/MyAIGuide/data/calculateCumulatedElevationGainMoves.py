@@ -149,7 +149,7 @@ def get_cum_gain(apires):
 
 # cumgain_cycling=get_cum_gain(result_cycling)
 # cumgain_walking=get_cum_gain(result_walking)
-#cumgain_running=get_cum_gain(result_running)
+# cumgain_running=get_cum_gain(result_running)
 
 #%% Get total dataframe with cumulated gains for participant 1 and 2 and export to folder
 
@@ -175,7 +175,7 @@ def export_cum_gain(cumgain_cycling=None, cumgain_walking=None, cumgain_running=
 
 #%%  Retrieve the cumulated elevation gains and add the data to a dataframe
 
-def retrieve_stored_CEG_moves(fpath, data):
+def retrieve_stored_CEG_moves(fname, data):
   
     """This function updates a dataframe with the cumulated
     elevation gain (CEG) data from moves (for participant 1 and 2)
@@ -193,7 +193,7 @@ def retrieve_stored_CEG_moves(fpath, data):
     
     """
     # Read file
-    cumulated_elevation_gains=pd.read_csv(fpath, index_col=0)
+    cumulated_elevation_gains=pd.read_csv(fname, index_col=0)
     
     # Index as datetime index
     cumulated_elevation_gains.index=pd.to_datetime(cumulated_elevation_gains.index)
