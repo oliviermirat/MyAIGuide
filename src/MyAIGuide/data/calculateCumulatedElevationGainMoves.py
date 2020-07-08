@@ -175,7 +175,7 @@ def export_cum_gain(cumgain_cycling=None, cumgain_walking=None, cumgain_running=
 
 #%%  Retrieve the cumulated elevation gains and add the data to a dataframe
 
-def store_CEG_moves(fpath, data):
+def retrieve_stored_CEG_moves(fpath, data):
   
     """This function updates a dataframe with the cumulated
     elevation gain (CEG) data from moves (for participant 1 and 2)
