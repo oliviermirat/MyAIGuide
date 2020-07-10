@@ -34,7 +34,7 @@ def insert_rolling_mean_columns(data, column_list, window):
     scaler = MinMaxScaler()
     data[column_list] = scaler.fit_transform(data[column_list])
     for var in column_list:
-        data[var + "RollingMean"] = data[var].rolling(window).mean()
+        data[var + "_RollingMean"] = data[var].rolling(window).mean()
     return data
 
 
