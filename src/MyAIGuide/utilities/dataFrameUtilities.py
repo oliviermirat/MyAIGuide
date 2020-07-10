@@ -126,7 +126,7 @@ def adjust_var_and_place_in_data(
     # by averaging pred with the main_var
     data["tracker_mean_steps"].loc[
         np.logical_and(data.index >= start_date, data.index <= end_date)
-    ] = (pred.reshape(1, -1)[0] + period[main_var_name].values) / 2
+    ] = (pred.reshape(1, -1)[0] + period_df[main_var_name].values) / 2
 
     return data
 
