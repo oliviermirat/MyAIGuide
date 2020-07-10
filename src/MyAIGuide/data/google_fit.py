@@ -109,7 +109,7 @@ def get_google_fit_steps(fname: Union[Path, str], data: pd.DataFrame) -> pd.Data
     """
     This function updates a dataframe with the JSON data
     gathered from the GoogleFit API.
-    It updates the values in the `googlefitSteps` column.
+    It updates the values in the `googlefitsteps` column.
 
     Params:
         fname: path to data folder for participant X
@@ -128,6 +128,9 @@ def get_google_fit_steps(fname: Union[Path, str], data: pd.DataFrame) -> pd.Data
 
     # return the extracted dataframe
     new_data = json_interface.df
+    
+    # column to lowercase
+    new_data.columns = map(str.lower, new_data.columns)
 
     # update data
     data.update(new_data)
