@@ -10,9 +10,11 @@ import pandas as pd
 import numpy as np 
 from MyAIGuide.data.calculateCumulatedElevationGainMoves import retrieve_stored_CEG_moves
 
-CEV_PARTC1 = "./MyAIGuide/data/cumulatedElevationGainsMoves/Participant1/cum_gains_moves_participant1.csv"
-
 #%% 
+# path to file
+cev_p1 = "./MyAIGuide/data/cumulatedElevationGainsMoves/Participant1/cum_gains_moves_participant1.csv"
+
+# Create master dataframe
 i = pd.date_range("2017-05-19", periods=1200, freq="1D")
 sLength = len(i)
 empty = pd.Series(np.zeros(sLength)).values
@@ -34,12 +36,13 @@ d = {
     "cum_gain_walking": empty,
     "cum_gain_cycling":empty,
 }
+
 data = pd.DataFrame(data=d, index=i)
 
 #%% 
 
 def test_retrieve_stored_cumulated_elevation_gain():
-    new_data = retrieve_stored_CEG_moves(fname=CEV_PARTC1, data=data)
+    new_data = retrieve_stored_CEG_moves(fname=cev_p1, data=data)
     assert isinstance(new_data, pd.DataFrame)
     assert len(new_data["cum_gain_walking"]) > 0
     assert len(new_data["cum_gain_cycling"]) > 0
