@@ -12,7 +12,7 @@ from MyAIGuide.data.calculateCumulatedElevationGainMoves import retrieve_stored_
 
 #%% 
 # path to file
-cev_p1 = "./MyAIGuide/data/cumulatedElevationGainsMoves/Participant1/cum_gains_moves_participant1.csv"
+cev_p1 = "data/raw/ParticipantData/Participant1PublicOM/cum_gains_moves_participant1.csv"
 
 # Create master dataframe
 i = pd.date_range("2017-05-19", periods=1200, freq="1D")

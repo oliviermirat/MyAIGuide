@@ -4,6 +4,5 @@
 !.gitignore
 !ParticipantData
 !excelFilesForMissingDataFill
-!cumulatedElevationGainsMoves
 !README.md
 !*.xlsx
