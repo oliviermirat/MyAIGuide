@@ -30,7 +30,7 @@ d = {
 test_data = pd.DataFrame(data=d, index=i)
 
 # update it with complaints data
-fname = '../data/raw/ParticipantData/Participant8Anonymized'
+fname = './data/raw/ParticipantData/Participant8Anonymized'
 test_data = complaintsData(fname=fname, data=test_data)
 
 # call function to test

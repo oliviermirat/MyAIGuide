@@ -11,9 +11,8 @@ import pandas as pd
 import requests
 from typing import List, Tuple
 import sys
-sys.path.insert(1, '../src/MyAIGuide/data')
 
-from geo import get_cum_elevation_gain
+from MyAIGuide.data.geo import get_cum_elevation_gain
 
 
 def get_date(fname):      

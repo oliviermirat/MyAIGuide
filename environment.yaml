@@ -36,3 +36,4 @@ dependencies:
   - PyScaffold
   - requests
   - gpxpy
+  - xlrd

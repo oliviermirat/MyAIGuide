@@ -1,5 +1,3 @@
-from unittest import TestCase
-
 from MyAIGuide.data.geo import get_elevation, get_cum_elevation_gain
 
 # Oxford coord

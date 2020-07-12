@@ -49,7 +49,7 @@ def test_manualDataImport():
     data = pd.DataFrame(data=d, index=i)
 
     # update it with complaints data
-    fname_participant = '../data/raw/ParticipantData/Participant8Anonymized'
+    fname_participant = './data/raw/ParticipantData/Participant8Anonymized'
     data = complaintsData(fname=fname_participant, data=data)
 
     # import excel test data.
@@ -57,7 +57,7 @@ def test_manualDataImport():
     # - first value in 'anotherNonRelevantColumn_manualFill' should be a NaN
     #   to test we are not modifying values out of the
     #   date range in the excel file.
-    fname_test_data = '../data/raw/excelFilesForMissingDataFill/test_manual_fill_data.xlsx'
+    fname_test_data = './data/raw/excelFilesForMissingDataFill/test_manual_fill_data.xlsx'
 
     test_data = manualDataImport(fname_test_data, data)
     d_expected = {

@@ -81,7 +81,7 @@ def get_gpslogger_activities(fname: Union[Path, str], data: pd.DataFrame) -> pd.
     This function updates a dataframe with the data
     gathered from the GPSLogger gpx files contained in fname.
 
-    It updates the "elevation_gain" column the master df.
+    It updates the "elevation_gain" column of the master df.
 
     Params:
         fname: path to data folder containing gpx data
