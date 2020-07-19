@@ -2,3 +2,7 @@
 *
 # Except this file
 !.gitignore
+!./GPSdataForTestingONLY/20151227.gpx
+!./GPSdataForTestingONLY/20171205.gpx
+!./GPSdataForTestingONLY/20180208.gpx
+!./GPSdataForTestingONLY/20200517.gpx

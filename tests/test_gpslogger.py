@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 
-TEST_DIR = Path('./data/raw/ParticipantData/Participant1PublicOM/GPSData/Participant1/GPSdata')
+TEST_DIR = Path('./data/external/GPSdataForTestingONLY')
 
 i = pd.date_range("2015-12-28", periods=1604, freq="D")
 sLength = len(i)
