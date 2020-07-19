@@ -50,8 +50,6 @@ def test_subset_period():
     # attention, function does not raise warning when start_date > end_date
     result3 = subset_period(test_data, period3[0], period3[1])
 
-    print(result3)
-    print(expected_data3)
     # compare results and expected dataframes
     assert_frame_equal(result1, expected_data1)
     assert_frame_equal(result2, expected_data2)
