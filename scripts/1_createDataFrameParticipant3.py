@@ -15,7 +15,7 @@ from MyAIGuide.data.storePainIntensitiesForParticipants2to9 import storePainInte
 
 
 #%% Create master dataframe
-dates = pd.date_range("2018-10-22", periods=180, freq="1D") 
+dates = pd.date_range("2018-10-22", periods=289, freq="1D") 
 
 columnnames = [
         "googlefitsteps",
