@@ -53,4 +53,4 @@ def test_exported_data():
     file_path = excel_fname + '.xlsx'
     os.path.isfile(file_path)
     # compare test and expected dataframes
-    assert_frame_equal(expected_data, test_data)
+    assert_frame_equal(expected_data, exported_data)

@@ -105,12 +105,13 @@ def adjust_var_and_place_in_data(
 
     """
 
+    df = data.copy()
     # define start and end date of the period
     start_date = period[0]
     end_date = period[1]
 
     # subset the meaningful variables within period
-    period_df = subset_period(data, start_date, end_date)
+    period_df = subset_period(df, start_date, end_date)
 
     var_to_adjust = period_df[var_to_adjust_name].values.reshape(-1, 1)
     main_var = period_df[main_var_name].values.reshape(-1, 1)
@@ -124,11 +125,11 @@ def adjust_var_and_place_in_data(
 
     # Update the period tracker_mean_steps in original dataset
     # by averaging pred with the main_var
-    data["tracker_mean_steps"].loc[
-        np.logical_and(data.index >= start_date, data.index <= end_date)
+    df["tracker_mean_steps"].loc[
+        np.logical_and(df.index >= start_date, df.index <= end_date)
     ] = (pred.reshape(1, -1)[0] + period_df[main_var_name].values) / 2
 
-    return data
+    return df
 
 
 def insert_data_to_tracker_mean_steps(period, data, main_var_name):
@@ -142,17 +143,18 @@ def insert_data_to_tracker_mean_steps(period, data, main_var_name):
 
     """
 
+    df = data.copy()
     # define start and end date of the period
     start_date = period[0]
     end_date = period[1]
 
     # subset the meaningful variables within period
-    period_df = subset_period(data, start_date, end_date)
+    period_df = subset_period(df, start_date, end_date)
 
     # Update the period tracker_mean_steps in original dataset
     # with the main_var values
-    data["tracker_mean_steps"].loc[
-        np.logical_and(data.index >= start_date, data.index <= end_date)
+    df["tracker_mean_steps"].loc[
+        np.logical_and(df.index >= start_date, df.index <= end_date)
     ] = period_df[main_var_name].values
 
-    return data
+    return df
