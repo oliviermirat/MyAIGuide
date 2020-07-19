@@ -39,5 +39,5 @@ new_data=get_google_fit_steps(datadir, new_data)
 
 # Saving the dataframe in a text
 output = open("../data/preprocessed/preprocessedDataParticipant3.txt", "wb")
-pickle.dump(data, output)
+pickle.dump(new_data, output)
 output.close()
