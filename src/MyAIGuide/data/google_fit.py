@@ -128,9 +128,6 @@ def get_google_fit_steps(fname: Union[Path, str], data: pd.DataFrame) -> pd.Data
 
     # return the extracted dataframe
     new_data = json_interface.df
-    
-    # column to lowercase
-    new_data.columns = map(str.lower, new_data.columns)
 
     # update data
     data.update(new_data)
