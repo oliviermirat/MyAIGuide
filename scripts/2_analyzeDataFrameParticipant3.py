@@ -33,7 +33,7 @@ data=insert_rolling_mean_columns(data, columns, 21)
 # Kneepain data also contains many missing values
 cols = ["googlefitsteps", "kneepain"]
 colors = ["r","g",]
-rm=["googlefitstepsRollingMean","kneepainRollingMean"]
+rm=["googlefitsteps_RollingMean","kneepain_RollingMean"]
 colors2=["grey", "purple", "yellow"]
 
 fig,axes = plt.subplots(2, sharex=True, sharey=True)
