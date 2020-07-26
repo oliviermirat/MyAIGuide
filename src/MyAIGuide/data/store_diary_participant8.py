@@ -17,8 +17,7 @@ RATING_DICT = {
     'pretty good':['pretty good', 'reasonably good'],
     'ok':['average', 'ok', 'ok day'],
     'ups and downs':['up and down','pain was ok when day was warm. but once it got cold, pain ratcheted up'],
-    'not great': ['not great', 'blah', 'not a great', 'some stress.  tried to rest. too much activity yesterday'],
-    'bad':[],
+    'not great': ['not great', 'blah', 'not a great']
     }
 
 # Activities participant performed
@@ -29,7 +28,6 @@ ACTIVITIES_DICT = {
     'medical_appointment':['counseling', 'saw dr', 'doctor', 'medical appointment','acupuncture','accupunture', 'therapy', 'platelets', 'blood test'],
     'selfcare':['massage', 'self care'],
     'household': ['laundry', 'cleaning', 'garden'],
-    'busy':['busy', 'worked'],
     'social': ['with a friend', 'movie day', 'friends', 'social', 'had some company', 'family', 'saw a play', 'board game'],
     }
 
