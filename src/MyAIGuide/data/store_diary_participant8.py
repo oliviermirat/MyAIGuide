@@ -7,6 +7,8 @@ Created on Fri Jul 24 10:43:38 2020
 """
 #%% 
 import pandas as pd
+import numpy as np
+from sklearn.preprocessing import MultiLabelBinarizer
 
 # User defined dictionaries to map strings to categories
 
@@ -29,6 +31,16 @@ ACTIVITIES_DICT = {
     'selfcare':['massage', 'self care'],
     'household': ['laundry', 'cleaning', 'garden'],
     'social': ['with a friend', 'movie day', 'friends', 'social', 'had some company', 'family', 'saw a play', 'board game'],
+    }
+
+ORDINAL_ENCODE_RATING = {
+    'not great': 0,
+    'ups and downs': 1,
+    'ok':2,
+    'pretty good': 4,
+    'good':5,
+    'great':6,
+    np.nan:np.nan
     }
 
 #%% Functions
@@ -99,10 +111,33 @@ def retrieve_diary_categories(diaryfile):
     return diary
 
 
+def encode_diary(data):
+    
+    """This function applies ordinal encoding to the 'rating' column
+    and one-hot encoding to the 'activities' column from diary
+    """
+    # Ordinal encode rating
+    data['rating_encoded'] = data['rating'].apply(lambda x : ORDINAL_ENCODE_RATING[x])    
+    
+    # replace nan with ''
+    data['activities']=data['activities'].replace(np.nan, 'nan', regex=True)
+    
+    # One hot encode activities
+    activities_dummies = pd.get_dummies(data['activities'].apply(pd.Series).stack()).sum(level=0)
+    
+    # join data with new_data
+    new_data=pd.concat([activities_dummies,data], axis=1)
+    
+    # Remove redundant columns
+    new_data.drop(['nan', 'diarynotes', 'rating', 'activities'], axis=1, inplace=True)
+    
+    return new_data
+
+
 def store_retrieve_diary(data, diaryfile):
             
-    """This function updates a dataframe with the diary
-    data for participant8
+    """This function updates a dataframe with the encoded
+    diary data (activities & rating) for participant8
     
     Params:
         diaryfile: path to diary
@@ -116,7 +151,6 @@ def store_retrieve_diary(data, diaryfile):
     data=data.combine_first(diary)
     data.update(diary)
     
-    return data
+    encoded_data=encode_diary(data)
     
-    
-    
+    return encoded_data

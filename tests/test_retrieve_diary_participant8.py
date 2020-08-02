@@ -15,21 +15,22 @@ diaryfile="data/external/myaiguideconfidentialdata/Participant8/Participant8diar
 
 #%% Creation of the dataframe where everything will be stored
 dates = pd.date_range("2019-11-26", periods=175, freq="1D")
+data = pd.DataFrame(index = dates)
 
-columnnames = [
-        "diarynotes",
-        "rating",
-        "activities"     
-           ]
-
-data = pd.DataFrame(np.nan, columns = columnnames, index = dates)
-
+columnnames=['excercise',
+     'household',
+     'medical_appointment',
+     'rest',
+     'selfcare',
+     'social',
+     'rating_encoded',
+     ]
 
 def test_get_diary_data():
     new_data=store_retrieve_diary(data,diaryfile)
     assert isinstance(new_data, pd.DataFrame)
-    assert len(new_data["diarynotes"]) > 0
-    assert len(new_data["activities"]) > 0
-    assert len(new_data["rating"]) > 0
+    for i in columnnames:
+        assert np.nansum(new_data[i]>0)
+
 
 
