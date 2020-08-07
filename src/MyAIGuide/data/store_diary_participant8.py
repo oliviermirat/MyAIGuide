@@ -8,7 +8,6 @@ Created on Fri Jul 24 10:43:38 2020
 #%% 
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import MultiLabelBinarizer
 
 # User defined dictionaries to map strings to categories
 
