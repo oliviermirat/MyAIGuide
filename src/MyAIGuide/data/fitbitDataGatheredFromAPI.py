@@ -50,6 +50,9 @@ def fitbitDataGatheredFromAPI(datadir, data):
             df['dateTime'] = pd.to_datetime(df['dateTime'])
             df.set_index('dateTime', inplace=True)
             
+            # Automatically retrieve columns
+            data=data.combine_first(df)
+            
             # Update empty dataframe with fitbit data from df
             data.update(df)
             
