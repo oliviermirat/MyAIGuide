@@ -10,7 +10,6 @@ Created on Mon May 25 18:45:01 2020
 import os
 import json
 import pandas as pd
-from pandas.io.json import json_normalize
 
 import logging
 logging.getLogger().setLevel(logging.INFO)
@@ -42,7 +41,7 @@ def fitbitDataGatheredFromAPI(datadir, data):
           with open(jsonfile) as data_file:    
             jsondata = json.load(data_file) 
             
-            df = json_normalize(jsondata, 'activities-steps')
+            df = pd.json_normalize(jsondata, 'activities-steps')
         
             # Rename 'value' column to 'steps' 
             df = df.rename(columns={"value":"steps"})    
