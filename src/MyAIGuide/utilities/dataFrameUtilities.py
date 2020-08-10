@@ -2,6 +2,9 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import MinMaxScaler
 
+def selectColumns(data, columnList):
+    data2 = data[columnList]
+    return data2
 
 def subset_period(data, start_period, end_period):
     """This function subsets a dataframe with datetime index
@@ -90,18 +93,17 @@ def getInsultAboveThreshold(data, columnName, thres2):
     return data
 
 
-def adjust_var_and_place_in_data(
-    period, data, var_to_adjust_name, main_var_name
-):
+def adjust_var_and_place_in_data(period, data, var_to_adjust_name, main_var_name, adjusted_var_name):
     """This function adjusts a variable within a time period
     with respect to a main variable and updates the
-    "tracker_mean_steps" variable in the dataset
+    adjusted_var_name variable in the dataset
 
     Params:
         period: tuple with start and end dates of time period
         data: original dataframe
         var_to_adjust_name: name of the variable to adjust
         main_var_name: name of the main variable
+        adjusted_var_name : name of the resulting variable
 
     """
 
@@ -123,16 +125,16 @@ def adjust_var_and_place_in_data(
     # Calculate pred = reg.coef_*X + reg.intercept_
     pred = reg.predict(var_to_adjust)
 
-    # Update the period tracker_mean_steps in original dataset
+    # Update the period adjusted_var_name in original dataset
     # by averaging pred with the main_var
-    df["tracker_mean_steps"].loc[
+    df[adjusted_var_name].loc[
         np.logical_and(df.index >= start_date, df.index <= end_date)
     ] = (pred.reshape(1, -1)[0] + period_df[main_var_name].values) / 2
 
     return df
 
 
-def insert_data_to_tracker_mean_steps(period, data, main_var_name):
+def insert_data_to_tracker_mean_steps(period, data, main_var_name, adjusted_var_name):
     """This function insert the values of a variable within a time
     period in the "tracker_mean_steps" variable in the dataset
 
@@ -140,6 +142,7 @@ def insert_data_to_tracker_mean_steps(period, data, main_var_name):
         period: tuple with start and end dates of time period
         data: original dataframe
         main_var_name: name of the variable to insert
+        adjusted_var_name : name of the adjusted variable
 
     """
 
@@ -151,10 +154,29 @@ def insert_data_to_tracker_mean_steps(period, data, main_var_name):
     # subset the meaningful variables within period
     period_df = subset_period(df, start_date, end_date)
 
-    # Update the period tracker_mean_steps in original dataset
+    # Update the period adjusted_var_name in original dataset
     # with the main_var values
-    df["tracker_mean_steps"].loc[
+    df[adjusted_var_name].loc[
         np.logical_and(df.index >= start_date, df.index <= end_date)
     ] = period_df[main_var_name].values
 
     return df
+
+def transformPain(pain):
+  for i in range(0, len(pain)):
+    painIntensity = pain[i]
+    if painIntensity < 2:
+      pain[i] = 0
+    if painIntensity < 2.5:
+      pain[i] = 1
+    elif painIntensity < 3:
+      pain[i] = 2
+    elif painIntensity < 3.3:
+      pain[i] = 4
+    elif painIntensity == 3.3:
+      pain[i] = 7
+    elif painIntensity <= 3.5:
+      pain[i] = 8
+    else:
+      pain[i] = 10
+  return pain

@@ -74,10 +74,10 @@ def test_insert_data_to_tracker_mean_steps():
     expected_data3 = create_test_dataframe('2020-07-01', 4)
 
     # run the function with the test data
-    result1 = insert_data_to_tracker_mean_steps(period1, test_data, 'col1')
-    result2 = insert_data_to_tracker_mean_steps(period2, test_data, 'col1')
+    result1 = insert_data_to_tracker_mean_steps(period1, test_data, 'col1', 'tracker_mean_steps')
+    result2 = insert_data_to_tracker_mean_steps(period2, test_data, 'col1', 'tracker_mean_steps')
     # attention, function does not raise warning when start_date > end_date
-    result3 = insert_data_to_tracker_mean_steps(period3, test_data, 'col1')
+    result3 = insert_data_to_tracker_mean_steps(period3, test_data, 'col1', 'tracker_mean_steps')
 
     # compare results and expected dataframes
     assert_frame_equal(result1, expected_data1)
@@ -100,8 +100,8 @@ def test_adjust_var_and_place_in_data():
     expected_data2['tracker_mean_steps'] = [3.0, 3.0, 0.0, 0.0]
 
     # run the function with the test data
-    result1 = adjust_var_and_place_in_data(period1, test_data, 'col1', 'col2')
-    result2 = adjust_var_and_place_in_data(period2, test_data, 'col1', 'col2')
+    result1 = adjust_var_and_place_in_data(period1, test_data, 'col1', 'col2', 'tracker_mean_steps')
+    result2 = adjust_var_and_place_in_data(period2, test_data, 'col1', 'col2', 'tracker_mean_steps')
 
     # compare results and expected dataframes
     assert_frame_equal(result1, expected_data1)

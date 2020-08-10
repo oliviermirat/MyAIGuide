@@ -36,9 +36,12 @@ def storeEyeRelatedActivitiesParticipant1(filename, data):
                 tot = tot + int(row[4])
             if len(row[5]):
                 tot = tot + int(row[5])
-            if len(row[6]):
-                tot = tot + int(row[6])
+            if len(row[7]):
+                tot = tot + int(row[7])
             data.loc[date, "eyeRelatedActivities"] = tot
+            if len(row[5]):
+              data.loc[date, "timeDrivingCar"] = int(row[5])
+              
             if len(row[9]):
                 if len(row[10]):
                     data.loc[date, "scooterRiding"] = int(row[9]) + int(row[10])

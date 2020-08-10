@@ -36,7 +36,10 @@ def storePainIntensitiesForParticipant1(filename, data):
                   "Forearm close to elbow": "forearmElbowPain",
                   "Eyes (or around them)": "aroundEyesPain",
                   "Shoulder Neck": "shoulderNeckPain",
+                  "Sick/Tired": "sick_tired",
               }
               if row[3] in dict:
                   data.loc[date, dict[row[3]]] = float(row[5])
+              else:
+                  data.loc[date, "painInOtherRegion"] = float(row[5])
   return data
