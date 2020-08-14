@@ -9,9 +9,12 @@ Created on Fri Aug  7 13:45:11 2020
 import pandas as pd
 import pickle
 
-from MyAIGuide.data.fitbitDataGatheredFromAPI import fitbitDataGatheredFromAPI
-from MyAIGuide.data.store_diary_participant8 import store_retrieve_diary
-from MyAIGuide.data.complaintsData import complaintsData
+import sys
+sys.path.insert(1, '../src/MyAIGuide/data')
+
+from fitbitDataGatheredFromAPI import fitbitDataGatheredFromAPI
+from store_diary_participant8 import store_retrieve_diary
+from complaintsData import complaintsData
 
 
 foldername = "../data/raw/ParticipantData/Participant8Anonymized/"
