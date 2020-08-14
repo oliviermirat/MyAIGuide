@@ -15,7 +15,7 @@ sys.path.insert(1, '../src/MyAIGuide/data')
 from fitbitDataGatheredFromAPI import fitbitDataGatheredFromAPI
 from store_diary_participant8 import store_retrieve_diary
 from complaintsData import complaintsData
-
+from storePainIntensitiesForParticipants2to9 import storePainIntensitiesForParticipants2to9
 
 foldername = "../data/raw/ParticipantData/Participant8Anonymized/"
 diary= "../data/external/myaiguideconfidentialdata/Participant8/Participant8diaries.json"
