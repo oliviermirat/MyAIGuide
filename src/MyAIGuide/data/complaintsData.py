@@ -42,6 +42,9 @@ def complaintsData(fname, data):
         'Tired': 'complaintsTired',
         'Worried anxious': 'complaintsWorriedAnxious'
         }, inplace=True)
+    
+    # Combine to automatically add columns
+    data=data.combine_first(pdf)
 
     # update data with the pivoted dataframe
     data.update(pdf)
