@@ -95,7 +95,7 @@ def retrieve_diary_categories(diaryfile):
     """
     diary = pd.read_csv(diaryfile, header = None, names=['diarynotes','date'], parse_dates=['date'])
     diary.set_index('date', inplace=True)
-    diary.index=diary.index.floor('D')
+    diary.index=diary.index.normalize()
     
     # All diarynotes to lowercase for mapping
     diary['diarynotes']=diary['diarynotes'].str.lower()
@@ -130,6 +130,8 @@ def encode_diary(data):
     
     # Remove redundant columns
     new_data.drop(['nan', 'diarynotes', 'rating', 'activities'], axis=1, inplace=True)
+    
+    new_data.index=new_data.index.floor('D')
     
     return new_data
 
