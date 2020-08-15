@@ -95,6 +95,7 @@ def retrieve_diary_categories(diaryfile):
     """
     diary = pd.read_csv(diaryfile, header = None, names=['diarynotes','date'], parse_dates=['date'])
     diary.set_index('date', inplace=True)
+    diary.index=diary.index.floor('D')
     
     # All diarynotes to lowercase for mapping
     diary['diarynotes']=diary['diarynotes'].str.lower()
