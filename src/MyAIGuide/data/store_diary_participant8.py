@@ -36,9 +36,9 @@ ORDINAL_ENCODE_RATING = {
     'not great': 0,
     'ups and downs': 1,
     'ok':2,
-    'pretty good': 4,
-    'good':5,
-    'great':6,
+    'pretty good': 3,
+    'good':4,
+    'great':5,
     np.nan:np.nan
     }
 
