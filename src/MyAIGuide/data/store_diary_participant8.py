@@ -8,7 +8,6 @@ Created on Fri Jul 24 10:43:38 2020
 #%% 
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import MultiLabelBinarizer
 
 # User defined dictionaries to map strings to categories
 
@@ -37,9 +36,9 @@ ORDINAL_ENCODE_RATING = {
     'not great': 0,
     'ups and downs': 1,
     'ok':2,
-    'pretty good': 4,
-    'good':5,
-    'great':6,
+    'pretty good': 3,
+    'good':4,
+    'great':5,
     np.nan:np.nan
     }
 
@@ -96,6 +95,7 @@ def retrieve_diary_categories(diaryfile):
     """
     diary = pd.read_csv(diaryfile, header = None, names=['diarynotes','date'], parse_dates=['date'])
     diary.set_index('date', inplace=True)
+    diary.index=diary.index.normalize()
     
     # All diarynotes to lowercase for mapping
     diary['diarynotes']=diary['diarynotes'].str.lower()
@@ -130,6 +130,8 @@ def encode_diary(data):
     
     # Remove redundant columns
     new_data.drop(['nan', 'diarynotes', 'rating', 'activities'], axis=1, inplace=True)
+    
+    new_data.index=new_data.index.floor('D')
     
     return new_data
 
