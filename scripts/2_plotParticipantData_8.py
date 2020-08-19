@@ -9,6 +9,9 @@ This script plots the data for participant 8
 
 """
 
+import sys
+sys.path.insert(1, '../src/MyAIGuide/utilities')
+
 import pickle
 import numpy as np
 import matplotlib.pyplot as plt
@@ -16,7 +19,7 @@ import seaborn as sns
 sns.set(style="darkgrid")
 sns.set_palette("husl")
 
-from MyAIGuide.utilities.dataFrameUtilities import insert_rolling_mean_columns
+from dataFrameUtilities import insert_rolling_mean_columns
 
 # Read file 
 input = open("../data/preprocessed/preprocessedDataParticipant8.txt", "rb")
