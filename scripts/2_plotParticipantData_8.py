@@ -5,18 +5,7 @@ Created on Sat Aug 15 09:23:24 2020
 
 @author: anniewong
 
-This script creates the plots for participant 8 data
-
-# step 1: preprocess data for plotting
-data, data_weekly_mean =preprocess_data_for_plotting(data)
-
-# step 2: run plot functions 
-plot_pain_against_steps(data)
-plot_pains_against_happiness(data, data_weekly_mean)
-plot_pain_against_rating(data)
-plot_pain_against_complaints(data)
-plot_pain_against_activities(data)
-correlation_plot(data)
+This script plots the data for participant 8
 
 """
 
@@ -193,3 +182,15 @@ def correlation_plot(data):
     
     plt.show()
 
+#%% Run code
+
+# step 1: preprocess data for plotting
+data, data_weekly_mean =preprocess_data_for_plotting(data)
+
+# step 2: Run functions for plotting 
+plot_pain_against_steps(data)
+plot_pains_against_happiness(data, data_weekly_mean)
+plot_pain_against_rating(data)
+plot_pain_against_complaints(data)
+plot_pain_against_activities(data)
+correlation_plot(data)
