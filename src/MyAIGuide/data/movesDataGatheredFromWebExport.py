@@ -16,7 +16,6 @@ def movesDataGatheredFromWebExport(fname, data):
         if name.endswith(".csv"):
             filename = (fname + name)
             date_from_name = re.split(".csv", re.split("_", name)[1])[0]
-            print("date_from_name:", date_from_name)
             year = date_from_name[0:4]
             month = date_from_name[4:6]
             day = date_from_name[6:8]
