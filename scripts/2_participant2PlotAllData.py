@@ -43,5 +43,5 @@ fig,axes = plt.subplots(4, sharex=True, sharey=True)
 for i,ax in enumerate(axes):
   axes[i].plot(data[cols[i]], label=cols[i])
   axes[i].plot(data[rm[i]], label=rm[i])
-  axes[i].legend(loc="upper right")
+  axes[i].legend(loc='center left', bbox_to_anchor=(1, 0.5))
 plt.show()
