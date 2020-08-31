@@ -2,6 +2,10 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import MinMaxScaler
 
+import pandas as pd
+import pdb
+import datetime
+
 def selectColumns(data, columnList):
     data2 = data[columnList]
     return data2
@@ -91,6 +95,61 @@ def getInsultAboveThreshold(data, columnName, thres2):
         else:
             data[columnName + "Threshed"][i] = 0
     return data
+
+
+def check_if_zero_then_adjust_var_and_place_in_data(period, data, var_to_adjust_name, main_var_name, adjusted_var_name):
+    df = data.copy()
+    start_date = period[0]
+    end_date = period[1]
+    period_df = subset_period(df, start_date, end_date)
+
+    var_to_adjust = period_df[var_to_adjust_name].values.reshape(-1, 1)
+    main_var = period_df[main_var_name].values.reshape(-1, 1)
+    
+    dd = main_var/var_to_adjust
+    dd = dd[np.logical_not(np.isnan(dd))]
+    dd = dd[np.logical_not(np.isinf(dd))]
+    dd = dd[np.logical_not(dd == 0)]
+    medianValue = np.median(dd)
+    print("medianValue:", medianValue)
+
+    minVal = (np.median(main_var)) / 15
+    
+    final_data = [medianValue * var_to_adjust[idx] if mv < minVal and var_to_adjust[idx] != 0 else mv for idx, mv in enumerate(main_var)]
+    print([(mv.tolist(), medianValue * var_to_adjust[idx], (datetime.datetime.strptime(start_date, "%Y-%m-%d") + datetime.timedelta(days=int(idx))).strftime("%m/%d/%Y")) for idx, mv in enumerate(main_var) if mv < minVal and var_to_adjust[idx] != 0])
+    data[adjusted_var_name][pd.date_range(start=start_date, end=end_date)] = np.transpose(final_data).tolist()[0]
+
+    return [data, medianValue]
+
+
+def predict_values(period, data, var_to_adjust_name, adjusted_var_name, medianValue):
+
+    df = data.copy()
+    # define start and end date of the period
+    start_date = period[0]
+    end_date = period[1]
+
+    # subset the meaningful variables within period
+    period_df = subset_period(df, start_date, end_date)
+
+    var_to_adjust = period_df[var_to_adjust_name].values.reshape(-1, 1)
+    # main_var = period_df[main_var_name].values.reshape(-1, 1)
+
+    # Fit Linear Regression with:
+    # X=var_to_adjust, Y=main_var
+    # reg = LinearRegression().fit(var_to_adjust, main_var)
+
+    # Calculate pred = reg.coef_*X + reg.intercept_
+    # pred = reg.predict(var_to_adjust)
+    pred = medianValue * var_to_adjust
+
+    # Update the period adjusted_var_name in original dataset
+    # by averaging pred with the main_var
+    df[adjusted_var_name].loc[
+        np.logical_and(df.index >= start_date, df.index <= end_date)
+    ] = pred.reshape(1, -1)[0]
+
+    return df
 
 
 def adjust_var_and_place_in_data(period, data, var_to_adjust_name, main_var_name, adjusted_var_name):

@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 from sklearn.preprocessing import MinMaxScaler
-from dataFrameUtilities import adjust_var_and_place_in_data, insert_data_to_tracker_mean_steps, subset_period, transformPain
+from dataFrameUtilities import check_if_zero_then_adjust_var_and_place_in_data, insert_data_to_tracker_mean_steps, subset_period, transformPain, predict_values
 
 # Getting data
 input = open("../data/preprocessed/preprocessedDataParticipant1.txt", "rb")
@@ -32,13 +32,18 @@ data["foreheadAndEyesPain"] = data["foreheadAndEyesPain"] + data["aroundEyesPain
 # Filling the "generalmood" column for time before Participant1 started recording it
 data.loc[data.index < "2016-11-07", "generalmood"] = np.mean(data.loc[data.index >= "2016-11-07"]["generalmood"].tolist())
 
+# Adjusting ManicTime for missing data (0 values)
+period1 = ("2015-12-26", "2020-02-01") #("2015-12-26", "2020-02-01")
+data["manicTimeDelta_corrected"] = data["manicTimeDelta"]
+[data, reg] = check_if_zero_then_adjust_var_and_place_in_data(period1, data, "whatPulseT", "manicTimeDelta", "manicTimeDelta_corrected")
+
 # Selecting the time interval to look at the data
 data = subset_period(data, "2016-01-05", "2019-10-20")
 
 # Plotting results
 fig, axes = plt.subplots(nrows=5, ncols=1)
 # Time spent on computer
-data["manicTimeDelta"].plot(ax=axes[0])
+data[["manicTimeDelta", "manicTimeDelta_corrected"]].plot(ax=axes[0])
 axes[0].legend(loc='center left', bbox_to_anchor=(1, 0.5))
 # Time spent on computer
 data["eyeRelatedActivities"].plot(ax=axes[1])

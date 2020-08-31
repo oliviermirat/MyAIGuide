@@ -96,7 +96,7 @@ d = {
 data = pd.DataFrame(data=d, index=i)
 
 # Storing BasisPeak data in dataframe
-if (False):  # This step takes a long time, put to False if you want to skip it, and to True otherwise
+if (True):  # This step takes a long time, put to False if you want to skip it, and to True otherwise
     filename = "../data/raw/ParticipantData/Participant1/bodymetrics.csv"
     data = storeBasisPeakInDataFrame(filename, data)
 
