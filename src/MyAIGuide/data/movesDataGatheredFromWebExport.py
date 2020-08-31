@@ -31,3 +31,4 @@ def movesDataGatheredFromWebExport(fname, data):
                             if row[1] == "walking":
                                 data.loc[date, "movesSteps"] = int(row[5])
     return data
+    

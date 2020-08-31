@@ -224,18 +224,21 @@ def insert_data_to_tracker_mean_steps(period, data, main_var_name, adjusted_var_
 def transformPain(pain):
   for i in range(0, len(pain)):
     painIntensity = pain[i]
-    if painIntensity < 2:
-      pain[i] = 0
-    if painIntensity < 2.5:
-      pain[i] = 1
-    elif painIntensity < 3:
-      pain[i] = 2
-    elif painIntensity < 3.3:
-      pain[i] = 4
-    elif painIntensity == 3.3:
-      pain[i] = 7
-    elif painIntensity <= 3.5:
-      pain[i] = 8
+    if np.isnan(painIntensity):
+      pain[i] = painIntensity
     else:
-      pain[i] = 10
+      if painIntensity < 2:
+        pain[i] = 0
+      if painIntensity < 2.5:
+        pain[i] = 1
+      elif painIntensity < 3:
+        pain[i] = 2
+      elif painIntensity < 3.3:
+        pain[i] = 4
+      elif painIntensity == 3.3:
+        pain[i] = 7
+      elif painIntensity <= 3.5:
+        pain[i] = 8
+      else:
+        pain[i] = 10
   return pain
