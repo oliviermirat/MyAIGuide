@@ -20,9 +20,11 @@ from storePainIntensitiesForParticipants2to9 import storePainIntensitiesForParti
 foldername = "../data/raw/ParticipantData/Participant8Anonymized/"
 diary= "../data/external/myaiguideconfidentialdata/Participant8/Participant8diaries.json"
 
-# timerange
-dates = pd.date_range("2018-10-28", periods=552, freq="1D") #2020-05-01
-data = pd.DataFrame(index = dates)
+# Create empty dataframe to fill
+data = pd.DataFrame()
+
+# Participant8 diaries
+data = store_retrieve_diary(data, diary)
 
 # participant8Fitbit.json
 data = fitbitDataGatheredFromAPI(foldername, data)
@@ -34,10 +36,7 @@ data = complaintsData(foldername, data)
 # Participant8Pain.csv
 data = storePainIntensitiesForParticipants2to9(foldername, data)
 
-# Participant8 diaries
-data = store_retrieve_diary(data, diary)
-
-#   # Saving the dataframe in a txt
+# Saving the dataframe in a txt
 output = open("../data/preprocessed/preprocessedDataParticipant8" + ".txt", "wb")
 pickle.dump(data, output)
 output.close()
