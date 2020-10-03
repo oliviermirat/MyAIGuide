@@ -47,23 +47,23 @@ def insert_rolling_mean_columns(data, column_list, window):
 
 def insert_relative_values_columns(data, column_list, short_window, long_window):
     """This function selects the columns of a dataframe
-    according to a provided list of strings and inserts a new 
-    column in the dataframe with the ratio of the rolling_sum wrt
-    a short window divided by the rolling_sum wrt a longer window.
+    according to a provided list of strings and inserts a new
+    column in the dataframe with the ratio of the rolling_mean wrt
+    a short window divided by the rolling_mean wrt a longer window.
 
     Params:
         data: original dataframe
         column_list: list of columns to select
-        short_window: window length to calculate rolling sum for the nummerator
-        long_window: window length to calculate rolling sum for the denominator
+        short_window: window length to calculate rolling mean for the nummerator
+        long_window: window length to calculate rolling mean for the denominator
 
     """
 
     for var in column_list:
-        var_short_window_rsum = data[var].rolling(short_window).sum()
-        var_long_window_rsum = data[var].rolling(long_window).sum()
+        var_short_window_rmean = data[var].rolling(short_window).mean()
+        var_long_window_rmean = data[var].rolling(long_window).mean()
         relative_var_name = var + "_relative_" + str(short_window) + "_" + str(long_window)
-        data[relative_var_name] = var_short_window_rsum / var_long_window_rsum
+        data[relative_var_name] = var_short_window_rmean / var_long_window_rmean
 
     return data
 
