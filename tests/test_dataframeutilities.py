@@ -128,7 +128,7 @@ def test_insert_rolling_mean_columns():
     assert_frame_equal(result, expected_data)
 
 
-def insert_relative_values_columns():
+def test_insert_relative_values_columns():
     # create test dataframe
     test_data = create_test_dataframe('2020-07-01', 10)
     test_data['incr_col'] = range(1, 1 + len(test_data))
