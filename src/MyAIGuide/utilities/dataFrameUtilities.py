@@ -45,6 +45,29 @@ def insert_rolling_mean_columns(data, column_list, window):
     return data
 
 
+def insert_relative_values_columns(data, column_list, short_window, long_window):
+    """This function selects the columns of a dataframe
+    according to a provided list of strings and inserts a new
+    column in the dataframe with the ratio of the rolling_median wrt
+    a short window divided by the rolling_median wrt a longer window.
+
+    Params:
+        data: original dataframe
+        column_list: list of columns to select
+        short_window: window length to calculate rolling median for the nummerator
+        long_window: window length to calculate rolling median for the denominator
+
+    """
+
+    for var in column_list:
+        var_short_window_rmedian = data[var].rolling(short_window).median()
+        var_long_window_rmedian = data[var].rolling(long_window).median()
+        relative_var_name = var + "_relative_" + str(short_window) + "_" + str(long_window)
+        data[relative_var_name] = var_short_window_rmedian / var_long_window_rmedian
+
+    return data
+
+
 def addInsultIntensityColumns(data, columnList, window, windowMaxInsultDiff):
     scaler = MinMaxScaler()
     data[columnList] = scaler.fit_transform(data[columnList])

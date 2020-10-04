@@ -5,7 +5,8 @@ from MyAIGuide.utilities.dataFrameUtilities import (
     subset_period,
     insert_data_to_tracker_mean_steps,
     adjust_var_and_place_in_data,
-    insert_rolling_mean_columns
+    insert_rolling_mean_columns,
+    insert_relative_values_columns
 )
 
 
@@ -125,3 +126,32 @@ def test_insert_rolling_mean_columns():
 
     # compare results and expected dataframes
     assert_frame_equal(result, expected_data)
+
+
+def test_insert_relative_values_columns():
+    # create test dataframe
+    test_data = create_test_dataframe('2020-07-01', 10)
+    test_data['incr_col'] = range(1, 1 + len(test_data))
+
+    # generate expected dataframes
+    expected = test_data.copy()
+
+    # case when data is constant, the result is constant 1
+    x1 = np.zeros(10) + 1
+    x1[0:3] = np.nan
+    expected['col2_relative_2_4'] = x1
+
+    # case when incremental data
+    x2 = [np.nan, np.nan, np.nan, 1.400000, 1.285714, 1.222222, 1.181818, 1.153846, 1.133333, 1.117647]
+    expected['incr_col_relative_2_4'] = x2
+
+    # case when data is full of zeroes
+    x3 = np.empty(10)
+    x3[:] = np.nan
+    expected['tracker_mean_steps_relative_2_4'] = x3
+
+    # run the function with the test data
+    result = insert_relative_values_columns(test_data, ['col2', 'incr_col', 'tracker_mean_steps'], 2, 4)
+
+    # compare results and expected dataframes
+    assert_frame_equal(result, expected)
