@@ -265,3 +265,27 @@ def transformPain(pain):
       else:
         pain[i] = 10
   return pain
+
+
+def rollingMinMaxScaler(data, columnName, window):
+  
+  dataForCol = data[columnName]
+  data[columnName + "_2"] = data[columnName]
+  
+  for ind in range(0, len(dataForCol)):
+    
+    ind_start = ind - window/2
+    ind_end   = ind + window/2
+    if ind_start < 0:
+      ind_start = 0
+    if ind_end >= len(dataForCol):
+      ind_end = len(dataForCol) - 1
+    
+    minn = min(dataForCol[int(ind_start):int(ind_end)])
+    maxx = max(dataForCol[int(ind_start):int(ind_end)])
+    
+    val  = dataForCol[ind]
+    
+    data[columnName + "_2"][ind] = (val - minn) / (maxx - minn)
+    
+  return data[columnName + "_2"]

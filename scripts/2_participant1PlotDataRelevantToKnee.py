@@ -66,6 +66,9 @@ data = insert_data_to_tracker_mean_steps(period4, data, "fitbitFloors", "tracker
 [data, reg] = check_if_zero_then_adjust_var_and_place_in_data(period6, data, "elevation_gain", "fitbitFloors", "tracker_mean_denivelation")
 [data, reg] = check_if_zero_then_adjust_var_and_place_in_data(period7, data, "elevation_gain", "fitbitFloors", "tracker_mean_denivelation")
 
+# Filling the "tracker_mean_denivelation" column for time before Participant1 started recording it
+data.loc[data.index < "2016-09-01", "tracker_mean_denivelation"] = np.mean(data.loc[data.index >= "2016-09-01"]["tracker_mean_denivelation"].tolist())
+
 # Filling the "generalmood" column for time before Participant1 started recording it
 data.loc[data.index < "2016-11-07", "generalmood"] = np.mean(data.loc[data.index >= "2016-11-07"]["generalmood"].tolist())
 
