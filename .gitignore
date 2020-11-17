@@ -58,3 +58,6 @@ firstExperimentsAndCode/data.txt
 firstExperimentsAndCode/__pycache__/
 moreData/*
 !moreData/README.md
+
+scripts/toRemove
+data_export_test.xlsx
