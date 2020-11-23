@@ -25,7 +25,7 @@ pain. These stressors are: distance walked, denivelation performed while walking
 number of kilometers swam, and whether or not Participant 1 went cycling on that day.<br/><br/>
 <img src="./step1.png"><br/><br/>
 2 – Then, a linear combination of these stressors is calculated (the weight taken is 1 for all of these
-stressors except for “timeDrivingCar” for which the weight was set to 1). This linear combination of
+stressors except for “timeDrivingCar” for which the weight was set to 0.15). This linear combination of
 stressors (named “stress” going forward) is then plotted along with the knee pain:<br/><br/>
 <img src="./step2.png"><br/><br/>
 3 – A rolling mean average of 21 days is then applied on both the stress and pain:<br/><br/>

@@ -4,7 +4,7 @@ This is the open-source part of <a href=http://www.myaiguide.com target="_blank"
 
 Our aim is to create AI-based health coaches.<br/>
 
-You can read about our first analysis of the data here: <a href='./reports/README.md' target='_blank'>MyAIGuide Open Data</a>.<br/>
+You can read about our first analysis of the data here: <a href='./reports/README.md' target='_blank'>first analysis</a>.<br/>
 
 You can also find open-sourced data here: <a href='./data/raw/ParticipantData' target='_blank'>MyAIGuide Open Data</a>.<br/>
 
