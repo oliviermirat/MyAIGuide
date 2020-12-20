@@ -4,11 +4,15 @@ This is the open-source part of <a href=http://www.myaiguide.com target="_blank"
 
 Our aim is to create AI-based health coaches.<br/>
 
-You can read about our first analysis of the data here: <a href='./reports/README.md' target='_blank'>first analysis</a>.<br/>
+You can read about our first analysis of the data here: <a href='./reports/README.md' target='_blank'>first analysis</a>. You can also see the scripts we used for this first analysis as well as documentation about how to run those scripts <a href='./scripts/' target='_blank'>here</a>.<br/>
 
-You can also find open-sourced data here: <a href='./data/raw/ParticipantData' target='_blank'>MyAIGuide Open Data</a>.<br/>
+You can find the open-sourced data here: <a href='./data/raw/ParticipantData' target='_blank'>MyAIGuide Open Data</a>.<br/>
 
-For any other information, feel free to email me: <br/>
+Finally, you can run unit tests from the main directory by typing:<br/>
+python setup.py install<br/>
+python setup.py test<br/>
+
+For any other information, feel free to email me at: <br/>
 olivier.mirat.om@gmail.com
 
 ## Project Organization

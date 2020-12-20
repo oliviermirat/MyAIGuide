@@ -105,7 +105,7 @@ fname = "../data/raw/ParticipantData/Participant1/dailyFitBitPerMonth/"
 data = fitbitDataGatheredFromWebExport(fname, data)
 
 # Storing moves data in dataframe
-fname = "../data/raw/ParticipantData/Participant1/MovesAppData/yearly/summary/"
+fname = "../data/raw/ParticipantData/Participant1/MovesAppData/daily/summary/"
 data = movesDataGatheredFromWebExport(fname, data)
 
 # Storing google fit data in dataframe

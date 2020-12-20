@@ -1,9 +1,5 @@
 # MyAIGuide data
 
-The main objective is to create an algorithm that takes as an input the activities and pain intensities recorded up to a certain day and gives as an output a recommendation about what activities should be performed or avoided on that given day to avoid having symptoms increase. The validity of this algorithm should be access by using the symptoms recorded for that day.
-
-More broadly, the aim is also to better understand chronic pain.
-
 The scale for symptoms is:
 
 1   : Almost Imperceivable;
