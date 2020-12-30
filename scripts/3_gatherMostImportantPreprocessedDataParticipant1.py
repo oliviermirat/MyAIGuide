@@ -102,5 +102,5 @@ data = data.loc[data.index <= "2019-12-22"]
 
 # Saving the dataframe in a txt
 output = open("../data/preprocessed/preprocessedMostImportantDataParticipant1.txt", "wb")
-pickle.dump(data[["tracker_mean_distance", "tracker_mean_denivelation", "whatPulseT_corrected", "manicTimeDelta_corrected", "timeDrivingCar", "climbingDenivelation", "climbingMaxEffortIntensity", "climbingMeanEffortIntensity", "swimmingKm", "surfing", "climbing", "viaFerrata", "swimming", "cycling", "generalmood", "kneePain", "fingerHandArmPain", "shoulderNeckPain", "foreheadEyesPain", "sick_tired"]], output)
+pickle.dump(data[["tracker_mean_distance", "tracker_mean_denivelation", "whatPulseT_corrected", "manicTimeDelta_corrected", "timeDrivingCar", "climbingDenivelation", "climbingMaxEffortIntensity", "climbingMeanEffortIntensity", "swimmingKm", "surfing", "climbing", "viaFerrata", "swimming", "cycling", "generalmood", "scooterRiding", "kneePain", "fingerHandArmPain", "shoulderNeckPain", "foreheadEyesPain", "sick_tired"]], output)
 output.close()

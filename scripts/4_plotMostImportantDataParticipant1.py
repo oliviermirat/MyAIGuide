@@ -30,7 +30,7 @@ plt.show()
 # Plotting results for hands, finger and forearm elbow pain and related variables
 fig, axes = plt.subplots(nrows=2, ncols=1)
 scaler = MinMaxScaler()
-column_list = ["whatPulseT_corrected", "climbingDenivelation", "climbingMaxEffortIntensity", "climbingMeanEffortIntensity", "swimmingKm", "surfing", "viaFerrata"]
+column_list = ["whatPulseT_corrected", "climbingDenivelation", "climbingMaxEffortIntensity", "climbingMeanEffortIntensity", "swimmingKm", "surfing", "viaFerrata", "scooterRiding"]
 data[column_list] = scaler.fit_transform(data[column_list])
 data[column_list].plot(ax=axes[0])
 axes[0].legend(loc='center left', bbox_to_anchor=(1, 0.5))

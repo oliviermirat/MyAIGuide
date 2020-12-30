@@ -124,7 +124,7 @@ plotShift                 = False
 knee = visualizeRollingMinMaxScalerofRollingMeanOfStressAndPain("kneePain", ["tracker_mean_distance", "tracker_mean_denivelation", "timeDrivingCar", "swimmingKm", "cycling"], [1, 1, 0.15, 1, 1], rollingMeanWindow, rollingMinMaxScalerWindow, plotShift)
 
 # Finger Hand Arm Plots
-handArm = visualizeRollingMinMaxScalerofRollingMeanOfStressAndPain("fingerHandArmPain", ["whatPulseT_corrected", "climbingDenivelation", "climbingMaxEffortIntensity", "climbingMeanEffortIntensity", "swimmingKm", "surfing", "viaFerrata"], [1, 1, 2, 1, 1, 1, 1], rollingMeanWindow, rollingMinMaxScalerWindow, plotShift)
+handArm = visualizeRollingMinMaxScalerofRollingMeanOfStressAndPain("fingerHandArmPain", ["whatPulseT_corrected", "climbingDenivelation", "climbingMaxEffortIntensity", "climbingMeanEffortIntensity", "swimmingKm", "surfing", "viaFerrata", "scooterRiding"], [1, 1, 2, 1, 1, 1, 1, 1], rollingMeanWindow, rollingMinMaxScalerWindow, plotShift)
 
 # Forehead Eyes Plots
 aroundEyes = visualizeRollingMinMaxScalerofRollingMeanOfStressAndPain("foreheadEyesPain", ["manicTimeDelta_corrected", "timeDrivingCar"], [1, 1], rollingMeanWindow, rollingMinMaxScalerWindow, plotShift)
