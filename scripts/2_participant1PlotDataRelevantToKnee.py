@@ -27,7 +27,7 @@ period3 = ("2016-09-02", "2017-01-01")  # basis and fitbit
 period4 = ("2017-01-02", "2017-10-16")  # fitbit
 period5 = ("2017-10-17", "2018-07-02")  # fitbit and moves
 period6 = ("2018-07-03", "2018-07-30")  # fitbit and moves and googlefit
-period7 = ("2018-07-31", "2020-02-01")  # fitbit and googlefit
+period7 = ("2018-07-31", "2020-12-29")  # fitbit and googlefit
 
 # Creating the tracker_mean_steps variable in the dataframe
 # and puts harmonized steps value inside
@@ -84,7 +84,7 @@ data["painInOtherRegion"]    = transformPain(data["painInOtherRegion"])
 data["maxPainOtherThanKnee"] = data[["handsAndFingerPain", "foreheadAndEyesPain", "forearmElbowPain", "aroundEyesPain", "shoulderNeckPain", "sick_tired", "painInOtherRegion"]].max(axis=1)
 
 # Selecting the time interval to look at the data
-data = subset_period(data, "2016-01-05", "2019-10-20")
+data = subset_period(data, "2016-01-05", "2020-12-29")
 
 # Plotting results
 fig, axes = plt.subplots(nrows=6, ncols=1)

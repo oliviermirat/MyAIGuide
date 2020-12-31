@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+    xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+    xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2"
+    xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+    xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1"
+    xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
+    <Activities>
+        <Activity Sport="Running">
+            <Id>2020-12-05T10:40:01.702Z</Id>
+            <Notes>Running</Notes>
+            <Lap StartTime="2020-12-05T10:40:01.702Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2020-12-05T10:40:01.702Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>323.7978210449219</DistanceMeters>
+                        <Time>2020-12-05T10:45:00.552Z</Time>
+                        <Position>
+                            <LatitudeDegrees>-8.6468242</LatitudeDegrees>
+                            <LongitudeDegrees>115.1136173</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>25.0</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>582.9078063964844</DistanceMeters>
+                        <Time>2020-12-05T10:48:32.212Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>582.9078063964844</DistanceMeters>
+                <TotalTimeSeconds>510.51</TotalTimeSeconds>
+                <Calories>78.70362091064453</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+    </Activities>
+    <Author xsi:type="Application_t">
+        <Name>Google Fit</Name>
+        <Build>
+            <Version>
+                <VersionMajor>0</VersionMajor>
+                <VersionMinor>0</VersionMinor>
+                <BuildMajor>0</BuildMajor>
+                <BuildMinor>0</BuildMinor>
+            </Version>
+        </Build>
+        <LangID>en</LangID>
+        <PartNumber>000-00000-00</PartNumber>
+    </Author>
+</TrainingCenterDatabase>

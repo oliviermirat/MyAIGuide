@@ -27,7 +27,9 @@ period3 = ("2016-09-02", "2017-01-01")  # basis and fitbit
 period4 = ("2017-01-02", "2017-10-16")  # fitbit
 period5 = ("2017-10-17", "2018-07-02")  # fitbit and moves
 period6 = ("2018-07-03", "2018-07-30")  # fitbit and moves and googlefit
-period7 = ("2018-07-31", "2020-02-01")  # fitbit and googlefit
+period7 = ("2018-07-31", "2020-12-29")  # fitbit and googlefit
+period7b = ("2018-07-31", "2020-02-01") # fitbit and googlefit (for denivelation)
+period7c = ("2020-02-02", "2020-12-29") # fitbit (for denivelation); TODO: ADD DENIVELATION HERE, NEED TO RERUN THE GOOGLE MAP API TO CALCULATE DENIVELATION ON DATA FROM GOOGLEFIT
 
 # Creating the tracker_mean_steps variable in the dataframe
 # and puts harmonized steps value inside
@@ -38,7 +40,8 @@ data = predict_values(period2, data, "basisPeakSteps", "tracker_mean_distance", 
 data = insert_data_to_tracker_mean_steps(period4, data, "fitbitDistance", "tracker_mean_distance")
 [data, reg] = check_if_zero_then_adjust_var_and_place_in_data(period5, data, "movesSteps", "fitbitDistance", "tracker_mean_distance")
 [data, reg] = check_if_zero_then_adjust_var_and_place_in_data(period6, data, "movesSteps", "fitbitDistance", "tracker_mean_distance")
-[data, reg] = check_if_zero_then_adjust_var_and_place_in_data(period7, data, "googlefitSteps", "fitbitDistance", "tracker_mean_distance")
+[data, reg] = check_if_zero_then_adjust_var_and_place_in_data(period7b, data, "googlefitSteps", "fitbitDistance", "tracker_mean_distance")
+data = insert_data_to_tracker_mean_steps(period7c, data, "fitbitDistance", "tracker_mean_distance")
 
 # Creating the tracker_mean_denivelation variable in the dataframe
 # and puts harmonized denivelation value inside
@@ -73,12 +76,12 @@ data.loc[data.index < "2016-09-01", "tracker_mean_denivelation"] = np.mean(data.
 data.loc[data.index < "2016-11-07", "generalmood"] = np.mean(data.loc[data.index >= "2016-11-07"]["generalmood"].tolist())
 
 # Adjusting WhatPulse for missing data (0 values)
-period1 = ("2015-12-26", "2020-02-01") #("2015-12-26", "2020-02-01")
+period1 = ("2015-12-26", "2020-12-29") #("2015-12-26", "2020-02-01")
 data["whatPulseT_corrected"] = data["whatPulseT"]
 [data, reg] = check_if_zero_then_adjust_var_and_place_in_data(period1, data, "manicTimeDelta", "whatPulseT", "whatPulseT_corrected")
 
 # Adjusting ManicTime for missing data (0 values)
-period1 = ("2015-12-26", "2020-02-01") #("2015-12-26", "2020-02-01")
+period1 = ("2015-12-26", "2020-12-29") #("2015-12-26", "2020-02-01")
 data["manicTimeDelta_corrected"] = data["manicTimeDelta"]
 [data, reg] = check_if_zero_then_adjust_var_and_place_in_data(period1, data, "whatPulseT", "manicTimeDelta", "manicTimeDelta_corrected")
 
@@ -98,7 +101,7 @@ data["cycling"] = data["roadBike"] + data["mountainBike"]
 
 # Select time period
 data = data.loc[data.index >= "2016-01-01"]
-data = data.loc[data.index <= "2019-12-22"]
+data = data.loc[data.index <= "2020-12-29"]
 
 # Saving the dataframe in a txt
 output = open("../data/preprocessed/preprocessedMostImportantDataParticipant1.txt", "wb")

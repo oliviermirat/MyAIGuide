@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+    xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+    xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2"
+    xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+    xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1"
+    xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
+    <Activities>
+        <Activity Sport="Other">
+            <Id>2020-01-06T10:37:50.007Z</Id>
+            <Notes>Walking</Notes>
+            <Lap StartTime="2020-01-06T10:37:50.007Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2020-01-06T10:37:50.007Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>80.082763671875</DistanceMeters>
+                        <Time>2020-01-06T10:39:53.784Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>80.082763671875</DistanceMeters>
+                        <Time>2020-01-06T10:41:50.007Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>80.082763671875</DistanceMeters>
+                <TotalTimeSeconds>240.000008192</TotalTimeSeconds>
+                <Calories>5.149791240692139</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+        <Activity Sport="Other">
+            <Id>2020-01-06T10:41:50.007Z</Id>
+            <Notes>Walking</Notes>
+            <Lap StartTime="2020-01-06T10:41:50.007Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2020-01-06T10:41:50.007Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>89.42575073242188</DistanceMeters>
+                        <Time>2020-01-06T10:42:55.904Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>89.42575073242188</DistanceMeters>
+                        <Time>2020-01-06T10:46:02.293Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>174.00205993652344</DistanceMeters>
+                        <Time>2020-01-06T10:47:05.761Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>431.6016082763672</DistanceMeters>
+                        <Time>2020-01-06T10:52:16.021Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>431.6016082763672</DistanceMeters>
+                <TotalTimeSeconds>626.014258374</TotalTimeSeconds>
+                <Calories>29.278127670288086</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+        <Activity Sport="Other">
+            <Id>2020-01-06T10:47:05.761Z</Id>
+            <Notes>Walking</Notes>
+            <Lap StartTime="2020-01-06T10:47:05.761Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2020-01-06T10:47:05.761Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>257.59954833984375</DistanceMeters>
+                        <Time>2020-01-06T10:49:05.733Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>257.59954833984375</DistanceMeters>
+                        <Time>2020-01-06T10:52:16.021Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>257.59954833984375</DistanceMeters>
+                <TotalTimeSeconds>310.260303077</TotalTimeSeconds>
+                <Calories>9.651128768920898</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+        <Activity Sport="Other">
+            <Id>2020-01-06T10:47:05.761Z</Id>
+            <Notes>Walking</Notes>
+            <Lap StartTime="2020-01-06T10:47:05.761Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2020-01-06T10:47:05.761Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>257.59954833984375</DistanceMeters>
+                        <Time>2020-01-06T10:51:07.642Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>257.59954833984375</DistanceMeters>
+                        <Time>2020-01-06T10:52:16.021Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>537.9831848144531</DistanceMeters>
+                        <Time>2020-01-06T10:56:21.035Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>650.0990524291992</DistanceMeters>
+                        <Time>2020-01-06T10:59:12.767Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>650.0990524291992</DistanceMeters>
+                <TotalTimeSeconds>727.00627336</TotalTimeSeconds>
+                <Calories>33.387115478515625</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+        <Activity Sport="Other">
+            <Id>2020-01-06T11:02:12.842Z</Id>
+            <Notes>Walking</Notes>
+            <Lap StartTime="2020-01-06T11:02:12.842Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2020-01-06T11:02:12.842Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2020-01-06T11:02:14.189Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>73.4092025756836</DistanceMeters>
+                        <Time>2020-01-06T11:05:54.189Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>73.4092025756836</DistanceMeters>
+                <TotalTimeSeconds>221.347095214</TotalTimeSeconds>
+                <Calories>5.135303974151611</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+    </Activities>
+    <Author xsi:type="Application_t">
+        <Name>Google Fit</Name>
+        <Build>
+            <Version>
+                <VersionMajor>0</VersionMajor>
+                <VersionMinor>0</VersionMinor>
+                <BuildMajor>0</BuildMajor>
+                <BuildMinor>0</BuildMinor>
+            </Version>
+        </Build>
+        <LangID>en</LangID>
+        <PartNumber>000-00000-00</PartNumber>
+    </Author>
+</TrainingCenterDatabase>

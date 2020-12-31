@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+    xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+    xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2"
+    xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+    xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1"
+    xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
+    <Activities>
+        <Activity Sport="Biking">
+            <Id>2020-12-17T03:51:33.948Z</Id>
+            <Notes>Biking</Notes>
+            <Lap StartTime="2020-12-17T03:51:33.948Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2020-12-17T03:51:33.948Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>559.060791015625</DistanceMeters>
+                        <Time>2020-12-17T03:53:41.756Z</Time>
+                        <Position>
+                            <LatitudeDegrees>-8.646314</LatitudeDegrees>
+                            <LongitudeDegrees>115.1288468</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>51.89999771118164</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>966.064453125</DistanceMeters>
+                        <Time>2020-12-17T03:55:44.254Z</Time>
+                        <Position>
+                            <LatitudeDegrees>-8.6495516</LatitudeDegrees>
+                            <LongitudeDegrees>115.1305745</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>43.099998474121094</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>1361.864501953125</DistanceMeters>
+                        <Time>2020-12-17T03:57:44.283Z</Time>
+                        <Position>
+                            <LatitudeDegrees>-8.6512922</LatitudeDegrees>
+                            <LongitudeDegrees>115.1337203</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>51.599998474121094</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>2005.2637939453125</DistanceMeters>
+                        <Time>2020-12-17T03:59:45.403Z</Time>
+                        <Position>
+                            <LatitudeDegrees>-8.6535106</LatitudeDegrees>
+                            <LongitudeDegrees>115.1391274</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>46.5</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>2393.7620849609375</DistanceMeters>
+                        <Time>2020-12-17T04:01:46.820Z</Time>
+                        <Position>
+                            <LatitudeDegrees>-8.6538744</LatitudeDegrees>
+                            <LongitudeDegrees>115.1426472</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>55.69999694824219</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>3017.6756591796875</DistanceMeters>
+                        <Time>2020-12-17T04:02:40.127Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>3017.6756591796875</DistanceMeters>
+                <TotalTimeSeconds>666.179</TotalTimeSeconds>
+                <Calories>54.77471923828125</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+    </Activities>
+    <Author xsi:type="Application_t">
+        <Name>Google Fit</Name>
+        <Build>
+            <Version>
+                <VersionMajor>0</VersionMajor>
+                <VersionMinor>0</VersionMinor>
+                <BuildMajor>0</BuildMajor>
+                <BuildMinor>0</BuildMinor>
+            </Version>
+        </Build>
+        <LangID>en</LangID>
+        <PartNumber>000-00000-00</PartNumber>
+    </Author>
+</TrainingCenterDatabase>

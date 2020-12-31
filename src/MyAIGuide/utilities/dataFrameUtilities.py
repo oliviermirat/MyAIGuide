@@ -286,6 +286,13 @@ def rollingMinMaxScaler(data, columnName, window):
     
     val  = dataForCol[ind]
     
-    data[columnName + "_2"][ind] = (val - minn) / (maxx - minn)
+    if np.isnan((val - minn) / (maxx - minn)) or np.isinf((val - minn) / (maxx - minn)):
+      if ind:
+        data[columnName + "_2"][ind] = data[columnName + "_2"][ind - 1]
+      else:
+        data[columnName + "_2"][ind] = 0
+    else:
+      data[columnName + "_2"][ind] = (val - minn) / (maxx - minn)
+    
     
   return data[columnName + "_2"]

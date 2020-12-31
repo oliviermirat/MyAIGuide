@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+    xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+    xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2"
+    xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+    xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1"
+    xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
+    <Activities>
+        <Activity Sport="Biking">
+            <Id>2020-08-10T16:15:09.594Z</Id>
+            <Notes>Biking</Notes>
+            <Lap StartTime="2020-08-10T16:15:09.594Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2020-08-10T16:15:09.594Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>564.2833862304688</DistanceMeters>
+                        <Time>2020-08-10T16:24:41.412Z</Time>
+                        <Position>
+                            <LatitudeDegrees>38.7374566</LatitudeDegrees>
+                            <LongitudeDegrees>-9.1458331</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>130.70001220703125</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>942.2389221191406</DistanceMeters>
+                        <Time>2020-08-10T16:35:02.516Z</Time>
+                        <Position>
+                            <LatitudeDegrees>38.73533</LatitudeDegrees>
+                            <LongitudeDegrees>-9.1424326</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>135.5</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>1622.3965759277344</DistanceMeters>
+                        <Time>2020-08-10T16:45:20.356Z</Time>
+                        <Position>
+                            <LatitudeDegrees>38.7349876</LatitudeDegrees>
+                            <LongitudeDegrees>-9.1502669</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>133.20001220703125</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>3269.028778076172</DistanceMeters>
+                        <Time>2020-08-10T16:55:24.466Z</Time>
+                        <Position>
+                            <LatitudeDegrees>38.7498052</LatitudeDegrees>
+                            <LongitudeDegrees>-9.1499931</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>129.8000030517578</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>3356.7126998901367</DistanceMeters>
+                        <Time>2020-08-10T16:56:43.594Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>3356.7126998901367</DistanceMeters>
+                <TotalTimeSeconds>2494.0</TotalTimeSeconds>
+                <Calories>205.0622100830078</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+    </Activities>
+    <Author xsi:type="Application_t">
+        <Name>Google Fit</Name>
+        <Build>
+            <Version>
+                <VersionMajor>0</VersionMajor>
+                <VersionMinor>0</VersionMinor>
+                <BuildMajor>0</BuildMajor>
+                <BuildMinor>0</BuildMinor>
+            </Version>
+        </Build>
+        <LangID>en</LangID>
+        <PartNumber>000-00000-00</PartNumber>
+    </Author>
+</TrainingCenterDatabase>

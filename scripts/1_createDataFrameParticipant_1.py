@@ -29,7 +29,7 @@ from retrieve_mentalstate_participant1 import retrieve_mentalstate_participant1
 from calculateCumulatedElevationGainMoves import retrieve_stored_CEG_moves
 
 # Creation of the dataframe where everything will be stored
-i = pd.date_range("2015-11-19", periods=1700, freq="1D")
+i = pd.date_range("2015-11-19", periods=2075, freq="1D")
 sLength = len(i)
 empty = pd.Series(np.zeros(sLength)).values
 d = {
@@ -110,8 +110,10 @@ data = movesDataGatheredFromWebExport(fname, data)
 
 # Storing google fit data in dataframe
 filename1 = "../data/raw/ParticipantData/Participant1/GoogleFitData/smartphone1/dailyAggregations/dailySummaries.csv"
+data = googleFitGatheredFromWebExport(filename1, data, 13)
+
 filename2 = "../data/raw/ParticipantData/Participant1/GoogleFitData/smartphone2/dailyAggregations/dailySummaries.csv"
-data = googleFitGatheredFromWebExport(filename1, filename2, data)
+data = googleFitGatheredFromWebExport(filename2, data, 11)
 
 # Storing pain intensities in dataframe
 filename = "../data/raw/ParticipantData/Participant1/pain.csv"
