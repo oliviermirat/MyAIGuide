@@ -61,6 +61,11 @@ Another question will be how to best use the training data to train the model: i
 <H4 CLASS="western">Normalizing variables over long periods of time</H4>
 As seen for example on the figure of the <a href='README.md' target='_blank'>first analysis</a>, pain levels for Participant1 in 2016 were much higher than in, for example, 2018. It will thus be necessary to find a way of normalizing pain levels across time, for the data of 2016 to be used to train a model that will then be used to predict pain levels for the data of 2018. Although not as obvious, the same kind of issue probably also exists for the stress variable, and a solution will be needed for that as well.<br/>
 
+<H4 CLASS="western">Challenges with building stress variables</H4>
+We have already started to experiment with building overall "stress variables" (which are linear combinations of stressors) as shown in the <a href='README.md' target='_blank'>first analysis</a>.<br/>
+The choice of coefficients in those linear combinations were purely experimental and there might also be something better to do than simply linear combinations (it might also be better to just work with the stressors directly).<br/>
+In the future, regardless of whether we work with stressors or with linear combinations, it will most likely be a good idea to take into account the fact that repeated stress in a short period of time leads to greater stress overall than if the same amount of stress had been applied on a shorter period of time.<br/>
+
 <H4 CLASS="western">Which participant should we first focus on?</H4>
 Participants 1, 2 and 8 have the most data, we should therefore first try to create 3 individualized models for those 3 participants (one for each participant). We can look into the data of other participants afterwards.
 
