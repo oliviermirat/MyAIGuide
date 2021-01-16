@@ -1,13 +1,13 @@
 # Analyzing data
 
-First, you will need to install required packages. To do this, from the root folder of MyAIGuide's repo, type: pip install -r requirements.txt<br/><br/>
+First, you will need to install the required packages. To do this, from the root folder of MyAIGuide's repo, type: pip install -r requirements.txt<br/><br/>
 
 Then you will need to download the confidential data. To do that, navigate to the folder data/external/ and type: <br/>
 git clone https://github.com/oliviermirat/myaiguideconfidentialdata<br/>
 This will download the folder myaiguideconfidentialdata into the folder data/external/<br/>
 Note that this is a private repo, so you will need special permission to access it (ask Olivier to get special permission).<br/><br/>
 
-Then, navigate to the folder "scripts" ("cd scripts" from the main root folder of MyAIGuide.<br/>
+Then, navigate to the folder "scripts" ("cd scripts" from the main root folder of MyAIGuide).<br/>
 Before you start analyzing the data, you will need to generate preprocessed data. You can generate this preprocessed data for each participant by launching the scripts: 1_createDataFrameParticipant_\*.py. This preprocessed data will be saved inside the folder data/preprocessed/.<br/><br/>
 
 Once the preprocessed data has been generated, you can start analyzing data. The scripts 2_participant\*PlotData\*.py show how to plot this preprocessed data.<br/><br/>
