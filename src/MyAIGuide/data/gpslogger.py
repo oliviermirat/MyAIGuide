@@ -7,8 +7,8 @@ __license__ = 'mit'
 from pathlib import Path
 from typing import Union
 import pandas as pd
-from MyAIGuide.data.calculateCumulatedElevationGainMoves import gpx_to_dataframe
-from MyAIGuide.data.geo import get_cum_elevation_gain
+from calculateCumulatedElevationGainMoves import gpx_to_dataframe
+from geo import get_cum_elevation_gain
 
 
 def get_df_from_file(file: Path) -> pd.DataFrame:

@@ -26,7 +26,7 @@ import os
 import logging
 logging.getLogger().setLevel(logging.INFO)
 
-import MyAIGuide.data.geo as geo
+import geo as geo
 
 #%% Retrieve data from GPX files and store in pandas dataframe
 

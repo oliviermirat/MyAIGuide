@@ -12,7 +12,7 @@ import requests
 from typing import List, Tuple
 import sys
 
-from MyAIGuide.data.geo import get_cum_elevation_gain
+from geo import get_cum_elevation_gain
 
 
 def get_date(fname):      
