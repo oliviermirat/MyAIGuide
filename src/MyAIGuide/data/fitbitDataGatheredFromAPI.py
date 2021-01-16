@@ -31,8 +31,7 @@ def fitbitDataGatheredFromAPI(datadir, data):
     """
     # Look for json files in directory
     for file in os.listdir(datadir):
-        file = file.lower()
-        if file.endswith("fitbit.json"):
+        if file.endswith("Fitbit.json"):
           jsonfile = (datadir + file)
           
           logging.info(f"Parsing file '{file}' for fitbit data")

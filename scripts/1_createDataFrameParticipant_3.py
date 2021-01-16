@@ -10,8 +10,12 @@ Created on Sun Jul 19 12:18:43 2020
 import pickle
 import numpy as np
 import pandas as pd
-from MyAIGuide.data.google_fit import get_google_fit_steps
-from MyAIGuide.data.storePainIntensitiesForParticipants2to9 import storePainIntensitiesForParticipants2to9
+
+import sys
+sys.path.insert(1, '../src/MyAIGuide/data')
+
+from google_fit import get_google_fit_steps
+from storePainIntensitiesForParticipants2to9 import storePainIntensitiesForParticipants2to9
 
 
 #%% Create master dataframe

@@ -14,7 +14,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set(style="darkgrid")
 
-from MyAIGuide.utilities.dataFrameUtilities import insert_rolling_mean_columns
+import sys
+sys.path.insert(1, '../src/MyAIGuide/utilities')
+
+from dataFrameUtilities import insert_rolling_mean_columns
 
 # Read file 
 input = open("../data/preprocessed/preprocessedDataParticipant3.txt", "rb")

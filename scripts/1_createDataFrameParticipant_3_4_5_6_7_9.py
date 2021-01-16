@@ -7,9 +7,12 @@ import re
 import numpy as np
 import pandas as pd
 
-from MyAIGuide.data.google_fit import get_google_fit_steps
-from MyAIGuide.data.fitbitDataGatheredFromAPI import fitbitDataGatheredFromAPI
-from MyAIGuide.data.storePainIntensitiesForParticipants2to9 import storePainIntensitiesForParticipants2to9
+import sys
+sys.path.insert(1, '../src/MyAIGuide/data')
+
+from google_fit import get_google_fit_steps
+from fitbitDataGatheredFromAPI import fitbitDataGatheredFromAPI
+from storePainIntensitiesForParticipants2to9 import storePainIntensitiesForParticipants2to9
 
 participant_ids = [3, 4, 5, 6, 7, 9]
 
