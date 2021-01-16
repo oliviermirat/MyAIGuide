@@ -8,10 +8,6 @@ You can read about our first analysis of the data here: <a href='./reports/READM
 
 You can find the open-sourced data here: <a href='./data/raw/ParticipantData' target='_blank'>MyAIGuide Open Data</a>.<br/>
 
-Finally, you can run unit tests from the main directory by typing:<br/>
-python setup.py install<br/>
-python setup.py test<br/>
-
 For any other information, feel free to email me at: <br/>
 olivier.mirat.om@gmail.com
 
