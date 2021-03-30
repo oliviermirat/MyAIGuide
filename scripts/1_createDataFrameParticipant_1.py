@@ -45,6 +45,7 @@ d = {
     "fitbitActivityCalories": empty,
     "kneePain": empty,
     "handsAndFingerPain": empty,
+    "fingersPain": empty,
     "foreheadAndEyesPain": empty,
     "forearmElbowPain": empty,
     "aroundEyesPain": empty,

@@ -86,15 +86,35 @@ data["manicTimeDelta_corrected"] = data["manicTimeDelta"]
 [data, reg] = check_if_zero_then_adjust_var_and_place_in_data(period1, data, "whatPulseT", "manicTimeDelta", "manicTimeDelta_corrected")
 
 # Pain in Various locations
-data["kneePain"]             = transformPain(data["kneePain"])
-a = data["handsAndFingerPain"].tolist()
-b = data["forearmElbowPain"].tolist()
-data["fingerHandArmPain"]    = transformPain(np.array([max(a[i], b[i]) for i, val in enumerate(a)]))
-data["shoulderNeckPain"]     = transformPain(data["shoulderNeckPain"]) # add this to the previous???
+
 a = data["foreheadAndEyesPain"].tolist()
 b = data["aroundEyesPain"].tolist()
-data["foreheadEyesPain"]     = transformPain(np.array([max(a[i], b[i]) for i, val in enumerate(a)]))
-data["sick_tired"]           = transformPain(data["sick_tired"])
+c = data["foreheadPain"].tolist()
+d = data["eyesPain"].tolist()
+data["foreheadEyesPain"]     = np.array([max(a[i], b[i], c[i], d[i]) for i, val in enumerate(a)])
+
+a = data["shoulderNeckPain"].tolist()
+b = data["shoulderPain"].tolist()
+data["shoulderNeckPain"]   = np.array([max(a[i], b[i]) for i, val in enumerate(a)])
+
+a = data["forearmElbowPain"].tolist()
+b = data["elbowPain"].tolist()
+data["forearmElbowPain"]   = np.array([max(a[i], b[i]) for i, val in enumerate(a)])
+
+a = data["handsAndFingerPain"].tolist()
+b = data["fingersPain"].tolist()
+data["handsAndFingerPain"]   = np.array([max(a[i], b[i]) for i, val in enumerate(a)])
+
+a = data["handsAndFingerPain"].tolist()
+b = data["forearmElbowPain"].tolist()
+data["fingerHandArmPain"]    = np.array([max(a[i], b[i]) for i, val in enumerate(a)]) # This is not really used anymore
+
+a = data["fingerHandArmPain"].tolist()
+b = data["shoulderNeckPain"].tolist()
+data["wholeArm"]    = np.array([max(a[i], b[i]) for i, val in enumerate(a)])
+
+for painRegion in ["kneePain", "foreheadEyesPain",  "handsAndFingerPain", "forearmElbowPain", "shoulderNeckPain", "sick_tired", "painInOtherRegion", "foreheadAndEyesPain", "aroundEyesPain", "fingerHandArmPain", "fingersPain", "foreheadPain", "eyesPain", "shoulderPain", "elbowPain", "wholeArm"]:
+  data[painRegion] = transformPain(data[painRegion])
 
 # Cycling
 data["cycling"] = data["roadBike"] + data["mountainBike"]
@@ -105,5 +125,5 @@ data = data.loc[data.index <= "2020-12-29"]
 
 # Saving the dataframe in a txt
 output = open("../data/preprocessed/preprocessedMostImportantDataParticipant1.txt", "wb")
-pickle.dump(data[["tracker_mean_distance", "tracker_mean_denivelation", "whatPulseT_corrected", "manicTimeDelta_corrected", "timeDrivingCar", "climbingDenivelation", "climbingMaxEffortIntensity", "climbingMeanEffortIntensity", "swimmingKm", "surfing", "climbing", "viaFerrata", "swimming", "cycling", "generalmood", "scooterRiding", "kneePain", "fingerHandArmPain", "shoulderNeckPain", "foreheadEyesPain", "sick_tired"]], output)
+pickle.dump(data[["tracker_mean_distance", "tracker_mean_denivelation", "whatPulseT_corrected", "manicTimeDelta_corrected", "timeDrivingCar", "climbingDenivelation", "climbingMaxEffortIntensity", "climbingMeanEffortIntensity", "swimmingKm", "surfing", "climbing", "viaFerrata", "swimming", "cycling", "generalmood", "scooterRiding", "kneePain", "foreheadEyesPain",  "handsAndFingerPain", "forearmElbowPain", "shoulderNeckPain", "sick_tired", "painInOtherRegion", "foreheadAndEyesPain", "aroundEyesPain", "fingerHandArmPain", "fingersPain", "foreheadPain", "eyesPain", "shoulderPain", "elbowPain", "wholeArm"]], output)
 output.close()
