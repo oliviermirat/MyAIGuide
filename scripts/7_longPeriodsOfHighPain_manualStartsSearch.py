@@ -72,7 +72,12 @@ def visualizeRollingMinMaxScalerofRollingMeanOfStressAndPain(region, list_of_str
   # Subplot 4: Plotting other factors that might be influencing pain
   
   allRegions = ["kneePain", "foreheadEyesPain", "handsAndFingerPain", "forearmElbowPain", "shoulderNeckPain", "sick_tired", "painInOtherRegion"]
-  allRegions.remove(region)
+  if region == "wholeArm":
+    allRegions.remove("handsAndFingerPain")
+    allRegions.remove("forearmElbowPain")
+    allRegions.remove("shoulderNeckPain")
+  else:
+    allRegions.remove(region)
   
   data["maxPain"] = data["fingerHandArmPain"].copy()
   for i in range(0, len(data["fingerHandArmPain"])):   
