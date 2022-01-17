@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## MyAIGuide
 
 You can use the [editor on GitHub](https://github.com/oliviermirat/MyAIGuide/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
