@@ -8,7 +8,7 @@ For patients suffering from patellofemoral pain syndrome and other forms of chro
 
 ## Results so far
 
-From 2017 to 2021, we collected data about pain, exercise and other variables (such as stress levels, mood, sleep, etc...) from patients with patellofemoral pain syndrome and other forms of chronic musculoskeletal pain through a dedicated web app, the idea being to [crowdsource health research](https://medium.com/@oliviermirat/crowdsourcing-health-research-a-new-chance-for-patients-and-tech-people-8658ae298254). The data collected through this web app is now open-source on Github and some code to visualize and analyze this data has been created.
+From 2017 to 2021, we collected data about pain, exercise and other variables (such as stress levels, mood, sleep, etc...) from patients with patellofemoral pain syndrome and other forms of chronic musculoskeletal pain through a dedicated web app, the idea being to [crowdsource health research](https://medium.com/@oliviermirat/crowdsourcing-health-research-a-new-chance-for-patients-and-tech-people-8658ae298254). The data collected through this web app is now open-source on [Github](https://github.com/oliviermirat/MyAIGuide) and some code to visualize and analyze this data has been created.
 
 ## Your contribution
 
