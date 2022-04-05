@@ -60,4 +60,6 @@ moreData/*
 !moreData/README.md
 
 scripts/toRemove
+scripts/variousFailedAttemps
+scripts/peaksData.txt
 data_export_test.xlsx

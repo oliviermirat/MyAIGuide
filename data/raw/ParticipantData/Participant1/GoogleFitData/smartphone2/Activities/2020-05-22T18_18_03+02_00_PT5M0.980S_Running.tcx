@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+    xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+    xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2"
+    xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+    xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1"
+    xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
+    <Activities>
+        <Activity Sport="Running">
+            <Id>2020-05-22T16:18:03.023Z</Id>
+            <Lap StartTime="2020-05-22T16:18:03.023Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2020-05-22T16:18:03.023Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>100.7074966430664</DistanceMeters>
+                        <Time>2020-05-22T16:19:06.223Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>217.46786499023438</DistanceMeters>
+                        <Time>2020-05-22T16:20:05.974Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>386.6564483642578</DistanceMeters>
+                        <Time>2020-05-22T16:22:03.923Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>447.0809440612793</DistanceMeters>
+                        <Time>2020-05-22T16:23:04.003Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>447.0809440612793</DistanceMeters>
+                <TotalTimeSeconds>300.98</TotalTimeSeconds>
+                <Calories>47.02812576293945</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+    </Activities>
+    <Author xsi:type="Application_t">
+        <Name>Google Fit</Name>
+        <Build>
+            <Version>
+                <VersionMajor>0</VersionMajor>
+                <VersionMinor>0</VersionMinor>
+                <BuildMajor>0</BuildMajor>
+                <BuildMinor>0</BuildMinor>
+            </Version>
+        </Build>
+        <LangID>en</LangID>
+        <PartNumber>000-00000-00</PartNumber>
+    </Author>
+</TrainingCenterDatabase>

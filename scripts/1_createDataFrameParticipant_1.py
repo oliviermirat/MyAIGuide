@@ -29,7 +29,7 @@ from retrieve_mentalstate_participant1 import retrieve_mentalstate_participant1
 from calculateCumulatedElevationGainMoves import retrieve_stored_CEG_moves
 
 # Creation of the dataframe where everything will be stored
-i = pd.date_range("2015-11-19", periods=2075, freq="1D")
+i = pd.date_range("2015-11-19", periods=2320, freq="1D")
 sLength = len(i)
 empty = pd.Series(np.zeros(sLength)).values
 d = {
@@ -96,6 +96,8 @@ d = {
 }
 data = pd.DataFrame(data=d, index=i)
 
+print(data)
+
 # Storing BasisPeak data in dataframe
 if (True):  # This step takes a long time, put to False if you want to skip it, and to True otherwise
     filename = "../data/raw/ParticipantData/Participant1/bodymetrics.csv"
@@ -114,7 +116,7 @@ filename1 = "../data/raw/ParticipantData/Participant1/GoogleFitData/smartphone1/
 data = googleFitGatheredFromWebExport(filename1, data, 13)
 
 filename2 = "../data/raw/ParticipantData/Participant1/GoogleFitData/smartphone2/dailyAggregations/dailySummaries.csv"
-data = googleFitGatheredFromWebExport(filename2, data, 11)
+data = googleFitGatheredFromWebExport(filename2, data, 13)
 
 # Storing pain intensities in dataframe
 filename = "../data/raw/ParticipantData/Participant1/pain.csv"
@@ -136,6 +138,7 @@ numberlist = ["1", "2", "3"]
 data = storeManicTimeBlankScreen(fname, numberlist, data)
 
 # Create Manic Time Delta Column in dataframe
+data.loc['2022-03-27','manicTimeBlankScreenT'] = 0 # REMOVE THIS LATER!!!
 data['manicTimeDelta'] = data['manicTimeT'] - data['manicTimeBlankScreenT'].astype(int)
 
 # Storing Sport data in dataframe

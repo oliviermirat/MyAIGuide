@@ -33,12 +33,12 @@ data["foreheadAndEyesPain"] = data["foreheadAndEyesPain"] + data["aroundEyesPain
 data.loc[data.index < "2016-11-07", "generalmood"] = np.mean(data.loc[data.index >= "2016-11-07"]["generalmood"].tolist())
 
 # Adjusting ManicTime for missing data (0 values)
-period1 = ("2015-12-26", "2020-12-29") #("2015-12-26", "2020-02-01")
+period1 = ("2015-12-26", "2022-03-26") #("2015-12-26", "2020-02-01")
 data["manicTimeDelta_corrected"] = data["manicTimeDelta"]
 [data, reg] = check_if_zero_then_adjust_var_and_place_in_data(period1, data, "whatPulseT", "manicTimeDelta", "manicTimeDelta_corrected")
 
 # Selecting the time interval to look at the data
-data = subset_period(data, "2016-01-05", "2020-12-29")
+data = subset_period(data, "2016-01-05", "2022-03-26")
 
 # Plotting results
 fig, axes = plt.subplots(nrows=5, ncols=1)

@@ -26,7 +26,7 @@ def fitbitDataGatheredFromWebExport(fname, data):
                       date = year + "-" + month + "-" + day
                       data.loc[date, "fitbitCaloriesBurned"]       = int(row[1].replace(",", ""))
                       data.loc[date, "fitbitSteps"]                = int(row[2].replace(",", ""))
-                      data.loc[date, "fitbitDistance"]             = float(row[3])
+                      data.loc[date, "fitbitDistance"]             = float(row[3].replace(",", "."))
                       data.loc[date, "fitbitFloors"]               = int(row[4])
                       data.loc[date, "fitbitMinutesSedentary"]     = int(row[5].replace(",", ""))
                       data.loc[date, "fitbitMinutesLightlyActive"] = int(row[6].replace(",", ""))

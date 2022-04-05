@@ -31,12 +31,12 @@ data["maxPainOtherThanHandsAndFinger"] = data[["kneePain", "foreheadAndEyesPain"
 data.loc[data.index < "2016-11-07", "generalmood"] = np.mean(data.loc[data.index >= "2016-11-07"]["generalmood"].tolist())
 
 # Adjusting WhatPulse for missing data (0 values)
-period1 = ("2015-12-26", "2020-12-29") #("2015-12-26", "2020-02-01")
+period1 = ("2015-12-26", "2022-03-26") #("2015-12-26", "2020-02-01")
 data["whatPulseT_corrected"] = data["whatPulseT"]
 [data, reg] = check_if_zero_then_adjust_var_and_place_in_data(period1, data, "manicTimeDelta", "whatPulseT", "whatPulseT_corrected")
 
 # Selecting the time interval to look at the data
-data = subset_period(data, "2016-01-05", "2020-12-29")
+data = subset_period(data, "2016-01-05", "2022-03-26")
 
 # Plotting results
 fig, axes = plt.subplots(nrows=6, ncols=1)

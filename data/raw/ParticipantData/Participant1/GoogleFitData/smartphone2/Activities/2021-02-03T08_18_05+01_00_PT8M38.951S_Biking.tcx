@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+    xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+    xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2"
+    xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+    xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1"
+    xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
+    <Activities>
+        <Activity Sport="Biking">
+            <Id>2021-02-03T07:18:05.626Z</Id>
+            <Lap StartTime="2021-02-03T07:18:05.626Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2021-02-03T07:18:05.626Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2021-02-03T07:20:03.341Z</Time>
+                        <Position>
+                            <LatitudeDegrees>-8.647047996520996</LatitudeDegrees>
+                            <LongitudeDegrees>115.13165283203125</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>47.30000305175781</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>478.9568176269531</DistanceMeters>
+                        <Time>2021-02-03T07:22:04.351Z</Time>
+                        <Position>
+                            <LatitudeDegrees>-8.64559555053711</LatitudeDegrees>
+                            <LongitudeDegrees>115.12754821777344</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>54.20000076293945</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>480.3926178216934</DistanceMeters>
+                        <Time>2021-02-03T07:24:09.071Z</Time>
+                        <Position>
+                            <LatitudeDegrees>-8.645585060119629</LatitudeDegrees>
+                            <LongitudeDegrees>115.12755584716797</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>54.20000076293945</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>519.6061683893204</DistanceMeters>
+                        <Time>2021-02-03T07:26:11.347Z</Time>
+                        <Position>
+                            <LatitudeDegrees>-8.645429611206055</LatitudeDegrees>
+                            <LongitudeDegrees>115.12723541259766</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>53.5</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>519.6061683893204</DistanceMeters>
+                        <Time>2021-02-03T07:26:44.577Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>519.6061683893204</DistanceMeters>
+                <TotalTimeSeconds>518.951</TotalTimeSeconds>
+                <Calories>42.66930389404297</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+    </Activities>
+    <Author xsi:type="Application_t">
+        <Name>Google Fit</Name>
+        <Build>
+            <Version>
+                <VersionMajor>0</VersionMajor>
+                <VersionMinor>0</VersionMinor>
+                <BuildMajor>0</BuildMajor>
+                <BuildMinor>0</BuildMinor>
+            </Version>
+        </Build>
+        <LangID>en</LangID>
+        <PartNumber>000-00000-00</PartNumber>
+    </Author>
+</TrainingCenterDatabase>

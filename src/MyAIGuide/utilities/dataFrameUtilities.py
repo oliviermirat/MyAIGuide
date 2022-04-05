@@ -296,3 +296,33 @@ def rollingMinMaxScaler(data, columnName, window):
     
     
   return data[columnName + "_2"]
+
+
+def rollingMinMaxScalerMeanShift(data, columnName, window, windowMean):
+  
+  dataForCol = data[columnName]
+  data[columnName + "_2"] = data[columnName]
+  
+  for ind in range(0, len(dataForCol)):
+    
+    ind_start = ind - window + windowMean
+    ind_end   = ind + windowMean
+    if ind_start < 0:
+      ind_start = 0
+    if ind_end >= len(dataForCol):
+      ind_end = len(dataForCol) - 1
+    
+    minn = min(dataForCol[int(ind_start):int(ind_end)])
+    maxx = max(dataForCol[int(ind_start):int(ind_end)])
+    
+    val  = dataForCol[ind]
+    
+    if np.isnan((val - minn) / (maxx - minn)) or np.isinf((val - minn) / (maxx - minn)):
+      if ind:
+        data[columnName + "_2"][ind] = data[columnName + "_2"][ind - 1]
+      else:
+        data[columnName + "_2"][ind] = 0
+    else:
+      data[columnName + "_2"][ind] = (val - minn) / (maxx - minn)
+        
+  return data[columnName + "_2"]

@@ -1,9 +1,0 @@
-# Ignore everything in this directory
-*
-# Except this file and .gitignore in sub directories
-!.gitignore
-!raw
-!preprocessed
-!interim
-
-# Note that external data is being ignored
