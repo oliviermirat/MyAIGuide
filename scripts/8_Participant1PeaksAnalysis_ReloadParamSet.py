@@ -20,11 +20,11 @@ data = pickle.load(inputt)
 inputt.close()
 
 if 'Knee' in data:
-  [maxStressScoresKnee, totDaysAscendingPainKnee, totDaysDescendingPainKnee, dataKnee, data2Knee] = data['Knee']
+  [maxStressScoresKnee, totDaysAscendingPainKnee, totDaysDescendingPainKnee, dataKnee, data2Knee, stressMinMaxAmplitudesKnee, painMinMaxAmplitudesKnee] = data['Knee']
 if 'Arm' in data:
-  [maxStressScoresArm, totDaysAscendingPainArm, totDaysDescendingPainArm, dataArm, data2Arm]      = data['Arm']
+  [maxStressScoresArm, totDaysAscendingPainArm, totDaysDescendingPainArm, dataArm, data2Arm, stressMinMaxAmplitudesArm, painMinMaxAmplitudesArm] = data['Arm']
 if 'Head' in data:
-  [maxStressScoresHead, totDaysAscendingPainHead, totDaysDescendingPainHead, dataHead, data2Head] = data['Head']
+  [maxStressScoresHead, totDaysAscendingPainHead, totDaysDescendingPainHead, dataHead, data2Head, stressMinMaxAmplitudesHead, painMinMaxAmplitudesHead] = data['Head']
 
 if 'Arm' in data:
   maxStressScores = np.concatenate((np.concatenate((maxStressScoresKnee, maxStressScoresArm)), maxStressScoresHead))
