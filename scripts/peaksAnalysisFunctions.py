@@ -50,6 +50,17 @@ def addMinAndMax(data, regionName, plotFig, minProminenceForPeakDetect, windowFo
       print("After double max peaks removal: len(maxpeaks):", len(maxpeaks))
       print("After double min peaks removal: len(minpeaks):", len(minpeaks))
   
+  # Storing in memory the sequence of mins and max
+  painMinMaxSequence = []
+  isMinOrMaxSequence = []
+  for i in range(0, len(data)):
+      if i in maxpeaks:
+        painMinMaxSequence.append(i)
+        isMinOrMaxSequence.append(True)
+      if i in minpeaks:
+        painMinMaxSequence.append(i)
+        isMinOrMaxSequence.append(False)
+  
   # Adding two columns in dataframe equal to pain values at min/max frame and to nan elsewhere
   data['max'] = float('nan')
   data['max'][maxpeaks] = data[regionName+'_RollingMean_MinMaxScaler'][maxpeaks].tolist()
@@ -71,42 +82,43 @@ def addMinAndMax(data, regionName, plotFig, minProminenceForPeakDetect, windowFo
   maxStressScores  = np.array([float('nan') for i in range(0, len(maxpeaksStress))])
   maxStressScores2 = np.array([float('nan') for i in range(0, len(maxpeaksStress))])
   for ind, maxStress in enumerate(maxpeaksStress):
-    closestMaxPain = maxpeaks[np.argmin(abs(maxpeaks - maxStress))]
-    keepMaxPeakStress = False
-    if maxStress >= closestMaxPain: # maxStress >= closestMaxPain
-      minPainCandidates = np.array([minPain for minPain in minpeaks if minPain >= closestMaxPain and maxStress <= minPain])
-      if len(minPainCandidates):
-        keepMaxPeakStress = True
-        closestMinPain = minPainCandidates[0]
-        # closestMaxPain <= maxStress <= closestMinPain
-        if scoreBasedOnAmplitude:
-          maxStressScores[ind] = (pain[maxStress] - pain[closestMinPain]) / (pain[closestMinPain] - pain[closestMaxPain]) # Negative value
-          if maxStressScores[ind] < -1: maxStressScores[ind] = -1
-          if maxStressScores[ind] >  0: maxStressScores[ind] = 0
-        else:
+    indSequencePain = 0
+    while indSequencePain + 1 < len(painMinMaxSequence) and not(painMinMaxSequence[indSequencePain] <= maxStress and maxStress <= painMinMaxSequence[indSequencePain + 1]):
+      indSequencePain = indSequencePain + 1
+    if indSequencePain + 1 < len(painMinMaxSequence) and painMinMaxSequence[indSequencePain] <= maxStress and maxStress <= painMinMaxSequence[indSequencePain + 1]:
+      closestMaxPain = painMinMaxSequence[indSequencePain]   if isMinOrMaxSequence[indSequencePain] else painMinMaxSequence[indSequencePain+1]
+      closestMinPain = painMinMaxSequence[indSequencePain+1] if isMinOrMaxSequence[indSequencePain] else painMinMaxSequence[indSequencePain]
+      keepMaxPeakStress = False
+      if maxStress >= closestMaxPain: # maxStress >= closestMaxPain
+        minPainCandidates = np.array([minPain for minPain in minpeaks if minPain >= closestMaxPain and maxStress <= minPain])
+        if len(minPainCandidates):
+          keepMaxPeakStress = True
+          closestMinPain = minPainCandidates[0]
+          # closestMaxPain <= maxStress <= closestMinPain
           maxStressScores[ind] = (maxStress - closestMinPain) / (closestMinPain - closestMaxPain) # Negative value
-        maxStressScores2[ind] = pain[maxStress+1] - pain[maxStress] if maxStress + 1 < len(pain) else 0
-        if debugMode: print("Negative value:", maxStressScores[ind])
-        negativeValue += 1
-    else: # maxStress < closestMaxPain
-      minPainCandidates = np.array([minPain for minPain in minpeaks if minPain <= closestMaxPain and minPain <= maxStress])
-      if len(minPainCandidates):
-        keepMaxPeakStress = True
-        closestMinPain = minPainCandidates[-1:][0]
-        # closestMinPain <= maxStress <= closestMaxPain
-        if scoreBasedOnAmplitude:
-          maxStressScores[ind] = (pain[maxStress] - pain[closestMinPain]) / (pain[closestMaxPain] - pain[closestMinPain]) # Positive value
-          if maxStressScores[ind] > 1: maxStressScores[ind] = 1
-          if maxStressScores[ind] < 0: maxStressScores[ind] = 0
-        else:
+          maxStressScores2[ind] = pain[maxStress+1] - pain[maxStress] if maxStress + 1 < len(pain) else 0
+          print("Stress peak relative location (Negative):", maxStressScores[ind], "; Time:", data.index[maxStress])
+          negativeValue += 1
+      else: # maxStress < closestMaxPain
+        minPainCandidates = np.array([minPain for minPain in minpeaks if minPain <= closestMaxPain and minPain <= maxStress])
+        if len(minPainCandidates):
+          keepMaxPeakStress = True
+          closestMinPain = minPainCandidates[-1:][0]
+          # closestMinPain <= maxStress <= closestMaxPain
           maxStressScores[ind] = (maxStress - closestMinPain) / (closestMaxPain - closestMinPain) # Positive value
-        maxStressScores2[ind] = pain[maxStress+1] - pain[maxStress] if maxStress + 1 < len(pain) else 0
-        if debugMode: print("Positive value:", maxStressScores[ind])
-        positiveValue += 1
-    if keepMaxPeakStress:
-      data['maxStress'][maxStress - 1] = 0
-      data['maxStress'][maxStress] = data['regionSpecificStress_RollingMean_MinMaxScaler'][maxStress]
-      data['maxStress'][maxStress + 1] = 0
+          maxStressScores2[ind] = pain[maxStress+1] - pain[maxStress] if maxStress + 1 < len(pain) else 0
+          print("Stress peak relative location (Positive):", maxStressScores[ind], "; Time:", data.index[maxStress])
+          positiveValue += 1
+      if keepMaxPeakStress:
+        if True:
+          data['maxStress'][maxStress - 1] = 0
+          data['maxStress'][maxStress]     = data['regionSpecificStress_RollingMean_MinMaxScaler'][maxStress]
+          data['maxStress'][maxStress + 1] = 0     
+        else:
+          data['maxStress'][maxStress - 1] = 0.5
+          data['maxStress'][maxStress]     = 0.5 + maxStressScores[ind]/2
+          data['maxStress'][maxStress + 1] = 0.5
+  
   if debugModeGeneral: print("negativeValue:", negativeValue)
   if debugModeGeneral: print("positiveValue:", positiveValue)
   
@@ -223,8 +235,13 @@ def plottingOptions(axes, axesNum, text, legendsText, locLegend, sizeLegend):
 
 def visualizeRollingMinMaxScalerofRollingMeanOfStressAndPain(data, region, list_of_stressors, stressor_coef, window, window2, rollingMedianWindow, minProminenceForPeakDetect, windowForLocalPeakMinMaxFind, plotGraph):
   
+  plotMedianGraph = False
+  
   if plotGraph:
-    fig, axes = plt.subplots(nrows=5, ncols=1)
+    if plotMedianGraph:
+      fig, axes = plt.subplots(nrows=6, ncols=1)
+    else:
+      fig, axes = plt.subplots(nrows=5, ncols=1)
     fig.suptitle(region, fontsize=8)
   scaler = MinMaxScaler()
   
@@ -264,11 +281,18 @@ def visualizeRollingMinMaxScalerofRollingMeanOfStressAndPain(data, region, list_
   # Peaks analysis
   data2 = data[stress_and_pain_RollingMean_MinMaxScaler].copy()
   data2 = data2.rolling(rollingMedianWindow).median()
+  if plotMedianGraph:
+    data2[stress_and_pain_RollingMean_MinMaxScaler].plot(ax=axes[4])
+    plottingOptions(axes, 4, 'Rolling median of rolling MinMaxScaler of rolling mean of combined stress and pain', ['stress', 'pain'], 'center left', 8)
   [maxStressScores, totDaysAscendingPain, totDaysDescendingPain, minpeaks, maxpeaks, maxStressScores2, stressMinMaxAmplitudes, painMinMaxAmplitudes] = addMinAndMax(data2, region, False, minProminenceForPeakDetect, windowForLocalPeakMinMaxFind)
   data2 = prepareForPlotting(data2, region, minpeaks, maxpeaks)
   if plotGraph:
-    data2.plot(ax=axes[4])
-    plottingOptions(axes, 4, "Peaks Analysis", ['painAscending', 'painDescending', 'PeakStress'], 'center left', 8)
+    if plotMedianGraph:
+      data2.plot(ax=axes[5])
+      plottingOptions(axes, 5, "Peaks Analysis", ['painAscending', 'painDescending', 'PeakStress'], 'center left', 8)
+    else:
+      data2.plot(ax=axes[4])
+      plottingOptions(axes, 4, "Peaks Analysis", ['painAscending', 'painDescending', 'PeakStress'], 'center left', 8)
 
   # Showing the final plot
   if plotGraph:
