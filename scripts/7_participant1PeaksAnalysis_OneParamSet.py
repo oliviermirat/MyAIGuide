@@ -9,7 +9,7 @@ input.close()
 
 # Analysis parameters
 # parameters = {'rollingMeanWindow': 15, 'rollingMinMaxScalerWindow': 360, 'rollingMedianWindow': 15, 'minProminenceForPeakDetect': 0.05, 'windowForLocalPeakMinMaxFind': 15, 'plotGraph': True, 'allBodyRegionsArmIncluded': False}
-parameters = {'rollingMeanWindow': 15, 'rollingMinMaxScalerWindow': 270, 'rollingMedianWindow': 15, 'minProminenceForPeakDetect': 0.075, 'windowForLocalPeakMinMaxFind': 5, 'plotGraph': True, 'allBodyRegionsArmIncluded': False}
+parameters = {'rollingMeanWindow': 15, 'rollingMinMaxScalerWindow': 270, 'rollingMedianWindow': 15, 'minProminenceForPeakDetect': 0.075, 'windowForLocalPeakMinMaxFind': 5, 'plotGraph': True, 'allBodyRegionsArmIncluded': False, 'plotZoomedGraph': False}
 
 plotGraphs = True
 saveData   = True

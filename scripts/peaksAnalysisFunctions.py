@@ -15,7 +15,7 @@ from dataFrameUtilities import check_if_zero_then_adjust_var_and_place_in_data, 
 plotWithScaling = False
 plotMedianGraph = True
 
-def addMinAndMax(data, regionName, plotFig, minProminenceForPeakDetect, windowForLocalPeakMinMaxFind):
+def addMinAndMax(data, regionName, plotFig, minProminenceForPeakDetect, windowForLocalPeakMinMaxFind, dataOriginal = [], plotZoomedGraph = False):
   
   scoreBasedOnAmplitude = False
   debugMode = False
@@ -122,6 +122,35 @@ def addMinAndMax(data, regionName, plotFig, minProminenceForPeakDetect, windowFo
           data['maxstrain'][maxstrain - 1] = 0.5
           data['maxstrain'][maxstrain]     = 0.5 + maxstrainScores[ind]/2
           data['maxstrain'][maxstrain + 1] = 0.5
+      
+      if plotZoomedGraph and (maxstrainScores[ind] >= 0 or maxstrainScores[ind] < -0.8):
+        scaler = MinMaxScaler()
+        nbDaysMargin = 14
+        dateMin = data.index[painMinMaxSequence[indSequencePain] - nbDaysMargin]
+        dateMax = data.index[painMinMaxSequence[indSequencePain+1] + nbDaysMargin]
+        dataWtFilt = data[['regionSpecificstrain_RollingMean_MinMaxScaler', regionName + '_RollingMean_MinMaxScaler', 'max',  'min', 'maxstrain']].copy()
+        dataNoFilt = dataOriginal[['regionSpecificstrain', regionName]].copy() #, 'regionSpecificstrain_RollingMean_MinMaxScaler', regionName + '_RollingMean_MinMaxScaler']].copy()
+        dataWtFilt = dataWtFilt[np.logical_and((dataWtFilt.index >= dateMin), (dataWtFilt.index <= dateMax))]
+        dataNoFilt = dataNoFilt[np.logical_and((dataNoFilt.index >= dateMin), (dataNoFilt.index <= dateMax))]
+        dataWtFilt[['regionSpecificstrain_RollingMean_MinMaxScaler', regionName + '_RollingMean_MinMaxScaler']] = scaler.fit_transform(dataWtFilt[['regionSpecificstrain_RollingMean_MinMaxScaler', regionName + '_RollingMean_MinMaxScaler']])
+        
+        dataWtFilt['max'][[i for i, val in enumerate(dataWtFilt['max'].isna() == False) if val]] = dataWtFilt[regionName + '_RollingMean_MinMaxScaler'][[i for i, val in enumerate(dataWtFilt['max'].isna() == False) if val]]
+        dataWtFilt['min'][[i for i, val in enumerate(dataWtFilt['min'].isna() == False) if val]] = dataWtFilt[regionName + '_RollingMean_MinMaxScaler'][[i for i, val in enumerate(dataWtFilt['min'].isna() == False) if val]]
+        dataWtFilt['maxstrain'][[i for i, val in enumerate(np.logical_and(dataWtFilt['maxstrain'].isna() == False, dataWtFilt['maxstrain'] != 0)) if val]] = dataWtFilt['regionSpecificstrain_RollingMean_MinMaxScaler'][[i for i, val in enumerate(np.logical_and(dataWtFilt['maxstrain'].isna() == False, dataWtFilt['maxstrain'] != 0)) if val]]
+        dataWtFilt['maxstrain'][[i for i, val in enumerate(np.logical_and(dataWtFilt['maxstrain'].isna() == False, dataWtFilt['maxstrain'] == 0)) if val]] = float('NaN')
+        # dataNoFilt[['regionSpecificstrain', regionName, 'regionSpecificstrain_RollingMean_MinMaxScaler', regionName + '_RollingMean_MinMaxScaler']] = scaler.fit_transform(dataNoFilt[['regionSpecificstrain', regionName, 'regionSpecificstrain_RollingMean_MinMaxScaler', regionName + '_RollingMean_MinMaxScaler']])
+        dataNoFilt[['regionSpecificstrain', regionName]] = scaler.fit_transform(dataNoFilt[['regionSpecificstrain', regionName]])
+        fig, ax1 = plt.subplots(1, 1, figsize=(22.9, 8.8))
+        if False:
+          dataNoFilt[['regionSpecificstrain_RollingMean_MinMaxScaler', regionName + '_RollingMean_MinMaxScaler']].plot(ax=ax1, color = ['blue', 'red'])
+        else:
+          dataWtFilt[['regionSpecificstrain_RollingMean_MinMaxScaler', regionName + '_RollingMean_MinMaxScaler']].plot(ax=ax1, color = ['blue', 'red'])
+          dataWtFilt[['max', 'min', 'maxstrain']].plot(ax=ax1, linestyle='', marker='o', color = ['black', 'black', 'green'], markersize = 10)
+        dataNoFilt[['regionSpecificstrain', regionName]].plot(ax=ax1, linestyle='', marker='o', color = ['blue', 'red']) #, markersize=1)
+        ax1.legend(['strainFiltered', 'painFiltered', 'maxPainPeak', 'minPainPeak', 'maxStrainPeak', 'strain', 'pain'], loc="center left", bbox_to_anchor=(1, 0.5))
+        plt.title("Strain relative location: " + str(maxstrainScores[ind]))
+        plt.show()
+        # plt.savefig(regionName + str(ind) + '_' + str(data.index[maxstrain])[0:10] + '.png')
   
   if debugModeGeneral: print("negativeValue:", negativeValue)
   if debugModeGeneral: print("positiveValue:", positiveValue)
@@ -159,17 +188,18 @@ def addMinAndMax(data, regionName, plotFig, minProminenceForPeakDetect, windowFo
     plt.hist(maxstrainScores)
     plt.show()
   
-  # strain peaks amplitudes vs Pain peaks amplitudes: calculating values
+  # Strain peaks amplitudes vs Pain peaks amplitudes: calculating values
   painMinMaxAmplitudes   = []
   strainMinMaxAmplitudes = []
   if True:
-    minMaxTimeTolerance    = 7
+    minMaxTimeTolerancePlus  = 3 #7
+    minMaxTimeToleranceMinus = 3 #3
     analyzestrainResponseAfter = False
     for maxPainPeak in maxpeaks:
       minPainCandidates = np.array([minPainPeak for minPainPeak in minpeaks if minPainPeak <= maxPainPeak])
       if len(minPainCandidates):
         minPainPeak = minPainCandidates[-1]
-        correspondingstrainPeakCandidates = [maxstrain for maxstrain in maxpeaksstrain if maxstrain >= minPainPeak - minMaxTimeTolerance and maxstrain <= maxPainPeak + minMaxTimeTolerance]
+        correspondingstrainPeakCandidates = [maxstrain for maxstrain in maxpeaksstrain if maxstrain >= minPainPeak - minMaxTimeToleranceMinus and maxstrain <= maxPainPeak + minMaxTimeTolerancePlus]
         if len(correspondingstrainPeakCandidates):
           maxstrainPeak = correspondingstrainPeakCandidates[np.argmax([strain[maxstrain] for maxstrain in correspondingstrainPeakCandidates])]
           minstrainCandidates = np.array([minstrainPeak for minstrainPeak in minpeaksstrain if minstrainPeak <= maxstrainPeak]) if not(analyzestrainResponseAfter) else np.array([minstrainPeak for minstrainPeak in minpeaksstrain if minstrainPeak >= maxstrainPeak])
@@ -238,15 +268,14 @@ def plottingOptions(axes, axesNum, text, legendsText, locLegend, sizeLegend):
   axes[axesNum].title.set_position([0.5, 0.93])
   axes[axesNum].get_xaxis().set_visible(False)
 
-def visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, region, list_of_stressors, strainor_coef, window, window2, rollingMedianWindow, minProminenceForPeakDetect, windowForLocalPeakMinMaxFind, plotGraph):
+def visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, region, list_of_stressors, strainor_coef, window, window2, rollingMedianWindow, minProminenceForPeakDetect, windowForLocalPeakMinMaxFind, plotGraph, plotZoomedGraph=False):
   
   if plotGraph:
     if plotMedianGraph:
       fig, axes = plt.subplots(nrows=6, ncols=1)
     else:
       fig, axes = plt.subplots(nrows=5, ncols=1)
-  
-  fig.subplots_adjust(left=0.02, bottom=0.05, right=0.90, top=0.97, wspace=None, hspace=0.25)
+    fig.subplots_adjust(left=0.02, bottom=0.05, right=0.90, top=0.97, wspace=None, hspace=0.25)
   
   scaler = MinMaxScaler()
   
@@ -268,7 +297,7 @@ def visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, region, list_
 
   # Plotting Rolling Mean of strain and pain
   for var in strain_and_pain:
-    data[var + "_RollingMean"] = data[var].rolling(window).mean()
+    data[var + "_RollingMean"] = data[var].rolling(window).mean().shift(int(-window/2))
   strain_and_pain_rollingMean = [name + "_RollingMean" for name in strain_and_pain]
   data[strain_and_pain_rollingMean] = scaler.fit_transform(data[strain_and_pain_rollingMean])
   if plotGraph:
@@ -289,11 +318,11 @@ def visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, region, list_
 
   # Peaks analysis
   data2 = data[strain_and_pain_RollingMean_MinMaxScaler].copy()
-  data2 = data2.rolling(rollingMedianWindow).median()
-  if plotMedianGraph:
+  data2 = data2.rolling(rollingMedianWindow).median().shift(int(-rollingMedianWindow/2))
+  if plotGraph and plotMedianGraph:
     data2[strain_and_pain_RollingMean_MinMaxScaler].plot(ax=axes[4])
     plottingOptions(axes, 4, 'Rolling median of rolling MinMaxScaler of rolling mean of strain and pain', ['strain', 'pain'], 'center left', 8)
-  [maxstrainScores, totDaysAscendingPain, totDaysDescendingPain, minpeaks, maxpeaks, maxstrainScores2, strainMinMaxAmplitudes, painMinMaxAmplitudes, maxpeaksstrain] = addMinAndMax(data2, region, False, minProminenceForPeakDetect, windowForLocalPeakMinMaxFind)
+  [maxstrainScores, totDaysAscendingPain, totDaysDescendingPain, minpeaks, maxpeaks, maxstrainScores2, strainMinMaxAmplitudes, painMinMaxAmplitudes, maxpeaksstrain] = addMinAndMax(data2, region, False, minProminenceForPeakDetect, windowForLocalPeakMinMaxFind, data, plotZoomedGraph)
   data2 = prepareForPlotting(data2, region, minpeaks, maxpeaks)
   if plotGraph:
     if plotMedianGraph:
@@ -342,19 +371,20 @@ def calculateForAllRegions(data, parameters, plotGraphs, saveData):
   minProminenceForPeakDetect = parameters['minProminenceForPeakDetect']
   windowForLocalPeakMinMaxFind = parameters['windowForLocalPeakMinMaxFind']
   plotGraph = parameters['plotGraph']
+  plotZoomedGraph = parameters['plotZoomedGraph'] if 'plotZoomedGraph' in parameters else False
   allBodyRegionsArmIncluded = parameters['allBodyRegionsArmIncluded']
   
   data = data.rename(columns={'tracker_mean_distance': 'distance', 'tracker_mean_denivelation': 'denivelation', 'manicTimeDelta_corrected': 'timeOnComputer', 'whatPulseT_corrected': 'mouseAndKeyboardPressNb'})
   
   # Knee plots
-  [maxstrainScoresKnee, maxstrainScores2Knee, totDaysAscendingPainKnee, totDaysDescendingPainKnee, dataKnee, data2Knee, strainMinMaxAmplitudesKnee, painMinMaxAmplitudesKnee] = visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, "kneePain", ["distance", "denivelation", "timeDrivingCar", "swimmingKm", "cycling"], [1, 1, 0.15, 1, 0.5], rollingMeanWindow, rollingMinMaxScalerWindow, rollingMedianWindow, minProminenceForPeakDetect, windowForLocalPeakMinMaxFind, plotGraph)
+  [maxstrainScoresKnee, maxstrainScores2Knee, totDaysAscendingPainKnee, totDaysDescendingPainKnee, dataKnee, data2Knee, strainMinMaxAmplitudesKnee, painMinMaxAmplitudesKnee] = visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, "kneePain", ["distance", "denivelation", "timeDrivingCar", "swimmingKm", "cycling"], [1, 1, 0.15, 1, 0.5], rollingMeanWindow, rollingMinMaxScalerWindow, rollingMedianWindow, minProminenceForPeakDetect, windowForLocalPeakMinMaxFind, plotGraph, plotZoomedGraph)
 
   # Finger hand arm plots
   if allBodyRegionsArmIncluded:
-    [maxstrainScoresArm, maxstrainScores2Arm, totDaysAscendingPainArm, totDaysDescendingPainArm, dataArm, data2Arm, strainMinMaxAmplitudesArm, painMinMaxAmplitudesArm] = visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, "fingerHandArmPain", ["whatPulseT_corrected", "climbingDenivelation", "climbingMaxEffortIntensity", "climbingMeanEffortIntensity", "swimmingKm", "surfing", "viaFerrata", "scooterRiding"], [1, 0.25, 0.5, 0.25, 0.7, 0.9, 0.8, 0.9], rollingMeanWindow, rollingMinMaxScalerWindow, rollingMedianWindow, minProminenceForPeakDetect, windowForLocalPeakMinMaxFind, plotGraph)
+    [maxstrainScoresArm, maxstrainScores2Arm, totDaysAscendingPainArm, totDaysDescendingPainArm, dataArm, data2Arm, strainMinMaxAmplitudesArm, painMinMaxAmplitudesArm] = visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, "fingerHandArmPain", ["whatPulseT_corrected", "climbingDenivelation", "climbingMaxEffortIntensity", "climbingMeanEffortIntensity", "swimmingKm", "surfing", "viaFerrata", "scooterRiding"], [1, 0.25, 0.5, 0.25, 0.7, 0.9, 0.8, 0.9], rollingMeanWindow, rollingMinMaxScalerWindow, rollingMedianWindow, minProminenceForPeakDetect, windowForLocalPeakMinMaxFind, plotGraph, plotZoomedGraph)
 
   # Forehead eyes plots
-  [maxstrainScoresHead, maxstrainScores2Head, totDaysAscendingPainHead, totDaysDescendingPainHead, dataHead, data2Head, strainMinMaxAmplitudesHead, painMinMaxAmplitudesHead] = visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, "foreheadEyesPain", ["timeOnComputer", "timeDrivingCar"], [1, 0.8], rollingMeanWindow, rollingMinMaxScalerWindow, rollingMedianWindow, minProminenceForPeakDetect, windowForLocalPeakMinMaxFind, plotGraph)
+  [maxstrainScoresHead, maxstrainScores2Head, totDaysAscendingPainHead, totDaysDescendingPainHead, dataHead, data2Head, strainMinMaxAmplitudesHead, painMinMaxAmplitudesHead] = visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, "foreheadEyesPain", ["timeOnComputer", "timeDrivingCar"], [1, 0.8], rollingMeanWindow, rollingMinMaxScalerWindow, rollingMedianWindow, minProminenceForPeakDetect, windowForLocalPeakMinMaxFind, plotGraph, plotZoomedGraph)
 
   # All regions together
   if allBodyRegionsArmIncluded:
@@ -423,9 +453,10 @@ def calculateForAllRegionsParticipant2(data, parameters, plotGraphs, saveData=Fa
   minProminenceForPeakDetect = parameters['minProminenceForPeakDetect']
   windowForLocalPeakMinMaxFind = parameters['windowForLocalPeakMinMaxFind']
   plotGraph = parameters['plotGraph']
+  plotZoomedGraph = parameters['plotZoomedGraph'] if 'plotZoomedGraph' in parameters else False
 
   # Knee plots
-  [maxstrainScoresKnee, maxstrainScores2Knee, totDaysAscendingPainKnee, totDaysDescendingPainKnee, dataKnee, data2Knee, strainMinMaxAmplitudes, painMinMaxAmplitudes] = visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, "kneepain", ["steps", "denivelation"], [1, 1], rollingMeanWindow, rollingMinMaxScalerWindow, rollingMedianWindow, minProminenceForPeakDetect, windowForLocalPeakMinMaxFind, plotGraph)
+  [maxstrainScoresKnee, maxstrainScores2Knee, totDaysAscendingPainKnee, totDaysDescendingPainKnee, dataKnee, data2Knee, strainMinMaxAmplitudes, painMinMaxAmplitudes] = visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, "kneepain", ["steps", "denivelation"], [1, 1], rollingMeanWindow, rollingMinMaxScalerWindow, rollingMedianWindow, minProminenceForPeakDetect, windowForLocalPeakMinMaxFind, plotGraph, plotZoomedGraph)
 
   maxstrainScores = maxstrainScoresKnee
   if plotGraphs:
@@ -463,9 +494,10 @@ def calculateForAllRegionsParticipant8(data, parameters, plotGraphs, saveData=Fa
   minProminenceForPeakDetect = parameters['minProminenceForPeakDetect']
   windowForLocalPeakMinMaxFind = parameters['windowForLocalPeakMinMaxFind']
   plotGraph = parameters['plotGraph']
+  plotZoomedGraph = parameters['plotZoomedGraph'] if 'plotZoomedGraph' in parameters else False
 
   # Knee plots
-  [maxstrainScoresKnee, maxstrainScores2Knee, totDaysAscendingPainKnee, totDaysDescendingPainKnee, dataKnee, data2Knee, strainMinMaxAmplitudes, painMinMaxAmplitudes] = visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, "kneepain", ["steps"], [1], rollingMeanWindow, rollingMinMaxScalerWindow, rollingMedianWindow, minProminenceForPeakDetect, windowForLocalPeakMinMaxFind, plotGraph)
+  [maxstrainScoresKnee, maxstrainScores2Knee, totDaysAscendingPainKnee, totDaysDescendingPainKnee, dataKnee, data2Knee, strainMinMaxAmplitudes, painMinMaxAmplitudes] = visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, "kneepain", ["steps"], [1], rollingMeanWindow, rollingMinMaxScalerWindow, rollingMedianWindow, minProminenceForPeakDetect, windowForLocalPeakMinMaxFind, plotGraph, plotZoomedGraph)
 
   maxstrainScores = maxstrainScoresKnee
   if plotGraphs:

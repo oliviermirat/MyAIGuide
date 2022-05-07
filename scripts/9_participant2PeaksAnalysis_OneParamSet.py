@@ -21,7 +21,7 @@ input.close()
 data = data[data.index >= '2018-05-11']
 data = data[data.index <= '2020-05-04']
 
-data["kneepain"] = transformPain(data["kneepain"])
+# data["kneepain"] = transformPain(data["kneepain"])
 data["kneepain"] = data["kneepain"].fillna(1)
 
 # Steps
@@ -45,7 +45,7 @@ for idx, val in enumerate(cols):
 plt.show()
 
 # Analysis parameters
-parameters = {'rollingMeanWindow': 15, 'rollingMinMaxScalerWindow': 90, 'rollingMedianWindow': 15, 'minProminenceForPeakDetect': 0.05, 'windowForLocalPeakMinMaxFind': 7, 'plotGraph': True}
+parameters = {'rollingMeanWindow': 15, 'rollingMinMaxScalerWindow': 90, 'rollingMedianWindow': 15, 'minProminenceForPeakDetect': 0.05, 'windowForLocalPeakMinMaxFind': 7, 'plotGraph': True, 'plotZoomedGraph': False}
 
 plotGraphs = True
 
