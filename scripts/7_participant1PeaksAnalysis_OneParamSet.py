@@ -9,14 +9,17 @@ input.close()
 
 # Analysis parameters
 # parameters = {'rollingMeanWindow': 15, 'rollingMinMaxScalerWindow': 360, 'rollingMedianWindow': 15, 'minProminenceForPeakDetect': 0.05, 'windowForLocalPeakMinMaxFind': 15, 'plotGraph': True, 'allBodyRegionsArmIncluded': False}
-parameters = {'rollingMeanWindow': 15, 'rollingMinMaxScalerWindow': 270, 'rollingMedianWindow': 15, 'minProminenceForPeakDetect': 0.075, 'windowForLocalPeakMinMaxFind': 5, 'plotGraph': True, 'allBodyRegionsArmIncluded': False, 'plotZoomedGraph': False}
+parameters = {'rollingMeanWindow': 15, 'rollingMinMaxScalerWindow': 270, 'rollingMedianWindow': 15, 'minProminenceForPeakDetect': 0.075, 'windowForLocalPeakMinMaxFind': 5, 'plotGraph': True, 'allBodyRegionsArmIncluded': False, 'plotZoomedGraph': False, 'minMaxTimeToleranceMinus': 0, 'minMaxTimeTolerancePlus': 0}
 
 plotGraphs = True
 saveData   = True
 
-[score, totDaysTakenIntoAccount, regScore, nbAscendingDays, nbDescendingDays] = peaksAnalysisFunctions.calculateForAllRegions(data, parameters, plotGraphs, saveData)
+[score, totDaysTakenIntoAccount, regScore, nbAscendingDays, nbDescendingDays, nbPainPeaks] = peaksAnalysisFunctions.calculateForAllRegions(data, parameters, plotGraphs, saveData)
 print("parameters:", parameters)
 print("score:", score, "; totDaysTakenIntoAccount:", totDaysTakenIntoAccount)
 print("regScore:", regScore)
 print("nbAscendingDays: ", nbAscendingDays, "nbDescendingDays: ", nbDescendingDays)
+print("nbPainPeaks:", nbPainPeaks)
 print("")
+print("nbAscendingDays: ", nbAscendingDays + nbPainPeaks * (parameters['minMaxTimeToleranceMinus'] + parameters['minMaxTimeTolerancePlus']), "nbDescendingDays: ", nbDescendingDays - nbPainPeaks * (parameters['minMaxTimeToleranceMinus'] + parameters['minMaxTimeTolerancePlus']))
+
