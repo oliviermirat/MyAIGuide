@@ -90,6 +90,7 @@ def addMinAndMax(data, regionName, plotFig, minProminenceForPeakDetect, windowFo
       closestMaxPain = painMinMaxSequence[indSequencePain]   if isMinOrMaxSequence[indSequencePain] else painMinMaxSequence[indSequencePain+1]
       closestMinPain = painMinMaxSequence[indSequencePain+1] if isMinOrMaxSequence[indSequencePain] else painMinMaxSequence[indSequencePain]
       keepMaxPeakstrain = False
+      # if False and (maxstrain >= closestMaxPain): # maxstrain >= closestMaxPain
       if maxstrain >= closestMaxPain: # maxstrain >= closestMaxPain
         minPainCandidates = np.array([minPain for minPain in minpeaks if minPain >= closestMaxPain and maxstrain <= minPain])
         if len(minPainCandidates):
@@ -102,6 +103,7 @@ def addMinAndMax(data, regionName, plotFig, minProminenceForPeakDetect, windowFo
           negativeValue += 1
       else: # maxstrain < closestMaxPain
         minPainCandidates = np.array([minPain for minPain in minpeaks if minPain <= closestMaxPain and minPain <= maxstrain])
+        # if len(minPainCandidates) and (pain[painMinMaxSequence[indSequencePain+1]] - pain[painMinMaxSequence[indSequencePain]]) > 0.3:
         if len(minPainCandidates):
           keepMaxPeakstrain = True
           closestMinPain = minPainCandidates[-1:][0]
