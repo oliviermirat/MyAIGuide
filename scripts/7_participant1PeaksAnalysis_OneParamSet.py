@@ -8,8 +8,8 @@ data = pickle.load(input)
 input.close()
 
 # Analysis parameters
-# parameters = {'rollingMeanWindow': 15, 'rollingMinMaxScalerWindow': 360, 'rollingMedianWindow': 15, 'minProminenceForPeakDetect': 0.05, 'windowForLocalPeakMinMaxFind': 15, 'plotGraph': True, 'allBodyRegionsArmIncluded': False}
-parameters = {'rollingMeanWindow': 15, 'rollingMinMaxScalerWindow': 270, 'rollingMedianWindow': 15, 'minProminenceForPeakDetect': 0.075, 'windowForLocalPeakMinMaxFind': 5, 'plotGraph': True, 'allBodyRegionsArmIncluded': False, 'plotZoomedGraph': False, 'minMaxTimeToleranceMinus': 0, 'minMaxTimeTolerancePlus': 0}
+parameters = {'rollingMeanWindow': 15, 'rollingMinMaxScalerWindow': 270, 'rollingMedianWindow': 15, 'minProminenceForPeakDetect': 0.075, 'windowForLocalPeakMinMaxFind': 5, 'plotGraph': True, 'allBodyRegionsArmIncluded': False, 'plotZoomedGraph': False, 'minMaxTimeToleranceMinus': 0, 'minMaxTimeTolerancePlus': 0, 'plotGraphStrainDuringDescendingPain': False}
+# parameters = {'rollingMeanWindow': 15, 'rollingMinMaxScalerWindow': 270, 'rollingMedianWindow': 15, 'minProminenceForPeakDetect': 0.03, 'windowForLocalPeakMinMaxFind': 3, 'plotGraph': True, 'allBodyRegionsArmIncluded': False, 'plotZoomedGraph': False, 'minMaxTimeToleranceMinus': 0, 'minMaxTimeTolerancePlus': 0, 'plotGraphStrainDuringDescendingPain': False}
 
 plotGraphs = True
 saveData   = True
