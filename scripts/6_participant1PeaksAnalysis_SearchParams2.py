@@ -25,7 +25,7 @@ for rollingMeanWindow in [7, 15, 21]:
           'allBodyRegionsArmIncluded':     False
         }
         try:
-          [score, totDaysTakenIntoAccount, regScore, nbAscendingDays, nbDescendingDays] = peaksAnalysisFunctions.calculateForAllRegions(data, parameters, plotGraphs, saveData)
+          [score, totDaysTakenIntoAccount, regScore, nbAscendingDays, nbDescendingDays, nbPainPeaks] = peaksAnalysisFunctions.calculateForAllRegions(data, parameters, plotGraphs, saveData)
           print("parameters:", parameters)
           print("score:", score, "; totDaysTakenIntoAccount:", totDaysTakenIntoAccount, "; regScore:", regScore)
           print("")

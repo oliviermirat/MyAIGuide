@@ -102,7 +102,8 @@ def addMinAndMax(data, regionName, plotFig, minProminenceForPeakDetect, windowFo
           # closestMaxPain <= maxstrain <= closestMinPain
           maxstrainScores[ind] = (maxstrain - closestMinPain) / (closestMinPain - closestMaxPain) # Negative value
           maxstrainScores2[ind] = pain[maxstrain+1] - pain[maxstrain] if maxstrain + 1 < len(pain) else 0
-          print("strain peak relative location (Negative):", maxstrainScores[ind], "; Time:", data.index[maxstrain])
+          if plotFig:
+            print("strain peak relative location (Negative):", maxstrainScores[ind], "; Time:", data.index[maxstrain])
           negativeValue += 1
       else: # maxstrain < closestMaxPain
         minPainCandidates = np.array([minPain for minPain in minpeaks if minPain <= closestMaxPain and minPain <= maxstrain])
@@ -113,7 +114,8 @@ def addMinAndMax(data, regionName, plotFig, minProminenceForPeakDetect, windowFo
           # closestMinPain <= maxstrain <= closestMaxPain
           maxstrainScores[ind] = (maxstrain - closestMinPain) / (closestMaxPain - closestMinPain) # Positive value
           maxstrainScores2[ind] = pain[maxstrain+1] - pain[maxstrain] if maxstrain + 1 < len(pain) else 0
-          print("strain peak relative location (Positive):", maxstrainScores[ind], "; Time:", data.index[maxstrain])
+          if plotFig:
+            print("strain peak relative location (Positive):", maxstrainScores[ind], "; Time:", data.index[maxstrain])
           positiveValue += 1
       if keepMaxPeakstrain:
         if True:
@@ -177,8 +179,8 @@ def addMinAndMax(data, regionName, plotFig, minProminenceForPeakDetect, windowFo
         dataNoFilt[['regionSpecificstrain', regionName]].plot(ax=ax1, linestyle='', marker='o', color = ['blue', 'red']) #, markersize=1)
         ax1.legend(['strainFiltered', 'painFiltered', 'maxPainPeak', 'minPainPeak', 'maxStrainPeak', 'strain', 'pain'], loc="center left", bbox_to_anchor=(1, 0.5))
         plt.title("Strain relative location: " + str(maxstrainScores[ind]))
-        plt.show()
-        # plt.savefig(regionName + str(ind) + '_' + str(data.index[maxstrain])[0:10] + '.png')
+        # plt.show()
+        plt.savefig(regionName + str(ind) + '_' + str(data.index[maxstrain])[0:10] + '.png')
   
   if plotGraphStrainDuringDescendingPain:
     plt.show()
@@ -327,6 +329,7 @@ def visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, region, list_
   # Plotting Rolling Mean of strain and pain
   for var in strain_and_pain:
     data[var + "_RollingMean"] = data[var].rolling(window).mean().shift(int(-window/2))
+    # data[var + "_RollingMean"] = data[var].rolling(window, min_periods=1).mean().shift(int(-window/2))
   strain_and_pain_rollingMean = [name + "_RollingMean" for name in strain_and_pain]
   data[strain_and_pain_rollingMean] = scaler.fit_transform(data[strain_and_pain_rollingMean])
   if plotGraph:
@@ -455,12 +458,14 @@ def calculateForAllRegions(data, parameters, plotGraphs, saveData):
     painMinMaxAmplitudesNoStrain = painMinMaxAmplitudes[strainAtZero]
     painMinMaxAmplitudesWtStrain = painMinMaxAmplitudes[strainAtZero==False]
     print(str(len(painMinMaxAmplitudesNoStrain)) + " pain amplitudes (out of " + str(len(painMinMaxAmplitudesNoStrain) + len(painMinMaxAmplitudesWtStrain)) + ") had no strain peak preceding them ( " + str(( len(painMinMaxAmplitudesNoStrain) / (len(painMinMaxAmplitudesNoStrain) + len(painMinMaxAmplitudesWtStrain)) )*100) + " % )")
-    fig3, axes = plt.subplots(nrows=1, ncols=1)
-    plt.hist(painMinMaxAmplitudesWtStrain, range=(min(painMinMaxAmplitudes), max(painMinMaxAmplitudes)), alpha=0.5, label='Max strain PRESENT in ascending pain period')
-    plt.hist(painMinMaxAmplitudesNoStrain, range=(min(painMinMaxAmplitudes), max(painMinMaxAmplitudes)), alpha=0.5, label='Max strain ABSENT in ascending pain period')
-    plt.legend()
-    plt.title("Histograms of amplitudes of maximum pain peaks when:")
-    plt.show()
+    
+    if plotGraphs:
+      fig3, axes = plt.subplots(nrows=1, ncols=1)
+      plt.hist(painMinMaxAmplitudesWtStrain, range=(min(painMinMaxAmplitudes), max(painMinMaxAmplitudes)), alpha=0.5, label='Max strain PRESENT in ascending pain period')
+      plt.hist(painMinMaxAmplitudesNoStrain, range=(min(painMinMaxAmplitudes), max(painMinMaxAmplitudes)), alpha=0.5, label='Max strain ABSENT in ascending pain period')
+      plt.legend()
+      plt.title("Histograms of amplitudes of maximum pain peaks when:")
+      plt.show()
   
   # Saving data
   if saveData:
@@ -513,13 +518,15 @@ def calculateForAllRegionsParticipant2(data, parameters, plotGraphs, saveData=Fa
   painMinMaxAmplitudes  = np.array(painMinMaxAmplitudes)
   painMinMaxAmplitudesNoStrain = painMinMaxAmplitudes[strainAtZero]
   painMinMaxAmplitudesWtStrain = painMinMaxAmplitudes[strainAtZero==False]
-  print(str(len(painMinMaxAmplitudesNoStrain)) + " pain amplitudes (out of " + str(len(painMinMaxAmplitudesNoStrain) + len(painMinMaxAmplitudesWtStrain)) + ") had no strain peak preceding them ( " + str(( len(painMinMaxAmplitudesNoStrain) / (len(painMinMaxAmplitudesNoStrain) + len(painMinMaxAmplitudesWtStrain)) )*100) + " % )")
-  fig3, axes = plt.subplots(nrows=1, ncols=1)
-  plt.hist(painMinMaxAmplitudesWtStrain, range=(min(painMinMaxAmplitudes), max(painMinMaxAmplitudes)), alpha=0.5, label='Max strain PRESENT in ascending pain period')
-  plt.hist(painMinMaxAmplitudesNoStrain, range=(min(painMinMaxAmplitudes), max(painMinMaxAmplitudes)), alpha=0.5, label='Max strain ABSENT in ascending pain period')
-  plt.legend()
-  plt.title("Histograms of amplitudes of maximum pain peaks when:")
-  plt.show()
+  
+  if plotGraphs:
+    print(str(len(painMinMaxAmplitudesNoStrain)) + " pain amplitudes (out of " + str(len(painMinMaxAmplitudesNoStrain) + len(painMinMaxAmplitudesWtStrain)) + ") had no strain peak preceding them ( " + str(( len(painMinMaxAmplitudesNoStrain) / (len(painMinMaxAmplitudesNoStrain) + len(painMinMaxAmplitudesWtStrain)) )*100) + " % )")
+    fig3, axes = plt.subplots(nrows=1, ncols=1)
+    plt.hist(painMinMaxAmplitudesWtStrain, range=(min(painMinMaxAmplitudes), max(painMinMaxAmplitudes)), alpha=0.5, label='Max strain PRESENT in ascending pain period')
+    plt.hist(painMinMaxAmplitudesNoStrain, range=(min(painMinMaxAmplitudes), max(painMinMaxAmplitudes)), alpha=0.5, label='Max strain ABSENT in ascending pain period')
+    plt.legend()
+    plt.title("Histograms of amplitudes of maximum pain peaks when:")
+    plt.show()
 
   # Saving data
   if saveData:
@@ -571,13 +578,14 @@ def calculateForAllRegionsParticipant8(data, parameters, plotGraphs, saveData=Fa
   painMinMaxAmplitudesNoStrain = painMinMaxAmplitudes[strainAtZero]
   painMinMaxAmplitudesWtStrain = painMinMaxAmplitudes[strainAtZero==False]
   
-  print(str(len(painMinMaxAmplitudesNoStrain)) + " pain amplitudes (out of " + str(len(painMinMaxAmplitudesNoStrain) + len(painMinMaxAmplitudesWtStrain)) + ") had no strain peak preceding them ( " + str(( len(painMinMaxAmplitudesNoStrain) / (len(painMinMaxAmplitudesNoStrain) + len(painMinMaxAmplitudesWtStrain)) )*100) + " % )")
-  fig3, axes = plt.subplots(nrows=1, ncols=1)
-  plt.hist(painMinMaxAmplitudesWtStrain, range=(min(painMinMaxAmplitudes), max(painMinMaxAmplitudes)), alpha=0.5, label='Max strain PRESENT in ascending pain period')
-  plt.hist(painMinMaxAmplitudesNoStrain, range=(min(painMinMaxAmplitudes), max(painMinMaxAmplitudes)), alpha=0.5, label='Max strain ABSENT in ascending pain period')
-  plt.legend()
-  plt.title("Histograms of amplitudes of maximum pain peaks when:")
-  plt.show()
+  if plotGraphs:
+    print(str(len(painMinMaxAmplitudesNoStrain)) + " pain amplitudes (out of " + str(len(painMinMaxAmplitudesNoStrain) + len(painMinMaxAmplitudesWtStrain)) + ") had no strain peak preceding them ( " + str(( len(painMinMaxAmplitudesNoStrain) / (len(painMinMaxAmplitudesNoStrain) + len(painMinMaxAmplitudesWtStrain)) )*100) + " % )")
+    fig3, axes = plt.subplots(nrows=1, ncols=1)
+    plt.hist(painMinMaxAmplitudesWtStrain, range=(min(painMinMaxAmplitudes), max(painMinMaxAmplitudes)), alpha=0.5, label='Max strain PRESENT in ascending pain period')
+    plt.hist(painMinMaxAmplitudesNoStrain, range=(min(painMinMaxAmplitudes), max(painMinMaxAmplitudes)), alpha=0.5, label='Max strain ABSENT in ascending pain period')
+    plt.legend()
+    plt.title("Histograms of amplitudes of maximum pain peaks when:")
+    plt.show()
 
   # Saving data
   if saveData:

@@ -63,3 +63,7 @@ scripts/toRemove
 scripts/variousFailedAttemps
 scripts/peaksData.txt
 data_export_test.xlsx
+
+scripts/participant1DifferentParameters.pkl
+scripts/participant2DifferentParameters.pkl
+scripts/participant8DifferentParameters.pkl
