@@ -1,15 +1,18 @@
 # MyAIGuide
 
-This is the open-source part of <a href=http://www.myaiguide.com target="_blank">MyAIGuide</a>.<br/>
-
 Our aim is to create AI-based health coaches.<br/>
 
-You can read about our first analysis of the data here: <a href='./reports/README.md' target='_blank'>first analysis</a>. You can also see the scripts we used for this first analysis as well as documentation about how to run those scripts <a href='./scripts/' target='_blank'>here</a>.<br/>
+Here is the <a href='./data/raw/ParticipantData' target='_blank'>open-sourced data</a> gathered through <a href='https://youtu.be/mJe5T_oIfUM' target='_blank'>our web application</a>. 
 
-You can find the open-sourced data here: <a href='./data/raw/ParticipantData' target='_blank'>MyAIGuide Open Data</a>.<br/>
+We used <a href='https://medium.com/@oliviermirat/crowdsourcing-health-research-a-new-chance-for-patients-and-tech-people-8658ae298254' target='_blank'>crowdsourcing</a> to investigate the difficult yet very important problem faced by patients with patellofemoral pain syndrome and other chronic pain syndromes of <a href='https://www.painscience.com/articles/art-of-rest.php' target='_blank'>finding the right balance between rest and exercise</a>.
 
-For any other information, feel free to email me at: <br/>
-olivier.mirat.om@gmail.com
+We are currently finishing up a first publication that presents the correlations we have found between exercise and pain and that lays out the groundwork for the creation of an AI in the future.<br/>
+
+If you are interested in helping us finish our first publication, further analyze the data, improve the web application, or for any other information, please feel free to email us at: <br/>
+
+olivier.mirat.om@gmail.com <br/>
+
+You can read our previous analysis of the data here: <a href='./reports/README.md' target='_blank'>old analysis</a>, and see the scripts we've used <a href='./scripts/' target='_blank'>here</a>.<br/>
 
 ## Project Organization
 
