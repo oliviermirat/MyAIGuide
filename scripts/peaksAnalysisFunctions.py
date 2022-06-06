@@ -323,7 +323,7 @@ def visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, region, list_
     data["regionSpecificstrain"] = data["regionSpecificstrain"] + strainor_coef[idx] * data[strainor]
   data[strain_and_pain] = scaler.fit_transform(data[strain_and_pain])
   if plotGraph:
-    data[strain_and_pain].plot(ax=axes[1], linestyle='', marker='o', markersize=0.5)
+    data[strain_and_pain].plot(ax=axes[1], linestyle='', marker='o', markersize=0.5, color=['k','r'])
     plottingOptions(axes, 1, 'strain (linear combination of previous stressors) and pain', ['strain', 'pain'], 'center left', 8)
 
   # Plotting Rolling Mean of strain and pain
@@ -333,7 +333,7 @@ def visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, region, list_
   strain_and_pain_rollingMean = [name + "_RollingMean" for name in strain_and_pain]
   data[strain_and_pain_rollingMean] = scaler.fit_transform(data[strain_and_pain_rollingMean])
   if plotGraph:
-    data[strain_and_pain_rollingMean].plot(ax=axes[2])
+    data[strain_and_pain_rollingMean].plot(ax=axes[2], color=['k','r'])
     plottingOptions(axes, 2, 'Rolling mean of strain and pain', ['strain', 'pain'], 'center left', 8)
   
   # Plotting Rolling MinMaxScaler of Rolling Mean of strain and pain
@@ -345,14 +345,14 @@ def visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, region, list_
     for columnName in strain_and_pain_rollingMean:
       data[columnName + "_MinMaxScaler"] = data[columnName]
   if plotGraph:
-    data[strain_and_pain_RollingMean_MinMaxScaler].plot(ax=axes[3])
+    data[strain_and_pain_RollingMean_MinMaxScaler].plot(ax=axes[3], color=['k','r'])
     plottingOptions(axes, 3, 'Rolling MinMaxScaler of rolling mean of strain and pain', ['strain', 'pain'], 'center left', 8)
 
   # Peaks analysis
   data2 = data[strain_and_pain_RollingMean_MinMaxScaler].copy()
   data2 = data2.rolling(rollingMedianWindow).median().shift(int(-rollingMedianWindow/2))
   if plotGraph and plotMedianGraph:
-    data2[strain_and_pain_RollingMean_MinMaxScaler].plot(ax=axes[4])
+    data2[strain_and_pain_RollingMean_MinMaxScaler].plot(ax=axes[4], color=['k','r'])
     plottingOptions(axes, 4, 'Rolling median of rolling MinMaxScaler of rolling mean of strain and pain', ['strain', 'pain'], 'center left', 8)
   [maxstrainScores, totDaysAscendingPain, totDaysDescendingPain, minpeaks, maxpeaks, maxstrainScores2, strainMinMaxAmplitudes, painMinMaxAmplitudes, maxpeaksstrain] = addMinAndMax(data2, region, False, minProminenceForPeakDetect, windowForLocalPeakMinMaxFind, data, plotZoomedGraph, minMaxTimeTolerancePlus, minMaxTimeToleranceMinus, plotGraphStrainDuringDescendingPain)
   data2 = prepareForPlotting(data2, region, minpeaks, maxpeaks)
