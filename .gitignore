@@ -67,3 +67,16 @@ data_export_test.xlsx
 scripts/participant1DifferentParameters.pkl
 scripts/participant2DifferentParameters.pkl
 scripts/participant8DifferentParameters.pkl
+
+scripts/zoomedGraph_Participant1_Eyes.pkl
+scripts/zoomedGraph_Participant1_Knee.pkl
+scripts/zoomedGraph_Participant2_Knee.pkl
+scripts/zoomedGraph_Participant8_Knee.pkl
+
+scripts/kneePain*.png
+scripts/foreheadEyesPain*.png
+
+scripts/*_Participant*/
+
+scripts/foreheadEyesPain/
+scripts/kneePain/

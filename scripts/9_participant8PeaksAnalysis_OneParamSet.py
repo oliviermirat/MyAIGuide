@@ -36,7 +36,7 @@ for idx, val in enumerate(cols):
 plt.show()
 
 # Analysis parameters
-parameters = {'rollingMeanWindow': 15, 'rollingMinMaxScalerWindow': 90, 'rollingMedianWindow': 15, 'minProminenceForPeakDetect': 0.03, 'windowForLocalPeakMinMaxFind': 5, 'plotGraph': True, 'plotZoomedGraph': False, 'plotGraphStrainDuringDescendingPain': False}
+parameters = {'rollingMeanWindow': 15, 'rollingMinMaxScalerWindow': 90, 'rollingMedianWindow': 15, 'minProminenceForPeakDetect': 0.03, 'windowForLocalPeakMinMaxFind': 5, 'plotGraph': True, 'plotZoomedGraph': False, 'plotGraphStrainDuringDescendingPain': False, 'zoomedGraphNbDaysMarginLeft': 14, 'zoomedGraphNbDaysMarginRight': 14}
 
 plotGraphs = True
 
