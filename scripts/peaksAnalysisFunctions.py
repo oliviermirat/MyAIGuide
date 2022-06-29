@@ -87,6 +87,7 @@ def addMinAndMax(data, regionName, plotFig, minProminenceForPeakDetect, windowFo
   maxstrainScores2 = np.array([float('nan') for i in range(0, len(maxpeaksstrain))])
   if plotGraphStrainDuringDescendingPain:
     fig, ax1 = plt.subplots(4, 4, figsize=(22.9, 8.8))
+    maxDerivateWithStrainInDescendingPain = []
   figInd = 0
   for ind, maxstrain in enumerate(maxpeaksstrain):
     indSequencePain = 0
@@ -136,12 +137,13 @@ def addMinAndMax(data, regionName, plotFig, minProminenceForPeakDetect, windowFo
       
       if plotGraphStrainDuringDescendingPain and maxstrainScores[ind] >= -0.8 and maxstrainScores[ind] <= -0.2:
         scaler = MinMaxScaler()
-        nbDaysMargin = 2
+        nbDaysMargin = 0
         dateMin = data.index[painMinMaxSequence[indSequencePain] - nbDaysMargin]
         dateMax = data.index[painMinMaxSequence[indSequencePain+1] + nbDaysMargin]
         dataWtFilt = data[['regionSpecificstrain_RollingMean_MinMaxScaler', regionName + '_RollingMean_MinMaxScaler', 'max',  'min', 'maxstrain']].copy()
         dataWtFilt = dataWtFilt[np.logical_and((dataWtFilt.index >= dateMin), (dataWtFilt.index <= dateMax))]
         dataWtFilt[['regionSpecificstrain_RollingMean_MinMaxScaler', regionName + '_RollingMean_MinMaxScaler']] = scaler.fit_transform(dataWtFilt[['regionSpecificstrain_RollingMean_MinMaxScaler', regionName + '_RollingMean_MinMaxScaler']])
+        maxDerivateWithStrainInDescendingPain.append(np.max(np.diff(dataWtFilt[[regionName + '_RollingMean_MinMaxScaler']].to_numpy()[:, 0])))
         dataWtFilt['max'][[i for i, val in enumerate(dataWtFilt['max'].isna() == False) if val]] = dataWtFilt[regionName + '_RollingMean_MinMaxScaler'][[i for i, val in enumerate(dataWtFilt['max'].isna() == False) if val]]
         dataWtFilt['min'][[i for i, val in enumerate(dataWtFilt['min'].isna() == False) if val]] = dataWtFilt[regionName + '_RollingMean_MinMaxScaler'][[i for i, val in enumerate(dataWtFilt['min'].isna() == False) if val]]
         dataWtFilt['maxstrain'][[i for i, val in enumerate(np.logical_and(dataWtFilt['maxstrain'].isna() == False, dataWtFilt['maxstrain'] != 0)) if val]] = dataWtFilt['regionSpecificstrain_RollingMean_MinMaxScaler'][[i for i, val in enumerate(np.logical_and(dataWtFilt['maxstrain'].isna() == False, dataWtFilt['maxstrain'] != 0)) if val]]
@@ -191,6 +193,51 @@ def addMinAndMax(data, regionName, plotFig, minProminenceForPeakDetect, windowFo
   
   if plotGraphStrainDuringDescendingPain:
     plt.show()
+    
+    maxDerivateNoStrainInDescendingPain = []
+    fig, ax1 = plt.subplots(4, 4, figsize=(22.9, 8.8))
+    figInd = 0
+    for indSequencePain in range(0, len(painMinMaxSequence)):
+      # Selecting only the descending pain periods
+      if indSequencePain + 1 < len(painMinMaxSequence) and isMinOrMaxSequence[indSequencePain]:
+        closestMaxPain = painMinMaxSequence[indSequencePain]
+        closestMinPain = painMinMaxSequence[indSequencePain+1]
+        indStrain = 0
+        maxstrain = maxpeaksstrain[indStrain]
+        isDescendingPainPeriodWithoutMaxStrain = True
+        # Making sure the descending pain period doesn't contain a maxStrainPeak
+        while indStrain < len(maxpeaksstrain):
+          maxstrain = maxpeaksstrain[indStrain]
+          if closestMaxPain <= maxstrain and maxstrain <= closestMinPain:
+            isDescendingPainPeriodWithoutMaxStrain = False
+          indStrain += 1
+        if isDescendingPainPeriodWithoutMaxStrain:
+          scaler = MinMaxScaler()
+          nbDaysMargin = 0
+          dateMin = data.index[painMinMaxSequence[indSequencePain] - nbDaysMargin]
+          dateMax = data.index[painMinMaxSequence[indSequencePain+1] + nbDaysMargin]
+          dataWtFilt = data[['regionSpecificstrain_RollingMean_MinMaxScaler', regionName + '_RollingMean_MinMaxScaler', 'max',  'min', 'maxstrain']].copy()
+          dataWtFilt = dataWtFilt[np.logical_and((dataWtFilt.index >= dateMin), (dataWtFilt.index <= dateMax))]
+          dataWtFilt[['regionSpecificstrain_RollingMean_MinMaxScaler', regionName + '_RollingMean_MinMaxScaler']] = scaler.fit_transform(dataWtFilt[['regionSpecificstrain_RollingMean_MinMaxScaler', regionName + '_RollingMean_MinMaxScaler']])
+          maxDerivateNoStrainInDescendingPain.append(np.max(np.diff(dataWtFilt[[regionName + '_RollingMean_MinMaxScaler']].to_numpy()[:, 0])))
+          dataWtFilt['max'][[i for i, val in enumerate(dataWtFilt['max'].isna() == False) if val]] = dataWtFilt[regionName + '_RollingMean_MinMaxScaler'][[i for i, val in enumerate(dataWtFilt['max'].isna() == False) if val]]
+          dataWtFilt['min'][[i for i, val in enumerate(dataWtFilt['min'].isna() == False) if val]] = dataWtFilt[regionName + '_RollingMean_MinMaxScaler'][[i for i, val in enumerate(dataWtFilt['min'].isna() == False) if val]]
+          dataWtFilt['maxstrain'][[i for i, val in enumerate(np.logical_and(dataWtFilt['maxstrain'].isna() == False, dataWtFilt['maxstrain'] != 0)) if val]] = dataWtFilt['regionSpecificstrain_RollingMean_MinMaxScaler'][[i for i, val in enumerate(np.logical_and(dataWtFilt['maxstrain'].isna() == False, dataWtFilt['maxstrain'] != 0)) if val]]
+          dataWtFilt['maxstrain'][[i for i, val in enumerate(np.logical_and(dataWtFilt['maxstrain'].isna() == False, dataWtFilt['maxstrain'] == 0)) if val]] = float('NaN')
+          dataWtFilt[['regionSpecificstrain_RollingMean_MinMaxScaler', regionName + '_RollingMean_MinMaxScaler']].plot(ax=ax1[int(figInd/4), figInd % 4], color = ['blue', 'red'])
+          dataWtFilt[['max', 'min', 'maxstrain']].plot(ax=ax1[int(figInd/4), figInd % 4], linestyle='', marker='o', color = ['black', 'black', 'green'], markersize = 10)
+          if int(figInd/4) == 0 and figInd % 4 == 3:
+            ax1[int(figInd/4), figInd % 4].legend(['strainFiltered', 'painFiltered', 'maxPainPeak', 'minPainPeak', 'maxStrainPeak', 'strain', 'pain'], loc="center left", bbox_to_anchor=(1, 0.5))
+          else:
+            ax1[int(figInd/4), figInd % 4].legend().remove()
+          plt.title("Strain relative location: " + str(maxstrainScores[ind]))
+          figInd += 1
+          
+          if figInd == 16:
+            plt.show()
+            fig, ax1 = plt.subplots(4, 4, figsize=(22.9, 8.8))
+            figInd = 0
+  
   
   if debugModeGeneral: print("negativeValue:", negativeValue)
   if debugModeGeneral: print("positiveValue:", positiveValue)
@@ -256,6 +303,10 @@ def addMinAndMax(data, regionName, plotFig, minProminenceForPeakDetect, windowFo
   if plotFig:
     print("max:", [data.index[peak] for peak in maxpeaks])
     print("min:", [data.index[peak] for peak in minpeaks])
+    
+  if plotGraphStrainDuringDescendingPain:
+    with open('descendingPeriodsMaxDerivative.pkl', 'wb') as handle:
+      pickle.dump([maxDerivateNoStrainInDescendingPain, maxDerivateWithStrainInDescendingPain], handle, protocol=pickle.HIGHEST_PROTOCOL)
   
   return [maxstrainScores, totDaysAscendingPain, totDaysDescendingPain, minpeaks, maxpeaks, maxstrainScores2, strainMinMaxAmplitudes, painMinMaxAmplitudes, maxpeaksstrain]
 

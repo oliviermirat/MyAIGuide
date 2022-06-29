@@ -140,6 +140,11 @@ for i in range(0, len(maxStrainPeakToHighPainStartTrigger)):
   print(i, int(maxStrainPeakToHighPainStartTrigger[i]*100)/100, int(maxStrainNearHighPainStartTrigger[i]*100)/100)
 
 
+print("maxStrainNearHighPainStart == -1 : Removed nb : ",   len(np.where(np.array(maxStrainNearHighPainStartTrigger) == -1)[0].tolist()))
+print("longPainStart <= 1 : Removed nb : ",                 len(np.where(np.array(longPainStartArray) <= 1)[0].tolist()))
+print("maxStrainPeakToHighPainStart < -5 : Removed nb : ",  len(np.where(np.array(maxStrainPeakToHighPainStartTrigger) < -5)[0].tolist()))
+print("maxStrainPeakToHighPainStart >= 28 : Removed nb : ", len(np.where(np.array(maxStrainPeakToHighPainStartTrigger) >= 28)[0].tolist()))
+
 indToRemove = np.where(np.logical_or(np.logical_or(np.logical_or(np.array(maxStrainNearHighPainStartTrigger) == -1, np.array(maxStrainPeakToHighPainStartTrigger) < -5), np.array(longPainStartArray) <= 1), np.array(maxStrainPeakToHighPainStartTrigger) >= 28))[0].tolist()
 
 print("len(indToRemove):", len(indToRemove))
