@@ -481,6 +481,9 @@ def calculateForAllRegions(data, parameters, plotGraphs, saveData):
 
   # Forehead eyes plots
   [maxstrainScoresHead, maxstrainScores2Head, totDaysAscendingPainHead, totDaysDescendingPainHead, dataHead, data2Head, strainMinMaxAmplitudesHead, painMinMaxAmplitudesHead] = visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, "foreheadEyesPain", ["timeOnComputer", "timeDrivingCar"], [1, 0.8], rollingMeanWindow, rollingMinMaxScalerWindow, rollingMedianWindow, minProminenceForPeakDetect, windowForLocalPeakMinMaxFind, plotGraph, plotZoomedGraph, minMaxTimeTolerancePlus, minMaxTimeToleranceMinus, plotGraphStrainDuringDescendingPain, zoomedGraphNbDaysMarginLeft, zoomedGraphNbDaysMarginRight)
+  
+  nbAscendingDays  = totDaysAscendingPainKnee + totDaysAscendingPainHead
+  nbDescendingDays = totDaysDescendingPainKnee + totDaysDescendingPainHead
 
   # All regions together
   if allBodyRegionsArmIncluded:
@@ -496,7 +499,12 @@ def calculateForAllRegions(data, parameters, plotGraphs, saveData):
     strainMinMaxAmplitudes = np.concatenate((strainMinMaxAmplitudesKnee, strainMinMaxAmplitudesHead))
     painMinMaxAmplitudes   = np.concatenate((painMinMaxAmplitudesKnee, painMinMaxAmplitudesHead))
     if plotGraphs:
-      plt.hist(maxstrainScores)
+      descendingWeight = len(maxstrainScores) * ((nbDescendingDays / (nbDescendingDays + nbAscendingDays)) / 5)
+      ascendingWeight  = len(maxstrainScores) * ((nbAscendingDays  / (nbDescendingDays + nbAscendingDays)) / 5)
+      plt.hist([(i-4.5)/5 for i in range(0, 10)], 10, weights=[descendingWeight for i in range(0, 5)]+[ascendingWeight for i in range(0, 5)], alpha=0.5, label='Theoritical if randomly distributed', range=(-1, 1))
+      plt.hist(maxstrainScores, alpha=0.5, label='Observed', range=(-1, 1))
+      plt.legend()
+      plt.title("Locations of maxStrain in the min/max pain cycle: Theoritical if randomly distributed vs Observed")
       plt.show()
   
   regScore = 0
@@ -537,8 +545,8 @@ def calculateForAllRegions(data, parameters, plotGraphs, saveData):
       pickle.dump({'Knee': [maxstrainScoresKnee, totDaysAscendingPainKnee, totDaysDescendingPainKnee, dataKnee, data2Knee, strainMinMaxAmplitudesKnee, painMinMaxAmplitudesKnee], 'Head': [maxstrainScoresHead, totDaysAscendingPainHead, totDaysDescendingPainHead, dataHead, data2Head, strainMinMaxAmplitudesHead, painMinMaxAmplitudesHead]}, output)
     output.close()
   
-  nbAscendingDays  = totDaysAscendingPainKnee + totDaysAscendingPainHead
-  nbDescendingDays = totDaysDescendingPainKnee + totDaysDescendingPainHead
+  # nbAscendingDays  = totDaysAscendingPainKnee + totDaysAscendingPainHead
+  # nbDescendingDays = totDaysDescendingPainKnee + totDaysDescendingPainHead
   
   extendingAscendingNbDays  = nbAscendingDays + 0.2 * nbDescendingDays
   extendingDescendingNbDays = 0.8 * nbDescendingDays
@@ -571,10 +579,18 @@ def calculateForAllRegionsParticipant2(data, parameters, plotGraphs, saveData=Fa
   
   # Knee plots
   [maxstrainScoresKnee, maxstrainScores2Knee, totDaysAscendingPainKnee, totDaysDescendingPainKnee, dataKnee, data2Knee, strainMinMaxAmplitudes, painMinMaxAmplitudes] = visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, "kneepain", ["steps", "denivelation"], [1, 1], rollingMeanWindow, rollingMinMaxScalerWindow, rollingMedianWindow, minProminenceForPeakDetect, windowForLocalPeakMinMaxFind, plotGraph, plotZoomedGraph, minMaxTimeTolerancePlus, minMaxTimeToleranceMinus, plotGraphStrainDuringDescendingPain, zoomedGraphNbDaysMarginLeft, zoomedGraphNbDaysMarginRight)
+  
+  nbAscendingDays  = totDaysAscendingPainKnee
+  nbDescendingDays = totDaysDescendingPainKnee
 
   maxstrainScores = maxstrainScoresKnee
   if plotGraphs:
-    plt.hist(maxstrainScores)
+    descendingWeight = len(maxstrainScores) * ((nbDescendingDays / (nbDescendingDays + nbAscendingDays)) / 5)
+    ascendingWeight  = len(maxstrainScores) * ((nbAscendingDays  / (nbDescendingDays + nbAscendingDays)) / 5)
+    plt.hist([(i-4.5)/5 for i in range(0, 10)], 10, weights=[descendingWeight for i in range(0, 5)]+[ascendingWeight for i in range(0, 5)], alpha=0.5, label='Theoritical if randomly distributed', range=(-1, 1))
+    plt.hist(maxstrainScores, alpha=0.5, label='Observed', range=(-1, 1))
+    plt.legend()
+    plt.title("Locations of maxStrain in the min/max pain cycle: Theoritical if randomly distributed vs Observed")
     plt.show()
 
   strainAtZero          = (np.array(strainMinMaxAmplitudes) == 0)
@@ -632,9 +648,17 @@ def calculateForAllRegionsParticipant8(data, parameters, plotGraphs, saveData=Fa
   # Knee plots
   [maxstrainScoresKnee, maxstrainScores2Knee, totDaysAscendingPainKnee, totDaysDescendingPainKnee, dataKnee, data2Knee, strainMinMaxAmplitudes, painMinMaxAmplitudes] = visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, "kneepain", ["steps"], [1], rollingMeanWindow, rollingMinMaxScalerWindow, rollingMedianWindow, minProminenceForPeakDetect, windowForLocalPeakMinMaxFind, plotGraph, plotZoomedGraph, minMaxTimeTolerancePlus, minMaxTimeToleranceMinus, plotGraphStrainDuringDescendingPain, zoomedGraphNbDaysMarginLeft, zoomedGraphNbDaysMarginRight)
 
+  nbAscendingDays  = totDaysAscendingPainKnee
+  nbDescendingDays = totDaysDescendingPainKnee
+
   maxstrainScores = maxstrainScoresKnee
   if plotGraphs:
-    plt.hist(maxstrainScores, range=(-1, 1))
+    descendingWeight = len(maxstrainScores) * ((nbDescendingDays / (nbDescendingDays + nbAscendingDays)) / 5)
+    ascendingWeight  = len(maxstrainScores) * ((nbAscendingDays  / (nbDescendingDays + nbAscendingDays)) / 5)
+    plt.hist([(i-4.5)/5 for i in range(0, 10)], 10, weights=[descendingWeight for i in range(0, 5)]+[ascendingWeight for i in range(0, 5)], alpha=0.5, label='Theoritical if randomly distributed', range=(-1, 1))
+    plt.hist(maxstrainScores, alpha=0.5, label='Observed', range=(-1, 1))
+    plt.legend()
+    plt.title("Locations of maxStrain in the min/max pain cycle: Theoritical if randomly distributed vs Observed")
     plt.show()
 
   strainAtZero          = (np.array(strainMinMaxAmplitudes) == 0)
