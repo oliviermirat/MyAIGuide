@@ -64,9 +64,9 @@ scripts/variousFailedAttemps
 scripts/peaksData.txt
 data_export_test.xlsx
 
-scripts/participant1DifferentParameters.pkl
-scripts/participant2DifferentParameters.pkl
-scripts/participant8DifferentParameters.pkl
+scripts/participant1DifferentParameters*.pkl
+scripts/participant2DifferentParameters*.pkl
+scripts/participant8DifferentParameters*.pkl
 
 scripts/zoomedGraph_Participant1_Eyes.pkl
 scripts/zoomedGraph_Participant1_Knee.pkl

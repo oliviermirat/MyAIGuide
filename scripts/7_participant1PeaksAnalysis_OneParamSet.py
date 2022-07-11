@@ -16,7 +16,7 @@ saveData   = True
 
 [score, totDaysTakenIntoAccount, regScore, nbAscendingDays, nbDescendingDays, nbPainPeaks] = peaksAnalysisFunctions.calculateForAllRegions(data, parameters, plotGraphs, saveData)
 print("parameters:", parameters)
-print("score:", score, "; totDaysTakenIntoAccount:", totDaysTakenIntoAccount)
+print("totDaysTakenIntoAccount:", totDaysTakenIntoAccount)
 print("regScore:", regScore)
 print("nbAscendingDays: ", nbAscendingDays, "nbDescendingDays: ", nbDescendingDays)
 print("nbPainPeaks:", nbPainPeaks)

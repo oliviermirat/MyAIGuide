@@ -31,7 +31,7 @@ for idx, val in enumerate(cols):
 
 totalSize = 3*3*4*3
 
-d = {'rollingMeanWindow': [0.0 for i in range(0, totalSize)], 'rollingMedianWindow': [0.0 for i in range(0, totalSize)], 'rollingMinMaxScalerWindow': [0.0 for i in range(0, totalSize)], 'minProminenceForPeakDetect': [0.0 for i in range(0, totalSize)], 'windowForLocalPeakMinMaxFind': [0.0 for i in range(0, totalSize)], 'score': [0.0 for i in range(0, totalSize)]}
+d = {'rollingMeanWindow': [0.0 for i in range(0, totalSize)], 'rollingMedianWindow': [0.0 for i in range(0, totalSize)], 'rollingMinMaxScalerWindow': [0.0 for i in range(0, totalSize)], 'minProminenceForPeakDetect': [0.0 for i in range(0, totalSize)], 'windowForLocalPeakMinMaxFind': [0.0 for i in range(0, totalSize)], 'poissonPValue1': [0.0 for i in range(0, totalSize)], 'ratio1': [0.0 for i in range(0, totalSize)], 'totCount1': [0.0 for i in range(0, totalSize)], 'totRef1': [0.0 for i in range(0, totalSize)], 'poissonPValue2': [0.0 for i in range(0, totalSize)], 'ratio2': [0.0 for i in range(0, totalSize)], 'totCount2': [0.0 for i in range(0, totalSize)], 'totRef2': [0.0 for i in range(0, totalSize)], 'poissonPValue3': [0.0 for i in range(0, totalSize)], 'ratio3': [0.0 for i in range(0, totalSize)], 'totCount3': [0.0 for i in range(0, totalSize)], 'totRef3': [0.0 for i in range(0, totalSize)]}
 differentParameterCheck = pd.DataFrame(data=d)
 
 i = 0
@@ -56,16 +56,27 @@ for rollingMeanWindow in [7, 15, 21]:
             'allBodyRegionsArmIncluded':     False
           }
           try:
-            [score, totDaysTakenIntoAccount] = peaksAnalysisFunctions.calculateForAllRegionsParticipant8(data, parameters, plotGraphs, saveData)
+            [statisticScores, totDaysTakenIntoAccount] = peaksAnalysisFunctions.calculateForAllRegionsParticipant8(data, parameters, plotGraphs, saveData)
             print("parameters:", parameters)
-            print("score:", score, "; totDaysTakenIntoAccount:", totDaysTakenIntoAccount)
+            print("statisticScores:", statisticScores, "; totDaysTakenIntoAccount:", totDaysTakenIntoAccount)
             print("")
             differentParameterCheck.loc[i]['rollingMeanWindow']            = rollingMeanWindow
             differentParameterCheck.loc[i]['rollingMinMaxScalerWindow']    = rollingMinMaxScalerWindow
             differentParameterCheck.loc[i]['rollingMedianWindow']          = rollingMedianWindow
             differentParameterCheck.loc[i]['minProminenceForPeakDetect']   = minProminenceForPeakDetect
             differentParameterCheck.loc[i]['windowForLocalPeakMinMaxFind'] = windowForLocalPeakMinMaxFind
-            differentParameterCheck.loc[i]['score']                        = score
+            differentParameterCheck.loc[i]['poissonPValue1']               = statisticScores['poissonPValue1']
+            differentParameterCheck.loc[i]['ratio1']                       = statisticScores['ratio1']
+            differentParameterCheck.loc[i]['totCount1']                    = statisticScores['totCount1']
+            differentParameterCheck.loc[i]['totRef1']                      = statisticScores['totRef1']
+            differentParameterCheck.loc[i]['poissonPValue2']               = statisticScores['poissonPValue2']
+            differentParameterCheck.loc[i]['ratio2']                       = statisticScores['ratio2']
+            differentParameterCheck.loc[i]['totCount2']                    = statisticScores['totCount2']
+            differentParameterCheck.loc[i]['totRef2']                      = statisticScores['totRef2']
+            differentParameterCheck.loc[i]['poissonPValue3']               = statisticScores['poissonPValue3']
+            differentParameterCheck.loc[i]['ratio3']                       = statisticScores['ratio3']
+            differentParameterCheck.loc[i]['totCount3']                    = statisticScores['totCount3']
+            differentParameterCheck.loc[i]['totRef3']                      = statisticScores['totRef3']
             i += 1
           except:
             print("problem occured")
