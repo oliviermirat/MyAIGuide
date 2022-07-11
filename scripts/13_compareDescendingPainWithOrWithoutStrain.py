@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+from scipy import stats
 import seaborn as sns
 import pickle as pkl
 import pandas as pd
@@ -37,6 +38,8 @@ print("withStrain:", (np.sum(withStrainIn < 0.0000001) / totWithStrain) * 100, (
 
 sns.set_theme(style="ticks")
 f, ax = plt.subplots()
+
+print("participant 1: no vs with strain in comparision:", stats.ttest_ind(noStrainIn, withStrainIn))
 
 d = {'strainPresence': ["noStrainIn" for val in noStrainIn] + ["withStrainIn" for val in withStrainIn], 'maxDifferential': [val for val in noStrainIn] + [val for val in withStrainIn]}
 data = pd.DataFrame(data=d)

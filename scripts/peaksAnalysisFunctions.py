@@ -597,6 +597,7 @@ def calculateForAllRegions(data, parameters, plotGraphs, saveData):
       fig3, axes = plt.subplots(nrows=1, ncols=1)
       plt.hist(painMinMaxAmplitudesWtStrain, range=(min(painMinMaxAmplitudes), max(painMinMaxAmplitudes)), alpha=0.5, label='Max strain PRESENT in ascending pain period')
       plt.hist(painMinMaxAmplitudesNoStrain, range=(min(painMinMaxAmplitudes), max(painMinMaxAmplitudes)), alpha=0.5, label='Max strain ABSENT in ascending pain period')
+      print("painMinMaxAmpWtVsWithoutStrain, ttest:", stats.ttest_ind(painMinMaxAmplitudesWtStrain, painMinMaxAmplitudesNoStrain))
       plt.legend()
       plt.title("Histograms of amplitudes of maximum pain peaks when:")
       plt.show()
@@ -663,6 +664,8 @@ def calculateForAllRegionsParticipant2(data, parameters, plotGraphs, saveData=Fa
   painMinMaxAmplitudes  = np.array(painMinMaxAmplitudes)
   painMinMaxAmplitudesNoStrain = painMinMaxAmplitudes[strainAtZero]
   painMinMaxAmplitudesWtStrain = painMinMaxAmplitudes[strainAtZero==False]
+  
+  print("painMinMaxAmpWtVsWithoutStrain, ttest:", stats.ttest_ind(painMinMaxAmplitudesWtStrain, painMinMaxAmplitudesNoStrain))
   
   if plotGraphs:
     print(str(len(painMinMaxAmplitudesNoStrain)) + " pain amplitudes (out of " + str(len(painMinMaxAmplitudesNoStrain) + len(painMinMaxAmplitudesWtStrain)) + ") had no strain peak preceding them ( " + str(( len(painMinMaxAmplitudesNoStrain) / (len(painMinMaxAmplitudesNoStrain) + len(painMinMaxAmplitudesWtStrain)) )*100) + " % )")
@@ -735,6 +738,8 @@ def calculateForAllRegionsParticipant8(data, parameters, plotGraphs, saveData=Fa
   
   painMinMaxAmplitudesNoStrain = painMinMaxAmplitudes[strainAtZero]
   painMinMaxAmplitudesWtStrain = painMinMaxAmplitudes[strainAtZero==False]
+  
+  print("painMinMaxAmpWtVsWithoutStrain, ttest:", stats.ttest_ind(painMinMaxAmplitudesWtStrain, painMinMaxAmplitudesNoStrain))
   
   if plotGraphs:
     print(str(len(painMinMaxAmplitudesNoStrain)) + " pain amplitudes (out of " + str(len(painMinMaxAmplitudesNoStrain) + len(painMinMaxAmplitudesWtStrain)) + ") had no strain peak preceding them ( " + str(( len(painMinMaxAmplitudesNoStrain) / (len(painMinMaxAmplitudesNoStrain) + len(painMinMaxAmplitudesWtStrain)) )*100) + " % )")
