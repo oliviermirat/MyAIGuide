@@ -8,6 +8,7 @@ import pandas as pd
 from scipy.signal import find_peaks
 import seaborn as sns
 from scipy import stats
+from statsmodels.stats import rates
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.linear_model import LinearRegression
 from dataFrameUtilities import check_if_zero_then_adjust_var_and_place_in_data, insert_data_to_tracker_mean_steps, subset_period, transformPain, predict_values, rollingMinMaxScalerMeanShift
@@ -453,6 +454,52 @@ def visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, region, list_
   return [maxstrainScores, maxstrainScores2, totDaysAscendingPain, totDaysDescendingPain, data, data2, strainMinMaxAmplitudes, painMinMaxAmplitudes]
 
 
+def computePoissonPValue(testName, countDescending, descendingRef, countAscending, ascendingRef):
+  print("")
+  print("Testing -1 to 0 against 0 to 1")
+  print("countDescending:", countDescending, "; countAscending:", countAscending)
+  print("nbDescendingDays:", descendingRef, "; nbAscendingDays:", ascendingRef)
+  print("poisson p-value:", rates.test_poisson_2indep(countDescending, descendingRef, countAscending, ascendingRef)[1])
+  return [countDescending + countAscending, descendingRef + ascendingRef]
+
+def computeStatisticalSignificanceTests(maxstrainScores, nbDescendingDays, nbAscendingDays):
+  
+  testName = "Testing -1 to 0 against 0 to 1"
+  countDescending = len(maxstrainScores[np.logical_and(maxstrainScores >= -1, maxstrainScores < 0)])
+  countAscending  = len(maxstrainScores[np.logical_and(maxstrainScores >= 0, maxstrainScores <= 1)])
+  descendingRef   = nbDescendingDays
+  ascendingRef    = nbAscendingDays
+  [totCount1, totRef1] = computePoissonPValue(testName, countDescending, descendingRef, countAscending, ascendingRef)
+  
+  testName = "Testing -0.8 to 0 against 0 to 1 and -1 to -0.8"
+  countDescending = len(maxstrainScores[np.logical_and(maxstrainScores >= -0.8, maxstrainScores < 0)])
+  countAscending  = len(maxstrainScores[np.logical_or(maxstrainScores < -0.8, maxstrainScores >= 0)])
+  descendingRef   = 0.8 * nbDescendingDays
+  ascendingRef    = nbAscendingDays + 0.2 * nbDescendingDays
+  [totCount2, totRef2] = computePoissonPValue(testName, countDescending, descendingRef, countAscending, ascendingRef)
+  
+  testName = "Testing -1 to 0.2 against 0.2 to 1"
+  countDescending = len(maxstrainScores[np.logical_and(maxstrainScores >= -1, maxstrainScores < 0.2)])
+  countAscending  = len(maxstrainScores[np.logical_and(maxstrainScores >= 0.2, maxstrainScores <= 1)])
+  descendingRef   = nbDescendingDays+nbAscendingDays*0.2
+  ascendingRef    = nbAscendingDays*0.8
+  [totCount3, totRef3] = computePoissonPValue(testName, countDescending, descendingRef, countAscending, ascendingRef)
+  
+  print("")
+  print("totCount1, totRef1:", totCount1, totRef1)
+  print("totCount2, totRef2:", totCount2, totRef2)
+  print("totCount3, totRef3:", totCount3, totRef3)
+  if totCount1 == totCount2 and totCount2 == totCount3:
+    print("Ok: All tot counts are equal!")
+  else:
+    print("PROBLEM: some tot counts are different!")
+  if totRef1 == totRef2 and totRef2 == totRef3:
+    print("Ok: All tot ref are equal!")
+  else:
+    print("PROBLEM: some tot ref are different!")  
+  
+
+
 def calculateForAllRegions(data, parameters, plotGraphs, saveData):
 
   rollingMeanWindow = parameters['rollingMeanWindow']
@@ -498,6 +545,9 @@ def calculateForAllRegions(data, parameters, plotGraphs, saveData):
     maxstrainScores = np.concatenate((maxstrainScoresKnee, maxstrainScoresHead))
     strainMinMaxAmplitudes = np.concatenate((strainMinMaxAmplitudesKnee, strainMinMaxAmplitudesHead))
     painMinMaxAmplitudes   = np.concatenate((painMinMaxAmplitudesKnee, painMinMaxAmplitudesHead))
+    
+    computeStatisticalSignificanceTests(maxstrainScores, nbDescendingDays, nbAscendingDays)
+    
     if plotGraphs:
       descendingWeight = len(maxstrainScores) * ((nbDescendingDays / (nbDescendingDays + nbAscendingDays)) / 5)
       ascendingWeight  = len(maxstrainScores) * ((nbAscendingDays  / (nbDescendingDays + nbAscendingDays)) / 5)
@@ -584,6 +634,10 @@ def calculateForAllRegionsParticipant2(data, parameters, plotGraphs, saveData=Fa
   nbDescendingDays = totDaysDescendingPainKnee
 
   maxstrainScores = maxstrainScoresKnee
+  
+  computeStatisticalSignificanceTests(maxstrainScores, nbDescendingDays, nbAscendingDays)
+
+  
   if plotGraphs:
     descendingWeight = len(maxstrainScores) * ((nbDescendingDays / (nbDescendingDays + nbAscendingDays)) / 5)
     ascendingWeight  = len(maxstrainScores) * ((nbAscendingDays  / (nbDescendingDays + nbAscendingDays)) / 5)
@@ -652,6 +706,9 @@ def calculateForAllRegionsParticipant8(data, parameters, plotGraphs, saveData=Fa
   nbDescendingDays = totDaysDescendingPainKnee
 
   maxstrainScores = maxstrainScoresKnee
+  
+  computeStatisticalSignificanceTests(maxstrainScores, nbDescendingDays, nbAscendingDays)
+  
   if plotGraphs:
     descendingWeight = len(maxstrainScores) * ((nbDescendingDays / (nbDescendingDays + nbAscendingDays)) / 5)
     ascendingWeight  = len(maxstrainScores) * ((nbAscendingDays  / (nbDescendingDays + nbAscendingDays)) / 5)
