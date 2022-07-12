@@ -1,11 +1,11 @@
 import matplotlib.pyplot as plt
-from scipy import stats
 import seaborn as sns
 import pickle as pkl
 import pandas as pd
 import numpy as np
 import shutil
 import os
+from statsmodels.stats import rates
 
 # Participant 1
 
@@ -26,6 +26,14 @@ print("noStrain:",   (np.sum(noStrainIn < 0.0000001) / totNoStrain) * 100, (np.s
 totWithStrain = len(withStrainIn)
 print("withStrain:", (np.sum(withStrainIn < 0.0000001) / totWithStrain) * 100, (np.sum(withStrainIn >= 0.0000001) / totWithStrain) * 100, " Out of:", totWithStrain, " graphs.")
 
+###
+
+noStrainIn2   = noStrainIn.copy()
+withStrainIn2 = withStrainIn.copy()
+
+print("Poisson test:", rates.test_poisson_2indep(len(noStrainIn2[noStrainIn2 >= 0.0000001]), len(noStrainIn2), len(withStrainIn2[withStrainIn2 >= 0.0000001]), len(withStrainIn2))[1])
+
+
 # totNoStrain   = len(noStrainIn)
 # print("noStrain:",   (np.sum(noStrainIn == 0) / totNoStrain) * 100, (np.sum(noStrainIn > 0) / totNoStrain) * 100)
 # totWithStrain = len(withStrainIn)
@@ -38,8 +46,6 @@ print("withStrain:", (np.sum(withStrainIn < 0.0000001) / totWithStrain) * 100, (
 
 sns.set_theme(style="ticks")
 f, ax = plt.subplots()
-
-print("participant 1: no vs with strain in comparision:", stats.ttest_ind(noStrainIn, withStrainIn))
 
 d = {'strainPresence': ["noStrainIn" for val in noStrainIn] + ["withStrainIn" for val in withStrainIn], 'maxDifferential': [val for val in noStrainIn] + [val for val in withStrainIn]}
 data = pd.DataFrame(data=d)
