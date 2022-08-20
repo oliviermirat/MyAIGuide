@@ -276,6 +276,37 @@ def addMinAndMax(data, regionName, plotFig, minProminenceForPeakDetect, windowFo
     plt.hist(maxstrainScores)
     plt.show()
   
+  # Relative locations of closest maxStrain for each maxPain
+  if False:
+    relativeLocation2 = []
+    for maxPainPeak in maxpeaks:
+      minPainCandidates  = np.array([minPainPeak for minPainPeak in minpeaks if minPainPeak <= maxPainPeak])
+      minPainCandidates2 = np.array([minPainPeak for minPainPeak in minpeaks if minPainPeak >  maxPainPeak])
+      if len(minPainCandidates) and len(minPainCandidates2):
+        minPainPeak  = minPainCandidates[-1] if len(minPainCandidates)  else maxPainPeak
+        minPainPeak2 = minPainCandidates2[0] if len(minPainCandidates2) else maxPainPeak
+        correspondingstrainPeakCandidates = []
+        for maxstrain in maxpeaksstrain:
+          if maxstrain >= minPainPeak - minMaxTimeToleranceMinus and maxstrain <= minPainPeak2 + minMaxTimeTolerancePlus:
+            if maxstrain < maxPainPeak:
+              relativeLoc = (maxstrain - minPainPeak)  / (maxPainPeak - minPainPeak) 
+            else:
+              relativeLoc = (maxstrain - minPainPeak2) / (minPainPeak2 - maxPainPeak)
+            correspondingstrainPeakCandidates.append(relativeLoc)
+        if len(correspondingstrainPeakCandidates):
+          maxstrainPeak = correspondingstrainPeakCandidates[np.argmax([abs(correspondingstrainPeakCandidates[idx]) for idx, maxstrain in enumerate(correspondingstrainPeakCandidates)])]
+          print("maxstrainPeak:", maxstrainPeak)
+          relativeLocation2.append(maxstrainPeak)
+        else:
+          print("One max pain peak without a maxstrain in the preceding ascending pain or subsequent descending pain period") 
+          # relativeLocation2.append(-1.5)
+    fig7, axes = plt.subplots(nrows=1, ncols=1)
+    plt.hist(relativeLocation2, range=(-1, 1))
+    plt.legend()
+    plt.title("Relative locations of closest maxStrain for each maxPain:")
+    plt.show()
+  
+  
   # Strain peaks amplitudes vs Pain peaks amplitudes: calculating values
   painMinMaxAmplitudes   = []
   strainMinMaxAmplitudes = []
@@ -485,15 +516,23 @@ def computeStatisticalSignificanceTests(maxstrainScores, nbDescendingDays, nbAsc
   ascendingRef    = nbAscendingDays*0.8
   [totCount3, totRef3, poissonPValue3, ratio3] = computePoissonPValue(testName, countDescending, descendingRef, countAscending, ascendingRef)
   
+  testName = "Testing -1 to 0 and 0.8 to 1 against 0 to 0.8"
+  countDescending = len(maxstrainScores[np.logical_or(maxstrainScores >= 0.8, maxstrainScores < 0)])
+  countAscending  = len(maxstrainScores[np.logical_and(maxstrainScores >= 0, maxstrainScores <= 0.8)])
+  descendingRef   = nbDescendingDays+nbAscendingDays*0.2
+  ascendingRef    = nbAscendingDays*0.8
+  [totCount4, totRef4, poissonPValue4, ratio4] = computePoissonPValue(testName, countDescending, descendingRef, countAscending, ascendingRef)
+  
   print("")
   print("totCount1, totRef1:", totCount1, totRef1)
   print("totCount2, totRef2:", totCount2, totRef2)
   print("totCount3, totRef3:", totCount3, totRef3)
-  if totCount1 == totCount2 and totCount2 == totCount3:
+  print("totCount4, totRef4:", totCount4, totRef4)
+  if totCount1 == totCount2 and totCount2 == totCount3 and totCount3 == totCount4:
     print("Ok: All tot counts are equal!")
   else:
     print("PROBLEM: some tot counts are different!")
-  if totRef1 == totRef2 and totRef2 == totRef3:
+  if totRef1 == totRef2 and totRef2 == totRef3 and totRef3 == totRef4:
     print("Ok: All tot ref are equal!")
   else:
     print("PROBLEM: some tot ref are different!")  
@@ -512,7 +551,13 @@ def computeStatisticalSignificanceTests(maxstrainScores, nbDescendingDays, nbAsc
           "poissonPValue3": poissonPValue3,
           "ratio3": ratio3,
           "totCount3": totCount3, 
-          "totRef3": totRef3}
+          "totRef3": totRef3,
+          "range4" : "Testing -1 to 0 and 0.8 to 1 against 0 to 0.8",
+          "poissonPValue4": poissonPValue4,
+          "ratio4": ratio4,
+          "totCount4": totCount4, 
+          "totRef4": totRef4
+          }
 
 
 def calculateForAllRegions(data, parameters, plotGraphs, saveData):
