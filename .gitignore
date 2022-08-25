@@ -82,3 +82,6 @@ scripts/foreheadEyesPain/
 scripts/kneePain/
 
 scripts/descendingPeriodsMaxDerivative*
+
+zoomedGraph_Participant8_Knee_LowestPain.pkl
+zoomedGraph_Participant8_Knee_RollingMean.pkl

@@ -13,7 +13,10 @@ regionName = "kneePain"
 # zoomedPklFile = 'zoomedGraph_Participant2_Knee.pkl'
 # regionName = "kneepain"
 
-# zoomedPklFile = 'zoomedGraph_Participant8_Knee.pkl'
+# zoomedPklFile = 'zoomedGraph_Participant8_Knee_LowestPain.pkl'
+# regionName = "kneepain"
+
+# zoomedPklFile = 'zoomedGraph_Participant8_Knee_RollingMean.pkl'
 # regionName = "kneepain"
 
 
@@ -145,7 +148,7 @@ print("longPainStart <= 1 : Removed nb : ",                 len(np.where(np.arra
 print("maxStrainPeakToHighPainStart < -5 : Removed nb : ",  len(np.where(np.array(maxStrainPeakToHighPainStartTrigger) < -5)[0].tolist()))
 print("maxStrainPeakToHighPainStart >= 28 : Removed nb : ", len(np.where(np.array(maxStrainPeakToHighPainStartTrigger) >= 28)[0].tolist()))
 
-indToRemove = np.where(np.logical_or(np.logical_or(np.logical_or(np.array(maxStrainNearHighPainStartTrigger) == -1, np.array(maxStrainPeakToHighPainStartTrigger) < -5), np.array(longPainStartArray) <= 1), np.array(maxStrainPeakToHighPainStartTrigger) >= 28))[0].tolist()
+indToRemove = np.where(np.logical_or(np.logical_or(np.logical_or(np.logical_or(np.array(maxStrainNearHighPainStartTrigger) == -1, np.array(relativeLocation) < 0), np.array(maxStrainPeakToHighPainStartTrigger) < -5), np.array(longPainStartArray) <= 1), np.array(maxStrainPeakToHighPainStartTrigger) >= 28))[0].tolist()
 
 print("len(indToRemove):", len(indToRemove))
 

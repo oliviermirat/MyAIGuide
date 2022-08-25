@@ -359,13 +359,23 @@ def prepareForPlotting(data, region, minpeaks, maxpeaks):
   if len(allPeaks):
     for i in range(min(allPeaks), max(allPeaks)):
       if i in maxpeaks:
+        ascendingElement[i] = 0
+        # descendingElement[i-1] = 1
         ascending = False
+        firstElem = True
       if i in minpeaks:
+        descendingElement[i] = 0
+        # ascendingElement[i-1] = 1
         ascending = True
-      if ascending:
-        ascendingElement[i] = 1
+        firstElem = True
+      if not(firstElem):
+        if ascending:
+          ascendingElement[i] = 1
+        else:
+          descendingElement[i] = 1
       else:
-        descendingElement[i] = 1
+        firstElem = False
+       
     
     data['painAscending'][[ind for ind, val in enumerate(descendingElement) if val or ind < min(allPeaks) or ind > max(allPeaks)]] = float('nan')
     data['painDescending'][[ind for ind, val in enumerate(ascendingElement) if val or ind < min(allPeaks) or ind > max(allPeaks)]] = float('nan')
@@ -419,7 +429,6 @@ def visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, region, list_
   # Plotting Rolling Mean of strain and pain
   for var in strain_and_pain:
     data[var + "_RollingMean"] = data[var].rolling(window).mean().shift(int(-window/2))
-    # data[var + "_RollingMean"] = data[var].rolling(window, min_periods=1).mean().shift(int(-window/2))
   strain_and_pain_rollingMean = [name + "_RollingMean" for name in strain_and_pain]
   data[strain_and_pain_rollingMean] = scaler.fit_transform(data[strain_and_pain_rollingMean])
   if plotGraph:
@@ -487,7 +496,7 @@ def visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, region, list_
 
 def computePoissonPValue(testName, countDescending, descendingRef, countAscending, ascendingRef):
   print("")
-  print("Testing -1 to 0 against 0 to 1")
+  print(testName)
   print("countDescending:", countDescending, "; countAscending:", countAscending)
   print("nbDescendingDays:", descendingRef, "; nbAscendingDays:", ascendingRef)
   print("poisson p-value:", rates.test_poisson_2indep(countDescending, descendingRef, countAscending, ascendingRef)[1])
@@ -516,23 +525,15 @@ def computeStatisticalSignificanceTests(maxstrainScores, nbDescendingDays, nbAsc
   ascendingRef    = nbAscendingDays*0.8
   [totCount3, totRef3, poissonPValue3, ratio3] = computePoissonPValue(testName, countDescending, descendingRef, countAscending, ascendingRef)
   
-  testName = "Testing -1 to 0 and 0.8 to 1 against 0 to 0.8"
-  countDescending = len(maxstrainScores[np.logical_or(maxstrainScores >= 0.8, maxstrainScores < 0)])
-  countAscending  = len(maxstrainScores[np.logical_and(maxstrainScores >= 0, maxstrainScores <= 0.8)])
-  descendingRef   = nbDescendingDays+nbAscendingDays*0.2
-  ascendingRef    = nbAscendingDays*0.8
-  [totCount4, totRef4, poissonPValue4, ratio4] = computePoissonPValue(testName, countDescending, descendingRef, countAscending, ascendingRef)
-  
   print("")
   print("totCount1, totRef1:", totCount1, totRef1)
   print("totCount2, totRef2:", totCount2, totRef2)
   print("totCount3, totRef3:", totCount3, totRef3)
-  print("totCount4, totRef4:", totCount4, totRef4)
-  if totCount1 == totCount2 and totCount2 == totCount3 and totCount3 == totCount4:
+  if totCount1 == totCount2 and totCount2 == totCount3:
     print("Ok: All tot counts are equal!")
   else:
     print("PROBLEM: some tot counts are different!")
-  if totRef1 == totRef2 and totRef2 == totRef3 and totRef3 == totRef4:
+  if totRef1 == totRef2 and totRef2 == totRef3:
     print("Ok: All tot ref are equal!")
   else:
     print("PROBLEM: some tot ref are different!")  
@@ -551,12 +552,7 @@ def computeStatisticalSignificanceTests(maxstrainScores, nbDescendingDays, nbAsc
           "poissonPValue3": poissonPValue3,
           "ratio3": ratio3,
           "totCount3": totCount3, 
-          "totRef3": totRef3,
-          "range4" : "Testing -1 to 0 and 0.8 to 1 against 0 to 0.8",
-          "poissonPValue4": poissonPValue4,
-          "ratio4": ratio4,
-          "totCount4": totCount4, 
-          "totRef4": totRef4
+          "totRef3": totRef3
           }
 
 
@@ -710,6 +706,7 @@ def calculateForAllRegionsParticipant2(data, parameters, plotGraphs, saveData=Fa
   painMinMaxAmplitudesNoStrain = painMinMaxAmplitudes[strainAtZero]
   painMinMaxAmplitudesWtStrain = painMinMaxAmplitudes[strainAtZero==False]
   
+  painMinMaxAmpWtVsWithoutStrainStat = stats.ttest_ind(painMinMaxAmplitudesWtStrain, painMinMaxAmplitudesNoStrain)
   print("painMinMaxAmpWtVsWithoutStrain, ttest:", stats.ttest_ind(painMinMaxAmplitudesWtStrain, painMinMaxAmplitudesNoStrain))
   
   if plotGraphs:
@@ -741,7 +738,7 @@ def calculateForAllRegionsParticipant2(data, parameters, plotGraphs, saveData=Fa
     print("extendingAscendingNbDays:", extendingAscendingNbDays, "; extendingDescendingNbDays:", extendingDescendingNbDays)
     print("rapport: ", (nbPointsInAscendingDays / extendingAscendingNbDays) / (nbPointsInDescendingDays / extendingDescendingNbDays))
   
-  return [statisticScores, nbAscendingDays + nbDescendingDays]
+  return [statisticScores, nbAscendingDays + nbDescendingDays, painMinMaxAmpWtVsWithoutStrainStat.pvalue]
 
 
 def calculateForAllRegionsParticipant8(data, parameters, plotGraphs, saveData=False):
@@ -784,6 +781,7 @@ def calculateForAllRegionsParticipant8(data, parameters, plotGraphs, saveData=Fa
   painMinMaxAmplitudesNoStrain = painMinMaxAmplitudes[strainAtZero]
   painMinMaxAmplitudesWtStrain = painMinMaxAmplitudes[strainAtZero==False]
   
+  painMinMaxAmpWtVsWithoutStrainStat = stats.ttest_ind(painMinMaxAmplitudesWtStrain, painMinMaxAmplitudesNoStrain)
   print("painMinMaxAmpWtVsWithoutStrain, ttest:", stats.ttest_ind(painMinMaxAmplitudesWtStrain, painMinMaxAmplitudesNoStrain))
   
   if plotGraphs:
@@ -815,7 +813,7 @@ def calculateForAllRegionsParticipant8(data, parameters, plotGraphs, saveData=Fa
     print("extendingAscendingNbDays:", extendingAscendingNbDays, "; extendingDescendingNbDays:", extendingDescendingNbDays)
     print("rapport: ", (nbPointsInAscendingDays / extendingAscendingNbDays) / (nbPointsInDescendingDays / extendingDescendingNbDays))
   
-  return [statisticScores, nbAscendingDays + nbDescendingDays]
+  return [statisticScores, nbAscendingDays + nbDescendingDays, painMinMaxAmpWtVsWithoutStrainStat.pvalue]
 
 
 def calculateForAllRegionsParticipant3_4_5_6_7_9(data, parameters, plotGraphs, stressorName, painRegionName, saveData=False):

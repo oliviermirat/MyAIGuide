@@ -2,7 +2,7 @@
 
 import sys
 sys.path.insert(1, '../src/MyAIGuide/utilities')
-
+import math
 import pickle
 import matplotlib.pyplot as plt
 import numpy as np
@@ -21,17 +21,22 @@ input.close()
 data = data[data.index >= '2019-08-12']
 data = data[data.index <= '2020-12-27']
 
-data["kneepain"] = data["kneepain"].fillna(3) # Need to improve this
+if True:
+  withRolling = data["kneepain"].rolling(15, min_periods=1).mean().shift(int(-15/2))
+  for i in range(1, len(data["kneepain"])):
+    if math.isnan(data["kneepain"][i]):
+      data["kneepain"][i] = withRolling[i]
+else:
+  data["kneepain"] = data["kneepain"].fillna(3) # Need to improve this
 
 # Steps
-cols = ['steps', 'kneepain']
-for idx, val in enumerate(cols):
-  data[val] = data[val] #/ np.max(data[val])
+# cols = ['steps', 'kneepain']
+# for idx, val in enumerate(cols):
+  # data[val] = data[val] #/ np.max(data[val])
 
+totalSize = 4*4*4*4
 
-totalSize = 3*3*4*3
-
-d = {'rollingMeanWindow': [0.0 for i in range(0, totalSize)], 'rollingMedianWindow': [0.0 for i in range(0, totalSize)], 'rollingMinMaxScalerWindow': [0.0 for i in range(0, totalSize)], 'minProminenceForPeakDetect': [0.0 for i in range(0, totalSize)], 'windowForLocalPeakMinMaxFind': [0.0 for i in range(0, totalSize)], 'poissonPValue1': [0.0 for i in range(0, totalSize)], 'ratio1': [0.0 for i in range(0, totalSize)], 'totCount1': [0.0 for i in range(0, totalSize)], 'totRef1': [0.0 for i in range(0, totalSize)], 'poissonPValue2': [0.0 for i in range(0, totalSize)], 'ratio2': [0.0 for i in range(0, totalSize)], 'totCount2': [0.0 for i in range(0, totalSize)], 'totRef2': [0.0 for i in range(0, totalSize)], 'poissonPValue3': [0.0 for i in range(0, totalSize)], 'ratio3': [0.0 for i in range(0, totalSize)], 'totCount3': [0.0 for i in range(0, totalSize)], 'totRef3': [0.0 for i in range(0, totalSize)]}
+d = {'rollingMeanWindow': [0.0 for i in range(0, totalSize)], 'rollingMedianWindow': [0.0 for i in range(0, totalSize)], 'rollingMinMaxScalerWindow': [0.0 for i in range(0, totalSize)], 'minProminenceForPeakDetect': [0.0 for i in range(0, totalSize)], 'windowForLocalPeakMinMaxFind': [0.0 for i in range(0, totalSize)], 'poissonPValue1': [0.0 for i in range(0, totalSize)], 'ratio1': [0.0 for i in range(0, totalSize)], 'totCount1': [0.0 for i in range(0, totalSize)], 'totRef1': [0.0 for i in range(0, totalSize)], 'poissonPValue2': [0.0 for i in range(0, totalSize)], 'ratio2': [0.0 for i in range(0, totalSize)], 'totCount2': [0.0 for i in range(0, totalSize)], 'totRef2': [0.0 for i in range(0, totalSize)], 'poissonPValue3': [0.0 for i in range(0, totalSize)], 'ratio3': [0.0 for i in range(0, totalSize)], 'totCount3': [0.0 for i in range(0, totalSize)], 'totRef3': [0.0 for i in range(0, totalSize)], 'painMinMaxAmpWtVsWithoutStrain': [0.0 for i in range(0, totalSize)]}
 differentParameterCheck = pd.DataFrame(data=d)
 
 i = 0
@@ -39,11 +44,11 @@ i = 0
 plotGraphs = False
 saveData   = False
 
-for rollingMeanWindow in [7, 15, 21]:
+for rollingMeanWindow in [3, 7, 15, 21]:
   rollingMedianWindow = rollingMeanWindow
-  for rollingMinMaxScalerWindow in [60, 90, 120, 180]:
-    for minProminenceForPeakDetect in [0.025, 0.05, 0.075]:
-      for windowForLocalPeakMinMaxFind in [4, 7, 10]:
+  for rollingMinMaxScalerWindow in [30, 60, 90, 120]:
+    for minProminenceForPeakDetect in [0.01, 0.025, 0.05, 0.075]:
+      for windowForLocalPeakMinMaxFind in [1, 3, 5, 7]:
         if i < totalSize:
           print("i:", i, " out of:", totalSize)
           parameters = {
@@ -56,7 +61,8 @@ for rollingMeanWindow in [7, 15, 21]:
             'allBodyRegionsArmIncluded':     False
           }
           try:
-            [statisticScores, totDaysTakenIntoAccount] = peaksAnalysisFunctions.calculateForAllRegionsParticipant8(data, parameters, plotGraphs, saveData)
+            [statisticScores, totDaysTakenIntoAccount, painMinMaxAmpWtVsWithoutStrainStat] = peaksAnalysisFunctions.calculateForAllRegionsParticipant8(data, parameters, plotGraphs, saveData)
+            print("painMinMaxAmpWtVsWithoutStrainStat:", painMinMaxAmpWtVsWithoutStrainStat)
             print("parameters:", parameters)
             print("statisticScores:", statisticScores, "; totDaysTakenIntoAccount:", totDaysTakenIntoAccount)
             print("")
@@ -77,8 +83,10 @@ for rollingMeanWindow in [7, 15, 21]:
             differentParameterCheck.loc[i]['ratio3']                       = statisticScores['ratio3']
             differentParameterCheck.loc[i]['totCount3']                    = statisticScores['totCount3']
             differentParameterCheck.loc[i]['totRef3']                      = statisticScores['totRef3']
+            differentParameterCheck.loc[i]['painMinMaxAmpWtVsWithoutStrain'] = painMinMaxAmpWtVsWithoutStrainStat
             i += 1
           except:
             print("problem occured")
+            i += 1
 
 differentParameterCheck.to_pickle("./participant8DifferentParameters.pkl")

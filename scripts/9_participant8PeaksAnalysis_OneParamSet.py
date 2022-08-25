@@ -3,6 +3,7 @@
 import sys
 sys.path.insert(1, '../src/MyAIGuide/utilities')
 
+import math
 import pickle
 import matplotlib.pyplot as plt
 import numpy as np
@@ -13,6 +14,10 @@ from sklearn.preprocessing import MinMaxScaler
 
 import peaksAnalysisFunctions
 
+# Missing data filling technique: choose of the methods bellow
+rollingMean = False
+lowestPain  = True
+
 # Getting data
 input = open("../data/preprocessed/preprocessedDataParticipant8.txt", "rb")
 data = pickle.load(input)
@@ -21,7 +26,23 @@ input.close()
 data = data[data.index >= '2019-08-12']
 data = data[data.index <= '2020-12-27']
 
-data["kneepain"] = data["kneepain"].fillna(3) # Need to improve this
+
+if rollingMean:
+  plotBeforeAfter = False
+  if plotBeforeAfter:
+    fig, axes = plt.subplots(nrows=2, ncols=1)
+    axes[0].plot(data["kneepain"])
+  withRolling = data["kneepain"].rolling(15, min_periods=1).mean().shift(int(-15/2))
+  for i in range(1, len(data["kneepain"])):
+    if math.isnan(data["kneepain"][i]):
+      data["kneepain"][i] = withRolling[i]
+  if plotBeforeAfter:
+    axes[1].plot(data["kneepain"])
+    plt.title("jjlllmmm")
+    plt.show()
+    
+if lowestPain:
+  data["kneepain"] = data["kneepain"].fillna(3)
 
 # Steps
 cols = ['steps', 'kneepain']
@@ -36,7 +57,11 @@ for idx, val in enumerate(cols):
 plt.show()
 
 # Analysis parameters
-parameters = {'rollingMeanWindow': 15, 'rollingMinMaxScalerWindow': 90, 'rollingMedianWindow': 15, 'minProminenceForPeakDetect': 0.03, 'windowForLocalPeakMinMaxFind': 5, 'plotGraph': True, 'plotZoomedGraph': False, 'plotGraphStrainDuringDescendingPain': False, 'zoomedGraphNbDaysMarginLeft': 14, 'zoomedGraphNbDaysMarginRight': 14}
+if rollingMean:
+  parameters = {'rollingMeanWindow': 7, 'rollingMinMaxScalerWindow': 60, 'rollingMedianWindow': 3, 'minProminenceForPeakDetect': 0.03, 'windowForLocalPeakMinMaxFind': 3, 'plotGraph': True, 'plotZoomedGraph': False, 'plotGraphStrainDuringDescendingPain': False, 'zoomedGraphNbDaysMarginLeft': 14, 'zoomedGraphNbDaysMarginRight': 14}
+
+if lowestPain:
+  parameters = {'rollingMeanWindow': 15, 'rollingMinMaxScalerWindow': 90, 'rollingMedianWindow': 15, 'minProminenceForPeakDetect': 0.03, 'windowForLocalPeakMinMaxFind': 5, 'plotGraph': True, 'plotZoomedGraph': False, 'plotGraphStrainDuringDescendingPain': False, 'zoomedGraphNbDaysMarginLeft': 14, 'zoomedGraphNbDaysMarginRight': 14}
 
 plotGraphs = True
 
