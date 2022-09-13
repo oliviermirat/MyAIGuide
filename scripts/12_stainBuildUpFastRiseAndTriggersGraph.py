@@ -19,6 +19,9 @@ regionName = "kneePain"
 # zoomedPklFile = 'zoomedGraph_Participant8_Knee_RollingMean.pkl'
 # regionName = "kneepain"
 
+createFigs = False
+if createFigs:
+  plt.rcParams.update({'font.size': 12})
 
 savePlots = False
 plotRegression = True
@@ -156,7 +159,11 @@ maxStrainPeakToHighPainStartTrigger = np.delete(maxStrainPeakToHighPainStartTrig
 maxStrainNearHighPainStartTrigger   = np.delete(maxStrainNearHighPainStartTrigger, indToRemove).tolist()
 relativeLocation                    = np.delete(relativeLocation, indToRemove).tolist()
 
-fig3, axes = plt.subplots(nrows=1, ncols=2)
+if createFigs:
+  fig, axes = plt.subplots(figsize=(6, 1.8), dpi=300, nrows=1, ncols=2)
+  fig.subplots_adjust(left=0.16, bottom=0.24, right=0.98, top=0.98, wspace=0.4)
+else:
+  fig, axes = plt.subplots(nrows=1, ncols=2)
 
 if False:
   from sklearn.linear_model import LinearRegression
@@ -173,13 +180,18 @@ axes[0].plot(maxStrainPeakToHighPainStartTrigger, maxStrainNearHighPainStartTrig
 belowOneWeek = np.array(maxStrainPeakToHighPainStartTrigger) < cutoffDays + 0.5
 aboveOneWeek = np.array(maxStrainPeakToHighPainStartTrigger) >= cutoffDays + 0.5
 
-axes[0].set(xlabel='maxStrainPeak to highPainStart nb of days', ylabel='maxStrain in the 5 days before highPainStart')
-
+if not(createFigs):
+  axes[0].set(xlabel='maxStrainPeak to highPainStart nb of days', ylabel='maxStrain in the 5 days before highPainStart')
 axes[1].boxplot([np.array(maxStrainNearHighPainStartTrigger)[belowOneWeek].tolist(), np.array(maxStrainNearHighPainStartTrigger)[aboveOneWeek].tolist()])
-axes[1].set(xlabel='maxStrainPeak to highPainStart nb of days', ylabel='maxStrain in the 5 days before highPainStart')
-axes[1].set_xticklabels(['belowOneWeek', 'aboveOneWeek'])
+if not(createFigs):
+  axes[1].set(xlabel='maxStrainPeak to highPainStart nb of days', ylabel='maxStrain in the 5 days before highPainStart')
+axes[1].set_xticklabels(['below\n5 days', 'above\n5 days'])
 
-plt.show()
+if createFigs:
+  plt.savefig('strainBuildUpFastRiseAndTriggerGraph.svg')
+  plt.close()
+else:
+  plt.show()
 
 
 if plotRegression:

@@ -44,8 +44,13 @@ print("Poisson test:", rates.test_poisson_2indep(len(noStrainIn2[noStrainIn2 >= 
 # ax7.boxplot([noStrainIn, withStrainIn])
 # plt.show()
 
+saveFigs = False
+
 sns.set_theme(style="ticks")
-f, ax = plt.subplots()
+if saveFigs:
+  f, ax = plt.subplots(figsize=(3, 2.2), dpi=300)
+else:
+  f, ax = plt.subplots()
 
 d = {'strainPresence': ["noStrainIn" for val in noStrainIn] + ["withStrainIn" for val in withStrainIn], 'maxDifferential': [val for val in noStrainIn] + [val for val in withStrainIn]}
 data = pd.DataFrame(data=d)
@@ -53,7 +58,11 @@ data = pd.DataFrame(data=d)
 sns.boxplot(x="strainPresence", y="maxDifferential", data=data)
 sns.stripplot(x="strainPresence", y="maxDifferential", data=data, size=4, color=".3", linewidth=0)
 
-plt.show()
+if saveFigs:
+  plt.savefig('descendingPainWithVsWithoutStrainPresent.svg')
+  plt.close()
+else:
+  plt.show()
 
 
 # Participant 2
