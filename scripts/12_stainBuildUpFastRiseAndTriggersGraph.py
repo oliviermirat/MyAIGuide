@@ -195,11 +195,15 @@ else:
 
 
 if plotRegression:
-
-  fig3, axes = plt.subplots(nrows=1, ncols=1)
+  
+  if createFigs:
+    fig3, axes = plt.subplots(figsize=(3, 2.3), dpi=300, nrows=1, ncols=1)
+    fig3.subplots_adjust(left=0.4, bottom=0.28, right=0.98, top=0.98, wspace=0.4)
+  else:
+    fig3, axes = plt.subplots(nrows=1, ncols=1)
 
   axes.plot(relativeLocation, maxStrainPeakToHighPainStartTrigger, '.')
-  axes.set(xlabel='relative location', ylabel='maxStrainPeak to highPainStart nb of days')
+  axes.set(xlabel='Relative location', ylabel='MaxStrainPeak\nto highPainStart\nnumber of days')
 
   from sklearn.linear_model import LinearRegression
   reg = LinearRegression().fit(np.array([relativeLocation]).reshape(-1, 1), np.array([maxStrainPeakToHighPainStartTrigger]).reshape(-1, 1))
@@ -208,5 +212,8 @@ if plotRegression:
   pred = reg.predict(np.array([i/10 for i in range(0, 10)]).reshape(-1, 1))
   axes.plot([i/10 for i in range(0, 10)], pred)
 
-  plt.show()
-
+  if createFigs:
+    plt.savefig('relativeLocationCorrelation.svg')
+    plt.close()
+  else:
+    plt.show()
