@@ -1,12 +1,20 @@
 import pandas as pd
 import numpy as np
+import math
+
+stats = pd.DataFrame(columns=['Participant', 'Range', 'Number of sets of model parameters tested', 'Percent of ratios above 1', 'Percent of ratios significantly above 1', 'Percent of ratios significantly below 1'])
+
+idx = 0
 
 pd.set_option('display.max_rows', 1000)
 
-for participantData in ["participant1DifferentParameters.pkl", "participant2DifferentParameters.pkl", "participant8DifferentParameters.pkl"]:
+for participantId, participantData in enumerate(["participant1DifferentParameters.pkl", "participant2DifferentParameters.pkl", "participant8DifferentParameters_lowestPain.pkl", "participant8DifferentParameters_rollingMean.pkl"]):
   
   print("")
   print(participantData)
+  
+  stats.loc[idx] = ['', '', '', '', '', '']
+  idx += 1
   
   data = pd.read_pickle(participantData)
   
@@ -26,4 +34,17 @@ for participantData in ["participant1DifferentParameters.pkl", "participant2Diff
     print("rangeId:", rangeId, " : signif naive above 1: ", nb_ratioSignificant,  len(data),            " : ", nb_ratioSignificant / len(data))
     print("rangeId:", rangeId, " : signif above 1: ", nb_ratioSignificant2, len(dataRatioAbove1), " : ", nb_ratioSignificant2 / len(dataRatioAbove1))
     print("rangeId:", rangeId, " : signif below 1: ", nb_ratioSignificant3, len(dataRatioBellow1), " : ", nb_ratioSignificant3 / len(dataRatioBellow1))
+    
+    if participantId == 0:
+      participantLabel = 'Participant 1'
+    elif participantId == 1:
+      participantLabel = 'Participant 2'
+    elif participantId == 2:
+      participantLabel = 'Participant 8 (Lowest pain)'
+    else:
+      participantLabel = 'Participant 8 (Rolling mean)'
+    stats.loc[idx] = [participantLabel, rangeId, len(data), round(nb_ratioAbove1 / len(data), 2), round(nb_ratioSignificant2 / len(dataRatioAbove1), 2), round(nb_ratioSignificant3 / len(dataRatioBellow1), 2) if not(math.isnan(nb_ratioSignificant3 / len(dataRatioBellow1))) else 'NaN']
+    idx += 1
 
+print(stats)
+stats.to_excel('stats.xls')

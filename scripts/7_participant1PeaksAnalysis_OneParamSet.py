@@ -8,6 +8,7 @@ data = pickle.load(input)
 input.close()
 
 # Analysis parameters
+# 'minMaxTimeToleranceMinus' and 'minMaxTimeTolerancePlus' MUST both be set to 0 to generate the zoomed graphs for the 12_strainBuildUpFastRiseAndTriggersGraph.py graph!!!
 parameters = {'rollingMeanWindow': 15, 'rollingMinMaxScalerWindow': 270, 'rollingMedianWindow': 15, 'minProminenceForPeakDetect': 0.075, 'windowForLocalPeakMinMaxFind': 5, 'plotGraph': True, 'allBodyRegionsArmIncluded': False, 'plotZoomedGraph': False, 'minMaxTimeToleranceMinus': 0, 'minMaxTimeTolerancePlus': 0, 'plotGraphStrainDuringDescendingPain': False, 'zoomedGraphNbDaysMarginLeft': 14, 'zoomedGraphNbDaysMarginRight': 14}
 # parameters = {'rollingMeanWindow': 15, 'rollingMinMaxScalerWindow': 270, 'rollingMedianWindow': 15, 'minProminenceForPeakDetect': 0.03, 'windowForLocalPeakMinMaxFind': 3, 'plotGraph': True, 'allBodyRegionsArmIncluded': False, 'plotZoomedGraph': False, 'minMaxTimeToleranceMinus': 0, 'minMaxTimeTolerancePlus': 0, 'plotGraphStrainDuringDescendingPain': False}
 

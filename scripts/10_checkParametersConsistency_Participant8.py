@@ -13,6 +13,10 @@ from sklearn.preprocessing import MinMaxScaler
 
 import peaksAnalysisFunctions
 
+# Missing data filling technique: choose one of the methods bellow
+rollingMean = False
+lowestPain  = True
+
 # Getting data
 input = open("../data/preprocessed/preprocessedDataParticipant8.txt", "rb")
 data = pickle.load(input)
@@ -21,13 +25,14 @@ input.close()
 data = data[data.index >= '2019-08-12']
 data = data[data.index <= '2020-12-27']
 
-if True:
+if rollingMean:
   withRolling = data["kneepain"].rolling(15, min_periods=1).mean().shift(int(-15/2))
   for i in range(1, len(data["kneepain"])):
     if math.isnan(data["kneepain"][i]):
       data["kneepain"][i] = withRolling[i]
-else:
-  data["kneepain"] = data["kneepain"].fillna(3) # Need to improve this
+
+if lowestPain:
+  data["kneepain"] = data["kneepain"].fillna(3)
 
 # Steps
 # cols = ['steps', 'kneepain']
@@ -89,4 +94,8 @@ for rollingMeanWindow in [3, 7, 15, 21]:
             print("problem occured")
             i += 1
 
-differentParameterCheck.to_pickle("./participant8DifferentParameters.pkl")
+if rollingMean:
+  differentParameterCheck.to_pickle("./participant8DifferentParameters_rollingMean.pkl")
+
+if lowestPain:
+  differentParameterCheck.to_pickle("./participant8DifferentParameters_lowestPain.pkl")

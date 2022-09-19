@@ -485,7 +485,8 @@ def visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, region, list_
     fig, axes = plt.subplots(figsize=(figWidth, 1.7), dpi=300, nrows=1, ncols=1)
     fig.subplots_adjust(left=0.04, bottom=0.35, right=0.98, top=0.75, wspace=None, hspace=hspace)
   else:
-    fig.subplots_adjust(left=0.02, bottom=0.05, right=0.90, top=0.97, wspace=None, hspace=hspace)
+    if plotGraph:
+      fig.subplots_adjust(left=0.02, bottom=0.05, right=0.90, top=0.97, wspace=None, hspace=hspace)
   
   scaler = MinMaxScaler()
   
@@ -494,7 +495,7 @@ def visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, region, list_
   if plotGraph:
     data[list_of_stressors].plot(ax=(axes[0] if not(createFigs) else axes), linestyle='', marker='o', markersize=0.5)
     plottingOptions(axes, 0, 'Stressors causing ' + region, [], 'upper right' if plotWithScaling else 'center left', 3 if plotWithScaling else 8, createFigs, False if createFigs else True)
-
+  
   if createFigs:
     axes.get_xaxis().set_visible(True)
     plt.savefig('./folderToSaveFigsIn/' + 'succussiveFilters_' + region + '_1.svg')
@@ -511,7 +512,7 @@ def visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, region, list_
   if plotGraph:
     data[strain_and_pain].plot(ax=axes[1 if not(createFigs) else 0], linestyle='', marker='o', markersize=0.5, color=['k','r'])
     plottingOptions(axes, 1 if not(createFigs) else 0, 'Strain (linear combination of stressors) and pain', ['strain', 'pain'], 'center left', 8, createFigs)
-
+  
   # Plotting Rolling Mean of strain and pain
   for var in strain_and_pain:
     data[var + "_RollingMean"] = data[var].rolling(window).mean().shift(int(-window/2))
