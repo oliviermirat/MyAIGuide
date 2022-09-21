@@ -112,6 +112,7 @@ for ind in range(0, len(zoomedSections)):
       if savePlots and maxStrainNearHighPainStartTriggerVal != -1 and maxStrainPeakToHighPainStartTriggerVal >= -5 and maxStrainPeakToHighPainStartTriggerVal < 28 and longPainStart > 1:
         
         fig, ax1 = plt.subplots(1, 1, figsize=(22.9, 8.8))
+        fig.subplots_adjust(top=0.90)
         zoomSectionData[['regionSpecificstrain_RollingMean_MinMaxScaler', regionName + '_RollingMean_MinMaxScaler']].plot(ax=ax1, color = ['blue', 'red'])
         zoomSectionData[['max', 'min', 'maxstrain']].plot(ax=ax1, color = ['black', 'black', 'green'], linestyle='', marker='o', markersize = 10)
         
@@ -123,23 +124,28 @@ for ind in range(0, len(zoomedSections)):
           for i in range(longPainStart, len(strain)):
             longPeriodOfHighPain[i] = maxPainAmp - 0.01
           zoomSectionData['longPeriodOfHighPain'] = longPeriodOfHighPain
-          zoomSectionData[['longPeriodOfHighPain']].plot(ax=ax1, color = ['black'])
+          zoomSectionData[['longPeriodOfHighPain']].plot(ax=ax1, color = ['black'], linewidth=3)
           
           strainTriggerAmpPos = [float('nan') for i in range(0, len(zoomSectionData))]
           for i in range(strainTriggerAmpIndStr, strainTriggerAmpIndEnd):
             strainTriggerAmpPos[i] = strainTriggerAmp + 0.01
           zoomSectionData['strainTriggerAmpPos'] = strainTriggerAmpPos
-          zoomSectionData[['strainTriggerAmpPos']].plot(ax=ax1, color = ['green'])
+          zoomSectionData[['strainTriggerAmpPos']].plot(ax=ax1, color = ['green'], linewidth=3)
           # strainTriggerAmpPos = [float('nan') for i in range(0, len(zoomSectionData))]
           # strainTriggerAmpPos[strainTriggerAmpIndex] = strainTriggerAmp + 0.026
           # zoomSectionData['strainTriggerAmpPos'] = strainTriggerAmpPos
           # zoomSectionData[['strainTriggerAmpPos']].plot(ax=ax1, color = ['purple'], linestyle='', marker='x')
         
         ax1.legend(['strainFiltered', 'painFiltered', 'maxPainPeak', 'minPainPeak', 'maxStrainPeak', 'strain', 'pain', 'highPainPeriod', 'strainTrigger'], loc="center left", bbox_to_anchor=(1, 0.5))
+        if True:
+          ax1.get_legend().remove()
         # plt.title("Strain relative location: " + str(zoomMaxStrainScore))
-        plt.title("Max strain peak to high pain start : " + str(longPainStart - maxStrainIndex) + " ; Max strain in the 5 days prior to high pain start : " + str(int(max(strain[(longPainStart-longPainStartMinus if longPainStart-longPainStartMinus >= 0 else 0):(longPainStart+longPainStartPlus if longPainStart+longPainStartPlus < len(strain) else longPainStart)])*100)/100 if len(strain[(longPainStart-longPainStartMinus if longPainStart-longPainStartMinus >= 0 else 0):(longPainStart+longPainStartPlus if longPainStart+longPainStartPlus < len(strain) else longPainStart)]) else -1))
+        plt.rcParams.update({'font.size': 18})
+        plt.title("Max strain peak to high pain start : " + r"$\bf{" + str(longPainStart - maxStrainIndex) + "}$ ; Max strain in the 5 days prior and 2 days after the high pain period start : " + r"$\bf{" + str(int(max(strain[(longPainStart-longPainStartMinus if longPainStart-longPainStartMinus >= 0 else 0):(longPainStart+longPainStartPlus if longPainStart+longPainStartPlus < len(strain) else longPainStart)])*100)/100 if len(strain[(longPainStart-longPainStartMinus if longPainStart-longPainStartMinus >= 0 else 0):(longPainStart+longPainStartPlus if longPainStart+longPainStartPlus < len(strain) else longPainStart)]) else -1) + str("}$\n"))
         
-        plt.savefig(os.path.join(regionName, regionName + '_' + str(longPainStart - maxStrainIndex) + '_' + str(int(max(strain[(longPainStart-longPainStartMinus if longPainStart-longPainStartMinus >= 0 else 0):(longPainStart+longPainStartPlus if longPainStart+longPainStartPlus < len(strain) else longPainStart)])*100)/100 if len(strain[(longPainStart-longPainStartMinus if longPainStart-longPainStartMinus >= 0 else 0):(longPainStart+longPainStartPlus if longPainStart+longPainStartPlus < len(strain) else longPainStart)]) else -1) + '_' + str(ind) + '.png'))
+        if createFigs:
+          plt.savefig(os.path.join(regionName, regionName + '_' + str(longPainStart - maxStrainIndex) + '_' + str(int(max(strain[(longPainStart-longPainStartMinus if longPainStart-longPainStartMinus >= 0 else 0):(longPainStart+longPainStartPlus if longPainStart+longPainStartPlus < len(strain) else longPainStart)])*100)/100 if len(strain[(longPainStart-longPainStartMinus if longPainStart-longPainStartMinus >= 0 else 0):(longPainStart+longPainStartPlus if longPainStart+longPainStartPlus < len(strain) else longPainStart)]) else -1) + '_' + str(ind) + '.svg'))
+        plt.rcParams.update({'font.size': 12})
 
 
 for i in range(0, len(maxStrainPeakToHighPainStartTrigger)):
