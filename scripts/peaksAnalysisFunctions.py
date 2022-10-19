@@ -451,6 +451,8 @@ def plottingOptions(axes, axesNum, text, legendsText, locLegend, sizeLegend, cre
     axis = axes
   else:
     axis = axes[axesNum]
+  axis.set_ylim([0, 1])
+  axis.yaxis.set_major_locator(MaxNLocator(1))
   if not(createFigs):
     if legendsText:
       axis.legend(legendsText, loc=locLegend, bbox_to_anchor=(1, 0.5)) #, prop={'size': sizeLegend})
