@@ -12,7 +12,7 @@ from dataFrameUtilities import check_if_zero_then_adjust_var_and_place_in_data, 
 from sklearn.preprocessing import MinMaxScaler
 import math
 
-import peaksAnalysisFunctions
+import peaksAnalysis_launch
 
 # Getting data
 input = open("../data/preprocessed/preprocessedDataParticipant2.txt", "rb")
@@ -86,5 +86,5 @@ parameters = {'rollingMeanWindow': 21, 'rollingMinMaxScalerWindow': 60, 'rolling
 
 plotGraphs = True
 
-peaksAnalysisFunctions.calculateForAllRegionsParticipant2(data, parameters, plotGraphs)
+peaksAnalysis_launch.calculateForAllRegionsParticipant2(data, parameters, plotGraphs)
 

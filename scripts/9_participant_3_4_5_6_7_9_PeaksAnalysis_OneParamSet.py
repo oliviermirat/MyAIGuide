@@ -11,7 +11,7 @@ from scipy import stats
 from dataFrameUtilities import check_if_zero_then_adjust_var_and_place_in_data, insert_data_to_tracker_mean_steps, subset_period, transformPain, predict_values
 from sklearn.preprocessing import MinMaxScaler
 
-import peaksAnalysisFunctions
+import peaksAnalysis_launch
 
 
 participant_ids = [3, 4, 5, 6, 7, 9]
@@ -39,5 +39,5 @@ for participant_id in participant_ids:
   
   plotGraphs = True
   
-  peaksAnalysisFunctions.calculateForAllRegionsParticipant3_4_5_6_7_9(data, parameters, plotGraphs, columnnamesId[participant_id][0], columnnamesId[participant_id][1])
+  peaksAnalysis_launch.calculateForAllRegionsParticipant3_4_5_6_7_9(data, parameters, plotGraphs, columnnamesId[participant_id][0], columnnamesId[participant_id][1])
 

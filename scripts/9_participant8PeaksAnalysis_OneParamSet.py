@@ -12,7 +12,7 @@ from scipy import stats
 from dataFrameUtilities import check_if_zero_then_adjust_var_and_place_in_data, insert_data_to_tracker_mean_steps, subset_period, transformPain, predict_values
 from sklearn.preprocessing import MinMaxScaler
 
-import peaksAnalysisFunctions
+import peaksAnalysis_launch
 
 # Missing data filling technique: choose of the methods bellow
 rollingMean = False
@@ -65,5 +65,5 @@ if lowestPain:
 
 plotGraphs = True
 
-peaksAnalysisFunctions.calculateForAllRegionsParticipant8(data, parameters, plotGraphs)
+peaksAnalysis_launch.calculateForAllRegionsParticipant8(data, parameters, plotGraphs)
 

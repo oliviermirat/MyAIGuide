@@ -1,6 +1,6 @@
 import pickle
 
-import peaksAnalysisFunctions
+import peaksAnalysis_launch
 
 # Reloading data
 input = open("../data/preprocessed/preprocessedMostImportantDataParticipant1.txt", "rb")
@@ -15,7 +15,7 @@ parameters = {'rollingMeanWindow': 15, 'rollingMinMaxScalerWindow': 270, 'rollin
 plotGraphs = True
 saveData   = True
 
-[score, totDaysTakenIntoAccount, regScore, nbAscendingDays, nbDescendingDays, nbPainPeaks] = peaksAnalysisFunctions.calculateForAllRegions(data, parameters, plotGraphs, saveData)
+[score, totDaysTakenIntoAccount, regScore, nbAscendingDays, nbDescendingDays, nbPainPeaks] = peaksAnalysis_launch.calculateForAllRegions(data, parameters, plotGraphs, saveData)
 print("parameters:", parameters)
 print("totDaysTakenIntoAccount:", totDaysTakenIntoAccount)
 print("regScore:", regScore)

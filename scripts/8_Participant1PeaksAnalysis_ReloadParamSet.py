@@ -10,7 +10,7 @@ import pandas as pd
 import seaborn as sns
 import numpy as np
 
-import peaksAnalysisFunctions
+import peakAnalysis_plot
 
 plotMaxInOtherRegion = False
 mult = False
@@ -47,12 +47,12 @@ if 'Arm' in data:
   fig, axes = plt.subplots(nrows=3, ncols=1)
   for ind, [region, data2] in enumerate([['Knee', data2Knee], ['Arm', data2Arm], ['Head', data2Head]]):
     data2.plot(ax=axes[ind])
-    peaksAnalysisFunctions.plottingOptions(axes, ind, region, ['painAscending', 'painDescending', 'PeakStress'], 'center left', 8)
+    peakAnalysis_plot.plottingOptions(axes, ind, region, ['painAscending', 'painDescending', 'PeakStress'], 'center left', 8)
 else:
   fig, axes = plt.subplots(nrows=2, ncols=1)
   for ind, [region, data2] in enumerate([['Knee', data2Knee], ['Head', data2Head]]):
     data2.plot(ax=axes[ind])
-    peaksAnalysisFunctions.plottingOptions(axes, ind, region, ['painAscending', 'painDescending', 'PeakStress'], 'center left', 8)
+    peakAnalysis_plot.plottingOptions(axes, ind, region, ['painAscending', 'painDescending', 'PeakStress'], 'center left', 8)
 plt.show()
 
 plt.hist(maxStressScores)

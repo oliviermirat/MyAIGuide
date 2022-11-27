@@ -1,6 +1,6 @@
 import pickle
 
-import peaksAnalysisFunctions
+import peaksAnalysis_launch
 
 # Reloading data
 input = open("../data/preprocessed/preprocessedMostImportantDataParticipant1.txt", "rb")
@@ -25,7 +25,7 @@ for rollingMeanWindow in [15, 30, 45, 90]:
             'allBodyRegionsArmIncluded':     False
           }
           try:
-            [score, totDaysTakenIntoAccount, regScore, nbAscendingDays, nbDescendingDays, nbPainPeaks] = peaksAnalysisFunctions.calculateForAllRegions(data, parameters, plotGraphs, saveData)
+            [score, totDaysTakenIntoAccount, regScore, nbAscendingDays, nbDescendingDays, nbPainPeaks] = peaksAnalysis_launch.calculateForAllRegions(data, parameters, plotGraphs, saveData)
             print("parameters:", parameters)
             print("score:", score, "; totDaysTakenIntoAccount:", totDaysTakenIntoAccount, "; regScore:", regScore)
             print("")

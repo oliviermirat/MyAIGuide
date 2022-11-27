@@ -12,7 +12,7 @@ from scipy import stats
 from dataFrameUtilities import check_if_zero_then_adjust_var_and_place_in_data, insert_data_to_tracker_mean_steps, subset_period, transformPain, predict_values
 from sklearn.preprocessing import MinMaxScaler
 
-import peaksAnalysisFunctions
+import peaksAnalysis_launch
 
 # Getting data
 input = open("../data/preprocessed/preprocessedDataParticipant2.txt", "rb")
@@ -87,7 +87,7 @@ for rollingMeanWindow in [3, 7, 15, 21]:
             'allBodyRegionsArmIncluded':     False
           }
           try:
-            [statisticScores, totDaysTakenIntoAccount, painMinMaxAmpWtVsWithoutStrainStat] = peaksAnalysisFunctions.calculateForAllRegionsParticipant8(data, parameters, plotGraphs, saveData)
+            [statisticScores, totDaysTakenIntoAccount, painMinMaxAmpWtVsWithoutStrainStat] = peaksAnalysis_launch.calculateForAllRegionsParticipant8(data, parameters, plotGraphs, saveData)
             print("painMinMaxAmpWtVsWithoutStrainStat:", painMinMaxAmpWtVsWithoutStrainStat)
             print("parameters:", parameters)
             print("statisticScores:", statisticScores, "; totDaysTakenIntoAccount:", totDaysTakenIntoAccount)
