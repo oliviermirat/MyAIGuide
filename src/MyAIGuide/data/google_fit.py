@@ -9,7 +9,10 @@ from typing import Union, List
 import pandas as pd
 import json
 import tcxparser
-from geo import get_cum_elevation_gain
+try:
+  from geo import get_cum_elevation_gain
+except ModuleNotFoundError:
+  from src.MyAIGuide.data.geo import get_cum_elevation_gain
 from datetime import date
 
 

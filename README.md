@@ -9,3 +9,9 @@ We use <a href='https://medium.com/@oliviermirat/crowdsourcing-health-research-a
 If you are interested in helping us further analyze the data, improve the web application, or for any other information, please feel free to email us at: <br/>
 
 olivier.mirat.om@gmail.com <br/>
+
+## Developper information
+
+Run unit tests from the root folder with: python setup.py test
+
+First analysis scripts are <a href='./scripts' target='_blank'>here</a>.

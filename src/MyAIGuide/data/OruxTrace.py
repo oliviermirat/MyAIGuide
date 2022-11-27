@@ -12,7 +12,10 @@ import requests
 from typing import List, Tuple
 import sys
 
-from geo import get_cum_elevation_gain
+try:
+  from geo import get_cum_elevation_gain
+except ModuleNotFoundError:
+  from src.MyAIGuide.data.geo import get_cum_elevation_gain
 
 
 def get_date(fname):      
