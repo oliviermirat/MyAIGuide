@@ -24,14 +24,17 @@ from extract_TapLog import extract_taplog
 #
 # *** EDIT HERE THE NAMES AND PATHS OF THE FILES ***
 
-path_timeline = '../data/Takeout/Location History/Semantic Location History/'
-path_fitbit = '../data/logqs/Physical Activity/'
+path_timeline = 'MyAIGuide/data/external/myaiguideconfidentialdata/Participant1/GoogleTimeline/Semantic Location History/'
 
-path_sport = '../data_repo/sport.csv'
-path_taplog = '../data_repo/TapLog2020_08_09until2022_07_30.csv'
+path_fitbit = 'MyAIGuide/data/external/myaiguideconfidentialdata/Participant1/MyFitbitData/logqs/Physical Activity/'
+
+
+path_sport = 'MyAIGuide/data/raw/ParticipantData/Participant1/sport.csv'
+
+path_taplog = 'MyAIGuide/data/raw/ParticipantData/Participant1/TapLog2020_08_09until2022_07_30.csv'
 
 #name of the output file
-file_pkl_out = '../extracted_pkl/googletimeline_fitbit.pkl'
+file_pkl_out = '/MyAIGuide/data/preprocessed/googletimeline_fitbit.pkl'
 
 
 #%%
