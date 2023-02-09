@@ -14,28 +14,29 @@ import pdb
 import seaborn as sns
 import pytz
 import time
+import os
 
 from extract_GoogleTimeline import extract_googletimeline
 from extract_Fitbit import extract_fitbit
 from utils_funcs import match_counts, print_time
 from extract_TapLog import extract_taplog
+
+path_cwd = os.getcwd()
 #%%
 ####################################
 #
 # *** EDIT HERE THE NAMES AND PATHS OF THE FILES ***
+path_timeline = path_cwd + '/../../../data/external/myaiguideconfidentialdata/Participant1/GoogleTimeline/SemanticLocationHistory/'
 
-path_timeline = 'MyAIGuide/data/external/myaiguideconfidentialdata/Participant1/GoogleTimeline/Semantic Location History/'
-
-path_fitbit = 'MyAIGuide/data/external/myaiguideconfidentialdata/Participant1/MyFitbitData/logqs/Physical Activity/'
+path_fitbit = path_cwd + '/../../../data/external/myaiguideconfidentialdata/Participant1/MyFitbitData/logqs/PhysicalActivity/'
 
 
-path_sport = 'MyAIGuide/data/raw/ParticipantData/Participant1/sport.csv'
+path_sport = path_cwd + '/../../../data/raw/ParticipantData/Participant1/sport.csv'
 
-path_taplog = 'MyAIGuide/data/raw/ParticipantData/Participant1/TapLog2020_08_09until2022_07_30.csv'
+path_taplog = path_cwd + '/../../../data/raw/ParticipantData/Participant1/TapLog2020_08_09until2022_07_30.csv'
 
 #name of the output file
-file_pkl_out = '/MyAIGuide/data/preprocessed/googletimeline_fitbit.pkl'
-
+file_pkl_out = path_cwd + '/../../../data/preprocessed/googletimeline_fitbit.pkl'
 
 #%%
 #########################################################
