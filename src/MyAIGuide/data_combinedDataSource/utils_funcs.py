@@ -29,7 +29,7 @@ def compute_local_time(row):
     #set the local times using the time zone
     lat = row.latitudeE7
     lon = row.longitudeE7
-    str_tz = tf.TimezoneFinder().certain_timezone_at(lat=lat, lng=lon)
+    str_tz = tf.TimezoneFinder().timezone_at(lat=lat, lng=lon)
     startT = str(pd.Timestamp(row.startTimestamp, tz=str_tz).tz_localize(None))
     endT = str(pd.Timestamp(row.endTimestamp, tz=str_tz).tz_localize(None))
 

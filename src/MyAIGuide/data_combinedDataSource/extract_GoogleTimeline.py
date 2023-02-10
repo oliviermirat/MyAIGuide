@@ -28,7 +28,7 @@ def extract_googletimeline(path):
         for file_name in os.listdir(path + dir_name):
             if file_name.endswith('.json'):# and file_name.startswith('2022_'):
                 file_path = path + dir_name + '/' + file_name
-                with open(file_path) as data_file:    
+                with open(file_path, encoding="utf8") as data_file:
                     data = json.load(data_file)
                     df_ = pd.json_normalize(data['timelineObjects'], errors='ignore')
                     df = pd.concat([df, df_], ignore_index=True)
