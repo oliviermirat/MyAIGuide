@@ -14,28 +14,37 @@ import pdb
 import seaborn as sns
 import time
 import os
+from pathlib import Path
+
 
 from extract_GoogleTimeline import extract_googletimeline
 from extract_Fitbit import extract_fitbit
 from utils_funcs import match_counts, print_time
 from extract_TapLog import extract_taplog
 
-path_cwd = os.getcwd()
+path_cwd = Path(os.getcwd())
 #%%
 ####################################
 #
 # *** EDIT HERE THE NAMES AND PATHS OF THE FILES ***
-path_timeline = path_cwd + '/../../../data/external/myaiguideconfidentialdata/Participant1/GoogleTimeline/SemanticLocationHistory/'
+#set the (local relative) directory name (which is the root directory "MyAIGuide" in Github)
+path_myaiguide = str(path_cwd.parents[2])
 
-path_fitbit = path_cwd + '/../../../data/external/myaiguideconfidentialdata/Participant1/MyFitbitData/logqs/PhysicalActivity/'
+path_dir = 'data/external/myaiguideconfidentialdata/Participant1/GoogleTimeline/SemanticLocationHistory'
+path_timeline = os.path.join(path_myaiguide,path_dir,'')
 
+path_dir = 'data/external/myaiguideconfidentialdata/Participant1/MyFitbitData/logqs/PhysicalActivity'
+path_fitbit = os.path.join(path_myaiguide,path_dir,'')
 
-path_sport = path_cwd + '/../../../data/raw/ParticipantData/Participant1/sport.csv'
+path_file = 'data/raw/ParticipantData/Participant1/sport.csv'
+path_sport = os.path.join(path_myaiguide,path_file)
 
-path_taplog = path_cwd + '/../../../data/raw/ParticipantData/Participant1/TapLog2020_08_09until2022_07_30.csv'
+path_file = 'data/raw/ParticipantData/Participant1/TapLog2020_08_09until2022_07_30.csv'
+path_taplog = os.path.join(path_myaiguide,path_file)
 
 #name of the output file
-file_pkl_out = path_cwd + '/../../../data/preprocessed/googletimeline_fitbit.pkl'
+path_file = 'data/preprocessed/googletimeline_fitbit.pkl'
+file_pkl_out = os.path.join(path_myaiguide,path_file)
 
 #%%
 #########################################################
@@ -53,7 +62,6 @@ df['time_length'] = (df.endTimestamp - df.startTimestamp).dt.total_seconds()
 
 startTime = print_time(startTime, 'timeline')
 
-#this cell runs in ~20min
 #%%
 # this cell was useful for debugging
 #df['endTimestamp-1'] = df.endTimestamp.shift(+1)

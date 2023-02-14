@@ -29,7 +29,8 @@ def extract_fitbit(path, file_prefix):
 
     for file_name in os.listdir(path):
         if file_name.startswith(file_prefix + '-'):
-            with open(path + file_name) as data_file:    
+            file_path = os.path.join(path,file_name)
+            with open(file_path) as data_file:    
                 data = json.load(data_file)
             df_ = pd.json_normalize(data,errors='ignore')
             df = pd.concat([df,df_], axis=0, ignore_index=True)
