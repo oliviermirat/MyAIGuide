@@ -94,5 +94,7 @@ def extract_googletimeline(path):
 #%%
     #drop columns
     df_final.drop(columns=['latitudeE7', 'longitudeE7'], inplace=True)
+    #reset index
+    df_final.reset_index(drop=True, inplace=True)
 
     return df_final
