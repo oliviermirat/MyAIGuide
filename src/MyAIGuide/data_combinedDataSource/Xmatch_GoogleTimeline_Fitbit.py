@@ -12,7 +12,6 @@ import datetime as dt
 import matplotlib.pyplot as plt
 import pdb
 import seaborn as sns
-import pytz
 import time
 import os
 
@@ -41,6 +40,8 @@ file_pkl_out = path_cwd + '/../../../data/preprocessed/googletimeline_fitbit.pkl
 #%%
 #########################################################
 startTime = time.time()
+
+
 
 df = extract_googletimeline(path_timeline)
 
@@ -199,6 +200,6 @@ startTime = print_time(startTime, 'merge heart')
 
 #%%
 #drop useless columns and save
-df.drop(columns=['time_length','startTimeLocal','endTimeLocal'], inplace=True)
+df.drop(columns=['time_length','startTimeLocal','endTimeLocal','timeZone','Location'], inplace=True)
 #write it as pickle file
 df.to_pickle(file_pkl_out)
