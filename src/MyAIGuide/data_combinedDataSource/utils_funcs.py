@@ -10,7 +10,6 @@ import os
 import numpy as np
 import pandas as pd
 import datetime as dt
-import timezonefinder as tf
 import time
 ##################################
 def print_time(startTime, text):
@@ -22,14 +21,14 @@ def print_time(startTime, text):
     print(text + ' execution time:' + str(hours) + 'h ' + str(mins)+ 'm '+ str(secs) + 's')
     return time.time()
 ####################################
-def compute_local_time(row):
+def compute_local_time(row, tf_object):
     #this function is used inside an "apply" function.
     #For each row identify the time zone and set the times as timestamp.
     #the times startTimestamp and endTimestamp appear to be UTC.
     #set the local times using the time zone
     lat = row.latitudeE7
     lon = row.longitudeE7
-    str_tz = tf.TimezoneFinder().timezone_at(lat=lat, lng=lon)
+    str_tz = tf_object.timezone_at(lat=lat, lng=lon)
     startT = str(pd.Timestamp(row.startTimestamp, tz=str_tz).tz_localize(None))
     endT = str(pd.Timestamp(row.endTimestamp, tz=str_tz).tz_localize(None))
 

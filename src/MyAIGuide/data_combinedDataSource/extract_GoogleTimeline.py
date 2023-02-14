@@ -10,12 +10,11 @@ import numpy as np
 import pandas as pd
 import json
 import datetime as dt
-import pytz
+import timezonefinder as tf
 import pdb
 
 from utils_funcs import compute_local_time
 ####################################
-
 
 
 def extract_googletimeline(path):
@@ -86,10 +85,10 @@ def extract_googletimeline(path):
     df_final['longitudeE7'] = df_final['longitudeE7']/10**7
 
 
-
-
+    #timezonefinder object instance
+    tfObject = tf.TimezoneFinder()
     #set the timezone, and the local times
-    df_final[['timeZone','startTimeLocal','endTimeLocal']] = df_final.apply(lambda row: pd.Series(compute_local_time(row)), axis=1)
+    df_final[['timeZone','startTimeLocal','endTimeLocal']] = df_final.apply(lambda row: pd.Series(compute_local_time(row, tfObject)), axis=1)
 
 
 #%%
