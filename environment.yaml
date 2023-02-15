@@ -5,7 +5,7 @@ channels:
 dependencies:
   - python>=3.7
   - pip
-  - numpy=1.23.0
+  - numpy
   - scipy
   - pandas
   - dask
@@ -18,7 +18,7 @@ dependencies:
   - statsmodels
   - scikit-learn
   - xlsxwriter
-  - timezonefinder=6.0.2
+  - timezonefinder
   - pip:
      # add here only pip-packages that are not available in conda/conda-forge! E.g.:
      - optuna
