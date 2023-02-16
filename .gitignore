@@ -59,34 +59,34 @@ firstExperimentsAndCode/__pycache__/
 moreData/*
 !moreData/README.md
 
-scripts/toRemove
-scripts/variousFailedAttemps
-scripts/peaksData.txt
+february2023ResearchGatePaperScripts/toRemove
+february2023ResearchGatePaperScripts/variousFailedAttemps
+february2023ResearchGatePaperScripts/peaksData.txt
 data_export_test.xlsx
 
-scripts/participant1DifferentParameters*.pkl
-scripts/participant2DifferentParameters*.pkl
-scripts/participant8DifferentParameters*.pkl
+february2023ResearchGatePaperScripts/participant1DifferentParameters*.pkl
+february2023ResearchGatePaperScripts/participant2DifferentParameters*.pkl
+february2023ResearchGatePaperScripts/participant8DifferentParameters*.pkl
 
-scripts/zoomedGraph_Participant1_Eyes.pkl
-scripts/zoomedGraph_Participant1_Knee.pkl
-scripts/zoomedGraph_Participant2_Knee.pkl
-scripts/zoomedGraph_Participant8_Knee.pkl
+february2023ResearchGatePaperScripts/zoomedGraph_Participant1_Eyes.pkl
+february2023ResearchGatePaperScripts/zoomedGraph_Participant1_Knee.pkl
+february2023ResearchGatePaperScripts/zoomedGraph_Participant2_Knee.pkl
+february2023ResearchGatePaperScripts/zoomedGraph_Participant8_Knee.pkl
 
-scripts/kneePain*.png
-scripts/foreheadEyesPain*.png
+february2023ResearchGatePaperScripts/kneePain*.png
+february2023ResearchGatePaperScripts/foreheadEyesPain*.png
 
-scripts/*_Participant*/
+february2023ResearchGatePaperScripts/*_Participant*/
 
-scripts/foreheadEyesPain/
-scripts/kneePain/
+february2023ResearchGatePaperScripts/foreheadEyesPain/
+february2023ResearchGatePaperScripts/kneePain/
 
-scripts/descendingPeriodsMaxDerivative*
+february2023ResearchGatePaperScripts/descendingPeriodsMaxDerivative*
 
 zoomedGraph_Participant8_Knee_LowestPain.pkl
 zoomedGraph_Participant8_Knee_RollingMean.pkl
 
-scripts/folderToSaveFigsIn/
-scripts/strainBuildUpFastRiseAndTriggerGraph.svg
-scripts/zoomedGraph.pkl
-scripts/stats.xls
+february2023ResearchGatePaperScripts/folderToSaveFigsIn/
+february2023ResearchGatePaperScripts/strainBuildUpFastRiseAndTriggerGraph.svg
+february2023ResearchGatePaperScripts/zoomedGraph.pkl
+february2023ResearchGatePaperScripts/stats.xls
