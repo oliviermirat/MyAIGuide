@@ -56,48 +56,6 @@ def count_values(row, s_):
     return n_steps
 #%%
 ##########################################
-def match_counts(df, df_counts, name_col):
-    """
-    This function has been written to cross-match the df dataframe and files 
-    such as "steps", "calories", "heart beat rate". The first and the three lasts refers to
-    different time intervals. Therefore, we here keep the df time intervals and counts the number
-    of steps/calories/mean heart beat rate converting the latters as their mean per second.
-
-    Parameters
-    ----------
-    df : pandas dataframe that holds the Google timeline data
-    df_counts : the pandas dataframe that holds the counts of steps/calories/heart beat rate
-    name_col : string that identify the column name that the counts will have 
-
-    Returns
-    -------
-    The input pandas dataframe df updated with the added counts column
-
-    """
-    #iter through rows
-    for idx,row in df.iterrows():
-        #set lower boundary
-        delta_time = dt.timedelta(seconds=60)
-        time_low = row.startTimestamp - delta_time
-        #set upper boundary
-        time_up = row.endTimestamp + delta_time
-        bool_time_df_counts = (df_counts.index >= time_low) & (df_counts.index <= time_up)
-
-        #both df and df_counts must contain points. If not, do nothing.
-        if bool_time_df_counts.sum()>0:
-            #pdb.set_trace()
-            #dd is a slice of df_counts
-            dd = df_counts[bool_time_df_counts]
-            #the next two lines create the series s_ containing the number of steps
-            #per seconds between the days time_low and time_up
-            s_ = dd.value.resample('s').asfreq().astype(float)
-            s_ = s_.fillna(0).groupby(s_.notna().cumsum()).transform('mean')
-
-            #pdb.set_trace()
-            #sum up the number of steps between two consecutive timestamps of df
-            df.loc[idx, name_col] = count_values(row,s_)
-    return df
-###############################
 def set_dateTime(row):
     #function used inside an "apply" function
     #it set the start and end times of activities found 
@@ -115,3 +73,112 @@ def set_dateTime(row):
         datetime_end = None
 
     return datetime_start, datetime_end
+#####################################
+def match_counts(df, df_counts, name_col):
+    """
+    This function cross-matches the df dataframe (containing the Google timeline)
+    and files such as "steps" and "calories" (which belong to the fitbit data)
+    in order to counts the number of steps and calories for each google timeline
+    interval.
+
+    Parameters
+    ----------
+    df : pandas dataframe that holds the Google timeline data
+    df_counts : pandas dataframe that holds the counts of steps/calories/heart beat rate
+    name_col : string that identify the column name that the counts will have 
+
+    Returns
+    -------
+    The input pandas dataframe df updated with the added counts column
+
+    """
+    #iter through rows
+    for idx,row in df.iterrows():
+        #set lower boundary
+        time_start = row.startTimestamp
+        #set upper boundary
+        time_end = row.endTimestamp
+            
+        boole, interval_type = set_interval_slice(df_counts, time_start, time_end)
+
+        #pdb.set_trace()
+
+        if interval_type == 'null': # this happen when the time interval in df_counts is before the first df time interval or after the last 
+            continue # in this case, do nothing because the two intervals have no overlap
+        elif interval_type == 'included':
+            df_ = df_counts[boole].astype(float)
+            df_['value_corr'] = df_.value
+            time_frac = (time_end - time_start).total_seconds()/(df_.index[1] - df_.index[0]).total_seconds()
+            df_['value_corr'].iloc[0] = df_['value'].iloc[0]*time_frac
+            df_['value_corr'].iloc[1] = 0
+        else:
+            df_ = df_counts[boole].astype(float)
+            df_['value_corr'] = df_.value
+            time_start_frac = 1 - (time_start - df_.index[0]).total_seconds()/(df_.index[1] - df_.index[0]).total_seconds()
+            time_end_frac = (time_end - df_.index[-2]).total_seconds()/(df_.index[-1] - df_.index[-2]).total_seconds()
+            
+            if interval_type == 'start_out':
+                df_['value_corr'].iloc[-2] = df_['value'].iloc[-2]*time_end_frac
+                df_['value_corr'].iloc[-1] = 0
+            elif interval_type == 'end_out':
+                df_['value_corr'].iloc[0] = df_['value'].iloc[0]*time_start_frac
+                df_['value_corr'].iloc[-1] = 0
+            elif interval_type == 'ordinary':
+                df_['value_corr'].iloc[0] = df_['value'].iloc[0]*time_start_frac
+                df_['value_corr'].iloc[-2] = df_['value'].iloc[-2]*time_end_frac
+                df_['value_corr'].iloc[-1] = 0
+            
+
+            #sum up the number of steps between two consecutive timestamps of df
+        df.loc[idx, name_col] = df_['value_corr'].sum()
+            
+    return df
+###################
+def set_interval_slice(df_counts, time_start, time_end):
+    """
+    This function return a boolean used to slice a time interval in df_counts with
+    time_start and time_end as boundaries. It return also a string with the type of interval.
+
+    Parameters
+    ----------
+    df_counts : pandas dataframe that holds the counts of steps/calories/heart beat rate
+    time_start : upper time limit
+    time_end : lower time limit
+
+    Returns
+    -------
+    boole : boolean array with len(boole) = len(df_counts)
+    interval_type: string
+    """
+    
+    boole_low = df_counts.index < time_start
+    boole_sup = df_counts.index > time_end
+    
+    #pdb.set_trace()
+    #in case time_start and time_end are not covered by df_counts, set boole False everywhere
+    if df_counts.index[-1] <= time_start or df_counts.index[0] >= time_end:
+        idx_inf = len(df_counts) - 1
+        idx_sup = 0
+        interval_type = 'null'
+    #otherwise...
+    elif df_counts.index[0] > time_start and df_counts.index[0] < time_end: #if time_start is before the first steps info 
+        idx_inf = 0 # set the first steps index
+        idx_sup = np.where(boole_sup)[0][0] # pick the first true value
+        interval_type = 'start_out'
+    elif df_counts.index[-1] > time_start and df_counts.index[-1] < time_end: #if time_end is after the last steps info
+        idx_inf = np.where(boole_low)[0][-1] # pick the last true value
+        idx_sup = len(df_counts) -1 # set the last index
+        interval_type = 'end_out'
+    else:
+        idx_inf = np.where(boole_low)[0][-1] # pick the last true value
+        idx_sup = np.where(boole_sup)[0][0] # pick the first true value
+
+        if idx_sup == idx_inf + 1:
+            interval_type = 'included'
+        else:
+            interval_type = 'ordinary'
+
+    #here we take the df_counts timestamp between time_start and time end
+    boole = (df_counts.index >= df_counts.index[idx_inf]) & (df_counts.index <= df_counts.index[idx_sup])
+    
+    return boole, interval_type
