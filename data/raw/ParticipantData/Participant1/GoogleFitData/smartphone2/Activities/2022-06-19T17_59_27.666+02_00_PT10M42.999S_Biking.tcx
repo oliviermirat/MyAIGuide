@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+    xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+    xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2"
+    xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+    xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1"
+    xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
+    <Activities>
+        <Activity Sport="Biking">
+            <Id>2022-06-19T15:59:27.666Z</Id>
+            <Lap StartTime="2022-06-19T15:59:27.666Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2022-06-19T15:59:27.666Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2022-06-19T16:02:02.283Z</Time>
+                        <Position>
+                            <LatitudeDegrees>45.59572219848633</LatitudeDegrees>
+                            <LongitudeDegrees>5.22689151763916</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>323.1000061035156</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>181.85585021972656</DistanceMeters>
+                        <Time>2022-06-19T16:04:03.448Z</Time>
+                        <Position>
+                            <LatitudeDegrees>45.59564971923828</LatitudeDegrees>
+                            <LongitudeDegrees>5.224555015563965</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>336.1000061035156</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>461.5570526123047</DistanceMeters>
+                        <Time>2022-06-19T16:06:06.070Z</Time>
+                        <Position>
+                            <LatitudeDegrees>45.59592056274414</LatitudeDegrees>
+                            <LongitudeDegrees>5.228131294250488</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>314.5</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>538.6002426147461</DistanceMeters>
+                        <Time>2022-06-19T16:08:07.215Z</Time>
+                        <Position>
+                            <LatitudeDegrees>45.596553802490234</LatitudeDegrees>
+                            <LongitudeDegrees>5.228534698486328</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>237.5</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>538.6002426147461</DistanceMeters>
+                        <Time>2022-06-19T16:10:10.665Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>538.6002426147461</DistanceMeters>
+                <TotalTimeSeconds>642.999</TotalTimeSeconds>
+                <Calories>52.154361724853516</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+    </Activities>
+    <Author xsi:type="Application_t">
+        <Name>Google Fit</Name>
+        <Build>
+            <Version>
+                <VersionMajor>0</VersionMajor>
+                <VersionMinor>0</VersionMinor>
+                <BuildMajor>0</BuildMajor>
+                <BuildMinor>0</BuildMinor>
+            </Version>
+        </Build>
+        <LangID>en</LangID>
+        <PartNumber>000-00000-00</PartNumber>
+    </Author>
+</TrainingCenterDatabase>

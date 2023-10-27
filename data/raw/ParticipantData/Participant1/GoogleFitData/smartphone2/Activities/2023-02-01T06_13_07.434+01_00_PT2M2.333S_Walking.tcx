@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+    xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+    xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2"
+    xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+    xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1"
+    xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
+    <Activities>
+        <Activity Sport="Walking">
+            <Id>2023-02-01T05:13:07.434Z</Id>
+            <Lap StartTime="2023-02-01T05:13:07.434Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2023-02-01T05:13:07.434Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>34.74809352660925</DistanceMeters>
+                        <Time>2023-02-01T05:13:43.721Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>36.003385524175954</DistanceMeters>
+                        <Time>2023-02-01T05:13:48.592Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>82.44918943414385</DistanceMeters>
+                        <Time>2023-02-01T05:16:07.421Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>82.44918943414385</DistanceMeters>
+                <TotalTimeSeconds>179.98765</TotalTimeSeconds>
+                <Calories>6.376501333333333</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+        <Activity Sport="Walking">
+            <Id>2023-02-01T05:28:17.598Z</Id>
+            <Lap StartTime="2023-02-01T05:28:17.598Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2023-02-01T05:28:17.598Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>15.0635039708004</DistanceMeters>
+                        <Time>2023-02-01T05:29:07.211Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>15.0635039708004</DistanceMeters>
+                        <Time>2023-02-01T05:29:10.970Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>18.86644341694547</DistanceMeters>
+                        <Time>2023-02-01T05:29:15.153Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>49.62109735732962</DistanceMeters>
+                        <Time>2023-02-01T05:30:09.932Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>49.62109735732962</DistanceMeters>
+                <TotalTimeSeconds>112.334</TotalTimeSeconds>
+                <Calories>3.0499359444444445</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+    </Activities>
+    <Author xsi:type="Application_t">
+        <Name>Google Fit</Name>
+        <Build>
+            <Version>
+                <VersionMajor>0</VersionMajor>
+                <VersionMinor>0</VersionMinor>
+                <BuildMajor>0</BuildMajor>
+                <BuildMinor>0</BuildMinor>
+            </Version>
+        </Build>
+        <LangID>en</LangID>
+        <PartNumber>000-00000-00</PartNumber>
+    </Author>
+</TrainingCenterDatabase>

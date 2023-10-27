@@ -90,3 +90,10 @@ february2023ResearchGatePaperScripts/folderToSaveFigsIn/
 february2023ResearchGatePaperScripts/strainBuildUpFastRiseAndTriggerGraph.svg
 february2023ResearchGatePaperScripts/zoomedGraph.pkl
 february2023ResearchGatePaperScripts/stats.xls
+
+newScripts/*.png
+newScripts/*.xls
+newScripts/peaksData.txt
+
+newScripts/7_andOthersTries
+newScripts/folderToSaveFigsIn

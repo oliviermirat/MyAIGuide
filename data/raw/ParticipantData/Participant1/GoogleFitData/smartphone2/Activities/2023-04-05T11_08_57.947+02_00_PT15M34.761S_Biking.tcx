@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+    xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+    xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2"
+    xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+    xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1"
+    xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
+    <Activities>
+        <Activity Sport="Biking">
+            <Id>2023-04-05T09:08:57.947Z</Id>
+            <Lap StartTime="2023-04-05T09:08:57.947Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2023-04-05T09:08:57.947Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2023-04-05T09:17:11.295Z</Time>
+                        <Position>
+                            <LatitudeDegrees>22.87519073486328</LatitudeDegrees>
+                            <LongitudeDegrees>121.22933959960938</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>75.4000015258789</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>20.536017359068605</DistanceMeters>
+                        <Time>2023-04-05T09:17:13.257Z</Time>
+                        <Position>
+                            <LatitudeDegrees>22.87535858154297</LatitudeDegrees>
+                            <LongitudeDegrees>121.22925567626953</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>77.0</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>375.9039947437532</DistanceMeters>
+                        <Time>2023-04-05T09:19:35.523Z</Time>
+                        <Position>
+                            <LatitudeDegrees>22.872821807861328</LatitudeDegrees>
+                            <LongitudeDegrees>121.22714233398438</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>76.80000305175781</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>388.3900610271402</DistanceMeters>
+                        <Time>2023-04-05T09:22:57.191Z</Time>
+                        <Position>
+                            <LatitudeDegrees>22.872724533081055</LatitudeDegrees>
+                            <LongitudeDegrees>121.22720336914062</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>79.30000305175781</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>388.3900610271402</DistanceMeters>
+                        <Time>2023-04-05T09:24:32.708Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>388.3900610271402</DistanceMeters>
+                <TotalTimeSeconds>934.761</TotalTimeSeconds>
+                <Calories>75.81950333333333</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+    </Activities>
+    <Author xsi:type="Application_t">
+        <Name>Google Fit</Name>
+        <Build>
+            <Version>
+                <VersionMajor>0</VersionMajor>
+                <VersionMinor>0</VersionMinor>
+                <BuildMajor>0</BuildMajor>
+                <BuildMinor>0</BuildMinor>
+            </Version>
+        </Build>
+        <LangID>en</LangID>
+        <PartNumber>000-00000-00</PartNumber>
+    </Author>
+</TrainingCenterDatabase>

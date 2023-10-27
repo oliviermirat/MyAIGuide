@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+    xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+    xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2"
+    xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+    xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1"
+    xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
+    <Activities>
+        <Activity Sport="Walking">
+            <Id>2022-10-20T04:07:58.021Z</Id>
+            <Lap StartTime="2022-10-20T04:07:58.021Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2022-10-20T04:07:58.021Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>23.8505479537673</DistanceMeters>
+                        <Time>2022-10-20T04:08:53.264Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>23.8505479537673</DistanceMeters>
+                        <Time>2022-10-20T04:09:14.022Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>46.424835090916616</DistanceMeters>
+                        <Time>2022-10-20T04:09:31.480Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>82.41838845862821</DistanceMeters>
+                        <Time>2022-10-20T04:09:56.057Z</Time>
+                        <Position>
+                            <LatitudeDegrees>25.007923126220703</LatitudeDegrees>
+                            <LongitudeDegrees>121.46092224121094</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>29.100000381469727</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>207.25813076100405</DistanceMeters>
+                        <Time>2022-10-20T04:11:57.144Z</Time>
+                        <Position>
+                            <LatitudeDegrees>25.00850486755371</LatitudeDegrees>
+                            <LongitudeDegrees>121.4598617553711</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>29.299999237060547</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>305.05463130867895</DistanceMeters>
+                        <Time>2022-10-20T04:12:49.433Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>305.05463130867895</DistanceMeters>
+                <TotalTimeSeconds>291.411002048</TotalTimeSeconds>
+                <Calories>18.1981335</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+        <Activity Sport="Walking">
+            <Id>2022-10-20T04:14:00.315Z</Id>
+            <Lap StartTime="2022-10-20T04:14:00.315Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2022-10-20T04:14:00.315Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>597.4154391239543</DistanceMeters>
+                        <Time>2022-10-20T04:19:19.736Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>597.4154391239543</DistanceMeters>
+                <TotalTimeSeconds>319.421</TotalTimeSeconds>
+                <Calories>24.61316261111111</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+        <Activity Sport="Walking">
+            <Id>2022-10-20T04:24:30.735Z</Id>
+            <Lap StartTime="2022-10-20T04:24:30.735Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2022-10-20T04:24:30.735Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>81.48266700561568</DistanceMeters>
+                        <Time>2022-10-20T04:26:21.057Z</Time>
+                        <Position>
+                            <LatitudeDegrees>25.01458740234375</LatitudeDegrees>
+                            <LongitudeDegrees>121.46414947509766</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>30.100000381469727</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>90.78648785608704</DistanceMeters>
+                        <Time>2022-10-20T04:26:54.498Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>107.10528382445413</DistanceMeters>
+                        <Time>2022-10-20T04:27:54.498Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>107.10528382445413</DistanceMeters>
+                <TotalTimeSeconds>203.763</TotalTimeSeconds>
+                <Calories>12.809869666666666</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+    </Activities>
+    <Author xsi:type="Application_t">
+        <Name>Google Fit</Name>
+        <Build>
+            <Version>
+                <VersionMajor>0</VersionMajor>
+                <VersionMinor>0</VersionMinor>
+                <BuildMajor>0</BuildMajor>
+                <BuildMinor>0</BuildMinor>
+            </Version>
+        </Build>
+        <LangID>en</LangID>
+        <PartNumber>000-00000-00</PartNumber>
+    </Author>
+</TrainingCenterDatabase>
