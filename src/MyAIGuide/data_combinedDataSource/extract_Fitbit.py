@@ -30,13 +30,14 @@ def extract_fitbit(path, file_prefix):
     for file_name in os.listdir(path):
         if file_name.startswith(file_prefix + '-'):
             file_path = os.path.join(path,file_name)
-            with open(file_path) as data_file:    
+            with open(file_path, 'r', encoding='utf-8') as data_file:    
                 data = json.load(data_file)
             df_ = pd.json_normalize(data,errors='ignore')
             df = pd.concat([df,df_], axis=0, ignore_index=True)
 
     # Since the Google timeline is reported as UCT, we
     #assume here that the fitbit time is alike
-    df['dateTime'] = pd.to_datetime(df['dateTime'], utc=True)
+    
+    # df['dateTime'] = pd.to_datetime(df['dateTime'], utc=True)
 
     return df

@@ -34,6 +34,9 @@ def extract_taplog(path_sport, path_taplog):
 ######################
     #data manipulation of sport.csv
     df_sport = pd.read_csv(path_sport, header=0,index_col=False)
+    df_sport = df_sport[df_sport['start time'] != 'Garmin']
+    df_sport = df_sport[df_sport['start time'] != 'Garmin/Fitbit']
+    df_sport = df_sport[df_sport['start time'] != 'Fitbit']
 
 #%%
     #fill missing 'taplog' in row
@@ -80,7 +83,15 @@ def extract_taplog(path_sport, path_taplog):
 # read Taplog file
 ###############################
     #data manipulation of taplog
-    df_taplog = pd.read_csv(path_taplog , header=0,index_col=False)
+    if type(path_taplog) == list:
+      for pathIdx, path_taplog_ in enumerate(path_taplog):
+        if pathIdx == 0:
+          df_taplog = pd.read_csv(path_taplog_, header=0, index_col=False)
+        else:
+          df_taplog_ = pd.read_csv(path_taplog_, header=0, index_col=False)
+          df_taplog = pd.concat([df_taplog, df_taplog_], ignore_index=True)
+    else:
+      df_taplog = pd.read_csv(path_taplog , header=0,index_col=False)
     #select only these two columns
     cols2keep = ['timestamp','cat2']
     df_taplog = df_taplog[cols2keep].copy()

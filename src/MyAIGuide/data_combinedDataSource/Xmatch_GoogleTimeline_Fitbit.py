@@ -39,7 +39,7 @@ path_fitbit = os.path.join(path_myaiguide,path_dir,'')
 path_file = 'data/raw/ParticipantData/Participant1/sport.csv'
 path_sport = os.path.join(path_myaiguide,path_file)
 
-path_file = 'data/raw/ParticipantData/Participant1/TapLog2020_08_09until2022_07_30.csv'
+path_file = 'data/raw/ParticipantData/Participant1/TapLog2020_08_09until2022_07_30_andUntil14072023.csv'
 path_taplog = os.path.join(path_myaiguide,path_file)
 
 #name of the output file
