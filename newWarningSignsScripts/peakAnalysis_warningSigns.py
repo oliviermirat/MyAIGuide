@@ -13,8 +13,9 @@ createFigs = False
 def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRollingMedianNoDropVars, strain_and_pain, strain_and_pain_rollingMean, strain_and_pain_RollingMean_MinMaxScaler, rollingMedianWindow, window2):
   
   # Past pain time ranges comparisons
-  timeRange = 90
+  timeRange = window2
   halfTimeRange = int(timeRange / 2)
+  print("Time window of pain vs recent pain calculation:", halfTimeRange, "days")
   # Warning Thresholds
   strainValueSmallThresh = 0.4
   strainValueBigThresh   = 0.6
@@ -140,8 +141,11 @@ def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRolli
   dataRolling_Mean_Median.loc[dataRolling_Mean_Median["strainValueTooHigh"] == 0, "strainValueTooHigh"] = float('NaN')
   dataRolling_Mean_Median.loc[dataRolling_Mean_Median["strainDiffTooHigh"]  == 0, "strainDiffTooHigh"]  = float('NaN')
   dataRolling_Mean_Median.loc[dataRolling_Mean_Median["strainFinalTooHigh"] == 0, "strainFinalTooHigh"] = float('NaN')
-  dataRolling_Mean_Median[["strainValueTooHigh", "strainDiffTooHigh", "strainFinalTooHigh"]].plot(ax=axes[3], color=['g', 'b', 'r'])
-  axes[3].plot(warningDatesSmall, warningValuesSmallPlot2, marker='x', linestyle='', color='orange', markeredgewidth=2)
+  if calculateWarningSignOnlyWithDifferential:
+    dataRolling_Mean_Median[["strainDiffTooHigh", "strainFinalTooHigh"]].plot(ax=axes[3], color=['b', 'r'])
+  else:
+    dataRolling_Mean_Median[["strainValueTooHigh", "strainDiffTooHigh", "strainFinalTooHigh"]].plot(ax=axes[3], color=['g', 'b', 'r'])
+    axes[3].plot(warningDatesSmall, warningValuesSmallPlot2, marker='x', linestyle='', color='orange', markeredgewidth=2)
   axes[3].plot(warningDatesBig, warningValuesBigPlot2, marker='x', linestyle='', color='red', markeredgewidth=2)
   # Fifth plot
   dataWithRollingMedianNoDropVars[[strain_and_pain_RollingMean_MinMaxScaler[1]]].plot(ax=axes[4], color=['b'])
@@ -156,7 +160,10 @@ def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRolli
   peakAnalysis_plot.plottingOptions(axes, 0, 'Rolling Mean of Strain (linear combination of stressors) and Pain', ['Strain', 'Pain'], 'center left', 8, createFigs)
   peakAnalysis_plot.plottingOptions(axes, 1, 'Rolling Mean + MinMaxScaler of: Strain and Pain', ['Strain', 'Pain'], 'center left', 8, createFigs)
   peakAnalysis_plot.plottingOptions(axes, 2, "Strain (Rolling: Mean + MinMaxScaler + Median) and its differential", ['Strain Value', 'Strain Differential'], 'center left', 8, 0, True)
-  peakAnalysis_plot.plottingOptions(axes, 3, "Warnings based on previously filtered strain", ['Strain Value Warn', 'Strain Diff Warn', 'Warning Line', 'Low Warning', 'High Warning'], 'center left', 8, 0, True)
+  if calculateWarningSignOnlyWithDifferential:
+    peakAnalysis_plot.plottingOptions(axes, 3, "Warnings based on previously filtered strain", ['Strain Diff Warn', 'Warning Line', 'Warning Point'], 'center left', 8, 0, True)  
+  else:
+    peakAnalysis_plot.plottingOptions(axes, 3, "Warnings based on previously filtered strain", ['Strain Value Warn', 'Strain Diff Warn', 'Warning Line', 'Low Warning', 'High Warning'], 'center left', 8, 0, True)
   peakAnalysis_plot.plottingOptions(axes, 4, "Warnings superimposed on 'Pain' (with rolling: Mean + MinMaxScaler + Median)", ['Pain', 'Low Warning', 'High Warning'], 'center left', 8, 0, True)
   peakAnalysis_plot.plottingOptions(axes, 5, "Warnings superimposed on 'Pain on current day - Mean pain during the last 45 days' (from pain variable above)", ['Pain', 'Low Warning', 'High Warning'], 'center left', 8, 0, True, False)
   axes[5].get_xaxis().set_visible(True)
@@ -168,6 +175,7 @@ def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRolli
   ### Getting the dataframes: 'distFromWarningList', 'painNowVsRecentPastList' and 'warningSuiteList' within the relevant time periods
   distFromWarningList = dataRolling_Mean_Median.loc[dataRolling_Mean_Median.index[window2]:dataRolling_Mean_Median.index[len(dataWithRollingMedianNoDropVars) - 1], "distanceFromWarning"]
   painNowVsRecentPastList     = dataRolling_Mean_Median.loc[dataRolling_Mean_Median.index[window2]:dataRolling_Mean_Median.index[len(dataWithRollingMedianNoDropVars) - 1], "painNowVsRecentPast"]
+  strainList = dataRolling_Mean_Median.loc[dataRolling_Mean_Median.index[window2]:dataRolling_Mean_Median.index[len(dataWithRollingMedianNoDropVars) - 1], "regionSpecificstrain_RollingMean"]
   warningSuiteList    = dataRolling_Mean_Median.loc[dataRolling_Mean_Median.index[window2]:dataRolling_Mean_Median.index[len(dataWithRollingMedianNoDropVars) - 1], "curWarningSuiteNumber"]
   print("Number of sequences in between the subsequent warnings:", nb)
   
@@ -184,6 +192,7 @@ def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRolli
     indToKeep = (distFromWarningListNew != -10)
     distFromWarningList     = distFromWarningList[indToKeep]
     painNowVsRecentPastList = painNowVsRecentPastList[indToKeep]
+    strainList              = strainList[indToKeep]
     warningSuiteList        = warningSuiteList[indToKeep]
   
   ### Second Figure: Plot each sequences of painNowVsRecentPast in between the subsequent warnings
@@ -206,7 +215,42 @@ def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRolli
   plt.ylabel("Pain on current day - Mean pain during the last 45 days")
   plt.show()
   
-  ### Third Figure: Histograms plots of painNowVsRecentPastList as a function of distFromWarningList
+  ## Third Figure: Plot each sequences of strain in between the subsequent warnings
+  nb_x_bins = 10
+  nb_y_bins = 10
+  for i in range(1, curWarningSuiteNumber+1):
+    warningSuiteI = (warningSuiteList == i)
+    strainListI   = strainList[warningSuiteI]
+    distFromWarningListI = distFromWarningList[warningSuiteI]
+    plt.plot(distFromWarningListI, strainListI)
+  x_bins = np.linspace(0, max(abs(distFromWarningList)), nb_x_bins + 1)
+  y_bins = np.linspace(-max(abs(distFromWarningList)),   max(abs(distFromWarningList)), nb_y_bins + 1)
+  histdata, xedges, yedges = np.histogram2d(distFromWarningList, strainList, bins=(x_bins, y_bins))
+  histdata = histdata.T
+  x_intervals_median = []
+  x_intervals_25   = []
+  x_intervals_75   = []
+  x_intervals_std = []
+  for i in range(len(xedges) - 1):
+    x_interval = [xedges[i], xedges[i + 1]]
+    mask = (distFromWarningList >= x_interval[0]) & (distFromWarningList < x_interval[1])
+    valuesInMask = np.array(strainList)[mask]
+    valuesInMask = valuesInMask[~np.isnan(valuesInMask)]
+    per50 = np.percentile(valuesInMask, 50)
+    per75 = np.percentile(valuesInMask, 75)
+    per25 = np.percentile(valuesInMask, 25)
+    std = np.std(valuesInMask)
+    x_intervals_median.append(per50)
+    x_intervals_25.append(per25)
+    x_intervals_75.append(per75)
+    x_intervals_std.append(std)
+    x_intervals_centers = 0.5 * (xedges[:-1] + xedges[1:])
+  plt.errorbar(x_intervals_centers, x_intervals_median, fmt='o-', label='Mean with Std Dev', color='black', capsize=5, linewidth=3)
+  plt.errorbar(x_intervals_centers, x_intervals_25, fmt='o-', label='Mean with Std Dev', color='black', capsize=5, linewidth=3)
+  plt.errorbar(x_intervals_centers, x_intervals_75, fmt='o-', label='Mean with Std Dev', color='black', capsize=5, linewidth=3)
+  plt.show()
+  
+  ### Fourth Figure: Histograms plots of painNowVsRecentPastList as a function of distFromWarningList
   fig, axs = plt.subplots(1, 2, figsize=(12, 5))
   nb_x_bins = 10
   nb_y_bins = 10
@@ -260,7 +304,7 @@ def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRolli
     plt.tight_layout()
   plt.show()
 
-  ### Fourth Figure: Histograms plots of painNowVsRecentPastList as a function of distFromWarningList
+  ### Fifth Figure: Histograms plots of painNowVsRecentPastList as a function of distFromWarningList
   if plot4binsTotHistograms:
     nb_x_bins = 2
     nb_y_bins = 2
