@@ -23,7 +23,6 @@ def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRolli
   # Various options
   calculateStrainDiffWithMinMaxScaler = True
   plotLinearRegression   = False
-  plot4binsTotHistograms = False
   warningOnlyForHighStrainValue = False
   calculateWarningSignOnlyWithDifferential = True
   removeLastNbDays = 20 #20
@@ -258,11 +257,12 @@ def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRolli
   y_bins = np.linspace(-max(abs(painNowVsRecentPastList)),     max(abs(painNowVsRecentPastList)),     nb_y_bins + 1)
   histdata, xedges, yedges = np.histogram2d(distFromWarningList, painNowVsRecentPastList, bins=(x_bins, y_bins))
   histdata = histdata.T
-  axs[1].hist2d(distFromWarningList, painNowVsRecentPastList, bins=(x_bins, y_bins))
-  axs[1].set_xlabel("Number of days since last warning occured")
-  axs[1].set_ylabel("Pain on current day - Mean pain during the last 45 days")
-  axs[1].set_title("Histogram")
-  fig.colorbar(axs[1].collections[0], ax=axs[1])
+  if False:
+    axs[1].hist2d(distFromWarningList, painNowVsRecentPastList, bins=(x_bins, y_bins))
+    axs[1].set_xlabel("Number of days since last warning occured")
+    axs[1].set_ylabel("Pain on current day - Mean pain during the last 45 days")
+    axs[1].set_title("Histogram")
+    fig.colorbar(axs[1].collections[0], ax=axs[1])
   if True:
     x_intervals_median = []
     x_intervals_25   = []
@@ -293,6 +293,7 @@ def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRolli
     axs[0].errorbar(x_intervals_centers, x_intervals_75, fmt='o-', label='Mean with Std Dev', color='black', capsize=5, linewidth=3)
     axs[0].set_title('Median + 25% and 75% Percentile')
     axs[0].set_xlabel('Number of days since last warning occured')
+    axs[0].set_ylim([-max(abs(painNowVsRecentPastList)), max(abs(painNowVsRecentPastList))])
   else:
     for i in range(0, len(histdata)):
       histdata[:, i] = histdata[:, i] / np.sum(histdata[:, i])
@@ -302,39 +303,30 @@ def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRolli
     axs[1].set_title("Histogram normalized for each column")
     fig.colorbar(axs[1].imshow(histdata, extent=[xedges[0], xedges[-1], yedges[0], yedges[-1]], origin='lower', aspect='auto'), ax=axs[1])
     plt.tight_layout()
+  
+  
+  limit  = max(abs(painNowVsRecentPastList))
+  yPlus  = np.array([limit for i in range(len(xedges))])
+  yMinus = np.array([-limit for i in range(len(xedges))])
+  axs[1].fill_between(xedges, yPlus,  where=(yPlus >= 0), color='red', alpha=0.5)
+  axs[1].fill_between(xedges, yMinus, where=(yMinus < 0), color='green', alpha=0.5)
+  
+  axs[1].errorbar(x_intervals_centers, x_intervals_median, fmt='o-', label='Mean with Std Dev', color='black', capsize=5, linewidth=3)
+  axs[1].errorbar(x_intervals_centers, x_intervals_25, fmt='o-', label='Mean with Std Dev', color='black', capsize=5, linewidth=3)
+  axs[1].errorbar(x_intervals_centers, x_intervals_75, fmt='o-', label='Mean with Std Dev', color='black', capsize=5, linewidth=3)
+  axs[1].set_ylim([-max(abs(painNowVsRecentPastList)), max(abs(painNowVsRecentPastList))])
+  axs[1].set_title('75% Percentile')
+  axs[1].set_xlabel('Number of days since last warning occured')
   plt.show()
 
-  ### Fifth Figure: Histograms plots of painNowVsRecentPastList as a function of distFromWarningList
-  if plot4binsTotHistograms:
-    nb_x_bins = 2
-    nb_y_bins = 2
-    x_bins = np.linspace(0, max(abs(distFromWarningList)), nb_x_bins + 1)
-    y_bins = np.linspace(-max(abs(painNowVsRecentPastList)),     max(abs(painNowVsRecentPastList)),     nb_y_bins + 1)
-    histdata, xedges, yedges = np.histogram2d(distFromWarningList, painNowVsRecentPastList, bins=(x_bins, y_bins))
-    histdata = histdata.T
-    fig, axs = plt.subplots(1, 2, figsize=(12, 5))
-    axs[0].hist2d(distFromWarningList, painNowVsRecentPastList, bins=(x_bins, y_bins))
-    axs[0].set_xlabel("Number of days since last warning occured")
-    axs[0].set_ylabel("Pain on current day - Mean pain during the last 45 days")
-    axs[0].set_title("Histogram")
-    fig.colorbar(axs[0].collections[0], ax=axs[0])
-    for i in range(0, len(histdata)):
-      histdata[:, i] = histdata[:, i] / np.sum(histdata[:, i])
-    axs[1].imshow(histdata, extent=[xedges[0], xedges[-1], yedges[0], yedges[-1]], origin='lower', aspect='auto')
-    axs[1].set_xlabel("Number of days since last warning occured")
-    axs[1].set_ylabel("Pain on current day - Mean pain during the last 45 days")
-    axs[1].set_title("Histogram normalized for each column")
-    fig.colorbar(axs[1].imshow(histdata, extent=[xedges[0], xedges[-1], yedges[0], yedges[-1]], origin='lower', aspect='auto'), ax=axs[1])
-    plt.tight_layout()
-    plt.show()
-  
-  if False:
-    print(histdata)
-    fig, axs = plt.subplots(1, 2, figsize=(12, 5))
-    diffHist = histdata[1, :] - histdata[0, :]
-    totElem  = histdata[1, :] + histdata[0, :]
-    axs[0].plot(diffHist)
-    axs[0].plot(totElem)
-    plt.show()
-  
-  
+  ### Fifth Figure
+  fig, ax = plt.subplots()
+  ax.fill_between(xedges, yPlus,  where=(yPlus >= 0), color='red', alpha=0.5)
+  ax.fill_between(xedges, yMinus, where=(yMinus < 0), color='green', alpha=0.5)
+  ax.errorbar(x_intervals_centers, x_intervals_median, fmt='o-', label='Mean with Std Dev', color='black', capsize=5, linewidth=3)
+  ax.errorbar(x_intervals_centers, x_intervals_25, fmt='o-', label='Mean with Std Dev', color='black', capsize=5, linewidth=3)
+  ax.errorbar(x_intervals_centers, x_intervals_75, fmt='o-', label='Mean with Std Dev', color='black', capsize=5, linewidth=3)
+  ax.set_ylim([-max(abs(painNowVsRecentPastList)), max(abs(painNowVsRecentPastList))])
+  ax.set_title('75% Percentile')
+  ax.set_xlabel('Number of days since last warning occured')
+  plt.show()

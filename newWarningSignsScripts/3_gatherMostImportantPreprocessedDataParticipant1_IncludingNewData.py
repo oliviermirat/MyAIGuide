@@ -51,7 +51,7 @@ period7c = ("2020-02-02", "2023-07-13") # fitbit (for denivelation); TODO: ADD D
 
 # Creating the tracker_mean_steps variable in the dataframe
 # and puts harmonized steps value inside
-fitbitDistanceOrSteps = "fitbitDistance" #"fitbitSteps" #"fitbitDistance"
+fitbitDistanceOrSteps = "fitbitSteps" #"fitbitDistance"
 data["tracker_mean_distance"] = data[fitbitDistanceOrSteps]
 [data, reg] = check_if_zero_then_adjust_var_and_place_in_data(period3, data, "basisPeakSteps", fitbitDistanceOrSteps, "tracker_mean_distance")
 data = predict_values(period1, data, "basisPeakSteps", "tracker_mean_distance", reg)

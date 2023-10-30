@@ -120,8 +120,8 @@ data["wholeArm"]    = np.array([max(a[i], b[i]) for i, val in enumerate(a)])
 data["cycling"] = data["roadBike"] + data["mountainBike"]
 
 # Select time period
-data = data.loc[data.index >= "2016-01-01"]
-data = data.loc[data.index <= "2023-07-13"]
+data = data.loc[data.index >= "2016-01-05"]
+data = data.loc[data.index <= "2023-04-29"]
 
 # Saving the dataframe in a txt
 output = open("../data/preprocessed/preprocessedMostImportantDataParticipant1.txt", "wb")

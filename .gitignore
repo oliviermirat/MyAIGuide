@@ -97,3 +97,5 @@ newScripts/peaksData.txt
 
 newScripts/7_andOthersTries
 newScripts/folderToSaveFigsIn
+
+newWarningSignsScripts/*.txt
