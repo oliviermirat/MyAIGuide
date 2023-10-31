@@ -9,8 +9,14 @@ import datetime
 import math
 
 createFigs = False
+figWidth   = 9 #7.2
+figHeight  = 0.9
+figHeight2 = 5.5
+hspace   = 0.4
+if createFigs:
+  plt.rcParams.update({'font.size': 12})
 
-def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRollingMedianNoDropVars, strain_and_pain, strain_and_pain_rollingMean, strain_and_pain_RollingMean_MinMaxScaler, rollingMedianWindow, window2):
+def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRollingMedianNoDropVars, strain_and_pain, strain_and_pain_rollingMean, strain_and_pain_RollingMean_MinMaxScaler, rollingMedianWindow, window2, list_of_stressors):
   
   # Past pain time ranges comparisons
   timeRange = window2
@@ -126,49 +132,129 @@ def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRolli
         warningValuesSmallpainNowVsRecentPast.append(dataRolling_Mean_Median.loc[dataRolling_Mean_Median.index[i], "painNowVsRecentPast"])
         warningValuesSmallPlot3.append(dataRolling_Mean_MinMax_Median.iloc[i][strain_and_pain_RollingMean_MinMaxScaler[1]])
   
+  if createFigs:
+    fig, axes = plt.subplots(figsize=(figWidth, figHeight), dpi=300, nrows=1, ncols=1)
+    fig.subplots_adjust(left=0.04, bottom=0.25, right=0.98, top=0.95, wspace=None, hspace=hspace)
+    data[list_of_stressors].plot(ax=axes, linestyle='', marker='o', markersize=0.5)
+    axes.set_ylim([0, 1])
+    axes.get_legend().remove()
+    plt.savefig('./folderToSaveFigsIn/succussiveFilters_0.svg')
+    plt.close()
+    fig, axes = plt.subplots(figsize=(figWidth, figHeight), dpi=300, nrows=1, ncols=1)
+    fig.subplots_adjust(left=0.04, bottom=0.25, right=0.98, top=0.95, wspace=None, hspace=hspace)
+    data[strain_and_pain].plot(ax=axes, linestyle='', marker='o', markersize=0.5, color=['k','r'])
+    axes.set_ylim([0, 1])
+    axes.get_legend().remove()
+    plt.savefig('./folderToSaveFigsIn/succussiveFilters_0b.svg')
+    plt.close()    
+  
   ### First Figure:
-  fig, axes = plt.subplots(nrows=6, ncols=1)
-  fig.subplots_adjust(left=0.02, bottom=0.05, right=0.90, top=0.97, wspace=None, hspace=hspace)
+  if createFigs:
+    fig, axes = plt.subplots(figsize=(figWidth, figHeight), dpi=300, nrows=1, ncols=1)
+    fig.subplots_adjust(left=0.04, bottom=0.25, right=0.98, top=0.95, wspace=None, hspace=hspace)
+  else:
+    fig, axes = plt.subplots(nrows=6, ncols=1)
+    fig.subplots_adjust(left=0.02, bottom=0.05, right=0.90, top=0.97, wspace=None, hspace=hspace)
   # First plot
-  data[strain_and_pain_rollingMean].plot(ax=axes[0], linestyle='-', marker='o', markersize=0.5, color=['k','r'])
+  if createFigs:
+    data[strain_and_pain_rollingMean].plot(ax=axes, linestyle='-', marker='o', markersize=0.5, color=['k','r'])
+    axes.set_ylim([0, 1])
+    axes.get_legend().remove()
+    plt.savefig('./folderToSaveFigsIn/succussiveFilters_1.svg')
+    plt.close()
+    fig, axes = plt.subplots(figsize=(figWidth, figHeight), dpi=300, nrows=1, ncols=1)
+    fig.subplots_adjust(left=0.04, bottom=0.25, right=0.98, top=0.95, wspace=None, hspace=hspace)
+  else:
+    data[strain_and_pain_rollingMean].plot(ax=axes[0], linestyle='-', marker='o', markersize=0.5, color=['k','r'])
   # Second plot
-  data[strain_and_pain_RollingMean_MinMaxScaler].plot(ax=axes[1], linestyle='-', marker='o', markersize=0.5, color=['k','r'])
+  if createFigs:
+    data[strain_and_pain_RollingMean_MinMaxScaler].plot(ax=axes, linestyle='-', marker='o', markersize=0.5, color=['k','r'])
+    axes.set_ylim([0, 1])
+    axes.get_legend().remove()
+    plt.savefig('./folderToSaveFigsIn/succussiveFilters_2.svg')
+    plt.close()
+    fig, axes = plt.subplots(figsize=(figWidth, figHeight), dpi=300, nrows=1, ncols=1)
+    fig.subplots_adjust(left=0.04, bottom=0.25, right=0.98, top=0.95, wspace=None, hspace=hspace)
+  else:
+    data[strain_and_pain_RollingMean_MinMaxScaler].plot(ax=axes[1], linestyle='-', marker='o', markersize=0.5, color=['k','r'])
   # Third plot
-  dataRolling_Mean_MinMax_Median[strain_and_pain_RollingMean_MinMaxScaler[0]].plot(ax=axes[2])
-  dataRolling_Mean_Median[["strainDiff"]].plot(ax=axes[2])
+  if createFigs:
+    dataRolling_Mean_MinMax_Median[strain_and_pain_RollingMean_MinMaxScaler[0]].plot(ax=axes)
+    dataRolling_Mean_Median[["strainDiff"]].plot(ax=axes)
+    axes.set_ylim([0, 1])
+    axes.get_legend().remove()
+    plt.savefig('./folderToSaveFigsIn/succussiveFilters_3.svg')
+    plt.close()
+    fig, axes = plt.subplots(figsize=(figWidth, figHeight), dpi=300, nrows=1, ncols=1)
+    fig.subplots_adjust(left=0.04, bottom=0.25, right=0.98, top=0.95, wspace=None, hspace=hspace)
+  else:
+    dataRolling_Mean_MinMax_Median[strain_and_pain_RollingMean_MinMaxScaler[0]].plot(ax=axes[2])
+    dataRolling_Mean_Median[["strainDiff"]].plot(ax=axes[2])
   # Fourth plot
   dataRolling_Mean_Median.loc[dataRolling_Mean_Median["strainValueTooHigh"] == 0, "strainValueTooHigh"] = float('NaN')
   dataRolling_Mean_Median.loc[dataRolling_Mean_Median["strainDiffTooHigh"]  == 0, "strainDiffTooHigh"]  = float('NaN')
   dataRolling_Mean_Median.loc[dataRolling_Mean_Median["strainFinalTooHigh"] == 0, "strainFinalTooHigh"] = float('NaN')
-  if calculateWarningSignOnlyWithDifferential:
-    dataRolling_Mean_Median[["strainDiffTooHigh", "strainFinalTooHigh"]].plot(ax=axes[3], color=['b', 'r'])
-  else:
-    dataRolling_Mean_Median[["strainValueTooHigh", "strainDiffTooHigh", "strainFinalTooHigh"]].plot(ax=axes[3], color=['g', 'b', 'r'])
-    axes[3].plot(warningDatesSmall, warningValuesSmallPlot2, marker='x', linestyle='', color='orange', markeredgewidth=2)
-  axes[3].plot(warningDatesBig, warningValuesBigPlot2, marker='x', linestyle='', color='red', markeredgewidth=2)
-  # Fifth plot
-  dataWithRollingMedianNoDropVars[[strain_and_pain_RollingMean_MinMaxScaler[1]]].plot(ax=axes[4], color=['b'])
-  axes[4].plot(warningDatesSmall, warningValuesSmallPlot3, marker='x', linestyle='', color='orange', markeredgewidth=2)
-  axes[4].plot(warningDatesBig, warningValuesBigPlot3, marker='x', linestyle='', color='red', markeredgewidth=2)
-  # Sixth plot
-  dataRolling_Mean_Median[["painNowVsRecentPast"]].plot(ax=axes[5], color=['b'])
-  axes[5].plot(warningDatesSmall, warningValuesSmallpainNowVsRecentPast, marker='x', linestyle='', color='orange', markeredgewidth=2)
-  axes[5].plot(warningDatesBig, warningValuesBigpainNowVsRecentPast, marker='x', linestyle='', color='red', markeredgewidth=2)
-  axes[5].plot(dataRolling_Mean_Median.index, [0 for i in range(len(dataRolling_Mean_Median.index))], color='k')
-  # Pritting out all plots
-  peakAnalysis_plot.plottingOptions(axes, 0, 'Rolling Mean of Strain (linear combination of stressors) and Pain', ['Strain', 'Pain'], 'center left', 8, createFigs)
-  peakAnalysis_plot.plottingOptions(axes, 1, 'Rolling Mean + MinMaxScaler of: Strain and Pain', ['Strain', 'Pain'], 'center left', 8, createFigs)
-  peakAnalysis_plot.plottingOptions(axes, 2, "Strain (Rolling: Mean + MinMaxScaler + Median) and its differential", ['Strain Value', 'Strain Differential'], 'center left', 8, 0, True)
-  if calculateWarningSignOnlyWithDifferential:
-    peakAnalysis_plot.plottingOptions(axes, 3, "Warnings based on previously filtered strain", ['Strain Diff Warn', 'Warning Line', 'Warning Point'], 'center left', 8, 0, True)  
-  else:
-    peakAnalysis_plot.plottingOptions(axes, 3, "Warnings based on previously filtered strain", ['Strain Value Warn', 'Strain Diff Warn', 'Warning Line', 'Low Warning', 'High Warning'], 'center left', 8, 0, True)
-  peakAnalysis_plot.plottingOptions(axes, 4, "Warnings superimposed on 'Pain' (with rolling: Mean + MinMaxScaler + Median)", ['Pain', 'Low Warning', 'High Warning'], 'center left', 8, 0, True)
-  peakAnalysis_plot.plottingOptions(axes, 5, "Warnings superimposed on 'Pain on current day - Mean pain during the last 45 days' (from pain variable above)", ['Pain', 'Low Warning', 'High Warning'], 'center left', 8, 0, True, False)
-  axes[5].get_xaxis().set_visible(True)
   if createFigs:
-    plt.savefig('./folderToSaveFigsIn/fig_1.png')
+    if calculateWarningSignOnlyWithDifferential:
+      dataRolling_Mean_Median[["strainDiffTooHigh", "strainFinalTooHigh"]].plot(ax=axes, color=['b', 'r'])
+    else:
+      dataRolling_Mean_Median[["strainValueTooHigh", "strainDiffTooHigh", "strainFinalTooHigh"]].plot(ax=axes, color=['g', 'b', 'r'])
+      axes.plot(warningDatesSmall, warningValuesSmallPlot2, marker='x', linestyle='', color='orange', markeredgewidth=2)
+    axes.plot(warningDatesBig, warningValuesBigPlot2, marker='x', linestyle='', color='red', markeredgewidth=2)
+    axes.set_ylim([0, 1])
+    axes.get_legend().remove()
+    plt.savefig('./folderToSaveFigsIn/succussiveFilters_4.svg')
+    plt.close()
+    fig, axes = plt.subplots(figsize=(figWidth, figHeight), dpi=300, nrows=1, ncols=1)
+    fig.subplots_adjust(left=0.04, bottom=0.25, right=0.98, top=0.95, wspace=None, hspace=hspace)
   else:
+    if calculateWarningSignOnlyWithDifferential:
+      dataRolling_Mean_Median[["strainDiffTooHigh", "strainFinalTooHigh"]].plot(ax=axes[3], color=['b', 'r'])
+    else:
+      dataRolling_Mean_Median[["strainValueTooHigh", "strainDiffTooHigh", "strainFinalTooHigh"]].plot(ax=axes[3], color=['g', 'b', 'r'])
+      axes[3].plot(warningDatesSmall, warningValuesSmallPlot2, marker='x', linestyle='', color='orange', markeredgewidth=2)
+    axes[3].plot(warningDatesBig, warningValuesBigPlot2, marker='x', linestyle='', color='red', markeredgewidth=2)
+  # Fifth plot
+  if createFigs:
+    dataWithRollingMedianNoDropVars[[strain_and_pain_RollingMean_MinMaxScaler[1]]].plot(ax=axes, color=['b'])
+    axes.plot(warningDatesSmall, warningValuesSmallPlot3, marker='x', linestyle='', color='orange', markeredgewidth=2)
+    axes.plot(warningDatesBig, warningValuesBigPlot3, marker='x', linestyle='', color='red', markeredgewidth=2)   
+    axes.get_legend().remove()
+    axes.set_ylim([0, 1])
+    plt.savefig('./folderToSaveFigsIn/succussiveFilters_5.svg')
+    plt.close()
+    fig, axes = plt.subplots(figsize=(figWidth, figHeight), dpi=300, nrows=1, ncols=1)
+    fig.subplots_adjust(left=0.04, bottom=0.25, right=0.98, top=0.95, wspace=None, hspace=hspace)
+  else:
+    dataWithRollingMedianNoDropVars[[strain_and_pain_RollingMean_MinMaxScaler[1]]].plot(ax=axes[4], color=['b'])
+    axes[4].plot(warningDatesSmall, warningValuesSmallPlot3, marker='x', linestyle='', color='orange', markeredgewidth=2)
+    axes[4].plot(warningDatesBig, warningValuesBigPlot3, marker='x', linestyle='', color='red', markeredgewidth=2)
+  # Sixth plot
+  if createFigs:
+    dataRolling_Mean_Median[["painNowVsRecentPast"]].plot(ax=axes, color=['b'])
+    axes.plot(warningDatesSmall, warningValuesSmallpainNowVsRecentPast, marker='x', linestyle='', color='orange', markeredgewidth=2)
+    axes.plot(warningDatesBig, warningValuesBigpainNowVsRecentPast, marker='x', linestyle='', color='red', markeredgewidth=2)
+    axes.plot(dataRolling_Mean_Median.index, [0 for i in range(len(dataRolling_Mean_Median.index))], color='k')
+    axes.get_legend().remove()
+    plt.savefig('./folderToSaveFigsIn/succussiveFilters_6.svg')
+    plt.close()
+  else:
+    dataRolling_Mean_Median[["painNowVsRecentPast"]].plot(ax=axes[5], color=['b'])
+    axes[5].plot(warningDatesSmall, warningValuesSmallpainNowVsRecentPast, marker='x', linestyle='', color='orange', markeredgewidth=2)
+    axes[5].plot(warningDatesBig, warningValuesBigpainNowVsRecentPast, marker='x', linestyle='', color='red', markeredgewidth=2)
+    axes[5].plot(dataRolling_Mean_Median.index, [0 for i in range(len(dataRolling_Mean_Median.index))], color='k')
+  # Pritting out all plots
+  if not(createFigs):
+    peakAnalysis_plot.plottingOptions(axes, 0, 'Rolling Mean of Strain (linear combination of stressors) and Pain', ['Strain', 'Pain'], 'center left', 8, createFigs)
+    peakAnalysis_plot.plottingOptions(axes, 1, 'Rolling Mean + MinMaxScaler of: Strain and Pain', ['Strain', 'Pain'], 'center left', 8, createFigs)
+    peakAnalysis_plot.plottingOptions(axes, 2, "Strain (Rolling: Mean + MinMaxScaler + Median) and its differential", ['Strain Value', 'Strain Differential'], 'center left', 8, 0, True)
+    if calculateWarningSignOnlyWithDifferential:
+      peakAnalysis_plot.plottingOptions(axes, 3, "Warnings based on previously filtered strain", ['Strain Diff Warn', 'Warning Line', 'Warning Point'], 'center left', 8, 0, True)  
+    else:
+      peakAnalysis_plot.plottingOptions(axes, 3, "Warnings based on previously filtered strain", ['Strain Value Warn', 'Strain Diff Warn', 'Warning Line', 'Low Warning', 'High Warning'], 'center left', 8, 0, True)
+    peakAnalysis_plot.plottingOptions(axes, 4, "Warnings superimposed on 'Pain' (with rolling: Mean + MinMaxScaler + Median)", ['Pain', 'Low Warning', 'High Warning'], 'center left', 8, 0, True)
+    peakAnalysis_plot.plottingOptions(axes, 5, "Warnings superimposed on 'Pain on current day - Mean pain during the last " + str(halfTimeRange) + " days' (from pain variable above)", ['Pain', 'Low Warning', 'High Warning'], 'center left', 8, 0, True, False)
+    axes[5].get_xaxis().set_visible(True)
     plt.show()
   
   ### Getting the dataframes: 'distFromWarningList', 'painNowVsRecentPastList' and 'warningSuiteList' within the relevant time periods
@@ -210,9 +296,13 @@ def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRolli
     reg = LinearRegression().fit(np.array([distFromWarningList]).reshape(-1, 1), np.array([painNowVsRecentPastList]).reshape(-1, 1))
     pred = reg.predict(np.array([i for i in range(0, np.max(distFromWarningList), 10)]).reshape(-1, 1))
     plt.plot([i for i in range(0, np.max(distFromWarningList), 10)], pred, linewidth=2, color='k')
-  plt.xlabel("Number of days since last warning occured")
-  plt.ylabel("Pain on current day - Mean pain during the last 45 days")
-  plt.show()
+  if createFigs:
+    plt.savefig('./folderToSaveFigsIn/painNowVsRecentPastInBetweenWarnings.svg')
+    plt.close()  
+  else:
+    plt.xlabel("Number of days since last warning occured")
+    plt.ylabel("Pain on current day - Mean pain during the last" + str(halfTimeRange) + "days")
+    plt.show()
   
   ## Third Figure: Plot each sequences of strain in between the subsequent warnings
   nb_x_bins = 10
@@ -247,7 +337,11 @@ def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRolli
   plt.errorbar(x_intervals_centers, x_intervals_median, fmt='o-', label='Mean with Std Dev', color='black', capsize=5, linewidth=3)
   plt.errorbar(x_intervals_centers, x_intervals_25, fmt='o-', label='Mean with Std Dev', color='black', capsize=5, linewidth=3)
   plt.errorbar(x_intervals_centers, x_intervals_75, fmt='o-', label='Mean with Std Dev', color='black', capsize=5, linewidth=3)
-  plt.show()
+  if createFigs:
+    plt.savefig('./folderToSaveFigsIn/strainInBetweenWarnings.svg')
+    plt.close()
+  else:
+    plt.show()
   
   ### Fourth Figure: Histograms plots of painNowVsRecentPastList as a function of distFromWarningList
   fig, axs = plt.subplots(1, 2, figsize=(12, 5))
@@ -260,7 +354,7 @@ def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRolli
   if False:
     axs[1].hist2d(distFromWarningList, painNowVsRecentPastList, bins=(x_bins, y_bins))
     axs[1].set_xlabel("Number of days since last warning occured")
-    axs[1].set_ylabel("Pain on current day - Mean pain during the last 45 days")
+    axs[1].set_ylabel("Pain on current day - Mean pain during the last " + str(halfTimeRange) + " days")
     axs[1].set_title("Histogram")
     fig.colorbar(axs[1].collections[0], ax=axs[1])
   if True:
@@ -299,11 +393,10 @@ def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRolli
       histdata[:, i] = histdata[:, i] / np.sum(histdata[:, i])
     axs[1].imshow(histdata, extent=[xedges[0], xedges[-1], yedges[0], yedges[-1]], origin='lower', aspect='auto')
     axs[1].set_xlabel("Number of days since last warning occured")
-    axs[1].set_ylabel("Pain on current day - Mean pain during the last 45 days")
+    axs[1].set_ylabel("Pain on current day - Mean pain during the last " + str(halfTimeRange) + " days")
     axs[1].set_title("Histogram normalized for each column")
     fig.colorbar(axs[1].imshow(histdata, extent=[xedges[0], xedges[-1], yedges[0], yedges[-1]], origin='lower', aspect='auto'), ax=axs[1])
     plt.tight_layout()
-  
   
   limit  = max(abs(painNowVsRecentPastList))
   yPlus  = np.array([limit for i in range(len(xedges))])
@@ -315,9 +408,13 @@ def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRolli
   axs[1].errorbar(x_intervals_centers, x_intervals_25, fmt='o-', label='Mean with Std Dev', color='black', capsize=5, linewidth=3)
   axs[1].errorbar(x_intervals_centers, x_intervals_75, fmt='o-', label='Mean with Std Dev', color='black', capsize=5, linewidth=3)
   axs[1].set_ylim([-max(abs(painNowVsRecentPastList)), max(abs(painNowVsRecentPastList))])
-  axs[1].set_title('75% Percentile')
+  axs[1].set_title('Summary')
   axs[1].set_xlabel('Number of days since last warning occured')
-  plt.show()
+  if createFigs:
+    plt.savefig('./folderToSaveFigsIn/quartilesTwoFigs.svg')
+    plt.close()  
+  else:
+    plt.show()
 
   ### Fifth Figure
   fig, ax = plt.subplots()
@@ -327,6 +424,10 @@ def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRolli
   ax.errorbar(x_intervals_centers, x_intervals_25, fmt='o-', label='Mean with Std Dev', color='black', capsize=5, linewidth=3)
   ax.errorbar(x_intervals_centers, x_intervals_75, fmt='o-', label='Mean with Std Dev', color='black', capsize=5, linewidth=3)
   ax.set_ylim([-max(abs(painNowVsRecentPastList)), max(abs(painNowVsRecentPastList))])
-  ax.set_title('75% Percentile')
+  ax.set_title('Summary')
   ax.set_xlabel('Number of days since last warning occured')
-  plt.show()
+  if createFigs:
+    plt.savefig('./folderToSaveFigsIn/quartilesSummary.svg')
+    plt.close()  
+  else:
+    plt.show()

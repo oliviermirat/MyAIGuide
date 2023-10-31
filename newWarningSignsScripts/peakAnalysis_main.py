@@ -131,8 +131,8 @@ def visualizeRollingMinMaxScalerofRollingMeanOfstrainAndPain(data, region, list_
       plt.show()
 
   if True:
-    peakAnalysis_warningSigns.peakAnalysis_warningSigns(hspace, data, data2, data9, strain_and_pain, strain_and_pain_rollingMean, strain_and_pain_RollingMean_MinMaxScaler, rollingMedianWindow, window2)
-      
+    peakAnalysis_warningSigns.peakAnalysis_warningSigns(hspace, data, data2, data9, strain_and_pain, strain_and_pain_rollingMean, strain_and_pain_RollingMean_MinMaxScaler, rollingMedianWindow, window2, list_of_stressors)
+  
   # Linear regression between strain and pain amplitudes
   if len(strainMinMaxAmplitudes):
     reg = LinearRegression().fit(np.array([strainMinMaxAmplitudes]).reshape(-1, 1), np.array([painMinMaxAmplitudes]).reshape(-1, 1))

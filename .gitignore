@@ -99,3 +99,5 @@ newScripts/7_andOthersTries
 newScripts/folderToSaveFigsIn
 
 newWarningSignsScripts/*.txt
+
+newWarningSignsScripts/folderToSaveFigsIn/*
