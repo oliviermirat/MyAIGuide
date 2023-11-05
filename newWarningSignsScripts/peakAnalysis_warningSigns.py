@@ -32,7 +32,10 @@ def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRolli
   warningOnlyForHighStrainValue = False
   calculateWarningSignOnlyWithDifferential = True
   alsoPlotTracesInSeparateFigures = False
-  removeLastNbDays = 20
+  plotNbDaysWithoutWarningVsMinPainInLast20days = False
+  
+  removeLastNbDays  = 20
+  removeLastFewDays = True
   
   if warningOnlyForHighStrainValue:
     strainFinalThresholdForWarning = 0.600001
@@ -271,7 +274,7 @@ def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRolli
   warningSuiteList    = dataRolling_Mean_Median.loc[dataRolling_Mean_Median.index[window2]:dataRolling_Mean_Median.index[len(dataWithRollingMedianNoDropVars) - 1], "curWarningSuiteNumber"]
   print("Number of sequences in between the subsequent warnings:", nb)
   
-  if removeLastNbDays > 0:
+  if removeLastNbDays > 0 and removeLastFewDays:
     startRemoving = 0
     distFromWarningListNew = distFromWarningList.copy()
     for i in range(1, len(distFromWarningList)):
@@ -310,6 +313,26 @@ def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRolli
     plt.xlabel("Number of days since last warning occured")
     plt.ylabel("Pain on current day - Mean pain during the last" + str(halfTimeRange) + "days")
     plt.show()
+  
+  if plotNbDaysWithoutWarningVsMinPainInLast20days:
+    nbDaysWithoutWarning   = []
+    painNowVsRecentPastEnd = []
+    for i in range(1, curWarningSuiteNumber+1):
+      warningSuiteI = (warningSuiteList == i)
+      if np.sum(warningSuiteI):
+        painNowVsRecentPastListI = painNowVsRecentPastList[warningSuiteI]
+        nbDays      = np.sum(warningSuiteI)
+        # lastDayPain = painNowVsRecentPastListI[len(painNowVsRecentPastListI) - 1]
+        lastDayPain = painNowVsRecentPastListI[len(painNowVsRecentPastListI)-removeLastNbDays:len(painNowVsRecentPastListI) - 1].min()
+        if nbDays != float('nan') and lastDayPain != float('nan'):
+          nbDaysWithoutWarning.append(nbDays)
+          painNowVsRecentPastEnd.append(lastDayPain)
+    plt.plot(nbDaysWithoutWarning, painNowVsRecentPastEnd, '.')
+    if createFigs:
+      plt.savefig('./folderToSaveFigsIn/plotNbDaysWithoutWarningVsMinPainInLast20days.svg')
+      plt.close()
+    else:
+      plt.show()
 
   if alsoPlotTracesInSeparateFigures:
     for i in range(1, curWarningSuiteNumber+1):
