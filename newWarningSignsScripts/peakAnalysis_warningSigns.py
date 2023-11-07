@@ -26,6 +26,7 @@ def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRolli
   strainValueSmallThresh = 0.4
   strainValueBigThresh   = 0.6
   strainDiffThresh       = 0.02
+  nbDaysWithoutStrainDiffTooHighForWarningDetectionPossible = 10
   # Various options
   calculateStrainDiffWithMinMaxScaler = True
   plotLinearRegression   = False
@@ -61,7 +62,7 @@ def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRolli
   count = 0
   for i in range(window2, len(dataRolling_Mean_Median) - 1):
     if dataRolling_Mean_Median.loc[dataRolling_Mean_Median.index[i], "strainDiffTooHigh"] == 0.48:
-      count = 10
+      count = nbDaysWithoutStrainDiffTooHighForWarningDetectionPossible
     else:
       if count:
         dataRolling_Mean_Median.loc[dataRolling_Mean_Median.index[i], "strainDiffTooHigh"] = 0.4
@@ -154,7 +155,7 @@ def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRolli
     axes.set_ylim([0, 1])
     axes.get_legend().remove()
     plt.savefig('./folderToSaveFigsIn/succussiveFilters_0b.svg')
-    plt.close()    
+    plt.close()
   
   ### First Figure:
   if createFigs:
@@ -339,6 +340,7 @@ def peakAnalysis_warningSigns(hspace, data, dataWithRollingMedian, dataWithRolli
       warningSuiteI = (warningSuiteList == i)
       if np.sum(warningSuiteI) > 60 - removeLastNbDays:
         painNowVsRecentPastListI   = painNowVsRecentPastList[warningSuiteI]
+        print("beginning of long trace:", painNowVsRecentPastListI.index[0], "; lenght of trace:", np.sum(warningSuiteI))
         distFromWarningListI = distFromWarningList[warningSuiteI]
         plt.plot(distFromWarningListI, painNowVsRecentPastListI)
     plt.xlim(0, 130)
