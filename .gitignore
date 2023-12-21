@@ -56,6 +56,7 @@ MANIFEST
 /MonsterMizerData/Participant4KneePain.csv
 firstExperimentsAndCode/data.txt
 firstExperimentsAndCode/__pycache__/
+src/MyAIGuide/dataFromGarmin/__pycache__/
 moreData/*
 !moreData/README.md
 
@@ -101,3 +102,8 @@ newScripts/folderToSaveFigsIn
 newWarningSignsScripts/*.txt
 
 newWarningSignsScripts/folderToSaveFigsIn/*
+
+dailyRealTimeAnalysis/info.json
+dailyRealTimeAnalysis/latestData.pkl
+
+notCommitedYet/
