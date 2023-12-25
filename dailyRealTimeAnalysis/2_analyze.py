@@ -39,8 +39,11 @@ activities   = pd.read_sql_query("SELECT * FROM activities", cnx)
 
 ### Get the current date and time
 
-yesterday_date_str = days_summary.loc[len(days_summary)-2, "day"]
-days_summary = days_summary[:len(days_summary)-1]
+yesterday_date = datetime.now() - timedelta(days=1)
+yesterday_date_str = yesterday_date.strftime("%Y-%m-%d")
+
+if days_summary.loc[len(days_summary)-1, "day"] > yesterday_date_str:
+  days_summary = days_summary[:len(days_summary)-1]
 
 
 ### Adding lines corresponding to unseen dates to the dataframe
@@ -92,6 +95,8 @@ data.loc[days_summary["day"], 'garminTotalActiveCalories'] = days_summary["calor
 
 caloriesPerMinute = 2039 / (24 * 60)
 
+previous_start_time = ""
+
 if getDataFromGarminDb:
   print("")
   for i in range(len(activities)):
@@ -115,6 +120,9 @@ if getDataFromGarminDb:
       
       calories = calories - caloriesPerMinute * elapsedTime
 
+      if previous_start_time != start_time:
+        print("")
+
       print("added from GarminDb: sport: ", sport, ", calories:", calories, ", start_time:", start_time, ", elapsedTime:", elapsedTime)
       
       if sport == "cycling":
@@ -124,7 +132,11 @@ if getDataFromGarminDb:
       elif sport == "other":
         data.loc[start_time, 'garminClimbingActiveCalories'] += calories
       else:
-        print("Activity not taken into account for calories:", sport)
+        if sport != "walking":
+          print("Activity not taken into account for calories:", sport)
+      
+      previous_start_time = start_time
+      
   print("")
 
 
@@ -256,19 +268,21 @@ for i in range(len(eyeRelated)):
       try:
         data.loc[date, "realTimeEyeDrivingTime"] = float(eyeRelated.loc[i, 5])
       except:
-        print("probably couldn't convert:", eyeRelated.loc[i, 5])
+        justToPutSomethingInExcept = 0
+        # print("probably couldn't convert:", eyeRelated.loc[i, 5])
     if type(eyeRelated.loc[i, 7]) == int or type(eyeRelated.loc[i, 7]) == float or (type(eyeRelated.loc[i, 7]) == str and len(eyeRelated.loc[i, 7])):
       try:
         data.loc[date, "realTimeEyeRidingTime"] = float(eyeRelated.loc[i, 7])
       except:
-        print("probably couldn't convert:", eyeRelated.loc[i, 7])
+        justToPutSomethingInExcept = 0
+        # print("probably couldn't convert:", eyeRelated.loc[i, 7])
 
 
 ### Fixing missing pain value for specific day + making high pain values more "flat"
 
-data["realTimeKneePain"]["2023-10-07"] = data["realTimeKneePain"]["2023-10-06"]
-data["realTimeArmPain"]["2023-10-07"]  = data["realTimeArmPain"]["2023-10-06"]
-data["realTimeFacePain"]["2023-10-07"] = data["realTimeFacePain"]["2023-10-06"]
+data.loc["2023-10-07", "realTimeKneePain"] = data["realTimeKneePain"]["2023-10-06"]
+data.loc["2023-10-07", "realTimeArmPain"]  = data["realTimeArmPain"]["2023-10-06"]
+data.loc["2023-10-07", "realTimeFacePain"] = data["realTimeFacePain"]["2023-10-06"]
 
 data.loc[data["realTimeKneePain"] > 3.4, "realTimeKneePain"] = 3.4
 
