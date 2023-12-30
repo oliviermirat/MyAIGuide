@@ -64,18 +64,27 @@ def processForBodyRegion(region, stressor1, stressor2, stressor1_normalizationFa
   plt.show()
 
 
-def processForBodyRegionStressorsList(data, region, stressorsList, stressorNormalizationFactorList):
+def processForBodyRegionStressorsList(data, region, stressorsList, stressorNormalizationFactorList, expWeightedAvg=False):
   bodyRegionCap = region.capitalize()
   # Getting stressors
   for stressor in stressorsList:
-    data[stressor + "_RollingMean"] = data[stressor].rolling(14).mean()
+    if expWeightedAvg:
+      data[stressor + "_RollingMean"] = data[stressor].ewm(span=14, adjust=False).mean()
+    else:
+      data[stressor + "_RollingMean"] = data[stressor].rolling(14).mean()
   # Building strain variable
   data[region + 'RelatedStrain'] = 0
   for i in range(len(stressorsList)):
     data[region + 'RelatedStrain'] += data[stressorsList[i]] / stressorNormalizationFactorList[i]
-  data[region + "RelatedStrain_RollingMean"] = data[region + "RelatedStrain"].rolling(14).mean()
+  if expWeightedAvg:
+    data[region + "RelatedStrain_RollingMean"] = data[region + "RelatedStrain"].ewm(span=14, adjust=False).mean()
+  else:
+    data[region + "RelatedStrain_RollingMean"] = data[region + "RelatedStrain"].rolling(14).mean()
   # Pain variable
-  data["realTime" + bodyRegionCap + "Pain_RollingMean"] = data["realTime" + bodyRegionCap + "Pain"].rolling(14).mean()
+  if expWeightedAvg:
+    data["realTime" + bodyRegionCap + "Pain_RollingMean"] = data["realTime" + bodyRegionCap + "Pain"].ewm(span=14, adjust=False).mean()
+  else:
+    data["realTime" + bodyRegionCap + "Pain_RollingMean"] = data["realTime" + bodyRegionCap + "Pain"].rolling(14).mean()
   # Normalization
   data[[region + "StrainMeanAndNormalize", region + "PainMeanAndNormalize"]] = scaler.fit_transform(data[[region + "RelatedStrain_RollingMean", "realTime" + bodyRegionCap + "Pain_RollingMean"]])
   # Dealing with outliers
@@ -114,17 +123,15 @@ def processForBodyRegionStressorsList(data, region, stressorsList, stressorNorma
   plt.show()
 
 
+# expWeightedAvg = True
 
 # Knee pain
-# processForBodyRegion('knee', "garminSteps", "realTimeEyeDrivingTime", 15000, 10*60)
-# processForBodyRegionStressorsList(data, 'knee', ["garminKneeRelatedActiveCalories","realTimeEyeDrivingTime"], [1000,10*60])
 processForBodyRegionStressorsList(data, 'knee', ["garminSteps", "garminCyclingActiveCalories", "realTimeEyeDrivingTime"], [15000, 700, 10*60])
 processForBodyRegion('knee', "garminKneeRelatedActiveCalories", "realTimeEyeDrivingTime", 1000, 10*60)
 
-#processForBodyRegion('knee', "garminCyclingActiveCalories", "realTimeEyeDrivingTime", 1000, 10*60)
-
 # Arm pain
 processForBodyRegion('arm', "garminArmsRelatedActiveCalories", "whatPulseRealTime", 1000, 15000)
+processForBodyRegionStressorsList(data, 'arm', ["garminArmsRelatedActiveCalories", "whatPulseRealTime", "phoneTime"], [1000, 15000, 600])
 
 # Face pain
 data["realTimeEyeInCar"] = data["realTimeEyeDrivingTime"] + data["realTimeEyeRidingTime"]

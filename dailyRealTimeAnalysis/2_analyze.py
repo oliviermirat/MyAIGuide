@@ -20,6 +20,8 @@ with open("info.json", 'r') as json_file:
 getDataFromGarminDb = True
 garminDbStartDay    = "2023-12-18"
 
+removeBlankScreenSaverTimes = True
+addPhoneScreenTimes = True
 
 ### Reloading data
 
@@ -45,6 +47,8 @@ yesterday_date_str = yesterday_date.strftime("%Y-%m-%d")
 if days_summary.loc[len(days_summary)-1, "day"] > yesterday_date_str:
   days_summary = days_summary[:len(days_summary)-1]
 
+if days_summary.loc[len(days_summary)-1, "day"] < yesterday_date_str:
+  yesterday_date_str = days_summary.loc[len(days_summary)-1, "day"] # This might not be perfect (maybe just need to just update all data instead)
 
 ### Adding lines corresponding to unseen dates to the dataframe
 
@@ -56,7 +60,7 @@ data.sort_index(inplace=True)
 
 ### Adding new columns to the dataframe
 
-new_columns = ['garminTotalActiveCalories', 'garminSurfSwimActiveCalories', 'garminClimbingActiveCalories', 'garminCyclingActiveCalories', 'garminKneeRelatedActiveCalories', 'garminArmsRelatedActiveCalories', 'garminSteps', 'whatPulseRealTime', 'manicTimeRealTime', 'realTimeKneePain', 'realTimeArmPain', 'realTimeFacePain', 'realTimeEyeDrivingTime', 'realTimeEyeRidingTime'] #, 'garminDenivelationCyclingAndWalking', 'garminKneeRelatedDistanceAndDenivelation']
+new_columns = ['garminTotalActiveCalories', 'garminSurfSwimActiveCalories', 'garminClimbingActiveCalories', 'garminCyclingActiveCalories', 'garminKneeRelatedActiveCalories', 'garminArmsRelatedActiveCalories', 'garminSteps', 'whatPulseRealTime', 'manicTimeRealTime', 'realTimeKneePain', 'realTimeArmPain', 'realTimeFacePain', 'realTimeEyeDrivingTime', 'realTimeEyeRidingTime', 'phoneTime'] #, 'garminDenivelationCyclingAndWalking', 'garminKneeRelatedDistanceAndDenivelation']
 data[new_columns] = 0
 
 
@@ -163,12 +167,15 @@ for i in range(1, nbFiles + 1):
       if count > 1 and len(row):
         date = row[0][0:10]
         if date <= yesterday_date_str:
-          data.loc[date, "whatPulseRealTime"] = int(row[1]) + int(row[2])
+          if date < '2023-12-22' or date > '2023-12-29':
+            data.loc[date, "whatPulseRealTime"] = int(row[1]) + int(row[2])
+          else:
+            data.loc[date, "whatPulseRealTime"] = int(row[1]) + int(int(row[1])/4) # some incorrect clicks where recorded from new glassouse click switch
 
 
 ### Getting manicTime data
 
-pathToRealTimeManicTime = info["pathToManicTimeFolder"]
+pathToRealTimeManicTime = info["pathToManicTimeUsageFile"]
 with open(pathToRealTimeManicTime, newline="") as csvfile:
   spamreader = csv.reader(csvfile)
   count = 0
@@ -188,6 +195,54 @@ with open(pathToRealTimeManicTime, newline="") as csvfile:
         hours = int(row[3][0:1]) * 60 + int(row[3][2:4])
         if date <= yesterday_date_str:
           data.loc[date, "manicTimeRealTime"] += hours
+
+
+if removeBlankScreenSaverTimes:
+  pathToRealTimeManicTime = info["pathToManicTimeAppFile"]
+  with open(pathToRealTimeManicTime, newline="", encoding='utf-8') as csvfile:
+    spamreader = csv.reader(csvfile)
+    count = 0
+    for row in spamreader:
+      count = count + 1
+      if count > 1 and len(row) and row[0] == "Blank Screen Saver":
+        delimit = [m.start() for m in re.finditer("/", row[1])]
+        month = row[1][0 : delimit[0]]
+        day = row[1][delimit[0] + 1 : delimit[1]]
+        if len(month) == 1:
+            month = "0" + month
+        if len(day) == 1:
+            day = "0" + day
+        year = row[1][delimit[1] + 1 : delimit[1] + 5]
+        date = year + "-" + month + "-" + day
+        hours = int(row[3][0:1]) * 60 + int(row[3][2:4])
+        if date <= yesterday_date_str:
+          data.loc[date, "manicTimeRealTime"] -= hours
+
+if addPhoneScreenTimes:
+
+  from calculate_daily_phone_usage import calculate_daily_phone_usage
+  
+  daily_usage = calculate_daily_phone_usage(info["pathToPhoneTimeFile"])
+  
+  if True:
+    mean_last_7_days = daily_usage.tail(7)['Usage time'].mean()
+    last_date = daily_usage["Date"].max()
+    if isinstance(last_date, str):
+      last_date = datetime.strptime(last_date, "%Y-%m-%d")
+    new_dates = pd.date_range(start=last_date + timedelta(days=1), end=datetime.strptime(yesterday_date_str, '%Y-%m-%d'), freq='D')
+    new_dates = new_dates.strftime("%Y-%m-%d")
+    new_data = pd.DataFrame({
+        "Date": new_dates,
+        "Usage time": [mean_last_7_days] * len(new_dates)
+    })
+    daily_usage = pd.concat([daily_usage, new_data], ignore_index=True)
+  
+  for i in range(len(daily_usage)):
+    date  = daily_usage["Date"][i]
+    hours = daily_usage["Usage time"][i]
+    if date <= yesterday_date_str:
+      data.loc[date, "manicTimeRealTime"] += (hours/2)
+      data.loc[date, "phoneTime"] = hours
 
 goodComputerData = data[(data['manicTimeRealTime'] != 0) & (data['whatPulseRealTime'] != 0) & (~data['manicTimeRealTime'].isna()) & (~data['whatPulseRealTime'].isna())][['manicTimeRealTime', 'whatPulseRealTime']]
 whatPulseByManicDividedAverage = (goodComputerData['whatPulseRealTime'] / goodComputerData['manicTimeRealTime']).mean()
