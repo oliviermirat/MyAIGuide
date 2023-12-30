@@ -68,17 +68,17 @@ data[new_columns] = 0
 
 garminActivities = garminActivityDataGatheredFromWebExport(info["pathToGarminDataFromWebDIConnectFitness"])
 
-garminCycling = garminActivities[garminActivities["garminActivityType"] == 'cycling'] #['garminActivityDistance']
+garminCycling = garminActivities[garminActivities["garminActivityType"] == 'cycling'].copy() #['garminActivityDistance']
 # garminCycling.index = garminCycling.index.strftime("%Y-%m-%d")
 garminCycling["dateTime"] = garminCycling["dateTime"].apply(lambda x: x.strftime('%Y-%m-%d'))
 garminCycling["activeCalories"] = (garminCycling["garminActivityCalories"] - garminCycling["bmrCalories"]) / 4.19002
 
-garminSwimming = garminActivities[(garminActivities["garminActivityType"] == 'lap_swimming') | (garminActivities["garminActivityType"] == 'open_water_swimming') | (garminActivities["garminActivityType"] == 'surfing_v2')]
+garminSwimming = garminActivities[(garminActivities["garminActivityType"] == 'lap_swimming') | (garminActivities["garminActivityType"] == 'open_water_swimming') | (garminActivities["garminActivityType"] == 'surfing_v2')].copy()
 # garminSwimming.index = garminSwimming.index.strftime("%Y-%m-%d")
 garminSwimming["dateTime"] = garminSwimming["dateTime"].apply(lambda x: x.strftime('%Y-%m-%d'))
 garminSwimming["activeCalories"] = (garminSwimming["garminActivityCalories"] - garminSwimming["bmrCalories"]) / 4.19002
 
-garminOther = garminActivities[(garminActivities["garminActivityType"] == 'other') | (garminActivities["garminActivityType"] == 'rock_climbing')]
+garminOther = garminActivities[(garminActivities["garminActivityType"] == 'other') | (garminActivities["garminActivityType"] == 'rock_climbing')].copy()
 # garminOther.index = garminOther.index.strftime("%Y-%m-%d")
 garminOther["dateTime"] = garminOther["dateTime"].apply(lambda x: x.strftime('%Y-%m-%d'))
 garminOther["activeCalories"] = (garminOther["garminActivityCalories"] - garminOther["bmrCalories"]) / 4.19002
