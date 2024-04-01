@@ -133,7 +133,7 @@ if getDataFromGarminDb:
         data.loc[start_time, 'garminCyclingActiveCalories']  += calories
       elif sport == "swimming":
         data.loc[start_time, 'garminSurfSwimActiveCalories'] += calories
-      elif sport == "other":
+      elif sport == "other" or sport == "climbing":
         data.loc[start_time, 'garminClimbingActiveCalories'] += calories
       else:
         if sport != "walking":

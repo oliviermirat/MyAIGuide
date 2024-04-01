@@ -20,8 +20,8 @@ def googleFitGatheredFromWebExport(filename, data, rowNumber):
               month = dateMoves[1]
               day = dateMoves[2]
               date = year + "-" + month + "-" + day
-              if len(row[13]):
-                  data.loc[date, "googlefitSteps"] = int(row[rowNumber])
+              if len(row[rowNumber]):
+                  data.loc[date, "googlefitSteps"] = int(row[rowNumber]) if rowNumber != 2 else float(row[rowNumber])
               else:
                   data.loc[date, "googlefitSteps"] = 0
   

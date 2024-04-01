@@ -16,8 +16,8 @@ processForBodyRegionStressorsList(data, 'knee', ["garminSteps", "garminCyclingAc
 processForBodyRegion(data, 'knee', "garminKneeRelatedActiveCalories", "realTimeEyeDrivingTime", 1000, 10*60)
 
 # Arm pain
-processForBodyRegion(data, 'arm', "garminArmsRelatedActiveCalories", "whatPulseRealTime", 1000, 15000)
-processForBodyRegionStressorsList(data, 'arm', ["garminArmsRelatedActiveCalories", "whatPulseRealTime", "phoneTime"], [1000, 15000, 600])
+processForBodyRegion(data, 'arm', "garminArmsRelatedActiveCalories", "whatPulseRealTime", 1000, 25000)
+processForBodyRegionStressorsList(data, 'arm', ["garminArmsRelatedActiveCalories", "whatPulseRealTime", "phoneTime"], [1000, 25000, 600])
 
 # Face pain
 data["realTimeEyeInCar"] = data["realTimeEyeDrivingTime"] + data["realTimeEyeRidingTime"]
