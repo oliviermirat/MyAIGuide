@@ -53,6 +53,8 @@ d = {
     "swimmingKm": empty,
     "mergedCalories": empty,
     "garminCalories": empty,
+    "manicTimeRealTime": empty,
+    "whatPulseRealTime": empty,
 }
 data = pd.DataFrame(data=d, index=i)
 
@@ -181,3 +183,10 @@ data["meanCalories"] = data["mergedCalories"].mean()
 data[["mergedCalories", "CaloriesRollingMean", "meanCalories"]].plot()
 
 plt.show()
+
+
+
+### Adding comparison to computer usage
+if False:
+  from correlCompare import compareCaloriesAllTime_ComputerToCaloriesCorrel
+  compareCaloriesAllTime_ComputerToCaloriesCorrel(info, data, yesterday_date_str)

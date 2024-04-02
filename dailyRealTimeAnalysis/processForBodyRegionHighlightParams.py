@@ -73,3 +73,8 @@ def processForBodyRegionHighlightParams(data, region, stressor1, stressor2, stre
   axes[4].get_xaxis().set_visible(False)
   
   plt.show()
+  
+  ### Adding comparison to computer usage
+  if False:
+    from correlCompare import processForBodyRegionHighlightParams_ComputerToCaloriesCorrel
+    processForBodyRegionHighlightParams_ComputerToCaloriesCorrel(stressor1, data)
