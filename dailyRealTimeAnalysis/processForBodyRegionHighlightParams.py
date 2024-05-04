@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 figWidth  = 20
 figHeight = 5.1
 
-def processForBodyRegionHighlightParams(data, region, stressor1, stressor2, stressor1_normalizationFactor, stressor2_normalizationFactor):
+def processForBodyRegionHighlightParams(data, region, stressor1, stressor2, stressor1_normalizationFactor, stressor2_normalizationFactor, plotPain, lowerLimitDate=''):
   
   scaler = MinMaxScaler()
   
@@ -17,6 +17,12 @@ def processForBodyRegionHighlightParams(data, region, stressor1, stressor2, stre
   data[region + "RelatedStrain_RollingMean"] = data[region + "RelatedStrain"].rolling(14).mean()
   # Pain variable
   data["realTime" + bodyRegionCap + "Pain_RollingMean"] = data["realTime" + bodyRegionCap + "Pain"].rolling(14).mean()
+  
+  # Filtering by date
+  if len(lowerLimitDate):
+    print("setting lower limit date to:", lowerLimitDate)
+    data = data.loc[data.index >= lowerLimitDate]
+  
   # Normalization
   data[[region + "StrainMeanAndNormalize", region + "PainMeanAndNormalize"]] = scaler.fit_transform(data[[region + "RelatedStrain_RollingMean", "realTime" + bodyRegionCap + "Pain_RollingMean"]])
   # Dealing with outliers
@@ -28,6 +34,7 @@ def processForBodyRegionHighlightParams(data, region, stressor1, stressor2, stre
       data[dataField].fillna(data[dataField].mean(), inplace=True)
   else:
     data.fillna(0, inplace=True)
+    
   # Plot
   hspace   = 0.4
   fig, axes = plt.subplots(figsize=(figWidth, figHeight), nrows=5, ncols=1)
@@ -56,21 +63,33 @@ def processForBodyRegionHighlightParams(data, region, stressor1, stressor2, stre
   axes[2].get_legend().remove()
   axes[2].get_xaxis().set_visible(False)
   
-  # First parameter highlight
-  data[[stressor1 + "_RollingMean", region + "PainMeanAndNormalize"]] = scaler.fit_transform(data[[stressor1 + "_RollingMean", region + "PainMeanAndNormalize"]])
-  data[[stressor1 + "_RollingMean", region + "PainMeanAndNormalize"]].plot(ax=axes[3], color=["k", "r"])
-  axes[3].title.set_fontsize(10)
-  axes[3].title.set_text("summary " + stressor1 + " vs pain")
-  axes[3].get_legend().remove()
-  axes[3].get_xaxis().set_visible(False)
-  
-  # Second parameter highlight
-  data[[stressor2 + "_RollingMean", region + "PainMeanAndNormalize"]] = scaler.fit_transform(data[[stressor2 + "_RollingMean", region + "PainMeanAndNormalize"]])
-  data[[stressor2 + "_RollingMean", region + "PainMeanAndNormalize"]].plot(ax=axes[4], color=["k", "r"])
-  axes[4].title.set_fontsize(10)
-  axes[4].title.set_text("summary " + stressor2 + " vs pain")
-  axes[4].get_legend().remove()
-  axes[4].get_xaxis().set_visible(False)
+  if plotPain:
+    
+    # First parameter highlight
+    data[["realTime" + bodyRegionCap + "Pain", region + "PainMeanAndNormalize"]] = scaler.fit_transform(data[["realTime" + bodyRegionCap + "Pain", region + "PainMeanAndNormalize"]])
+    data[["realTime" + bodyRegionCap + "Pain", region + "PainMeanAndNormalize"]].plot(ax=axes[3], color=["k", "r"])
+    axes[3].title.set_fontsize(10)
+    axes[3].title.set_text("summary " + stressor1 + " vs pain")
+    axes[3].get_legend().remove()
+    axes[3].get_xaxis().set_visible(False)
+    
+  else:
+    
+    # First parameter highlight
+    data[[stressor1 + "_RollingMean", region + "PainMeanAndNormalize"]] = scaler.fit_transform(data[[stressor1 + "_RollingMean", region + "PainMeanAndNormalize"]])
+    data[[stressor1 + "_RollingMean", region + "PainMeanAndNormalize"]].plot(ax=axes[3], color=["k", "r"])
+    axes[3].title.set_fontsize(10)
+    axes[3].title.set_text("summary " + stressor1 + " vs pain")
+    axes[3].get_legend().remove()
+    axes[3].get_xaxis().set_visible(False)
+    
+    # Second parameter highlight
+    data[[stressor2 + "_RollingMean", region + "PainMeanAndNormalize"]] = scaler.fit_transform(data[[stressor2 + "_RollingMean", region + "PainMeanAndNormalize"]])
+    data[[stressor2 + "_RollingMean", region + "PainMeanAndNormalize"]].plot(ax=axes[4], color=["k", "r"])
+    axes[4].title.set_fontsize(10)
+    axes[4].title.set_text("summary " + stressor2 + " vs pain")
+    axes[4].get_legend().remove()
+    axes[4].get_xaxis().set_visible(False)
   
   plt.show()
   
