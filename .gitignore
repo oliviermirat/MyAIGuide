@@ -107,3 +107,6 @@ dailyRealTimeAnalysis/info.json
 dailyRealTimeAnalysis/latestData.pkl
 
 notCommitedYet/
+
+dailyRealTimeAnalysis/img/
+dailyRealTimeAnalysis/latestDataBeforeMay2024TimeZoneChange.pkl
