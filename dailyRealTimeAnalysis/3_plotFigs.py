@@ -23,11 +23,12 @@ data["realTimeEyeInCar"] = data["realTimeEyeDrivingTime"] + data["realTimeEyeRid
 plotPain = False
 
 # Knee pain
-processForBodyRegionHighlightParamsMultiple(data, 'knee', ["garminKneeRelatedActiveCalories", "garminSteps", "garminCyclingActiveCalories", "realTimeEyeDrivingTime"], [700, 20000, 800, 1250], plotPain)
 processForBodyRegionHighlightParams(data, 'knee', "garminKneeRelatedActiveCalories", "realTimeEyeDrivingTime", 1000, 1250, plotPain)
+processForBodyRegionHighlightParamsMultiple(data, 'knee', ["garminKneeRelatedActiveCalories", "garminSteps", "garminCyclingActiveCalories", "realTimeEyeDrivingTime"], [500, 20000, 400, 1250], plotPain)
 
 # Arm pain
 processForBodyRegionHighlightParams(data, 'arm', "garminArmsRelatedActiveCalories", "whatPulseRealTime", 1000, 25000, plotPain, '2023-08-15')
+processForBodyRegionHighlightParamsMultiple(data, 'arm', ["garminSurfSwimActiveCalories", "garminClimbingActiveCalories", "whatPulseRealTime"], [1000, 160, 25000], plotPain, '2023-08-15')
 
 # Face pain
 processForBodyRegionHighlightParams(data, "face", "manicTimeRealTime", "realTimeEyeInCar", 10*60, 15*60, plotPain)

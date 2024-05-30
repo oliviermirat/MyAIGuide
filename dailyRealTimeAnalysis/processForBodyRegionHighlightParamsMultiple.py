@@ -110,6 +110,7 @@ def processForBodyRegionHighlightParamsMultiple(data, region, stressorsList, str
         axes[idx].title.set_text(stressorTitle)
         axes[idx].get_legend().remove()
         axes[idx].get_xaxis().set_visible(False)
+  data[[region + "StrainMeanAndNormalize", region + "PainMeanAndNormalize"]] = scaler.fit_transform(data[[region + "RelatedStrain_RollingMean", "realTime" + bodyRegionCap + "Pain_RollingMean"]]) # why repeat?
   data[[region + "StrainMeanAndNormalize", region + "PainMeanAndNormalize"]].plot(ax=axes[len(stressorsList)], color=["k", "r"])
   axes[len(stressorsList)].title.set_fontsize(10)
   axes[len(stressorsList)].title.set_text("summary strain vs pain")

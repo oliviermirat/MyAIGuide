@@ -102,6 +102,7 @@ def processForBodyRegionHighlightParams(data, region, stressor1, stressor2, stre
     axes[3].get_legend().remove()
     axes[3].get_xaxis().set_visible(False)
   
+  data[[region + "StrainMeanAndNormalize", region + "PainMeanAndNormalize"]] = scaler.fit_transform(data[[region + "StrainMeanAndNormalize", region + "PainMeanAndNormalize"]])
   data[[region + "StrainMeanAndNormalize", region + "PainMeanAndNormalize"]].plot(ax=axes[4], color=["k", "r"])
   if plotTitleForEachSubplot:
     axes[4].title.set_fontsize(10)

@@ -86,9 +86,10 @@ garminOther["activeCalories"] = (garminOther["garminActivityCalories"] - garminO
 groupedCycling  = garminCycling.groupby('dateTime')['activeCalories'].sum()
 groupedSwimming = garminSwimming.groupby('dateTime')['activeCalories'].sum()
 groupedOther    = garminOther.groupby('dateTime')['activeCalories'].sum()
+groupedOther[groupedOther < 0] = 0
 
 data.loc[groupedCycling.index.tolist(), "garminCyclingActiveCalories"] = groupedCycling.values.tolist()
-data.loc[groupedSwimming.index.tolist(), "garminSurfSwimActiveCalories"]            = groupedSwimming.values.tolist()
+data.loc[groupedSwimming.index.tolist(), "garminSurfSwimActiveCalories"] = groupedSwimming.values.tolist()
 data.loc[groupedOther.index.tolist(), "garminClimbingActiveCalories"]  = groupedOther.values.tolist()
 
 data.loc[days_summary["day"], 'garminSteps']               = days_summary["steps"].fillna(0).tolist()
@@ -133,7 +134,7 @@ if getDataFromGarminDb:
         data.loc[start_time, 'garminCyclingActiveCalories']  += calories
       elif sport == "swimming":
         data.loc[start_time, 'garminSurfSwimActiveCalories'] += calories
-      elif sport == "other" or sport == "climbing":
+      elif sport == "other" or sport == "climbing" or sport == "generic":
         data.loc[start_time, 'garminClimbingActiveCalories'] += calories
       else:
         if sport != "walking":
@@ -146,9 +147,9 @@ if getDataFromGarminDb:
 
 ### Calculating garminKneeRelatedActiveCalories and garminArmsRelatedActiveCalories
 
-data['garminKneeRelatedActiveCalories'] = data['garminTotalActiveCalories'] - data['garminSurfSwimActiveCalories'] - (data['garminClimbingActiveCalories'] / 2) #+ data['garminCyclingActiveCalories']
+data['garminKneeRelatedActiveCalories'] = data['garminTotalActiveCalories'] - data['garminSurfSwimActiveCalories'] - (data['garminClimbingActiveCalories'] * 0.75) #+ data['garminCyclingActiveCalories']
 
-data['garminArmsRelatedActiveCalories'] = data['garminSurfSwimActiveCalories'] + (data['garminClimbingActiveCalories'] / 2) + 0.1 * data['garminCyclingActiveCalories']
+data['garminArmsRelatedActiveCalories'] = data['garminSurfSwimActiveCalories'] + (data['garminClimbingActiveCalories'] * 0.75) + 0.1 * data['garminCyclingActiveCalories']
 
 print("garminDbTotalActiveCalories", data['garminTotalActiveCalories'][len(data)-10:len(data)])
 
