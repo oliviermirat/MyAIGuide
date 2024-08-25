@@ -110,3 +110,4 @@ notCommitedYet/
 
 dailyRealTimeAnalysis/img/
 dailyRealTimeAnalysis/latestDataBeforeMay2024TimeZoneChange.pkl
+dailyRealTimeAnalysis/*.png

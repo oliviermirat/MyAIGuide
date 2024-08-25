@@ -23,6 +23,7 @@ garminDbStartDay    = "2023-12-18"
 removeBlankScreenSaverTimes = True
 addPhoneScreenTimes = True
 includeCliffJumpingCalories = True
+cliffJumpingActCaloPerMinute = 2.7 # This might be a bit too conservative?
 
 ### Reloading data
 
@@ -84,14 +85,25 @@ garminOther = garminActivities[(garminActivities["garminActivityType"] == 'other
 garminOther["dateTime"] = garminOther["dateTime"].apply(lambda x: x.strftime('%Y-%m-%d'))
 garminOther["activeCalories"] = (garminOther["garminActivityCalories"] - garminOther["bmrCalories"]) / 4.19002
 
+cliffJumpingRows   = garminOther["activeCalories"] <= 0
+garminCliffJumping = garminOther[cliffJumpingRows].copy()
+garminCliffJumping['activeCalories'] = cliffJumpingActCaloPerMinute * (garminCliffJumping["elapsedDuration"] / (60 * 1000))
+print("before cliff jumping removal:", len(garminOther))
+garminOther = garminOther[~pd.Series(cliffJumpingRows)].reset_index(drop=True)
+print("after cliff jumping removal:", len(garminOther))
+print("cliff jumping number of rows:", len(garminCliffJumping))
+
 groupedCycling  = garminCycling.groupby('dateTime')['activeCalories'].sum()
 groupedSwimming = garminSwimming.groupby('dateTime')['activeCalories'].sum()
 groupedOther    = garminOther.groupby('dateTime')['activeCalories'].sum()
-groupedOther[groupedOther < 0] = 0
+groupedCliff    = garminCliffJumping.groupby('dateTime')['activeCalories'].sum()
+
+groupedOther[groupedOther < 0] = 0 # is this still necessary?
 
 data.loc[groupedCycling.index.tolist(), "garminCyclingActiveCalories"] = groupedCycling.values.tolist()
 data.loc[groupedSwimming.index.tolist(), "garminSurfSwimActiveCalories"] = groupedSwimming.values.tolist()
 data.loc[groupedOther.index.tolist(), "garminClimbingActiveCalories"]  = groupedOther.values.tolist()
+data.loc[groupedCliff.index.tolist(), "garminCliffJumpingActiveCalories"]  = groupedCliff.values.tolist()
 
 data.loc[days_summary["day"], 'garminSteps']               = days_summary["steps"].fillna(0).tolist()
 data.loc[days_summary["day"], 'garminTotalActiveCalories'] = days_summary["calories_active_avg"].fillna(0).tolist()
@@ -139,7 +151,7 @@ if getDataFromGarminDb:
         data.loc[start_time, 'garminSurfSwimActiveCalories'] += calories
       elif sport == "other" or sport == "rock_climbing" or sport == "bouldering" or sport == "climbing" or sport == "generic":
         if includeCliffJumpingCalories and type(activities.loc[i, 'name']) == str and activities.loc[i, 'name'].lower() == "cliff jumping":
-          data.loc[start_time, 'garminCliffJumpingActiveCalories'] += 2.8 * elapsedTime
+          data.loc[start_time, 'garminCliffJumpingActiveCalories'] += cliffJumpingActCaloPerMinute * elapsedTime
         else:
           data.loc[start_time, 'garminClimbingActiveCalories'] += calories
       else:
