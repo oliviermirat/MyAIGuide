@@ -22,6 +22,7 @@ garminDbStartDay    = "2023-12-18"
 
 removeBlankScreenSaverTimes = True
 addPhoneScreenTimes = True
+includeCliffJumpingCalories = True
 
 ### Reloading data
 
@@ -60,7 +61,7 @@ data.sort_index(inplace=True)
 
 ### Adding new columns to the dataframe
 
-new_columns = ['garminTotalActiveCalories', 'garminSurfSwimActiveCalories', 'garminClimbingActiveCalories', 'garminCyclingActiveCalories', 'garminKneeRelatedActiveCalories', 'garminArmsRelatedActiveCalories', 'garminSteps', 'whatPulseRealTime', 'manicTimeRealTime', 'realTimeKneePain', 'realTimeArmPain', 'realTimeFacePain', 'realTimeEyeDrivingTime', 'realTimeEyeRidingTime', 'phoneTime'] #, 'garminDenivelationCyclingAndWalking', 'garminKneeRelatedDistanceAndDenivelation']
+new_columns = ['garminTotalActiveCalories', 'garminSurfSwimActiveCalories', 'garminClimbingActiveCalories', 'garminCyclingActiveCalories', 'garminCliffJumpingActiveCalories', 'garminKneeRelatedActiveCalories', 'garminArmsRelatedActiveCalories', 'garminSteps', 'whatPulseRealTime', 'manicTimeRealTime', 'realTimeKneePain', 'realTimeArmPain', 'realTimeFacePain', 'realTimeEyeDrivingTime', 'realTimeEyeRidingTime', 'phoneTime'] #, 'garminDenivelationCyclingAndWalking', 'garminKneeRelatedDistanceAndDenivelation']
 data[new_columns] = 0
 
 
@@ -107,6 +108,8 @@ if getDataFromGarminDb:
   for i in range(len(activities)):
     start_time  = activities.loc[i, 'start_time']
     sport       = activities.loc[i, 'sport']
+    if sport == "fitness_equipment":
+      sport = activities.loc[i, 'sub_sport']
     calories    = activities.loc[i, 'calories']
     elapsedTime = activities.loc[i, 'elapsed_time']
     ascent      = activities.loc[i, 'ascent']  # Not taken into account cause everything related to GPS not so accurate
@@ -134,8 +137,11 @@ if getDataFromGarminDb:
         data.loc[start_time, 'garminCyclingActiveCalories']  += calories
       elif sport == "swimming":
         data.loc[start_time, 'garminSurfSwimActiveCalories'] += calories
-      elif sport == "other" or sport == "climbing" or sport == "generic":
-        data.loc[start_time, 'garminClimbingActiveCalories'] += calories
+      elif sport == "other" or sport == "rock_climbing" or sport == "bouldering" or sport == "climbing" or sport == "generic":
+        if includeCliffJumpingCalories and type(activities.loc[i, 'name']) == str and activities.loc[i, 'name'].lower() == "cliff jumping":
+          data.loc[start_time, 'garminCliffJumpingActiveCalories'] += 2.8 * elapsedTime
+        else:
+          data.loc[start_time, 'garminClimbingActiveCalories'] += calories
       else:
         if sport != "walking":
           print("Activity not taken into account for calories:", sport)
@@ -147,9 +153,9 @@ if getDataFromGarminDb:
 
 ### Calculating garminKneeRelatedActiveCalories and garminArmsRelatedActiveCalories
 
-data['garminKneeRelatedActiveCalories'] = data['garminTotalActiveCalories'] - data['garminSurfSwimActiveCalories'] - (data['garminClimbingActiveCalories'] * 0.75) #+ data['garminCyclingActiveCalories']
+data['garminKneeRelatedActiveCalories'] = data['garminTotalActiveCalories'] - data['garminSurfSwimActiveCalories'] - (data['garminClimbingActiveCalories'] * 0.75) + 0.5 * data['garminCliffJumpingActiveCalories'] #+ data['garminCyclingActiveCalories']
 
-data['garminArmsRelatedActiveCalories'] = data['garminSurfSwimActiveCalories'] + (data['garminClimbingActiveCalories'] * 0.75) + 0.1 * data['garminCyclingActiveCalories']
+data['garminArmsRelatedActiveCalories'] = data['garminSurfSwimActiveCalories'] + (data['garminClimbingActiveCalories'] * 0.75) + 0.1 * data['garminCyclingActiveCalories'] + 0.5 * data['garminCliffJumpingActiveCalories']
 
 print("garminDbTotalActiveCalories", data['garminTotalActiveCalories'][len(data)-10:len(data)])
 

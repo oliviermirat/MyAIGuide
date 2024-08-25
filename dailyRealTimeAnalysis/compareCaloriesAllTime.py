@@ -98,7 +98,7 @@ dataGarmin = pd.read_pickle('latestData.pkl') # latestData.pkl is created by the
 dataGarminSaved = dataGarmin.copy()
 dataRecent = dataGarmin.loc[dataGarmin.index >= "2023-05-15"]
 
-data.loc[dataRecent.index.tolist(), "garminCalories"] = (2000 + dataRecent['garminTotalActiveCalories']).tolist()
+data.loc[dataRecent.index.tolist(), "garminCalories"] = (2000 + dataRecent['garminTotalActiveCalories'] + dataRecent['garminCliffJumpingActiveCalories']).tolist()
 data.loc[dataRecent.index.tolist(), "mergedCalories"] = data.loc[dataRecent.index.tolist(), "garminCalories"]
 
 # Preprocessing

@@ -3,8 +3,9 @@ import matplotlib.pyplot as plt
 
 figWidth  = 20
 figHeight = 5.1
+expSpan   = 21
 
-def processForBodyRegionHighlightParams(data, region, stressor1, stressor2, stressor1_normalizationFactor, stressor2_normalizationFactor, plotPain, lowerLimitDate='', compareBeforeAfterJan2024=False):
+def processForBodyRegionHighlightParams(data, region, stressor1, stressor2, stressor1_normalizationFactor, stressor2_normalizationFactor, plotPain, lowerLimitDate='', compareBeforeAfterJan2024=False, exponentialWeight=False, numberOfFig=0):
   
   plotTitleForEachSubplot = not(compareBeforeAfterJan2024)
   
@@ -12,13 +13,14 @@ def processForBodyRegionHighlightParams(data, region, stressor1, stressor2, stre
   
   bodyRegionCap = region.capitalize()
   # Getting stressors
-  data[stressor1 + "_RollingMean"] = data[stressor1].rolling(14).mean()
-  data[stressor2 + "_RollingMean"] = data[stressor2].rolling(14).mean()
+  data[stressor1 + "_RollingMean"] = data[stressor1].ewm(span=expSpan).mean() if exponentialWeight else data[stressor1].rolling(14).mean()
+  data[stressor2 + "_RollingMean"] = data[stressor2].ewm(span=expSpan).mean() if exponentialWeight else data[stressor2].rolling(14).mean()
+  # Building strain variable if exponentialWeight else data[stressor2].rolling(14).mean()
   # Building strain variable
   data[region + 'RelatedStrain'] = data[stressor1] / stressor1_normalizationFactor + data[stressor2] / stressor2_normalizationFactor
-  data[region + "RelatedStrain_RollingMean"] = data[region + "RelatedStrain"].rolling(14).mean()
+  data[region + "RelatedStrain_RollingMean"] = data[region + "RelatedStrain"].ewm(span=expSpan).mean() if exponentialWeight else data[region + "RelatedStrain"].rolling(14).mean()
   # Pain variable
-  data["realTime" + bodyRegionCap + "Pain_RollingMean"] = data["realTime" + bodyRegionCap + "Pain"].rolling(14).mean()
+  data["realTime" + bodyRegionCap + "Pain_RollingMean"] = data["realTime" + bodyRegionCap + "Pain"].ewm(span=expSpan).mean() if exponentialWeight else data["realTime" + bodyRegionCap + "Pain"].rolling(14).mean()
   
   # Normalization
   data[[region + "StrainMeanAndNormalize", region + "PainMeanAndNormalize"]] = scaler.fit_transform(data[[region + "RelatedStrain_RollingMean", "realTime" + bodyRegionCap + "Pain_RollingMean"]])
@@ -110,7 +112,11 @@ def processForBodyRegionHighlightParams(data, region, stressor1, stressor2, stre
   axes[4].get_legend().remove()
   # axes[4].get_xaxis().set_visible(False)
   
-  plt.show()
+  if not(numberOfFig):
+    plt.show()
+  else:
+    figsFormat = 'png'
+    plt.savefig(str(numberOfFig) + '_' + str(region) + '_' + str('exponential' if exponentialWeight else 'mean') + '.' + figsFormat, format=figsFormat)    
   
   ### Adding comparison to computer usage
   if False:
