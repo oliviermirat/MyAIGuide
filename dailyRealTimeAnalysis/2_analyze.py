@@ -23,7 +23,7 @@ garminDbStartDay    = "2023-12-18"
 removeBlankScreenSaverTimes = True
 addPhoneScreenTimes = True
 includeCliffJumpingCalories = True
-cliffJumpingActCaloPerMinute = 2.7 # This might be a bit too conservative?
+cliffJumpingActCaloPerMinute = 3.3 #2.7 # This might be a bit too conservative?
 
 ### Reloading data
 
@@ -142,16 +142,20 @@ if getDataFromGarminDb:
 
       if previous_start_time != start_time:
         print("")
-
-      print("added from GarminDb: sport: ", sport, ", calories:", calories, ", start_time:", start_time, ", elapsedTime:", elapsedTime)
+      
+      if sport == "generic" and activities.loc[i, 'name']:
+        print("added from GarminDb: sport: ", sport, " ", activities.loc[i, 'name'].lower(), ", calories:", calories, ", start_time:", start_time, ", elapsedTime:", elapsedTime)
+      else:
+        print("added from GarminDb: sport: ", sport, ", calories:", calories, ", start_time:", start_time, ", elapsedTime:", elapsedTime)
       
       if sport == "cycling":
         data.loc[start_time, 'garminCyclingActiveCalories']  += calories
       elif sport == "swimming":
         data.loc[start_time, 'garminSurfSwimActiveCalories'] += calories
       elif sport == "other" or sport == "rock_climbing" or sport == "bouldering" or sport == "climbing" or sport == "generic":
-        if includeCliffJumpingCalories and type(activities.loc[i, 'name']) == str and activities.loc[i, 'name'].lower() == "cliff jumping":
+        if includeCliffJumpingCalories and type(activities.loc[i, 'name']) == str and "cliff jumping" in activities.loc[i, 'name'].lower():
           data.loc[start_time, 'garminCliffJumpingActiveCalories'] += cliffJumpingActCaloPerMinute * elapsedTime
+          print(data.loc[start_time, 'garminCliffJumpingActiveCalories'])
         else:
           data.loc[start_time, 'garminClimbingActiveCalories'] += calories
       else:

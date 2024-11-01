@@ -21,26 +21,27 @@ data["realTimeEyeInCar"] = data["realTimeEyeDrivingTime"] + data["realTimeEyeRid
 ### Available useful fields: 'garminKneeRelatedActiveCalories', 'garminArmsRelatedActiveCalories', 'totalComputerPressRealTime', 'manicTimeRealTime', 'realTimeKneePain', 'realTimeArmPain', 'realTimeFacePain', 'realTimeEyeDrivingTime', 'realTimeEyeRidingTime'
 
 plotPain = False
+plotFigs = False
 numberOfFig = 0
 
 # Knee pain
 for exponentialWeight in [False, True]:
-  numberOfFig += 1
+  numberOfFig = 0 if plotFigs else numberOfFig + 1
   processForBodyRegionHighlightParams(data, 'knee', "garminKneeRelatedActiveCalories", "realTimeEyeDrivingTime", 1000, 1250, plotPain, exponentialWeight=exponentialWeight, numberOfFig=numberOfFig)
 for exponentialWeight in [False, True]:
-  numberOfFig += 1
+  numberOfFig = 0 if plotFigs else numberOfFig + 1
   processForBodyRegionHighlightParamsMultiple(data.copy(), 'knee', ["garminKneeRelatedActiveCalories", "garminSteps", "garminCyclingActiveCalories", "realTimeEyeDrivingTime"], [500, 20000, 400, 1250], plotPain, exponentialWeight=exponentialWeight, numberOfFig=numberOfFig)
 
 # Arm pain
 for exponentialWeight in [False, True]:
-  numberOfFig += 1
+  numberOfFig = 0 if plotFigs else numberOfFig + 1
   processForBodyRegionHighlightParams(data, 'arm', "garminArmsRelatedActiveCalories", "whatPulseRealTime", 1000, 25000, plotPain, '2023-08-15', exponentialWeight=exponentialWeight, numberOfFig=numberOfFig)
 for exponentialWeight in [False, True]:
-  numberOfFig += 1
+  numberOfFig = 0 if plotFigs else numberOfFig + 1
   processForBodyRegionHighlightParamsMultiple(data, 'arm', ["garminSurfSwimActiveCalories", "garminClimbingActiveCalories", "whatPulseRealTime"], [1000, 110, 25000], plotPain, '2023-08-15', exponentialWeight=exponentialWeight, numberOfFig=numberOfFig)
 
 # Face pain
 for exponentialWeight in [False, True]:
-  numberOfFig += 1
+  numberOfFig = 0 if plotFigs else numberOfFig + 1
   processForBodyRegionHighlightParams(data, "face", "manicTimeRealTime", "realTimeEyeInCar", 10*60, 15*60, plotPain, exponentialWeight=exponentialWeight, numberOfFig=numberOfFig)
 
