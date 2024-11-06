@@ -24,4 +24,12 @@ subprocess.run(["python", "2_analyze.py"])
 
 subprocess.run(["python", "3_plotFigs.py"])
 
+# New analysis
+
+subprocess.run(["python", "4_highHeartBeatsAnalysis.py"])
+
+subprocess.run(["python", "5_checkSleepAndHRV.py"])
+
+#
+
 subprocess.run(["python", "compareCaloriesAllTime.py"])
