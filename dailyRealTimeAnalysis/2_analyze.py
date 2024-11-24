@@ -62,7 +62,7 @@ data.sort_index(inplace=True)
 
 ### Adding new columns to the dataframe
 
-new_columns = ['garminTotalActiveCalories', 'garminSurfSwimActiveCalories', 'garminClimbingActiveCalories', 'garminCyclingActiveCalories', 'garminCliffJumpingActiveCalories', 'garminKneeRelatedActiveCalories', 'garminArmsRelatedActiveCalories', 'garminSteps', 'whatPulseRealTime', 'manicTimeRealTime', 'realTimeKneePain', 'realTimeArmPain', 'realTimeFacePain', 'realTimeEyeDrivingTime', 'realTimeEyeRidingTime', 'phoneTime'] #, 'garminDenivelationCyclingAndWalking', 'garminKneeRelatedDistanceAndDenivelation']
+new_columns = ['garminTotalActiveCalories', 'garminSurfSwimActiveCalories', 'garminClimbingActiveCalories', 'garminCyclingActiveCalories', 'garminBackcountrySkiingActiveCalories', 'garminCliffJumpingActiveCalories', 'garminKneeRelatedActiveCalories', 'garminArmsRelatedActiveCalories', 'garminSteps', 'whatPulseRealTime', 'manicTimeRealTime', 'realTimeKneePain', 'realTimeArmPain', 'realTimeFacePain', 'realTimeEyeDrivingTime', 'realTimeEyeRidingTime', 'phoneTime'] #, 'garminDenivelationCyclingAndWalking', 'garminKneeRelatedDistanceAndDenivelation']
 data[new_columns] = 0
 
 
@@ -156,6 +156,9 @@ if getDataFromGarminDb:
         if includeCliffJumpingCalories and type(activities.loc[i, 'name']) == str and "cliff jumping" in activities.loc[i, 'name'].lower():
           data.loc[start_time, 'garminCliffJumpingActiveCalories'] += cliffJumpingActCaloPerMinute * elapsedTime
           print(data.loc[start_time, 'garminCliffJumpingActiveCalories'])
+        elif type(activities.loc[i, 'name']) == str and "backcountry skiing" in activities.loc[i, 'name'].lower():
+          print("adding backcountry skiing calories")
+          data.loc[start_time, 'garminBackcountrySkiingActiveCalories'] += calories
         else:
           data.loc[start_time, 'garminClimbingActiveCalories'] += calories
       else:
@@ -169,9 +172,9 @@ if getDataFromGarminDb:
 
 ### Calculating garminKneeRelatedActiveCalories and garminArmsRelatedActiveCalories
 
-data['garminKneeRelatedActiveCalories'] = data['garminTotalActiveCalories'] - data['garminSurfSwimActiveCalories'] - (data['garminClimbingActiveCalories'] * 0.75) + 0.5 * data['garminCliffJumpingActiveCalories'] #+ data['garminCyclingActiveCalories']
+data['garminKneeRelatedActiveCalories'] = data['garminTotalActiveCalories'] - data['garminSurfSwimActiveCalories'] - (data['garminClimbingActiveCalories'] * 0.75) + 0.5 * data['garminCliffJumpingActiveCalories'] - (data['garminBackcountrySkiingActiveCalories'] * 0.25)
 
-data['garminArmsRelatedActiveCalories'] = data['garminSurfSwimActiveCalories'] + (data['garminClimbingActiveCalories'] * 0.75) + 0.1 * data['garminCyclingActiveCalories'] + 0.5 * data['garminCliffJumpingActiveCalories']
+data['garminArmsRelatedActiveCalories'] = data['garminSurfSwimActiveCalories'] + (data['garminClimbingActiveCalories'] * 0.75) + 0.1 * data['garminCyclingActiveCalories'] + 0.5 * data['garminCliffJumpingActiveCalories'] + (data['garminBackcountrySkiingActiveCalories'] * 0.25)
 
 print("garminDbTotalActiveCalories", data['garminTotalActiveCalories'][len(data)-10:len(data)])
 

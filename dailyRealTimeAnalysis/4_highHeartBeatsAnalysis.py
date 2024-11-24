@@ -74,7 +74,8 @@ keyToCoeff1 = {'walking':           'walking',
                'Other':             'rock_climbing',
                'Sawing':            'homeExercises',
                'Trail building':    '50/50',
-               'trail building':    '50/50'
+               'trail building':    '50/50',
+               'backcountry skiing':'backcountry skiing'
               }
 
 keyToCoeff2 = {'cycling':             'cycling', 
@@ -93,7 +94,8 @@ coeff = {'walking':           {'low_body': 1,    'high_body': 0},
          'swimming':          {'low_body': 0.1,  'high_body': 0.9},
          'rock_climbing':     {'low_body': 0.25, 'high_body': 0.75}, 
          'homeExercises':     {'low_body': 0.1,  'high_body': 0.9},
-         '50/50':             {'low_body': 0.5,  'high_body': 0.5}
+         '50/50':             {'low_body': 0.5,  'high_body': 0.5},
+         'backcountry skiing':{'low_body': 0.75,  'high_body': 0.25}
          }
 
 
