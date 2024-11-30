@@ -278,6 +278,19 @@ data.loc[(data['manicTimeRealTime'] != 0) & (data['whatPulseRealTime'] == 0) & (
 # whatPulseProblemData["whatPulseRealTime"] = whatPulseByManicDividedAverage * whatPulseProblemData["manicTimeRealTime"]
 
 
+### Overwritting WhatPulse and ManicTime data recorded after 28/11/2024 with custom made script
+conn = sqlite3.connect(info["pathToCustomMadeClicksAndKeysMonitoringDB"])
+cursor = conn.cursor()
+cursor.execute("SELECT * FROM activity")
+rows = cursor.fetchall()
+for row in rows:
+  date, keypresses, clicks, screen_on_time, nbAudioClicks = row
+  if date >= '2024-11-28' and date <= yesterday_date.strftime('%Y-%m-%d'):
+    data.loc[date, "manicTimeRealTime"] = screen_on_time / 60
+    data.loc[date, "whatPulseRealTime"] = keypresses + clicks - nbAudioClicks
+
+
+
 ### Getting pain values
 
 data1 = pyexcel_ods.get_data(info["pathToPainExcelFile"])
@@ -366,6 +379,13 @@ data.loc["2023-10-07", "realTimeArmPain"]  = data["realTimeArmPain"]["2023-10-06
 data.loc["2023-10-07", "realTimeFacePain"] = data["realTimeFacePain"]["2023-10-06"]
 
 data.loc[data["realTimeKneePain"] > 3.4, "realTimeKneePain"] = 3.4
+
+
+### Store sport data
+
+from storeSportData import storeSportData
+
+data = storeSportData(info["pathToSportOdsFile"], data)
 
 
 ### Saving processed data in pickle file

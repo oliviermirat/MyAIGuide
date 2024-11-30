@@ -25,7 +25,7 @@ data = pd.read_pickle('latestData.pkl')
 
 data = data.loc[data.index >= cutoff_date]
 
-saveFigs = True
+saveFigs = False
 
 figsFormat = 'png'
 figWidth  = 20
@@ -74,7 +74,7 @@ scaler = MinMaxScaler()
 
 # listOfVariables = ['score', 'rhr', 'stress_avg', 'sweat_loss', 'realTimeKneePain', 'realTimeArmPain', 'realTimeFacePain']
 
-for painVar in ['realTimeKneePain', 'realTimeArmPain', 'realTimeFacePain']:
+for painVar in ['realTimeKneePain']: #['realTimeKneePain', 'realTimeArmPain', 'realTimeFacePain']:
 
   listOfVariables = ['score', 'rhr', painVar]
 
@@ -93,13 +93,22 @@ for painVar in ['realTimeKneePain', 'realTimeArmPain', 'realTimeFacePain']:
 
   data[[var + "_RollingMean" for var in listOfVariables]] = scaler.fit_transform(data[[var + "_RollingMean" for var in listOfVariables]])
 
-
+  fig, axes = plt.subplots(figsize=(figWidth, figHeight), nrows=2, ncols=1)
+  
+  labels = ['sleep', 'hrv', 'knee']
+  # data[[var for var in listOfVariables]].plot(ax=axes[0])
+  for col, label in zip([var for var in listOfVariables], labels):
+    data[col].plot(ax=axes[0], label=label)
+  # data[[var + "_RollingMean" for var in listOfVariables]].plot(ax=axes[1])
+  for col, label in zip([var + "_RollingMean" for var in listOfVariables], labels):
+    data[col].plot(ax=axes[1], label=label)
+  
+  axes[0].legend(loc='upper left')
+  axes[1].legend(loc='upper left')
+  
   if saveFigs:
-    fig, axes = plt.subplots(figsize=(figWidth, figHeight), nrows=2, ncols=1)
-    data[[var for var in listOfVariables]].plot(ax=axes[0])
-    data[[var + "_RollingMean" for var in listOfVariables]].plot(ax=axes[1])
     plt.savefig('12_' + painVar + '.' + figsFormat, format=figsFormat)
   else:
-    data[[var + "_RollingMean" for var in listOfVariables]].plot()
+    # data[[var + "_RollingMean" for var in listOfVariables]].plot()
     plt.show()
 
