@@ -78,6 +78,8 @@ data = pd.read_pickle('latestData.pkl')
 
 data = data.loc[data.index >= cutoff_date]
 
+data["swimSurfStrokes"] = 0
+
 
 ### Loading data from garmindb
 
@@ -118,7 +120,7 @@ for hr_id, heart_rate_active_threshold in enumerate(heart_rate_active_threshold_
     
   monitoring_hr["active_hr_" + str(heart_rate_active_threshold)] = monitoring_hr["heart_rate"].copy() - heart_rate_active_threshold
   if True and hr_id < len(heart_rate_active_threshold_values) - 1:
-    monitoring_hr["active_hr_" + str(heart_rate_active_threshold)][monitoring_hr["heart_rate"] > heart_rate_active_threshold_values[hr_id+1]] = 0
+    monitoring_hr["active_hr_" + str(heart_rate_active_threshold)][monitoring_hr["heart_rate"] > heart_rate_active_threshold_values[hr_id+1]] = heart_rate_active_threshold_values[hr_id+1] - heart_rate_active_threshold #0
     print(hr_id, "removed all bigger than", heart_rate_active_threshold_values[hr_id+1])
   monitoring_hr["active_hr_" + str(heart_rate_active_threshold)][monitoring_hr["heart_rate"] < heart_rate_active_threshold] = 0
 
@@ -127,7 +129,7 @@ for hr_id, heart_rate_active_threshold in enumerate(heart_rate_active_threshold_
 
   for activity in np.unique(activities["sport"]):
     print(activity)
-    startStopTime = activities[activities["sport"] == activity][["start_time", "stop_time"]]
+    startStopTime = activities[activities["sport"] == activity][["start_time", "stop_time", "cycles"]]
     for _, row in startStopTime.iterrows():
       start, stop = row['start_time'], row['stop_time']
       selectedTime = (monitoring_hr['timestamp'] >= start) & (monitoring_hr['timestamp'] <= stop)
@@ -137,14 +139,20 @@ for hr_id, heart_rate_active_threshold in enumerate(heart_rate_active_threshold_
       # Higher body load
       h_Coeff = coeff[keyToCoeff1[activity]]['high_body']
       monitoring_hr.loc[selectedTime, "act_hr_" + str(heart_rate_active_threshold) + "_highBody"] = h_Coeff * monitoring_hr.loc[selectedTime, 'active_hr_' + str(heart_rate_active_threshold)]
-
+      # Number of surf and swim strokes
+      if activity == "swimming":
+        if type(row['cycles']) == float:
+          data.loc[start.strftime('%Y-%m-%d'), 'swimSurfStrokes'] += row['cycles']
+        else:
+          print("Number of surf and swim strokes not added for", start)
+  
 
   garminActivities = garminActivityDataGatheredFromWebExport(info["pathToGarminDataFromWebDIConnectFitness"])
   garminActivities['dateTimeEnd'] = garminActivities['dateTime'] + pd.to_timedelta(garminActivities['garminActivityDuration'], unit='ms').dt.floor('S')
 
   for activity in np.unique(garminActivities["garminActivityType"]):
     print(activity)
-    startStopTime = garminActivities[garminActivities["garminActivityType"] == activity][["dateTime", "dateTimeEnd"]]
+    startStopTime = garminActivities[garminActivities["garminActivityType"] == activity][["dateTime", "dateTimeEnd", "strokes"]]
     for _, row in startStopTime.iterrows():
       start, stop = row['dateTime'], row['dateTimeEnd']
       selectedTime = (monitoring_hr['timestamp'] >= start) & (monitoring_hr['timestamp'] <= stop)
@@ -154,7 +162,9 @@ for hr_id, heart_rate_active_threshold in enumerate(heart_rate_active_threshold_
       # Higher body load
       h_Coeff = coeff[keyToCoeff2[activity]]['high_body']
       monitoring_hr.loc[selectedTime, 'act_hr_' + str(heart_rate_active_threshold) + '_highBody'] = h_Coeff * monitoring_hr.loc[selectedTime, 'active_hr_' + str(heart_rate_active_threshold)]
-
+      # Number of surf and swim strokes
+      if activity == 'lap_swimming' and start.strftime('%Y-%m-%d') >= cutoff_date:
+        data.loc[start.strftime('%Y-%m-%d'), 'swimSurfStrokes'] += row['strokes']
 
 ### Get sum of daily values for lower and upper body load 
 
@@ -173,7 +183,7 @@ data["realTimeEyeInCar"] = data["realTimeEyeDrivingTime"] + data["realTimeEyeRid
 data["computerAndCarRealTime"] = data["realTimeEyeDrivingTime"] + data["manicTimeRealTime"] # SETTING TO DRIVING TIME ONLY
 
 scaler = MinMaxScaler()
-listOfVariables = ['realTimeKneePain', 'realTimeArmPain', 'realTimeFacePain'] + np.array([['active_hr_' + str(heart_rate_active_threshold), 'act_hr_' + str(heart_rate_active_threshold) + '_lowBody', 'act_hr_' + str(heart_rate_active_threshold) + '_highBody'] for heart_rate_active_threshold in heart_rate_active_threshold_values]).flatten().tolist() + ['garminSteps', 'garminCyclingActiveCalories',  'realTimeEyeDrivingTime', 'realTimeEyeRidingTime', 'whatPulseRealTime', 'manicTimeRealTime', 'realTimeEyeInCar', 'computerAndCarRealTime', 'climbingDenivelation', 'climbingMaxEffortIntensity', 'garminClimbingActiveCalories', 'garminKneeRelatedActiveCalories']
+listOfVariables = ['realTimeKneePain', 'realTimeArmPain', 'realTimeFacePain'] + np.array([['active_hr_' + str(heart_rate_active_threshold), 'act_hr_' + str(heart_rate_active_threshold) + '_lowBody', 'act_hr_' + str(heart_rate_active_threshold) + '_highBody'] for heart_rate_active_threshold in heart_rate_active_threshold_values]).flatten().tolist() + ['garminSteps', 'garminCyclingActiveCalories',  'realTimeEyeDrivingTime', 'realTimeEyeRidingTime', 'whatPulseRealTime', 'manicTimeRealTime', 'realTimeEyeInCar', 'computerAndCarRealTime', 'climbingDenivelation', 'climbingMaxEffortIntensity', 'garminClimbingActiveCalories', 'garminKneeRelatedActiveCalories', 'swimSurfStrokes']
 
 
 listOfVariables_scaled = [var + 'sca' for var in listOfVariables]
@@ -195,13 +205,13 @@ data[[var + "_RollingMean" for var in listOfVariables]] = scaler.fit_transform(d
 
 lowBodyVars1 = ['act_hr_' + str(heart_rate_active_threshold_values[0]) + '_lowBody', 'act_hr_' + str(heart_rate_active_threshold_values[1]) + '_lowBody', 'realTimeKneePain']
 lowBodyVars2 = ['garminSteps', 'garminCyclingActiveCalories', 'realTimeKneePain']
-lowBodyVars3 = ['realTimeEyeDrivingTime', 'realTimeKneePain']
+lowBodyVars3 = ['realTimeEyeDrivingTime', 'manicTimeRealTime', 'realTimeKneePain']
 colors_lowBodyVars1 = ['blue', 'orange', 'red']
 colors_lowBodyVars2 = ['green', 'purple', 'red']
-colors_lowBodyVars3 = ['cyan', 'red']
+colors_lowBodyVars3 = ['cyan', 'black', 'red']
 labels1 = ['hr' + str(heart_rate_active_threshold_values[0]), 'hr' + str(heart_rate_active_threshold_values[1]), 'knee']
 labels2 = ['steps', 'cycleCal', 'knee']
-labels3 = ['driving', 'knee']
+labels3 = ['driving', 'computer', 'knee']
 
 if True:
   lowBodyVars1 += ['garminKneeRelatedActiveCalories']
@@ -231,14 +241,17 @@ plt.show()
 highBodyVars1 = ['act_hr_' + str(heart_rate_active_threshold_values[0]) + '_highBody', 'act_hr_' + str(heart_rate_active_threshold_values[1]) + '_highBody', 'realTimeArmPain']
 highBodyVars2 = ['whatPulseRealTime', 'realTimeArmPain']
 highBodyVars3 = ['climbingDenivelation', 'climbingMaxEffortIntensity', 'garminClimbingActiveCalories']
+highBodyVars4 = ['swimSurfStrokes', 'realTimeArmPain']
 colors_highBodyVars1 = ['blue', 'orange', 'red']  # Adjust the number of colors as needed
 colors_highBodyVars2 = ['purple', 'red']
 colors_highBodyVars3 = ['green', 'cyan', 'black']
+colors_highBodyVars4 = ['olive', 'red']
 labels1 = ['hr' + str(heart_rate_active_threshold_values[0]), 'hr' + str(heart_rate_active_threshold_values[1]), 'arm']
 labels2 = ['clicks', 'arm']
 labels3 = ['climbDen', 'climbMax', 'climbCal']
+labels4 = ['swimStrokes', 'arm']
 
-fig, axes = plt.subplots(figsize=(figWidth, figHeight), nrows=3, ncols=1)
+fig, axes = plt.subplots(figsize=(figWidth, figHeight), nrows=4, ncols=1)
 fig.subplots_adjust(left=0.05, bottom=0.01, right=0.98, top=0.95, wspace=None, hspace=hspace)
 # data[[var + "_RollingMean" for var in highBodyVars1]].plot(ax=axes[0], color=colors_lowBodyVars1)
 for col, color, label in zip([var + "_RollingMean" for var in highBodyVars1], colors_highBodyVars1, labels1):
@@ -252,6 +265,10 @@ axes[1].legend(loc='upper left')
 for col, color, label in zip([var + "_RollingMean" for var in highBodyVars3], colors_highBodyVars3, labels3):
   data[col].plot(ax=axes[2], color=color, label=label)
 axes[2].legend(loc='upper left')
+# data[[var + "_RollingMean" for var in highBodyVars3]].plot(ax=axes[1], color=colors_highBodyVars3)
+for col, color, label in zip([var + "_RollingMean" for var in highBodyVars4], colors_highBodyVars4, labels4):
+  data[col].plot(ax=axes[3], color=color, label=label)
+axes[3].legend(loc='upper left')
 # plt.savefig('11_' + parameterOption['figName'] + '_a_low.' + figsFormat, format=figsFormat)
 plt.show()
 
