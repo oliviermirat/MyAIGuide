@@ -111,3 +111,8 @@ notCommitedYet/
 dailyRealTimeAnalysis/img/
 dailyRealTimeAnalysis/latestDataBeforeMay2024TimeZoneChange.pkl
 dailyRealTimeAnalysis/*.png
+
+dailyRealTimeAnalysis/unfinishedScripts/
+dailyRealTimeAnalysis/dataBeforeMay2023.pkl
+dailyRealTimeAnalysis/dataMay2023andLater.pkl
+dailyRealTimeAnalysis/*.xlsx

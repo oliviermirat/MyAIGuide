@@ -47,7 +47,10 @@ keyToCoeff1 = {'walking':           'walking',
                'Sawing':            'homeExercises',
                'Trail building':    '50/50',
                'trail building':    '50/50',
-               'backcountry skiing':'backcountry skiing'
+               'backcountry skiing':'backcountry skiing',
+               'moving snow':       '25/75',
+               'Moving snow':       '25/75',
+               'Resort skiing':     'Resort skiing'
               }
 
 keyToCoeff2 = {'cycling':             'cycling', 
@@ -64,10 +67,12 @@ keyToCoeff2 = {'cycling':             'cycling',
 coeff = {'walking':           {'low_body': 1,    'high_body': 0},
          'cycling':           {'low_body': 1,    'high_body': 0.1},
          'swimming':          {'low_body': 0.1,  'high_body': 0.9},
-         'rock_climbing':     {'low_body': 0.25, 'high_body': 0.75}, 
+         'rock_climbing':     {'low_body': 0.25, 'high_body': 0.75},
+         '25/75':             {'low_body': 0.25, 'high_body': 0.75},
          'homeExercises':     {'low_body': 0.1,  'high_body': 0.9},
          '50/50':             {'low_body': 0.5,  'high_body': 0.5},
-         'backcountry skiing':{'low_body': 0.75,  'high_body': 0.25}
+         'backcountry skiing':{'low_body': 0.75, 'high_body': 0.25},
+         'Resort skiing':     {'low_body': 0.95, 'high_body': 0.05}
          }
 
 
@@ -166,6 +171,7 @@ for hr_id, heart_rate_active_threshold in enumerate(heart_rate_active_threshold_
       if activity == 'lap_swimming' and start.strftime('%Y-%m-%d') >= cutoff_date:
         data.loc[start.strftime('%Y-%m-%d'), 'swimSurfStrokes'] += row['strokes']
 
+
 ### Get sum of daily values for lower and upper body load 
 
 monitoring_hr['timestamp'] = pd.to_datetime(monitoring_hr['timestamp'])
@@ -175,6 +181,7 @@ monitoring_hr.set_index('timestamp', inplace=True)
 daily_hr_data = monitoring_hr.resample('D').sum()[np.array([['active_hr_' + str(heart_rate_active_threshold), 'act_hr_' + str(heart_rate_active_threshold) + '_lowBody', 'act_hr_' + str(heart_rate_active_threshold) + '_highBody'] for heart_rate_active_threshold in heart_rate_active_threshold_values]).flatten().tolist()]
 
 data = data.merge(daily_hr_data, left_index=True, right_index=True, how='left')
+
 
 
 # Plotting per day
@@ -240,15 +247,15 @@ plt.show()
 
 highBodyVars1 = ['act_hr_' + str(heart_rate_active_threshold_values[0]) + '_highBody', 'act_hr_' + str(heart_rate_active_threshold_values[1]) + '_highBody', 'realTimeArmPain']
 highBodyVars2 = ['whatPulseRealTime', 'realTimeArmPain']
-highBodyVars3 = ['climbingDenivelation', 'climbingMaxEffortIntensity', 'garminClimbingActiveCalories']
+highBodyVars3 = ['climbingDenivelation', 'climbingMaxEffortIntensity', 'garminClimbingActiveCalories', 'realTimeArmPain']
 highBodyVars4 = ['swimSurfStrokes', 'realTimeArmPain']
 colors_highBodyVars1 = ['blue', 'orange', 'red']  # Adjust the number of colors as needed
 colors_highBodyVars2 = ['purple', 'red']
-colors_highBodyVars3 = ['green', 'cyan', 'black']
+colors_highBodyVars3 = ['green', 'cyan', 'black', 'red']
 colors_highBodyVars4 = ['olive', 'red']
 labels1 = ['hr' + str(heart_rate_active_threshold_values[0]), 'hr' + str(heart_rate_active_threshold_values[1]), 'arm']
 labels2 = ['clicks', 'arm']
-labels3 = ['climbDen', 'climbMax', 'climbCal']
+labels3 = ['climbDen', 'climbMax', 'climbCal', 'arm']
 labels4 = ['swimStrokes', 'arm']
 
 fig, axes = plt.subplots(figsize=(figWidth, figHeight), nrows=4, ncols=1)
@@ -296,4 +303,41 @@ axes[1].legend(loc='upper left')
 plt.show()
 
 
-# 
+
+### Saving data
+
+if True:
+  
+  listOfVariables = ['realTimeKneePain', 'realTimeArmPain', 'realTimeFacePain', 'active_hr_70', 'act_hr_70_lowBody', 'act_hr_70_highBody', 'active_hr_110', 'act_hr_110_lowBody', 'act_hr_110_highBody', 'garminSteps', 'garminCyclingActiveCalories',  'realTimeEyeDrivingTime', 'realTimeEyeRidingTime', 'whatPulseRealTime', 'manicTimeRealTime', 'realTimeEyeInCar', 'computerAndCarRealTime', 'climbingDenivelation', 'climbingMaxEffortIntensity', 'garminClimbingActiveCalories', 'garminKneeRelatedActiveCalories', 'swimSurfStrokes', 'generalmood']
+  
+  data = data[listOfVariables]
+  
+  renaming = {
+  'realTimeKneePain': 'kneePain', 
+  'realTimeArmPain': 'armPain', 
+  'realTimeFacePain': 'facePain', 
+  'active_hr_70': 'numberOfHeartBeatsBetween70and110', 
+  'act_hr_70_lowBody': 'numberOfHeartBeatsBetween70and110_lowerBodyActivity', 
+  'act_hr_70_highBody': 'numberOfHeartBeatsBetween70and110_upperBodyActivity', 
+  'active_hr_110': 'numberOfHeartBeatsAbove110', 
+  'act_hr_110_lowBody': 'numberOfHeartBeatsAbove110_lowerBodyActivity', 
+  'act_hr_110_highBody': 'numberOfHeartBeatsAbove110_upperBodyActivity', 
+  'garminSteps': 'numberOfSteps', 
+  'garminCyclingActiveCalories': 'cyclingCalories',
+  'realTimeEyeDrivingTime': 'timeSpentDriving', 
+  'realTimeEyeRidingTime': 'timeSpentRidingCar', 
+  'whatPulseRealTime': 'numberOfComputerClicksAndKeyStrokes', 
+  'manicTimeRealTime': 'timeOnComputer', 
+  'realTimeEyeInCar': 'timeInCar', 
+  'computerAndCarRealTime': 'computerAndCarTime', 
+  'climbingDenivelation': 'climbingDenivelation', 
+  'climbingMaxEffortIntensity': 'climbingMaxEffortIntensity', 
+  'garminClimbingActiveCalories': 'garminClimbingActiveCalories', 
+  'garminKneeRelatedActiveCalories': 'garminKneeRelatedActiveCalories', 
+  'swimSurfStrokes': 'swimAndSurfStrokes',
+  'generalmood': 'generalmood'
+  }
+  
+  data = data.rename(columns=renaming)
+  
+  data.to_pickle('dataMay2023andLater.pkl')
