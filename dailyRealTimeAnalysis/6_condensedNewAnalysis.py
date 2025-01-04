@@ -13,6 +13,7 @@ sys.path.insert(1, '../src/MyAIGuide/dataFromGarmin')
 from garminDataGatheredFromWebExport import garminDataGatheredFromWebExport, garminActivityDataGatheredFromWebExport
 import json
 import numpy as np
+import condensedAnalysisFunctions
 
 
 ##### Parameters
@@ -23,10 +24,13 @@ saveFigs = False
 figWidth  = 20
 figHeight = 5.1
 hspace   = 0.4
+lineWidth = 1
 
 figsFormat = 'png'
 
 rollingWindow = 14
+
+additionalActivities = ['cycling']
 
 cutoff_date = "2023-05-15"
 
@@ -122,6 +126,7 @@ for hr_id, heart_rate_active_threshold in enumerate(heart_rate_active_threshold_
   monitoring_hr["active_hr_" + str(heart_rate_active_threshold)] = 0
   monitoring_hr["act_hr_" + str(heart_rate_active_threshold) + "_lowBody"] = 0
   monitoring_hr["act_hr_" + str(heart_rate_active_threshold) + "_highBody"] = 0
+  monitoring_hr = condensedAnalysisFunctions.addEmptyFieldForActivites(monitoring_hr, heart_rate_active_threshold, additionalActivities)
     
   monitoring_hr["active_hr_" + str(heart_rate_active_threshold)] = monitoring_hr["heart_rate"].copy() - heart_rate_active_threshold
   if True and hr_id < len(heart_rate_active_threshold_values) - 1:
@@ -150,7 +155,8 @@ for hr_id, heart_rate_active_threshold in enumerate(heart_rate_active_threshold_
           data.loc[start.strftime('%Y-%m-%d'), 'swimSurfStrokes'] += row['cycles']
         else:
           print("Number of surf and swim strokes not added for", start)
-  
+      # Additional activities
+      monitoring_hr = condensedAnalysisFunctions.addDataForActivities(monitoring_hr, selectedTime, heart_rate_active_threshold, additionalActivities, coeff, keyToCoeff1, activity)
 
   garminActivities = garminActivityDataGatheredFromWebExport(info["pathToGarminDataFromWebDIConnectFitness"])
   garminActivities['dateTimeEnd'] = garminActivities['dateTime'] + pd.to_timedelta(garminActivities['garminActivityDuration'], unit='ms').dt.floor('S')
@@ -170,7 +176,8 @@ for hr_id, heart_rate_active_threshold in enumerate(heart_rate_active_threshold_
       # Number of surf and swim strokes
       if activity == 'lap_swimming' and start.strftime('%Y-%m-%d') >= cutoff_date:
         data.loc[start.strftime('%Y-%m-%d'), 'swimSurfStrokes'] += row['strokes']
-
+      # Additional activities
+      monitoring_hr = condensedAnalysisFunctions.addDataForActivities(monitoring_hr, selectedTime, heart_rate_active_threshold, additionalActivities, coeff, keyToCoeff2, activity)
 
 ### Get sum of daily values for lower and upper body load 
 
@@ -178,7 +185,7 @@ monitoring_hr['timestamp'] = pd.to_datetime(monitoring_hr['timestamp'])
 
 monitoring_hr.set_index('timestamp', inplace=True)
 
-daily_hr_data = monitoring_hr.resample('D').sum()[np.array([['active_hr_' + str(heart_rate_active_threshold), 'act_hr_' + str(heart_rate_active_threshold) + '_lowBody', 'act_hr_' + str(heart_rate_active_threshold) + '_highBody'] for heart_rate_active_threshold in heart_rate_active_threshold_values]).flatten().tolist()]
+daily_hr_data = monitoring_hr.resample('D').sum()[np.array([['active_hr_' + str(heart_rate_active_threshold), 'act_hr_' + str(heart_rate_active_threshold) + '_lowBody', 'act_hr_' + str(heart_rate_active_threshold) + '_highBody'] + condensedAnalysisFunctions.returnMonitoring_hr_Variables(additionalActivities, heart_rate_active_threshold) for heart_rate_active_threshold in heart_rate_active_threshold_values]).flatten().tolist()]
 
 data = data.merge(daily_hr_data, left_index=True, right_index=True, how='left')
 
@@ -229,15 +236,15 @@ fig, axes = plt.subplots(figsize=(figWidth, figHeight), nrows=3, ncols=1)
 fig.subplots_adjust(left=0.05, bottom=0.01, right=0.98, top=0.95, wspace=None, hspace=hspace)
 # data[[var + "_RollingMean" for var in lowBodyVars1]].plot(ax=axes[0], color=colors_lowBodyVars1, label=labels1)
 for col, color, label in zip([var + "_RollingMean" for var in lowBodyVars1], colors_lowBodyVars1, labels1):
-  data[col].plot(ax=axes[0], color=color, label=label)
+  data[col].plot(ax=axes[0], color=color, label=label, linewidth=lineWidth)
 axes[0].legend(loc='upper left')
 # data[[var + "_RollingMean" for var in lowBodyVars2]].plot(ax=axes[1], color=colors_lowBodyVars2, label=labels2)
 for col, color, label in zip([var + "_RollingMean" for var in lowBodyVars2], colors_lowBodyVars2, labels2):
-  data[col].plot(ax=axes[1], color=color, label=label)
+  data[col].plot(ax=axes[1], color=color, label=label, linewidth=lineWidth)
 axes[1].legend(loc='upper left')
 # data[[var + "_RollingMean" for var in lowBodyVars3]].plot(ax=axes[2], color=colors_lowBodyVars3, label=labels3)
 for col, color, label in zip([var + "_RollingMean" for var in lowBodyVars3], colors_lowBodyVars3, labels3):
-  data[col].plot(ax=axes[2], color=color, label=label)
+  data[col].plot(ax=axes[2], color=color, label=label, linewidth=lineWidth)
 axes[2].legend(loc='upper left')
 # plt.savefig('11_' + parameterOption['figName'] + '_a_low.' + figsFormat, format=figsFormat)
 plt.show()
@@ -262,19 +269,19 @@ fig, axes = plt.subplots(figsize=(figWidth, figHeight), nrows=4, ncols=1)
 fig.subplots_adjust(left=0.05, bottom=0.01, right=0.98, top=0.95, wspace=None, hspace=hspace)
 # data[[var + "_RollingMean" for var in highBodyVars1]].plot(ax=axes[0], color=colors_lowBodyVars1)
 for col, color, label in zip([var + "_RollingMean" for var in highBodyVars1], colors_highBodyVars1, labels1):
-  data[col].plot(ax=axes[0], color=color, label=label)
+  data[col].plot(ax=axes[0], color=color, label=label, linewidth=lineWidth)
 axes[0].legend(loc='upper left')
 # data[[var + "_RollingMean" for var in highBodyVars2]].plot(ax=axes[1], color=colors_lowBodyVars2)
 for col, color, label in zip([var + "_RollingMean" for var in highBodyVars2], colors_highBodyVars2, labels2):
-  data[col].plot(ax=axes[1], color=color, label=label)
+  data[col].plot(ax=axes[1], color=color, label=label, linewidth=lineWidth)
 axes[1].legend(loc='upper left')
 # data[[var + "_RollingMean" for var in highBodyVars3]].plot(ax=axes[1], color=colors_highBodyVars3)
 for col, color, label in zip([var + "_RollingMean" for var in highBodyVars3], colors_highBodyVars3, labels3):
-  data[col].plot(ax=axes[2], color=color, label=label)
+  data[col].plot(ax=axes[2], color=color, label=label, linewidth=lineWidth)
 axes[2].legend(loc='upper left')
 # data[[var + "_RollingMean" for var in highBodyVars3]].plot(ax=axes[1], color=colors_highBodyVars3)
 for col, color, label in zip([var + "_RollingMean" for var in highBodyVars4], colors_highBodyVars4, labels4):
-  data[col].plot(ax=axes[3], color=color, label=label)
+  data[col].plot(ax=axes[3], color=color, label=label, linewidth=lineWidth)
 axes[3].legend(loc='upper left')
 # plt.savefig('11_' + parameterOption['figName'] + '_a_low.' + figsFormat, format=figsFormat)
 plt.show()
@@ -293,15 +300,19 @@ fig, axes = plt.subplots(figsize=(figWidth, figHeight), nrows=2, ncols=1)
 fig.subplots_adjust(left=0.05, bottom=0.01, right=0.98, top=0.95, wspace=None, hspace=hspace)
 # data[[var + "_RollingMean" for var in faceVars1]].plot(ax=axes[0], color=colors_lowBodyVars1)
 for col, color, label in zip([var + "_RollingMean" for var in faceVars1], colors_faceVars1, labels1):
-  data[col].plot(ax=axes[0], color=color, label=label)
+  data[col].plot(ax=axes[0], color=color, label=label, linewidth=lineWidth)
 axes[0].legend(loc='upper left')
 # data[[var + "_RollingMean" for var in faceVars2]].plot(ax=axes[1], color=colors_lowBodyVars2)
 for col, color, label in zip([var + "_RollingMean" for var in faceVars2], colors_faceVars2, labels2):
-  data[col].plot(ax=axes[1], color=color, label=label)
+  data[col].plot(ax=axes[1], color=color, label=label, linewidth=lineWidth)
 axes[1].legend(loc='upper left')
 # plt.savefig('11_' + parameterOption['figName'] + '_a_low.' + figsFormat, format=figsFormat)
 plt.show()
 
+
+# OtherVariables
+if len(additionalActivities):
+  condensedAnalysisFunctions.plotAdditionalActivitiesAnalysis(data, heart_rate_active_threshold_values, additionalActivities, rollingWindow, figWidth, figHeight, hspace, lineWidth)
 
 
 ### Saving data
@@ -309,6 +320,10 @@ plt.show()
 if True:
   
   listOfVariables = ['realTimeKneePain', 'realTimeArmPain', 'realTimeFacePain', 'active_hr_70', 'act_hr_70_lowBody', 'act_hr_70_highBody', 'active_hr_110', 'act_hr_110_lowBody', 'act_hr_110_highBody', 'garminSteps', 'garminCyclingActiveCalories',  'realTimeEyeDrivingTime', 'realTimeEyeRidingTime', 'whatPulseRealTime', 'manicTimeRealTime', 'realTimeEyeInCar', 'computerAndCarRealTime', 'climbingDenivelation', 'climbingMaxEffortIntensity', 'garminClimbingActiveCalories', 'garminKneeRelatedActiveCalories', 'swimSurfStrokes', 'generalmood']
+  
+  if len(additionalActivities):
+    listOfVariables += [condensedAnalysisFunctions.returnMonitoring_hr_Variables(additionalActivities, heart_rate_active_threshold) for heart_rate_active_threshold in heart_rate_active_threshold_values][0]
+      
   
   data = data[listOfVariables]
   
