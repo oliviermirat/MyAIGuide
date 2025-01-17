@@ -30,7 +30,12 @@ figsFormat = 'png'
 
 rollingWindow = 14
 
-additionalActivities = ['cycling']
+replaceCyclingCaloriesByGarminCyclingHr = True
+
+if replaceCyclingCaloriesByGarminCyclingHr:
+  additionalActivities = ['cycling']
+else:
+  additionalActivities = []
 
 cutoff_date = "2023-05-15"
 
@@ -189,7 +194,9 @@ daily_hr_data = monitoring_hr.resample('D').sum()[np.array([['active_hr_' + str(
 
 data = data.merge(daily_hr_data, left_index=True, right_index=True, how='left')
 
-
+#
+if replaceCyclingCaloriesByGarminCyclingHr:
+  data['garminCyclingHr'] = data['act_hr_70_cycling_lowBody'] + data['act_hr_110_cycling_lowBody']
 
 # Plotting per day
 
@@ -198,6 +205,9 @@ data["computerAndCarRealTime"] = data["realTimeEyeDrivingTime"] + data["manicTim
 
 scaler = MinMaxScaler()
 listOfVariables = ['realTimeKneePain', 'realTimeArmPain', 'realTimeFacePain'] + np.array([['active_hr_' + str(heart_rate_active_threshold), 'act_hr_' + str(heart_rate_active_threshold) + '_lowBody', 'act_hr_' + str(heart_rate_active_threshold) + '_highBody'] for heart_rate_active_threshold in heart_rate_active_threshold_values]).flatten().tolist() + ['garminSteps', 'garminCyclingActiveCalories',  'realTimeEyeDrivingTime', 'realTimeEyeRidingTime', 'whatPulseRealTime', 'manicTimeRealTime', 'realTimeEyeInCar', 'computerAndCarRealTime', 'climbingDenivelation', 'climbingMaxEffortIntensity', 'garminClimbingActiveCalories', 'garminKneeRelatedActiveCalories', 'swimSurfStrokes']
+
+if replaceCyclingCaloriesByGarminCyclingHr:
+  listOfVariables += ['garminCyclingHr']
 
 
 listOfVariables_scaled = [var + 'sca' for var in listOfVariables]
@@ -218,13 +228,19 @@ data[[var + "_RollingMean" for var in listOfVariables]] = scaler.fit_transform(d
 # Lower
 
 lowBodyVars1 = ['act_hr_' + str(heart_rate_active_threshold_values[0]) + '_lowBody', 'act_hr_' + str(heart_rate_active_threshold_values[1]) + '_lowBody', 'realTimeKneePain']
-lowBodyVars2 = ['garminSteps', 'garminCyclingActiveCalories', 'realTimeKneePain']
+if not(replaceCyclingCaloriesByGarminCyclingHr):
+  lowBodyVars2 = ['garminSteps', 'garminCyclingActiveCalories', 'realTimeKneePain']
+else:
+  lowBodyVars2 = ['garminSteps', 'garminCyclingHr', 'realTimeKneePain']
 lowBodyVars3 = ['realTimeEyeDrivingTime', 'manicTimeRealTime', 'realTimeKneePain']
 colors_lowBodyVars1 = ['blue', 'orange', 'red']
 colors_lowBodyVars2 = ['green', 'purple', 'red']
 colors_lowBodyVars3 = ['cyan', 'black', 'red']
 labels1 = ['hr' + str(heart_rate_active_threshold_values[0]), 'hr' + str(heart_rate_active_threshold_values[1]), 'knee']
-labels2 = ['steps', 'cycleCal', 'knee']
+if not(replaceCyclingCaloriesByGarminCyclingHr):
+  labels2 = ['steps', 'cycleCal', 'knee']
+else:
+  labels2 = ['steps', 'cycleHr', 'knee']
 labels3 = ['driving', 'computer', 'knee']
 
 if True:

@@ -28,6 +28,7 @@ cliffJumpingActCaloPerMinute = 3.3 #2.7 # This might be a bit too conservative?
 ### Reloading data
 
 inputt = open("../data/preprocessed/preprocessedMostImportantDataParticipant1.txt", "rb")
+
 data = pickle.load(inputt)
 inputt.close()
 
@@ -62,7 +63,7 @@ data.sort_index(inplace=True)
 
 ### Adding new columns to the dataframe
 
-new_columns = ['garminTotalActiveCalories', 'garminSurfSwimActiveCalories', 'garminClimbingActiveCalories', 'garminCyclingActiveCalories', 'garminBackcountrySkiingActiveCalories', 'garminCliffJumpingActiveCalories', 'garminKneeRelatedActiveCalories', 'garminArmsRelatedActiveCalories', 'garminSteps', 'whatPulseRealTime', 'manicTimeRealTime', 'realTimeKneePain', 'realTimeArmPain', 'realTimeFacePain', 'realTimeEyeDrivingTime', 'realTimeEyeRidingTime', 'phoneTime'] #, 'garminDenivelationCyclingAndWalking', 'garminKneeRelatedDistanceAndDenivelation']
+new_columns = ['garminTotalActiveCalories', 'garminSurfSwimActiveCalories', 'garminClimbingActiveCalories', 'garminCyclingActiveCalories', 'garminBackcountrySkiingActiveCalories', 'garminCliffJumpingActiveCalories', 'garminKneeRelatedActiveCalories', 'garminArmsRelatedActiveCalories', 'garminSteps', 'whatPulseRealTime', 'manicTimeRealTime', 'realTimeKneePain', 'realTimeArmPain', 'realTimeFacePain', 'realTimeSick', 'realTimeOtherPain', 'realTimeEyeDrivingTime', 'realTimeEyeRidingTime', 'phoneTime'] #, 'garminDenivelationCyclingAndWalking', 'garminKneeRelatedDistanceAndDenivelation']
 data[new_columns] = 0
 
 
@@ -327,7 +328,10 @@ for i in range(len(pain)):
         data.loc[date, "realTimeArmPain"] = max(data.loc[date, "realTimeArmPain"], float(pain.loc[i, 5]))
       elif pain.loc[i, 3] in ["Forehead and Eyes", "Eyes (or around them)", "Eyes", "Forehead"]:
         data.loc[date, "realTimeFacePain"] = max(data.loc[date, "realTimeFacePain"], float(pain.loc[i, 5]))
-
+      elif pain.loc[i, 3] in ["Sick", "Sick/Tired"]:
+        data.loc[date, "realTimeSick"] = max(data.loc[date, "realTimeSick"], float(pain.loc[i, 5]))
+      else:
+        data.loc[date, "realTimeOtherPain"] = max(data.loc[date, "realTimeOtherPain"], float(pain.loc[i, 5]))
 
 ### Getting realTimeEyeDrivingTime value
 
@@ -378,14 +382,26 @@ data.loc["2023-10-07", "realTimeKneePain"] = data["realTimeKneePain"]["2023-10-0
 data.loc["2023-10-07", "realTimeArmPain"]  = data["realTimeArmPain"]["2023-10-06"]
 data.loc["2023-10-07", "realTimeFacePain"] = data["realTimeFacePain"]["2023-10-06"]
 
-data.loc[data["realTimeKneePain"] > 3.4, "realTimeKneePain"] = 3.4
+data.loc[data["realTimeKneePain"] > 3.5, "realTimeKneePain"] = 3.5
 
 
 ### Store sport data
 
 from storeSportData import storeSportData
 
+data["surfing"] = 0
+data["swimming"] = 0
+data['climbingDenivelation'] = 0
+data['climbingMaxEffortIntensity'] = 0
+data['swimmingKm'] = 0
+data['surfing'] = 0
+data['cycling'] = 0
+data['roadBike'] = 0
+data['mountainBike'] = 0
+
 data = storeSportData(info["pathToSportOdsFile"], data)
+
+data["cycling"] = data["roadBike"] + data["mountainBike"]
 
 
 ### Saving processed data in pickle file
