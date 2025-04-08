@@ -338,7 +338,7 @@ if True:
   listOfVariables = ['realTimeKneePain', 'realTimeArmPain', 'realTimeFacePain', 'active_hr_70', 'act_hr_70_lowBody', 'act_hr_70_highBody', 'active_hr_110', 'act_hr_110_lowBody', 'act_hr_110_highBody', 'garminSteps', 'garminCyclingActiveCalories',  'realTimeEyeDrivingTime', 'realTimeEyeRidingTime', 'whatPulseRealTime', 'manicTimeRealTime', 'realTimeEyeInCar', 'computerAndCarRealTime', 'climbingDenivelation', 'climbingMaxEffortIntensity', 'garminClimbingActiveCalories', 'garminKneeRelatedActiveCalories', 'swimSurfStrokes', 'generalmood']
   
   if len(additionalActivities):
-    listOfVariables += [condensedAnalysisFunctions.returnMonitoring_hr_Variables(additionalActivities, heart_rate_active_threshold) for heart_rate_active_threshold in heart_rate_active_threshold_values][0]
+    listOfVariables += np.array([condensedAnalysisFunctions.returnMonitoring_hr_Variables(additionalActivities, heart_rate_active_threshold) for heart_rate_active_threshold in heart_rate_active_threshold_values]).flatten().tolist()
       
   
   data = data[listOfVariables]
