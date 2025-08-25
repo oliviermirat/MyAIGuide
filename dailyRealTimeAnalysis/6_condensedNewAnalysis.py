@@ -157,7 +157,8 @@ for hr_id, heart_rate_active_threshold in enumerate(heart_rate_active_threshold_
       # Number of surf and swim strokes
       if activity == "swimming":
         if type(row['cycles']) == float:
-          data.loc[start.strftime('%Y-%m-%d'), 'swimSurfStrokes'] += row['cycles']
+          if start.strftime('%Y-%m-%d') < str(data.index[-1]):
+            data.loc[start.strftime('%Y-%m-%d'), 'swimSurfStrokes'] += row['cycles']
         else:
           print("Number of surf and swim strokes not added for", start)
       # Additional activities
@@ -335,10 +336,10 @@ if len(additionalActivities):
 
 if True:
   
-  listOfVariables = ['realTimeKneePain', 'realTimeArmPain', 'realTimeFacePain', 'active_hr_70', 'act_hr_70_lowBody', 'act_hr_70_highBody', 'active_hr_110', 'act_hr_110_lowBody', 'act_hr_110_highBody', 'garminSteps', 'garminCyclingActiveCalories',  'realTimeEyeDrivingTime', 'realTimeEyeRidingTime', 'whatPulseRealTime', 'manicTimeRealTime', 'realTimeEyeInCar', 'computerAndCarRealTime', 'climbingDenivelation', 'climbingMaxEffortIntensity', 'garminClimbingActiveCalories', 'garminKneeRelatedActiveCalories', 'swimSurfStrokes', 'generalmood']
+  listOfVariables = ['realTimeKneePain', 'realTimeArmPain', 'realTimeFacePain', 'active_hr_70', 'act_hr_70_lowBody', 'act_hr_70_highBody', 'active_hr_110', 'act_hr_110_lowBody', 'act_hr_110_highBody', 'garminSteps', 'garminCyclingActiveCalories',  'realTimeEyeDrivingTime', 'realTimeEyeRidingTime', 'whatPulseRealTime', 'manicTimeRealTime', 'realTimeEyeInCar', 'computerAndCarRealTime', 'climbingDenivelation', 'climbingMaxEffortIntensity', 'garminClimbingActiveCalories', 'garminKneeRelatedActiveCalories', 'swimSurfStrokes', 'act_hr_70_cycling_lowBody', 'act_hr_110_cycling_lowBody']
   
-  if len(additionalActivities):
-    listOfVariables += np.array([condensedAnalysisFunctions.returnMonitoring_hr_Variables(additionalActivities, heart_rate_active_threshold) for heart_rate_active_threshold in heart_rate_active_threshold_values]).flatten().tolist()
+  # if len(additionalActivities):
+    # listOfVariables += np.array([condensedAnalysisFunctions.returnMonitoring_hr_Variables(additionalActivities, heart_rate_active_threshold) for heart_rate_active_threshold in heart_rate_active_threshold_values]).flatten().tolist()
       
   
   data = data[listOfVariables]
@@ -347,6 +348,8 @@ if True:
   'realTimeKneePain': 'kneePain', 
   'realTimeArmPain': 'armPain', 
   'realTimeFacePain': 'facePain', 
+  'act_hr_70_cycling_lowBody': 'numberOfHeartBeatsBetween70and110_lowerBodyActivity_cycling', 
+  'act_hr_110_cycling_lowBody': 'numberOfHeartBeatsAbove110_lowerBodyActivity_cycling', 
   'active_hr_70': 'numberOfHeartBeatsBetween70and110', 
   'act_hr_70_lowBody': 'numberOfHeartBeatsBetween70and110_lowerBodyActivity', 
   'act_hr_70_highBody': 'numberOfHeartBeatsBetween70and110_upperBodyActivity', 
@@ -365,10 +368,26 @@ if True:
   'climbingMaxEffortIntensity': 'climbingMaxEffortIntensity', 
   'garminClimbingActiveCalories': 'garminClimbingActiveCalories', 
   'garminKneeRelatedActiveCalories': 'garminKneeRelatedActiveCalories', 
-  'swimSurfStrokes': 'swimAndSurfStrokes',
-  'generalmood': 'generalmood'
+  'swimSurfStrokes': 'swimAndSurfStrokes'
   }
   
   data = data.rename(columns=renaming)
   
   data.to_pickle('dataMay2023andLater.pkl')
+  
+  
+  # Saving rolling mean variables
+  
+  if False:
+  
+    listOfVariables = data.columns
+    
+    for variable in listOfVariables:
+      data[variable] = data[variable].rolling(rollingWindow).mean()
+
+    data[[var for var in listOfVariables]] = scaler.fit_transform(data[[var for var in listOfVariables]])
+    
+    data = data.dropna()
+    
+    data.to_pickle('dataMay2023andLater_RollingMean.pkl')
+    

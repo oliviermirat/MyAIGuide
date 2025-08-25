@@ -279,7 +279,7 @@ data.loc[(data['manicTimeRealTime'] != 0) & (data['whatPulseRealTime'] == 0) & (
 # whatPulseProblemData["whatPulseRealTime"] = whatPulseByManicDividedAverage * whatPulseProblemData["manicTimeRealTime"]
 
 
-### Overwritting WhatPulse and ManicTime data recorded after 28/11/2024 with custom made script
+### For data recorded after 28/11/2024, taking the maximum between WhatPulse/ManicTime and data from custom made script 
 conn = sqlite3.connect(info["pathToCustomMadeClicksAndKeysMonitoringDB"])
 cursor = conn.cursor()
 cursor.execute("SELECT * FROM activity")
@@ -287,8 +287,8 @@ rows = cursor.fetchall()
 for row in rows:
   date, keypresses, clicks, screen_on_time, nbAudioClicks = row
   if date >= '2024-11-28' and date <= yesterday_date.strftime('%Y-%m-%d'):
-    data.loc[date, "manicTimeRealTime"] = screen_on_time / 60
-    data.loc[date, "whatPulseRealTime"] = keypresses + clicks - nbAudioClicks
+    data.loc[date, "manicTimeRealTime"] = max(data.loc[date, "manicTimeRealTime"], screen_on_time / 60)
+    data.loc[date, "whatPulseRealTime"] = max(data.loc[date, "whatPulseRealTime"], keypresses + clicks - nbAudioClicks)
 
 
 

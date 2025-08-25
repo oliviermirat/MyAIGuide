@@ -23,12 +23,14 @@ analysisOnBothDateRangeExtremities = True
 
 rollingMeanWindow = 45
 rollingMinMax = 270
-rollingMedianWindow = 3
+rollingMedianWindow = 1 # 3
 
 plotTimeInitialTimeSeries = True
 plotFinalHistograms = True
 
-coeffKnee = {'numberOfHeartBeatsBetween70and110_lowerBodyActivity': 0, 'numberOfHeartBeatsAbove110_lowerBodyActivity': 1, 'numberOfSteps': 1, 'cyclingCalories': 2, 'timeOnComputer': 0.5, 'timeSpentDriving': 0.5, 'climbingDenivelation': 0.1, 'timeSpentRidingCar': 0, 'garminKneeRelatedActiveCalories': 0}
+coeffKnee = {'numberOfComputerClicksAndKeyStrokes': 3, 'climbingMaxEffortIntensity': 3, 'swimAndSurfStrokes': 3}
+
+# coeffKnee = {'numberOfComputerClicksAndKeyStrokes': 1, 'climbingMaxEffortIntensity': 1, 'swimAndSurfStrokes': 1}
 
 
 
@@ -46,9 +48,9 @@ print(data.columns)
 
 # data['tracker_mean_denivelation'] = data['tracker_mean_denivelation'].fillna(0)
 
-predictors = ['numberOfHeartBeatsBetween70and110_lowerBodyActivity', 'numberOfHeartBeatsAbove110_lowerBodyActivity', 'numberOfSteps', 'cyclingCalories', 'timeOnComputer', 'timeSpentDriving', 'timeSpentRidingCar', 'climbingDenivelation',  'garminKneeRelatedActiveCalories']
+predictors = ['numberOfComputerClicksAndKeyStrokes', 'climbingMaxEffortIntensity', 'swimAndSurfStrokes']
 
-region = 'knee'
+region = 'arm'
 
 [maxstrainScoresKnee, totDaysAscendingPainKnee, totDaysDescendingPainKnee, minpeaks, maxpeaks, maxstrainScores2, strainMinMaxAmplitudesKnee, painMinMaxAmplitudesKnee, maxpeaksstrain] = applyPeaksAnalysisOnRegion(data, coeffKnee, plotTimeInitialTimeSeries, rollingMeanWindow, rollingMinMax, rollingMedianWindow, analysisOnBothDateRangeExtremities, predictors, region)
 

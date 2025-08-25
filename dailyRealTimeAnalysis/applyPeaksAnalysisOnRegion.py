@@ -21,8 +21,8 @@ def applyPeaksAnalysisOnRegion(data, coeffKnee, plotTimeInitialTimeSeries, rolli
   figHeight = 5.1
   hspace   = 0.4
 
-  minProminenceForPeakDetect = 0.08 #0.075
-  windowForLocalPeakMinMaxFind = 5
+  minProminenceForPeakDetect = 0.1 #0.08 #0.075
+  windowForLocalPeakMinMaxFind = 5 #5
   plotZoomedGraph = False
   minMaxTimeToleranceMinus = 0
   minMaxTimeTolerancePlus = 0
