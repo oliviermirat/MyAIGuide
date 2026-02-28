@@ -152,6 +152,6 @@ data = data.loc[data.index <= "2023-04-29"] # "2023-07-13"]
 data.loc["2023-04-09", "kneePain"] = 2.9
 
 # Saving the dataframe in a txt
-output = open("../data/preprocessed/preprocessedMostImportantDataParticipant1.txt", "wb")
+output = open("./oldDataset.pkl", "wb")
 pickle.dump(data[["tracker_mean_distance", "tracker_mean_denivelation", "whatPulseT_corrected", "manicTimeDelta_corrected", "timeDrivingCar", "climbingDenivelation", "climbingMaxEffortIntensity", "climbingMeanEffortIntensity", "swimmingKm", "surfing", "climbing", "viaFerrata", "swimming", "cycling", "generalmood", "scooterRiding", "kneePain", "foreheadEyesPain",  "handsAndFingerPain", "forearmElbowPain", "shoulderNeckPain", "sick_tired", "painInOtherRegion", "foreheadAndEyesPain", "aroundEyesPain", "fingerHandArmPain", "fingersPain", "foreheadPain", "eyesPain", "shoulderPain", "elbowPain", "wholeArm"]], output)
 output.close()

@@ -4,7 +4,7 @@ sys.path.insert(1, '../february2023ResearchGatePaperScripts')
 import peaksAnalysis_launch
 
 # Reloading data
-input = open("../data/preprocessed/preprocessedMostImportantDataParticipant1.txt", "rb")
+input = open("./oldDataset.pkl", "rb")
 data = pickle.load(input)
 input.close()
 
