@@ -1,0 +1,25 @@
+Variable_1,Variable_2,Lag,Correlation,P-value,Significant (p < 0.05)
+swimmingKm,foreheadEyesPain,next_5_days,0.1568909765882937,3.282350742190536e-12,True
+swimming,foreheadEyesPain,next_5_days,0.1469248275112131,7.144172472646562e-11,True
+scooterRiding,foreheadEyesPain,next_5_days,0.08381503599305587,0.00021191825824152104,True
+whatPulseT_corrected,foreheadEyesPain,same_day,0.0712537625745481,0.0016412994873286149,True
+viaFerrata,foreheadEyesPain,next_day,0.0658170776592853,0.0036497586680651973,True
+climbingDenivelation,foreheadEyesPain,same_day,-0.05246554626316055,0.020507764404227437,True
+climbingMeanEffortIntensity,foreheadEyesPain,same_day,-0.05542365696882416,0.01437495261232228,True
+tracker_mean_distance,foreheadEyesPain,same_day,-0.09824879617084534,1.3846198193212809e-05,True
+tracker_mean_denivelation,foreheadEyesPain,same_day,-0.10186790621679129,1.285520391445546e-05,True
+timeDrivingCar,foreheadEyesPain,next_5_days,-0.13696667206199262,1.267305271939242e-09,True
+scooterRiding,kneePain,next_5_days,0.1836452176480219,3.0365636722147693e-16,True
+tracker_mean_distance,kneePain,same_day,0.05699365268240336,0.011829033807727724,True
+swimmingKm,kneePain,next_5_days,-0.053046041129778815,0.01918094122169569,True
+climbingMeanEffortIntensity,kneePain,next_day,-0.05570127549456439,0.01391683706228821,True
+cycling,kneePain,same_day,-0.0647900599738042,0.004206787137371029,True
+timeDrivingCar,kneePain,next_4_days,-0.08061767548535555,0.0003672227972617503,True
+climbing,kneePain,next_day,-0.08944869411282243,7.674953997520316e-05,True
+climbingMaxEffortIntensity,kneePain,next_2_days,-0.09913314419628533,1.1626621554992334e-05,True
+climbingDenivelation,kneePain,next_day,-0.0992536416817468,1.1343924767358501e-05,True
+manicTimeDelta_corrected,wholeArm,same_day,0.1500013863232767,2.7884074899151098e-11,True
+scooterRiding,wholeArm,next_day,0.13720427654265552,1.1860293226002145e-09,True
+whatPulseT_corrected,wholeArm,same_day,0.0896116459606263,7.414416935002704e-05,True
+tracker_mean_distance,wholeArm,next_day,-0.06479356145463909,0.004214491982554031,True
+timeDrivingCar,wholeArm,next_2_days,-0.16307843536171232,4.374991050404714e-13,True

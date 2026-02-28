@@ -18,6 +18,8 @@ import condensedAnalysisFunctions
 
 ##### Parameters
 
+extendedDataSaving = True
+
 heart_rate_active_threshold_values = [70, 110]
 
 saveFigs = False
@@ -59,7 +61,9 @@ keyToCoeff1 = {'walking':           'walking',
                'backcountry skiing':'backcountry skiing',
                'moving snow':       '25/75',
                'Moving snow':       '25/75',
-               'Resort skiing':     'Resort skiing'
+               'Resort skiing':     'Resort skiing',
+               'Trottinette':       'cycling',
+               'Trottinette ':       'cycling'
               }
 
 keyToCoeff2 = {'cycling':             'cycling', 
@@ -99,6 +103,26 @@ data["swimSurfStrokes"] = 0
 
 with open("info.json", 'r') as json_file:
   info = json.load(json_file)
+  
+
+if extendedDataSaving:
+  ### Loading data from garmindb
+  # cnx = sqlite3.connect(info["pathToGarminSummaryDb"])
+  # days_summary = pd.read_sql_query("SELECT * FROM days_summary", cnx)
+  # cnx = sqlite3.connect(info["pathToGarminActivitiesDb"])
+  # activities   = pd.read_sql_query("SELECT * FROM activities", cnx)
+  ### Getting sleep data
+  cnx = sqlite3.connect(info["pathToGarminDb"])
+  sleep = pd.read_sql_query("SELECT * FROM sleep", cnx)
+  sleep['timestamp'] = pd.to_datetime(sleep['day'])
+  sleep.set_index('timestamp', inplace=True)
+  data = data.merge(sleep, left_index=True, right_index=True, how='left')
+  ### Getting rhr data
+  daily_summary = pd.read_sql_query("SELECT * FROM daily_summary", cnx)
+  daily_summary['timestamp'] = pd.to_datetime(daily_summary['day'])
+  daily_summary.set_index('timestamp', inplace=True)
+  data = data.merge(daily_summary, left_index=True, right_index=True, how='left')
+
 
 cnx = sqlite3.connect(info["pathToGarminActivitiesDb"])
 activities = pd.read_sql_query("SELECT * FROM activities", cnx)
@@ -341,8 +365,21 @@ if True:
   # if len(additionalActivities):
     # listOfVariables += np.array([condensedAnalysisFunctions.returnMonitoring_hr_Variables(additionalActivities, heart_rate_active_threshold) for heart_rate_active_threshold in heart_rate_active_threshold_values]).flatten().tolist()
       
-  
-  data = data[listOfVariables]
+  if not(extendedDataSaving):
+    data = data[listOfVariables]
+  else:
+    listOfVariables2 = listOfVariables + ['scooterRiding', 'realTimeSick', 'realTimeOtherPain', 'garminCliffJumpingActiveCalories', 'score', 'rhr'] #, 'generalmood']
+    data = data[listOfVariables2]
+    
+    data[['scooterRiding', 'realTimeSick', 'realTimeOtherPain', 'garminCliffJumpingActiveCalories']] = data[['scooterRiding', 'realTimeSick', 'realTimeOtherPain', 'garminCliffJumpingActiveCalories']].replace([np.nan, np.inf, -np.inf], 0)
+    for col in data.columns:
+      # Step 1: if first row is missing, set it to the first available non-null value in the column
+      if pd.isna(data.loc[data.index[0], col]):
+        first_valid_index = data[col].first_valid_index()
+        if first_valid_index is not None:  # make sure there's at least one non-null
+          data.loc[data.index[0], col] = data.loc[first_valid_index, col]
+      # Step 2: forward fill missing values
+      data[col] = data[col].ffill()
   
   renaming = {
   'realTimeKneePain': 'kneePain', 
