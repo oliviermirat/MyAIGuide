@@ -17,11 +17,11 @@ data = pickle.load(inputt)
 inputt.close()
 print(data)
 
-inputt = open('../data/preprocessed/swimmingStepsFromFitbit.pkl', "rb")
+inputt = open('../data/preprocessed/swimmingStepsFromFitbit.pkl', "rb") # pkl generate from otherScriptsLate2023/0_createPreprocessedData_check.py
 swimming_data = pickle.load(inputt)
 inputt.close()
 
-inputt = open('../data/preprocessed/cyclingStepsFromFitbit.pkl', "rb")
+inputt = open('../data/preprocessed/cyclingStepsFromFitbit.pkl', "rb") # pkl generate from otherScriptsLate2023/0_createPreprocessedData_check.py
 cycling_data = pickle.load(inputt)
 inputt.close()
 
