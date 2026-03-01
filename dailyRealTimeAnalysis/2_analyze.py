@@ -287,8 +287,8 @@ rows = cursor.fetchall()
 for row in rows:
   date, keypresses, clicks, screen_on_time, nbAudioClicks = row
   if date >= '2024-11-28' and date <= yesterday_date.strftime('%Y-%m-%d'):
-    data.loc[date, "manicTimeRealTime"] = max(data.loc[date, "manicTimeRealTime"], screen_on_time / 60)
-    data.loc[date, "whatPulseRealTime"] = max(data.loc[date, "whatPulseRealTime"], keypresses + clicks - nbAudioClicks)
+    data.loc[date, "manicTimeRealTime"] = max(data.loc[date, "manicTimeRealTime"], screen_on_time / 60) if date in data.index else screen_on_time / 60
+    data.loc[date, "whatPulseRealTime"] = max(data.loc[date, "whatPulseRealTime"], keypresses + clicks - nbAudioClicks) if date in data.index else keypresses + clicks - nbAudioClicks
 
 
 

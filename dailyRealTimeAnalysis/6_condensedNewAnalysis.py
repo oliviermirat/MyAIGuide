@@ -44,6 +44,7 @@ cutoff_date = "2023-05-15"
 keyToCoeff1 = {'walking':           'walking',
                'cycling':           'cycling',
                'swimming':          'swimming',
+               'surfing':           'swimming',
                'rock_climbing':     'rock_climbing',
                'generic':           'rock_climbing', 
                'training':          'homeExercises',
