@@ -361,7 +361,7 @@ if len(additionalActivities):
 
 if True:
   
-  listOfVariables = ['realTimeKneePain', 'realTimeArmPain', 'realTimeFacePain', 'active_hr_70', 'act_hr_70_lowBody', 'act_hr_70_highBody', 'active_hr_110', 'act_hr_110_lowBody', 'act_hr_110_highBody', 'garminSteps', 'garminCyclingActiveCalories',  'realTimeEyeDrivingTime', 'realTimeEyeRidingTime', 'whatPulseRealTime', 'manicTimeRealTime', 'realTimeEyeInCar', 'computerAndCarRealTime', 'climbingDenivelation', 'climbingMaxEffortIntensity', 'garminClimbingActiveCalories', 'garminKneeRelatedActiveCalories', 'swimSurfStrokes', 'act_hr_70_cycling_lowBody', 'act_hr_110_cycling_lowBody']
+  listOfVariables = ['realTimeKneePain', 'realTimeArmPain', 'realTimeFacePain', 'active_hr_70', 'act_hr_70_lowBody', 'act_hr_70_highBody', 'active_hr_110', 'act_hr_110_lowBody', 'act_hr_110_highBody', 'garminSteps', 'garminCyclingActiveCalories',  'realTimeEyeDrivingTime', 'realTimeEyeRidingTime', 'whatPulseRealTime', 'manicTimeRealTime', 'realTimeEyeInCar', 'computerAndCarRealTime', 'climbingDenivelation', 'climbingMaxEffortIntensity', 'garminClimbingActiveCalories', 'garminKneeRelatedActiveCalories', 'swimSurfStrokes', 'act_hr_70_cycling_lowBody', 'act_hr_110_cycling_lowBody', 'surfing', 'swimming', 'phoneTime']
   
   # if len(additionalActivities):
     # listOfVariables += np.array([condensedAnalysisFunctions.returnMonitoring_hr_Variables(additionalActivities, heart_rate_active_threshold) for heart_rate_active_threshold in heart_rate_active_threshold_values]).flatten().tolist()
@@ -413,6 +413,10 @@ if True:
   
   data.to_pickle('dataMay2023andLater.pkl')
   
+  ###
+  import subprocess
+  subprocess.run(["python", "prepFor2026firstAIcoachPrototype/prepFor2026firstAIcoachPrototype.py"])
+  ###
   
   # Saving rolling mean variables
   
