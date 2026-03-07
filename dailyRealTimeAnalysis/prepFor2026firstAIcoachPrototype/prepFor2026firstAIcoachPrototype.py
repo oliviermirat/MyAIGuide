@@ -157,6 +157,9 @@ data = data[data.index <= '2025-09-11']
 
 ###
 
+data['surfing2']  = data['surfing'].copy()
+data['swimming2'] = data['swimming'].copy()
+
 both_mask = (data['surfing'] == 1) & (data['swimming'] == 1)
 surf_only_mask = (data['surfing'] == 1) & (data['swimming'] != 1)
 swim_only_mask = (data['swimming'] == 1) & (data['surfing'] != 1)
@@ -167,6 +170,13 @@ data.loc[surf_only_mask, 'surfing'] = data.loc[surf_only_mask, 'swimAndSurfStrok
 data.loc[swim_only_mask, 'swimming'] = data.loc[swim_only_mask, 'swimAndSurfStrokes']
 
 data.rename(columns={'surfing': 'surfStrokes', 'swimming': 'swimStrokes'}, inplace=True)
+
+data.loc[both_mask, 'surfing2'] = data.loc[both_mask, 'numberOfHeartBeatsAbove110_upperBodyActivity'] / 2
+data.loc[both_mask, 'swimming2'] = data.loc[both_mask, 'numberOfHeartBeatsAbove110_upperBodyActivity'] / 2
+data.loc[surf_only_mask, 'surfing2'] = data.loc[surf_only_mask, 'numberOfHeartBeatsAbove110_upperBodyActivity']
+data.loc[swim_only_mask, 'swimming2'] = data.loc[swim_only_mask, 'numberOfHeartBeatsAbove110_upperBodyActivity']
+
+data.rename(columns={'surfing2': 'surfCumBpmAbove110', 'swimming2': 'swimCumBpmAbove110'}, inplace=True)
 
 ###
 
