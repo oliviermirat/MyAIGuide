@@ -369,7 +369,7 @@ if True:
   if not(extendedDataSaving):
     data = data[listOfVariables]
   else:
-    listOfVariables2 = listOfVariables + ['scooterRiding', 'realTimeSick', 'realTimeOtherPain', 'garminCliffJumpingActiveCalories', 'score', 'rhr'] #, 'generalmood']
+    listOfVariables2 = listOfVariables + ['scooterRiding', 'realTimeSick', 'realTimeOtherPain', 'garminCliffJumpingActiveCalories', 'score', 'rhr', 'realTimeGeneralMood']
     data = data[listOfVariables2]
     
     data[['scooterRiding', 'realTimeSick', 'realTimeOtherPain', 'garminCliffJumpingActiveCalories']] = data[['scooterRiding', 'realTimeSick', 'realTimeOtherPain', 'garminCliffJumpingActiveCalories']].replace([np.nan, np.inf, -np.inf], 0)
@@ -406,7 +406,8 @@ if True:
   'climbingMaxEffortIntensity': 'climbingMaxEffortIntensity', 
   'garminClimbingActiveCalories': 'garminClimbingActiveCalories', 
   'garminKneeRelatedActiveCalories': 'garminKneeRelatedActiveCalories', 
-  'swimSurfStrokes': 'swimAndSurfStrokes'
+  'swimSurfStrokes': 'swimAndSurfStrokes',
+  'realTimeGeneralMood': 'generalMood'
   }
   
   data = data.rename(columns=renaming)

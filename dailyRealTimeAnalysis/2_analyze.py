@@ -376,6 +376,61 @@ for i in range(len(eyeRelated)):
         # print("probably couldn't convert:", eyeRelated.loc[i, 7])
 
 
+
+### Getting realTimeGeneralMood value
+
+data2 = pyexcel_ods.get_data(info["pathGeneralMoodExcelFile"])
+sheet_name = list(data2.keys())[0]
+generalMood = pd.DataFrame(data2[sheet_name])
+
+currentYear  = ''
+currentMonth = ''
+currentDay   = ''
+for i in range(len(generalMood)):
+  # Year
+  if len(str(generalMood.loc[i, 0])):
+    currentYear = generalMood.loc[i, 0]
+  else:
+    generalMood.loc[i, 0] = currentYear
+  # Month
+  if len(str(generalMood.loc[i, 1])):
+    currentMonth = generalMood.loc[i, 1]
+  else:
+    generalMood.loc[i, 1] = currentMonth
+  # Day
+  if len(str(generalMood.loc[i, 2])):
+    currentDay = generalMood.loc[i, 2]
+  else:
+    generalMood.loc[i, 2] = currentDay
+  
+  date = str(generalMood.loc[i, 0]) + "-" + str(generalMood.loc[i, 1]) + "-" + str(generalMood.loc[i, 2])
+  
+  if date in data.index:
+    
+    if generalMood.loc[i, 3] == "Really Good":
+      data.loc[date, "realTimeGeneralMood"] = 9
+    elif generalMood.loc[i, 3] == "Good":
+      data.loc[date, "realTimeGeneralMood"] = 8
+    elif generalMood.loc[i, 3] == "Fine":
+      data.loc[date, "realTimeGeneralMood"] = 7
+    elif generalMood.loc[i, 3] == "Ok, but also not really that great":
+      data.loc[date, "realTimeGeneralMood"] = 6
+    elif generalMood.loc[i, 3] == "Tired":
+      data.loc[date, "realTimeGeneralMood"] = 5
+    elif generalMood.loc[i, 3] == "Not Great":
+      data.loc[date, "realTimeGeneralMood"] = 4
+    elif generalMood.loc[i, 3] == "Depressed":
+      data.loc[date, "realTimeGeneralMood"] = 3
+    else: # should never be triggered
+      data.loc[date, "realTimeGeneralMood"] = 5.5
+    
+    if (type(generalMood.loc[i, 4]) == str) and len(generalMood.loc[i, 4]):
+      if generalMood.loc[i, 4] == "+":
+        data.loc[date, "realTimeGeneralMood"] += 0.33
+      if generalMood.loc[i, 4] == "-":
+        data.loc[date, "realTimeGeneralMood"] -= 0.33
+
+
 ### Fixing missing pain value for specific day + making high pain values more "flat"
 
 data.loc["2023-10-07", "realTimeKneePain"] = data["realTimeKneePain"]["2023-10-06"]
