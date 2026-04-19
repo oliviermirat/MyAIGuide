@@ -132,3 +132,8 @@ dailyRealTimeAnalysis/prepFor2026firstAIcoachPrototype/manicTimeBlank.csv
 dailyRealTimeAnalysis/prepFor2026firstAIcoachPrototype/__pycache__/
 
 dailyRealTimeAnalysis/dataMay2023andLater_2026firstAIPrototype.pkl
+
+2026firstAICoachPrototype/old/
+2026firstAICoachPrototype/results/
+2026firstAICoachPrototype/libraries/__pycache__/
+2026firstAICoachPrototype/pipeline/__pycache__/
