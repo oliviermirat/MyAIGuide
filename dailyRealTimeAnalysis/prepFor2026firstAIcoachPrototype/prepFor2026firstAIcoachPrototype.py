@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import csv
 import re
+import json
 
 data = pd.read_pickle('dataMay2023andLater.pkl')
 
@@ -12,8 +13,11 @@ data[new_columns] = 0
 
 ### Getting manicTime data
 
-pathToRealTimeManicTime      = "prepFor2026firstAIcoachPrototype/manicTime.csv"
-pathToRealTimeManicTimeBlank = "prepFor2026firstAIcoachPrototype/manicTimeBlank.csv"
+with open("info.json", 'r') as json_file:
+  info = json.load(json_file)
+
+pathToRealTimeManicTime      = info["pathToManicTimeUsageFile"] #"prepFor2026firstAIcoachPrototype/manicTime.csv"
+pathToRealTimeManicTimeBlank = info["pathToManicTimeAppFile"] #"prepFor2026firstAIcoachPrototype/manicTimeBlank.csv"
 
 with open(pathToRealTimeManicTime, newline="") as csvfile:
   spamreader = csv.reader(csvfile)
@@ -23,28 +27,32 @@ with open(pathToRealTimeManicTime, newline="") as csvfile:
     if count > 1 and len(row):
       if row[0][0:4] == "Acti":
         delimit = [m.start() for m in re.finditer("/", row[1])]
-        day = row[1][0 : delimit[0]]
-        month = row[1][delimit[0] + 1 : delimit[1]]
+        month = row[1][0 : delimit[0]]
+        day = row[1][delimit[0] + 1 : delimit[1]]
         if len(month) == 1:
           month = "0" + month
         if len(day) == 1:
           day = "0" + day
         year = row[1][delimit[1] + 1 : delimit[1] + 5]
         date = year + "-" + month + "-" + day
-        hours = int(row[3][0:1]) * 60 + int(row[3][2:4])
-        if ('2023-05-15' <= date) and (date <= str(data.index[-1])):
-          data.loc[date, "manicTimeRealTime"] += hours
+        if len(row[3]) == 7:
+          hours = int(row[3][0:1]) * 60 + int(row[3][2:4])
+        else:
+          hours = int(row[3][0:2]) * 60 + int(row[3][3:5])
+        # if date <= yesterday_date_str:
+        if date >= str(data.index.min().date()) and date <= str(data.index.max().date()):
+            data.loc[date, "manicTimeRealTime"] += hours
 
   
-with open(pathToRealTimeManicTimeBlank, newline="", encoding='utf-8') as csvfile:
+with open(pathToRealTimeManicTime, newline="", encoding='utf-8') as csvfile:
   spamreader = csv.reader(csvfile)
   count = 0
   for row in spamreader:
     count = count + 1
     if count > 1 and len(row) and row[0] == "Blank Screen Saver":
       delimit = [m.start() for m in re.finditer("/", row[1])]
-      day = row[1][0 : delimit[0]]
-      month = row[1][delimit[0] + 1 : delimit[1]]
+      month = row[1][0 : delimit[0]]
+      day = row[1][delimit[0] + 1 : delimit[1]]
       if len(month) == 1:
           month = "0" + month
       if len(day) == 1:
@@ -52,12 +60,13 @@ with open(pathToRealTimeManicTimeBlank, newline="", encoding='utf-8') as csvfile
       year = row[1][delimit[1] + 1 : delimit[1] + 5]
       date = year + "-" + month + "-" + day
       hours = int(row[3][0:1]) * 60 + int(row[3][2:4])
-      if ('2023-05-15' <= date) and (date <= str(data.index[-1])):
-        data.loc[date, "manicTimeRealTime"] -= hours
+      # if date <= yesterday_date_str:
+      if date >= str(data.index.min().date()) and date <= str(data.index.max().date()):
+          data.loc[date, "manicTimeRealTime"] -= hours
  
 # Phone time
-
-daily_usage = calculate_daily_phone_usage("prepFor2026firstAIcoachPrototype/0_phoneTime.csv")
+  
+daily_usage = calculate_daily_phone_usage(info["pathToPhoneTimeFile"])
 
 def fill_zeros_with_neighboring_median(df, column_name, window=10):
     """
@@ -102,10 +111,11 @@ def fill_zeros_with_neighboring_median(df, column_name, window=10):
     
     return df_out
 
+
 for i in range(len(daily_usage)):
   date  = daily_usage["Date"][i]
   hours = daily_usage["Usage time"][i]
-  if ('2023-05-15' <= date) and (date <= str(data.index[-1])):
+  if ('2023-05-15' <= date): # and (date <= str(data.index[-1])):
     data.loc[date, "phoneTime"] = hours
 
 data = fill_zeros_with_neighboring_median(data, 'phoneTime', window=10)
@@ -140,6 +150,7 @@ new_order = ['numberOfSteps',
  'garminCliffJumpingActiveCalories',
  'score',
  'rhr',
+ 'generalMood',
  'kneePain',
  'armPain',
  'facePain',
@@ -153,7 +164,7 @@ data = data[new_order]
 ###
 
 data = data[data.index >= '2023-05-15']
-data = data[data.index <= '2025-09-11']
+# data = data[data.index <= '2025-09-11']
 
 ###
 

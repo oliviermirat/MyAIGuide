@@ -33,30 +33,28 @@ def garminDataGatheredFromWebExport(datadir, data):
   return data
 
 
-
 def garminActivityDataGatheredFromWebExport(datadir):
+  dfs = [] # 1. Create an empty list to store your dataframes
   
-  # Look for json files in directory
   for file in os.listdir(datadir):
     if file.startswith("summarizedActivities"):
       jsonfile = datadir + file
-      # Open and load json into dataframe
+      print("jsonfile:", jsonfile)
+      
       with open(jsonfile) as data_file:    
         jsondata = json.load(data_file) 
         df = pd.json_normalize(jsondata[0]["summarizedActivitiesExport"])
         
-        # Rename 'value' column to 'steps' 
         df = df.rename(columns={"activityType"  : "garminActivityType"})
         df = df.rename(columns={"sportType"     : "garminActivitySportType"})
         df = df.rename(columns={"distance"      : "garminActivityDistance"})
         df = df.rename(columns={"duration"      : "garminActivityDuration"})
         df = df.rename(columns={"elevationGain" : "garminActivityElevationGain"})
         df = df.rename(columns={"calories"      : "garminActivityCalories"})
-        # Set dateTime as time index
         
-        df['dateTime'] = pd.to_datetime(df['startTimeLocal'], unit='ms') #beginTimestamp'], unit='ms')
-        # df.set_index('dateTime', inplace=True)
+        df['dateTime'] = pd.to_datetime(df['startTimeLocal'], unit='ms')
         
-        # df = df[['garminActivityType', 'garminActivitySportType', 'garminActivityDistance', 'garminActivityDuration', 'garminActivityElevationGain', 'garminActivityCalories']]
+        dfs.append(df) # 2. Append the processed df to the list
           
-  return df
+  # 3. Concatenate all dataframes in the list and return
+  return pd.concat(dfs, ignore_index=True) if dfs else pd.DataFrame()

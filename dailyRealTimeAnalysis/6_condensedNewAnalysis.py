@@ -34,6 +34,8 @@ rollingWindow = 14
 
 replaceCyclingCaloriesByGarminCyclingHr = True
 
+
+
 if replaceCyclingCaloriesByGarminCyclingHr:
   additionalActivities = ['cycling']
 else:
@@ -64,7 +66,7 @@ keyToCoeff1 = {'walking':           'walking',
                'Moving snow':       '25/75',
                'Resort skiing':     'Resort skiing',
                'Trottinette':       'cycling',
-               'Trottinette ':       'cycling'
+               'Trottinette ':      'cycling'
               }
 
 keyToCoeff2 = {'cycling':             'cycling', 
@@ -75,7 +77,14 @@ keyToCoeff2 = {'cycling':             'cycling',
                'rock_climbing':       'rock_climbing',
                'strength_training':   'homeExercises', 
                'surfing_v2':          'swimming',
-               'walking':             'walking'
+               'walking':             'walking',
+               'backcountry_skiing':  'backcountry skiing',
+               'bouldering':          'rock_climbing',
+               'breathwork':          '50/50',
+               'resort_skiing':       'Resort skiing',
+               'swimming':            'swimming',
+               'volleyball':          '50/50',
+               'windsurfing_v2':      '50/50',
                }
 
 coeff = {'walking':           {'low_body': 1,    'high_body': 0},
@@ -99,6 +108,7 @@ data = data.loc[data.index >= cutoff_date]
 
 data["swimSurfStrokes"] = 0
 
+lastDay = data.index[len(data.index)-1]
 
 ### Loading data from garmindb
 
@@ -166,32 +176,32 @@ for hr_id, heart_rate_active_threshold in enumerate(heart_rate_active_threshold_
 
   monitoring_hr["act_hr_" + str(heart_rate_active_threshold) + "_lowBody"] = monitoring_hr["active_hr_" + str(heart_rate_active_threshold)]
 
-
-  for activity in np.unique(activities["sport"]):
-    print(activity)
-    startStopTime = activities[activities["sport"] == activity][["start_time", "stop_time", "cycles"]]
-    for _, row in startStopTime.iterrows():
-      start, stop = row['start_time'], row['stop_time']
-      selectedTime = (monitoring_hr['timestamp'] >= start) & (monitoring_hr['timestamp'] <= stop)
-      # Lower body load
-      l_Coeff = coeff[keyToCoeff1[activity]]['low_body']
-      monitoring_hr.loc[selectedTime, "act_hr_" + str(heart_rate_active_threshold) + "_lowBody"] = l_Coeff * monitoring_hr.loc[selectedTime, 'active_hr_' + str(heart_rate_active_threshold)]
-      # Higher body load
-      h_Coeff = coeff[keyToCoeff1[activity]]['high_body']
-      monitoring_hr.loc[selectedTime, "act_hr_" + str(heart_rate_active_threshold) + "_highBody"] = h_Coeff * monitoring_hr.loc[selectedTime, 'active_hr_' + str(heart_rate_active_threshold)]
-      # Number of surf and swim strokes
-      if activity == "swimming":
-        if type(row['cycles']) == float:
-          if start.strftime('%Y-%m-%d') < str(data.index[-1]):
-            data.loc[start.strftime('%Y-%m-%d'), 'swimSurfStrokes'] += row['cycles']
-        else:
-          print("Number of surf and swim strokes not added for", start)
-      # Additional activities
-      monitoring_hr = condensedAnalysisFunctions.addDataForActivities(monitoring_hr, selectedTime, heart_rate_active_threshold, additionalActivities, coeff, keyToCoeff1, activity)
+  if False:
+    for activity in np.unique(activities["sport"]):
+      print(activity)
+      startStopTime = activities[activities["sport"] == activity][["start_time", "stop_time", "cycles"]]
+      for _, row in startStopTime.iterrows():
+        start, stop = row['start_time'], row['stop_time']
+        selectedTime = (monitoring_hr['timestamp'] >= start) & (monitoring_hr['timestamp'] <= stop)
+        # Lower body load
+        l_Coeff = coeff[keyToCoeff1[activity]]['low_body']
+        monitoring_hr.loc[selectedTime, "act_hr_" + str(heart_rate_active_threshold) + "_lowBody"] = l_Coeff * monitoring_hr.loc[selectedTime, 'active_hr_' + str(heart_rate_active_threshold)]
+        # Higher body load
+        h_Coeff = coeff[keyToCoeff1[activity]]['high_body']
+        monitoring_hr.loc[selectedTime, "act_hr_" + str(heart_rate_active_threshold) + "_highBody"] = h_Coeff * monitoring_hr.loc[selectedTime, 'active_hr_' + str(heart_rate_active_threshold)]
+        # Number of surf and swim strokes
+        if activity == "swimming":
+          if type(row['cycles']) == float:
+            if start.strftime('%Y-%m-%d') < str(data.index[-1]):
+              data.loc[start.strftime('%Y-%m-%d'), 'swimSurfStrokes'] += row['cycles']
+          else:
+            print("Number of surf and swim strokes not added for", start)
+        # Additional activities
+        monitoring_hr = condensedAnalysisFunctions.addDataForActivities(monitoring_hr, selectedTime, heart_rate_active_threshold, additionalActivities, coeff, keyToCoeff1, activity)
 
   garminActivities = garminActivityDataGatheredFromWebExport(info["pathToGarminDataFromWebDIConnectFitness"])
   garminActivities['dateTimeEnd'] = garminActivities['dateTime'] + pd.to_timedelta(garminActivities['garminActivityDuration'], unit='ms').dt.floor('S')
-
+  
   for activity in np.unique(garminActivities["garminActivityType"]):
     print(activity)
     startStopTime = garminActivities[garminActivities["garminActivityType"] == activity][["dateTime", "dateTimeEnd", "strokes"]]
@@ -205,7 +215,7 @@ for hr_id, heart_rate_active_threshold in enumerate(heart_rate_active_threshold_
       h_Coeff = coeff[keyToCoeff2[activity]]['high_body']
       monitoring_hr.loc[selectedTime, 'act_hr_' + str(heart_rate_active_threshold) + '_highBody'] = h_Coeff * monitoring_hr.loc[selectedTime, 'active_hr_' + str(heart_rate_active_threshold)]
       # Number of surf and swim strokes
-      if activity == 'lap_swimming' and start.strftime('%Y-%m-%d') >= cutoff_date:
+      if activity == 'lap_swimming' and start.strftime('%Y-%m-%d') >= cutoff_date and start <= lastDay:
         data.loc[start.strftime('%Y-%m-%d'), 'swimSurfStrokes'] += row['strokes']
       # Additional activities
       monitoring_hr = condensedAnalysisFunctions.addDataForActivities(monitoring_hr, selectedTime, heart_rate_active_threshold, additionalActivities, coeff, keyToCoeff2, activity)
@@ -355,6 +365,12 @@ plt.show()
 # OtherVariables
 if len(additionalActivities):
   condensedAnalysisFunctions.plotAdditionalActivitiesAnalysis(data, heart_rate_active_threshold_values, additionalActivities, rollingWindow, figWidth, figHeight, hspace, lineWidth)
+
+
+# Fixing missing pain day
+data.loc['2025-09-29', 'realTimeKneePain'] = 2.8
+data.loc['2025-09-29', 'realTimeArmPain']  = 2.7
+data.loc['2025-09-29', 'realTimeFacePain'] = 2.9
 
 
 ### Saving data

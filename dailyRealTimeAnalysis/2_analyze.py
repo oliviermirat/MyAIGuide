@@ -185,19 +185,20 @@ print("garminDbTotalActiveCalories", data['garminTotalActiveCalories'][len(data)
 pathToRealTimeWhatPulse = info["pathToWhatPulseFolder"]
 nbFiles = len([name for name in os.listdir(pathToRealTimeWhatPulse)])
 for i in range(1, nbFiles + 1):
-  filename = (pathToRealTimeWhatPulse + "whatpulse-input-history" + str(i) + ".csv")
-  with open(filename, newline="") as csvfile:
-    spamreader = csv.reader(csvfile)
-    count = 0
-    for row in spamreader:
-      count = count + 1
-      if count > 1 and len(row):
-        date = row[0][0:10]
-        if date <= yesterday_date_str:
-          if date < '2023-12-22' or date > '2023-12-29':
-            data.loc[date, "whatPulseRealTime"] = int(row[1]) + int(row[2])
-          else:
-            data.loc[date, "whatPulseRealTime"] = int(row[1]) + int(int(row[1])/4) # some incorrect clicks where recorded from new glassouse click switch
+  if i != 547:
+    filename = (pathToRealTimeWhatPulse + "whatpulse-input-history" + str(i) + ".csv")
+    with open(filename, newline="") as csvfile:
+      spamreader = csv.reader(csvfile)
+      count = 0
+      for row in spamreader:
+        count = count + 1
+        if count > 1 and len(row):
+          date = row[0][0:10]
+          if date <= yesterday_date_str:
+            if date < '2023-12-22' or date > '2023-12-29':
+              data.loc[date, "whatPulseRealTime"] = int(row[1]) + int(row[2])
+            else:
+              data.loc[date, "whatPulseRealTime"] = int(row[1]) + int(int(row[1])/4) # some incorrect clicks where recorded from new glassouse click switch
 
 
 ### Getting manicTime data
@@ -219,7 +220,10 @@ with open(pathToRealTimeManicTime, newline="") as csvfile:
           day = "0" + day
         year = row[1][delimit[1] + 1 : delimit[1] + 5]
         date = year + "-" + month + "-" + day
-        hours = int(row[3][0:1]) * 60 + int(row[3][2:4])
+        if len(row[3]) == 7:
+          hours = int(row[3][0:1]) * 60 + int(row[3][2:4])
+        else:
+          hours = int(row[3][0:2]) * 60 + int(row[3][3:5])
         if date <= yesterday_date_str:
           data.loc[date, "manicTimeRealTime"] += hours
 
@@ -268,7 +272,7 @@ if addPhoneScreenTimes:
     date  = daily_usage["Date"][i]
     hours = daily_usage["Usage time"][i]
     if date <= yesterday_date_str:
-      data.loc[date, "manicTimeRealTime"] += (hours/2)
+      # data.loc[date, "manicTimeRealTime"] += (hours/2)
       data.loc[date, "phoneTime"] = hours
 
 goodComputerData = data[(data['manicTimeRealTime'] != 0) & (data['whatPulseRealTime'] != 0) & (~data['manicTimeRealTime'].isna()) & (~data['whatPulseRealTime'].isna())][['manicTimeRealTime', 'whatPulseRealTime']]
