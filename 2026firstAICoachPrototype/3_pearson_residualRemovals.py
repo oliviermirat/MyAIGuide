@@ -84,7 +84,7 @@ if useNewOrOldData == 'new':
         data = data[pain_variables + ["numberOfSteps", "manicTimeRealTime", "numberOfHeartBeatsAbove110_lowerBodyActivity_cycling", "timeSpentDriving", "timeSpentRidingCar", "phoneTime", "numberOfComputerClicksAndKeyStrokes", "surfCumBpmAbove110", "numberOfHeartBeatsAbove110_upperBodyActivity", "climbingMaxEffortIntensity", "score", "generalMood"]] #"rhr"
 
 else:
-    with open("../../../data/preprocessed/preprocessedMostImportantDataParticipant1_12_29_2024.txt", "rb") as f:
+    with open("./oldDataset.txt", "rb") as f:
         data = pickle.load(f)
     
     data = data.drop(columns=[
