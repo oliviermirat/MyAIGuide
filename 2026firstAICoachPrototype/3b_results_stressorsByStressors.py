@@ -22,7 +22,7 @@ for region in ["face", "knee", "arm"]:
         "numberOfSteps",
         "manicTimeRealTime",
         "timeSpentDriving",
-        "cyclingCalories",
+        "numberOfHeartBeatsAbove110_lowerBodyActivity_cycling",
         "timeSpentRidingCar",
         "phoneTime",
         "numberOfComputerClicksAndKeyStrokes",
@@ -38,7 +38,7 @@ for region in ["face", "knee", "arm"]:
         "numberOfSteps",
         "manicTimeRealTime",
         "timeSpentDriving",
-        "cyclingCalories",
+        "numberOfHeartBeatsAbove110_lowerBodyActivity_cycling",
         "timeSpentRidingCar",
         "phoneTime",
         "numberOfComputerClicksAndKeyStrokes",
@@ -156,7 +156,7 @@ for region in ["face", "knee", "arm"]:
         numberOfSteps_df = load_summary("numberOfSteps")
         manicTimeRealTime_df = load_summary("manicTimeRealTime")
         timeSpentDriving_df = load_summary("timeSpentDriving")
-        cyclingCalories_df = load_summary("cyclingCalories")
+        numberOfHeartBeatsAbove110_lowerBodyActivity_cycling_df = load_summary("numberOfHeartBeatsAbove110_lowerBodyActivity_cycling")
         timeSpentRidingCar_df = load_summary("timeSpentRidingCar")
         phoneTime_df = load_summary("phoneTime")
         numberOfComputerClicksAndKeyStrokes_df = load_summary("numberOfComputerClicksAndKeyStrokes")
@@ -171,7 +171,7 @@ for region in ["face", "knee", "arm"]:
             "numberOfSteps": numberOfSteps_df,
             "manicTimeRealTime": manicTimeRealTime_df,
             "timeSpentDriving": timeSpentDriving_df,
-            "cyclingCalories": cyclingCalories_df,
+            "numberOfHeartBeatsAbove110_lowerBodyActivity_cycling": numberOfHeartBeatsAbove110_lowerBodyActivity_cycling_df,
             "timeSpentRidingCar": timeSpentRidingCar_df,
             "phoneTime": phoneTime_df,
             "numberOfComputerClicksAndKeyStrokes": numberOfComputerClicksAndKeyStrokes_df,
@@ -199,7 +199,7 @@ for region in ["face", "knee", "arm"]:
         t2 = table1_df.T
         t3 = t2['80th percentile of mean ROC-AUC that could have been reached for another set of hyperparameters']
         
-        renaming_dict = {'cyclingCalories': 'Number of cycling active calories',
+        renaming_dict = {'numberOfHeartBeatsAbove110_lowerBodyActivity_cycling': 'Cycling related cumulative bpm > 110',
                         'numberOfHeartBeatsAbove110_upperBodyActivity': 'Upper-body cumulative bpm > 110',
                         'surfCumBpmAbove110': 'Surf cumulative bpm > 110',
                         'climbingMaxEffortIntensity': 'Rock climbing maximum route grade',

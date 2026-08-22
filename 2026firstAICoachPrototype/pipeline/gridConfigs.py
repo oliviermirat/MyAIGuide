@@ -10,7 +10,7 @@ CONFIG_GRID_DEBUG: Dict[str, List] = {
     "INCLUDE_NB_PREVIOUS_DAY_PAIN": [0],
     "SEEK_MOST_IMPORTANT_FEATURES": [True],
     "NB_TOP_FEATURES_TO_KEEP": [5],
-    "HIGH_PAIN_QUARTILE_DEFINITION": [0.8],
+    "HIGH_PAIN_QUARTILE_DEFINITION": [0.7],
     "WARNING_WINDOW": [1],
 }
 
@@ -36,7 +36,7 @@ def _build_candidate_config_for_new() -> Dict[str, Dict[str, List[str]]]:
         "numberOfSteps",
         "manicTimeRealTime",
         "timeSpentDriving",
-        "cyclingCalories",
+        "numberOfHeartBeatsAbove110_lowerBodyActivity_cycling",
     ]
 
     physicalLoadFace = [

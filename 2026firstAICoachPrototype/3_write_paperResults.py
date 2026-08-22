@@ -4,9 +4,11 @@ Build paper outputs from completed pipeline runs:
     mean_custom_score (validation) vs mean_test_roc_auc (test); row 0 = all grid rows; row 1 =
     HIGH_PAIN_QUARTILE_DEFINITION == 0.8 only; panel titles = experiment folder name (split camelCase) + Pearson r
   - results/combinedAnalysis/table1.xlsx (sheet Table1: reduced metrics row set — no 10th percentile;
+    first four rows = test ROC-AUC from the top-N ensemble (ensemble_test_roc_auc.xlsx);
     two Pearson r rows for mean_custom_score: all grid rows vs HIGH_PAIN_QUARTILE_DEFINITION == 0.8 only)
 
-Expects each experiment under results/<run_name>/ with hyperparametersGridSearchResults/summaryResults.xlsx.
+Expects each experiment under results/<run_name>/ with hyperparametersGridSearchResults/summaryResults.xlsx
+and bestHyperparametersSetResults/ensemble_test_roc_auc.xlsx from the testing2 ensemble step.
 """
 
 from __future__ import annotations
@@ -25,9 +27,11 @@ import pandas as pd
 from scipy.stats import pearsonr
 
 from libraries.run_context import (
+    BEST_HYPERPARAMETERS_SET_RESULTS_SUBDIR,
     HYPERPARAMETERS_GRID_SEARCH_RESULTS_SUBDIR,
     SUMMARY_RESULTS_XLSX,
 )
+from pipeline.testing2_ensemble import load_ensemble_test_roc_auc_metrics
 
 SCRIPT_ROOT = Path(__file__).resolve().parent
 RESULTS_ROOT = SCRIPT_ROOT / "results"
@@ -52,21 +56,21 @@ TABLE1_COLUMNS = [
 ]
 
 # Columns left → right in multi-panel figures (must match TABLE1_COLUMNS order)
-# EXPERIMENT_FOLDER_ORDER = (
-    # EXP_BASELINE_NEW,
-    # EXP_ALL_STRESSORS,
-    # EXP_LOW_RESOLUTION,
-    # EXP_VERY_LOW_RESOLUTION,
-    # EXP_SLEEP_ONLY,
-    # EXP_OLD,
-# )
 EXPERIMENT_FOLDER_ORDER = (
     EXP_BASELINE_NEW,
     EXP_ALL_STRESSORS,
     EXP_LOW_RESOLUTION,
     EXP_VERY_LOW_RESOLUTION,
+    EXP_SLEEP_ONLY,
     EXP_OLD,
 )
+# EXPERIMENT_FOLDER_ORDER = (
+    # EXP_BASELINE_NEW,
+    # EXP_ALL_STRESSORS,
+    # EXP_LOW_RESOLUTION,
+    # EXP_VERY_LOW_RESOLUTION,
+    # EXP_OLD,
+# )
 
 TABLE1_ROWS = [
     "face ROC-AUC score on the test set for the set of hyperparameters selected by the grid search",
@@ -185,8 +189,17 @@ def save_figure2(
             "ps.fonttype": 42,
         }
     )
+    
+    EXPERIMENT_FOLDER_ORDER_2 = (
+        EXP_BASELINE_NEW,
+        EXP_ALL_STRESSORS,
+        EXP_LOW_RESOLUTION,
+        EXP_VERY_LOW_RESOLUTION,
+        EXP_OLD,
+    )
+    
     nrows = 1
-    ncols = len(EXPERIMENT_FOLDER_ORDER)
+    ncols = len(EXPERIMENT_FOLDER_ORDER_2)
     fig_w = 183 / 25.4 * 2.35 * (ncols / 5)
     fig_h = fig_w * 0.42
     fig, axes = plt.subplots(nrows, ncols, figsize=(fig_w, fig_h))
@@ -198,7 +211,7 @@ def save_figure2(
     rs0: list[float] = []
     rs1: list[float] = []
 
-    for exp_key in EXPERIMENT_FOLDER_ORDER:
+    for exp_key in EXPERIMENT_FOLDER_ORDER_2:
         df0 = data_by_exp[exp_key]
         df1 = data_by_exp_q08[exp_key]
         _require_validation_columns(df0, _summary_path(exp_key))
@@ -221,7 +234,7 @@ def save_figure2(
     lo0, hi0 = _square_axis_limits_pooled(x0, y0)
     lo1, hi1 = _square_axis_limits_pooled(x1, y1)
 
-    for j, exp_key in enumerate(EXPERIMENT_FOLDER_ORDER):
+    for j, exp_key in enumerate(EXPERIMENT_FOLDER_ORDER_2):
         name = _experiment_folder_display_name(exp_key)
         r0 = _fmt_pearson_r_title(rs0[j])
         r1 = _fmt_pearson_r_title(rs1[j])
@@ -274,18 +287,12 @@ def save_figure2(
     print(f"Wrote {png_path} and {pdf_path}")
 
 
-def _selected_test_metrics(df: pd.DataFrame) -> dict:
-    """Grid-selected row = first row (ranked by adjusted score descending in pipeline)."""
-    row = df.iloc[0]
-    return {
-        "face_auc": row["test_roc_auc_face"],
-        "face_p": row["test_p_val_face"],
-        "knee_auc": row["test_roc_auc_knee"],
-        "knee_p": row["test_p_val_knee"],
-        "arm_auc": row["test_roc_auc_arm"],
-        "arm_p": row["test_p_val_arm"],
-        "mean_auc": row["mean_test_roc_auc"],
-    }
+def _ensemble_test_metrics(exp_folder: str) -> dict:
+    """Top-N ensemble test ROC-AUC (see pipeline.testing2_ensemble.N_ENSEMBLE_MODELS_FOR_TEST_PROBS)."""
+    figures_dir = (
+        RESULTS_ROOT / exp_folder / BEST_HYPERPARAMETERS_SET_RESULTS_SUBDIR
+    )
+    return load_ensemble_test_roc_auc_metrics(figures_dir)
 
 
 def _require_test_columns(df: pd.DataFrame, path: Path) -> None:
@@ -372,30 +379,32 @@ def build_table1(
     data_by_exp_q08: dict[str, pd.DataFrame],
 ) -> pd.DataFrame:
     """
-    Metrics without 10th percentile row; Pearson r for mean_custom_score vs mean_test_roc_auc on all
-    grid rows and on HIGH_PAIN_QUARTILE_DEFINITION == 0.8 rows only.
+    Metrics without 10th percentile row; rows 0–3 = ensemble test ROC-AUC (top-N models);
+    Pearson r for mean_custom_score vs mean_test_roc_auc on all grid rows and on
+    HIGH_PAIN_QUARTILE_DEFINITION == 0.8 rows only.
     """
     col_keys = list(EXPERIMENT_FOLDER_ORDER)
     table = pd.DataFrame(index=TABLE1_ROWS, columns=TABLE1_COLUMNS, dtype=object)
-    for col_name, exp in zip(TABLE1_COLUMNS, col_keys):
+    for col_name, exp in zip(TABLE1_COLUMNS, col_keys):        
         df = data_by_exp[exp]
         df_q08 = data_by_exp_q08[exp]
         _require_test_columns(df, _summary_path(exp))
         _require_validation_columns(df, _summary_path(exp))
         _require_validation_columns(df_q08, _summary_path(exp))
-        sel = _selected_test_metrics(df)
+        ens = _ensemble_test_metrics(exp)
         gs = _grid_stats(df)
         cor_all = validation_vs_test_correlations(df)
         cor_q08 = validation_vs_test_correlations(df_q08)
-        table.loc[TABLE1_ROWS[0], col_name] = sel["face_auc"]
-        table.loc[TABLE1_ROWS[1], col_name] = sel["knee_auc"]
-        table.loc[TABLE1_ROWS[2], col_name] = sel["arm_auc"]
-        table.loc[TABLE1_ROWS[3], col_name] = sel["mean_auc"]
+        table.loc[TABLE1_ROWS[0], col_name] = ens["face_auc"]
+        table.loc[TABLE1_ROWS[1], col_name] = ens["knee_auc"]
+        table.loc[TABLE1_ROWS[2], col_name] = ens["arm_auc"]
+        table.loc[TABLE1_ROWS[3], col_name] = ens["mean_auc"]
         table.loc[TABLE1_ROWS[4], col_name] = gs["max"]
         table.loc[TABLE1_ROWS[5], col_name] = gs["p80"]
         table.loc[TABLE1_ROWS[6], col_name] = gs["p50"]
         table.loc[TABLE1_ROWS[7], col_name] = cor_all["r_mean_custom"]
         table.loc[TABLE1_ROWS[8], col_name] = cor_q08["r_mean_custom"]
+            
     return table
 
 
@@ -432,8 +441,10 @@ def main() -> None:
     save_figure2(data_by_exp, data_by_exp_q08, COMBINED_DIR)
 
     table1_df = build_table1(data_by_exp, data_by_exp_q08)
+    
     table1_df = table1_df.apply(pd.to_numeric, errors="coerce").round(2)
     table1_path = COMBINED_DIR / "table1.xlsx"
+    
     with pd.ExcelWriter(table1_path, engine="openpyxl") as writer:
         table1_df.to_excel(writer, sheet_name="Table1", index=True)
     print(f"Wrote {table1_path} (sheet: Table1; values rounded to 2 decimals)")

@@ -26,7 +26,7 @@ from pipeline.plotCompareAllTrainingHyperparameters import (
 )
 from pipeline.replaceCandidatesInResultFile import replace_candidates_in_result_file
 from pipeline.findBestCombinations import find_best_combination
-from pipeline.testing2 import (
+from pipeline.testing2_ensemble import (
     TRAFFIC_LIGHT_PAIN_REGION_COLUMNS,
     run_testing2_single_combination_for_pain,
     run_testing2_for_pain,
@@ -303,6 +303,7 @@ def main() -> None:
             dfTest=dfTest,
             trainingDatasetJustBeforeTesting=TRAINING_DATASET_BEFORE_TESTING,
             run_paths=run_paths,
+            candidates_config=candidates_config,
         )
         pct_red_tl.append(pr)
         pct_yellow_tl.append(py)

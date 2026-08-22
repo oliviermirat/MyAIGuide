@@ -20,7 +20,7 @@ from pipeline.plotCompareAllTrainingHyperparameters import (
 )
 from pipeline.replaceCandidatesInResultFile import replace_candidates_in_result_file
 from pipeline.findBestCombinations import find_best_combination
-from pipeline.testing2 import (
+from pipeline.testing2_ensemble import (
     TRAFFIC_LIGHT_PAIN_REGION_COLUMNS,
     run_testing2_single_combination_for_pain,
     run_testing2_for_pain,
@@ -36,7 +36,7 @@ if "RUNALL_MASTER_DEBUG_GRID" in os.environ:
     USE_DEBUG_GRID = os.environ["RUNALL_MASTER_DEBUG_GRID"].strip().lower() in ("1", "true", "yes")
 USE_ALL_VARIABLES_CANDIDATE_SET = False
 
-FILE_PATH = "newDataset.pkl"
+FILE_PATH = "dataMay2023andLater_2026firstAIPrototype_truncated.pkl"
 STRESSOR_VARS_MINMAX_SCALER = 0
 PAIN_REMOVE_OUTLIERS = 0
 SPLIT_PERCENT_TRAINVAL_TEST = 0.75
@@ -220,6 +220,14 @@ def plot_min_red_percentages_by_combination(
     plt.close()
     print(f"Saved plot to {out_png} and {out_pdf}")
 
+def replace_zeros_with_previous(df, column_name):
+    df_clean = df.copy()
+    col_idx = df_clean.columns.get_loc(column_name)  # get column position once
+    for i in range(1, len(df_clean)):
+        if df_clean.iloc[i, col_idx] == 0:
+            df_clean.iloc[i, col_idx] = df_clean.iloc[i-1, col_idx]
+    return df_clean
+
 
 def main() -> None:
     print("")
@@ -243,6 +251,10 @@ def main() -> None:
         PAIN_REMOVE_OUTLIERS,
         SPLIT_PERCENT_TRAIN_VAL,
     )
+    
+    dfTest = replace_zeros_with_previous(dfTest, "kneePain")
+    dfTest = replace_zeros_with_previous(dfTest, "armPain")
+    dfTest = replace_zeros_with_previous(dfTest, "facePain")
 
     print(f"--- Starting training grid search for {len(PAIN_TYPES)} pain types ---")
     for pain_type in PAIN_TYPES:

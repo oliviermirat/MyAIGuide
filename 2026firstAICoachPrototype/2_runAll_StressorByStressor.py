@@ -17,7 +17,7 @@ CHILD_SCRIPTS = [
     ["2_oneStressorOnly.py", "numberOfSteps"],
     ["2_oneStressorOnly.py", "manicTimeRealTime"],
     ["2_oneStressorOnly.py", "timeSpentDriving"],
-    ["2_oneStressorOnly.py", "cyclingCalories"],
+    ["2_oneStressorOnly.py", "numberOfHeartBeatsAbove110_lowerBodyActivity_cycling"],
     ["2_oneStressorOnly.py", "timeSpentRidingCar"],
     ["2_oneStressorOnly.py", "phoneTime"],
     ["2_oneStressorOnly.py", "numberOfComputerClicksAndKeyStrokes"],

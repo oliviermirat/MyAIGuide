@@ -16,6 +16,9 @@ CHILD_SCRIPTS = [
     "3_explorePercentilesDuringFlares.py",
     "3_runAll_pearsonCorrelations.py",
     "3_write_paperResults.py",
+    "3_pearson_residualRemovals.py --only_negative True",
+    "3_pearson_residualRemovals.py",
+    "3_pearson_residualRemovals_moodAndSleepOnly.py",
 ]
 
 # Enough "y\n" to pass the initial "Continue?" and any "WARNING: ... Continue?" prompts in child scripts
@@ -38,23 +41,32 @@ def main() -> None:
     env["RUNALL_MASTER_DEBUG_GRID"] = "true" if USE_DEBUG_GRID else "false"
 
     processes = []
-    for script in CHILD_SCRIPTS:
-        path = SCRIPT_DIR / script
+    for script_cmd in CHILD_SCRIPTS:
+        cmd_parts = script_cmd.split()
+        script_file = cmd_parts[0]
+        script_args = cmd_parts[1:]
+        
+        path = SCRIPT_DIR / script_file
         if not path.exists():
             print(f"ERROR: Script not found: {path}", file=sys.stderr)
             continue
+            
+        # Construct the final command list for Popen
+        command = [sys.executable, str(path)] + script_args
+        
         p = subprocess.Popen(
-            [sys.executable, str(path)],
+            command,
             cwd=str(SCRIPT_DIR),
             env=env,
             stdin=subprocess.PIPE,
             stdout=sys.stdout,
             stderr=sys.stderr,
         )
-        processes.append((script, p))
+        # Store the full command string for easier debugging/logging
+        processes.append((script_cmd, p))
 
     # Feed "y" to all prompts in each child so they don't block
-    for script, p in processes:
+    for script_cmd, p in processes:
         if p.stdin is not None:
             try:
                 p.stdin.write(STDIN_YES)
@@ -64,16 +76,16 @@ def main() -> None:
                 pass
 
     failed = []
-    for script, p in processes:
+    for script_cmd, p in processes:
         code = p.wait()
         if code != 0:
-            failed.append((script, code))
+            failed.append((script_cmd, code))
 
     print("")
     if failed:
         print("Completed with errors:")
-        for script, code in failed:
-            print(f"  {script}: exit code {code}")
+        for script_cmd, code in failed:
+            print(f"  {script_cmd}: exit code {code}")
         sys.exit(1)
     print(f"All {len(CHILD_SCRIPTS)} runs completed successfully.")
 

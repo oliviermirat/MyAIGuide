@@ -6,7 +6,7 @@ from sklearn.preprocessing import MinMaxScaler
 
 from libraries.run_context import RESULTS_ROOT
 
-FILE_PATH = "newDataset.pkl"
+FILE_PATH = "dataMay2023andLater_2026firstAIPrototype_truncated.pkl"
 OUTPUT_DIR = RESULTS_ROOT / "combinedAnalysis" / "pearsonCorrelations"
 
 with open(FILE_PATH, "rb") as f:
@@ -17,7 +17,8 @@ data.index = pd.to_datetime(data.index)
 
 lags = {
     "past_15_days": [i for i in range(0, 16)],
-    "past_35_days": [i for i in range(0, 36)]
+    "past_35_days": [i for i in range(0, 36)],
+    "past_60_days": [i for i in range(0, 61)]
 }
 
 columnsOfInterest = ['numberOfSteps', 'surfCumBpmAbove110', 'phoneTime', 'manicTimeRealTime', 'climbingMaxEffortIntensity', 'kneePain', 'armPain', 'facePain', 'cyclingCalories', 'numberOfHeartBeatsAbove110_lowerBodyActivity_cycling', 'timeSpentDriving', 'numberOfComputerClicksAndKeyStrokes', 'numberOfHeartBeatsAbove110_upperBodyActivity', 'generalMood']
@@ -42,10 +43,12 @@ for col1 in columnsOfInterest:
         acute = pd.concat([data[col2].shift(lag) for lag in lags["past_15_days"]], axis=1).mean(axis=1)
         chronic = pd.concat([data[col2].shift(lag) for lag in lags["past_35_days"]], axis=1).mean(axis=1)
         acwr = (acute / chronic.replace(0, np.nan)).fillna(0)
+        chronicLonger = pd.concat([data[col2].shift(lag) for lag in lags["past_60_days"]], axis=1).mean(axis=1)
         lag_series = {
             "past_15_days": acute,
             "past_35_days": chronic,
             "past_acwr": acwr,
+            "past_60_days": chronicLonger
         }
         for lag_label, shifted in lag_series.items():
             valid = data[col1].notna() & shifted.notna()

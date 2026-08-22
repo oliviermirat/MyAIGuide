@@ -12,6 +12,7 @@ import pandas as pd
 import json
 import sys
 import os
+from pathlib import Path
 from typing import List, Optional, Sequence, Tuple
 
 # Default column headers for percent_above_thresholds_traffic_light.xlsx when PAIN_TYPES are
@@ -35,7 +36,9 @@ ROLLING_LAST_5_DAYS_USE_MAX = True  # if False => rolling mean
 
 # Number of top rows from hyperparametersGridSearchResults/summaryResults.xlsx to ensemble
 # (average test-set warning probabilities across these models).
-N_ENSEMBLE_MODELS_FOR_TEST_PROBS = 10
+N_ENSEMBLE_MODELS_FOR_TEST_PROBS = 15
+# Written under bestHyperparametersSetResults/ after each pain type in run_testing2_for_pain.
+ENSEMBLE_TEST_ROC_AUC_XLSX = "ensemble_test_roc_auc.xlsx"
 # Used to resolve the CANDIDATES column in summaryResults.xlsx (must match the grid search run).
 SUMMARY_RESULTS_CANDIDATES_DATA_VERSION = "new"
 # If your summary file came from a script that used a custom candidate config (e.g. combined
@@ -412,6 +415,67 @@ def save_test_set_scores_to_figures(
     print(f"Saved test-set mean_custom_score and adjusted_score to {out_path.resolve()}")
 
 
+def _pain_type_to_ensemble_region(pain_type: str) -> str:
+    if pain_type == "kneePain":
+        return "knee"
+    if pain_type in ("facePain", "foreheadEyesPain"):
+        return "face"
+    if pain_type in ("armPain", "fingerHandArmPain"):
+        return "arm"
+    raise ValueError(f"Unknown pain_type for ensemble ROC-AUC file: {pain_type}")
+
+
+def _update_ensemble_test_roc_auc_file(
+    run_paths: RunPaths, pain_type: str, test_roc_auc: float
+) -> None:
+    """Merge one body-region test ROC-AUC (top-N ensemble) into ensemble_test_roc_auc.xlsx."""
+    run_paths.figures_dir.mkdir(parents=True, exist_ok=True)
+    out_path = run_paths.figures_dir / ENSEMBLE_TEST_ROC_AUC_XLSX
+    region = _pain_type_to_ensemble_region(pain_type)
+    if out_path.is_file():
+        df = pd.read_excel(out_path)
+    else:
+        df = pd.DataFrame(columns=["region", "test_roc_auc"])
+    df = df.loc[df["region"] != region]
+    df = pd.concat(
+        [df, pd.DataFrame([{"region": region, "test_roc_auc": test_roc_auc}])],
+        ignore_index=True,
+    )
+    df.to_excel(out_path, index=False)
+
+
+def load_ensemble_test_roc_auc_metrics(figures_dir: Path) -> dict[str, float]:
+    """
+    Test-set ROC-AUC from the top-N ensemble (see N_ENSEMBLE_MODELS_FOR_TEST_PROBS).
+    Expects ensemble_test_roc_auc.xlsx written by run_testing2_for_pain for each pain type.
+    """
+    path = figures_dir / ENSEMBLE_TEST_ROC_AUC_XLSX
+    if not path.is_file():
+        raise FileNotFoundError(
+            f"Missing {path}. Re-run the testing2 ensemble step (2_*.py) for this experiment."
+        )
+    df = pd.read_excel(path)
+    if "region" not in df.columns or "test_roc_auc" not in df.columns:
+        raise ValueError(f"{path}: expected columns 'region' and 'test_roc_auc'")
+    by_region = {
+        str(row["region"]): float(row["test_roc_auc"])
+        for _, row in df.iterrows()
+        if pd.notna(row["test_roc_auc"])
+    }
+    for key in ("face", "knee", "arm"):
+        if key not in by_region:
+            raise ValueError(f"{path}: missing region '{key}'")
+    face = by_region["face"]
+    knee = by_region["knee"]
+    arm = by_region["arm"]
+    return {
+        "face_auc": face,
+        "knee_auc": knee,
+        "arm_auc": arm,
+        "mean_auc": float(np.mean([face, knee, arm])),
+    }
+
+
 def run_testing2_for_pain(
     pain_type: str,
     save_graph_dont_plot: bool,
@@ -421,6 +485,7 @@ def run_testing2_for_pain(
     dfTest,
     trainingDatasetJustBeforeTesting: str,
     run_paths: RunPaths,
+    candidates_config: Optional[dict] = None,
 ) -> Tuple[float, float]:
     """
     Extended evaluation script with additional publication-ready plots.
@@ -445,9 +510,10 @@ def run_testing2_for_pain(
             f"using {n_take} model(s) for the ensemble."
         )
 
-    candidates_config = ENSEMBLE_CANDIDATES_CONFIG or get_candidate_config(
-        SUMMARY_RESULTS_CANDIDATES_DATA_VERSION
-    )
+    if candidates_config is None:
+        candidates_config = ENSEMBLE_CANDIDATES_CONFIG or get_candidate_config(
+            SUMMARY_RESULTS_CANDIDATES_DATA_VERSION
+        )
     ensemble_rows = summary_df.head(n_take)
     param_list = [
         _params_from_summary_results_row(row, pain_type, candidates_config)
@@ -681,6 +747,10 @@ def run_testing2_for_pain(
 
     evaluationMetrics = get_roc_auc(results, pain_type)
     print("Evaluation metrics:", evaluationMetrics)
+    ens_roc = float(evaluationMetrics["custom_score"])
+    if ens_roc == -10000:
+        ens_roc = float("nan")
+    _update_ensemble_test_roc_auc_file(run_paths, pain_type, ens_roc)
 
     return pct_above_red, pct_yellow_only
 

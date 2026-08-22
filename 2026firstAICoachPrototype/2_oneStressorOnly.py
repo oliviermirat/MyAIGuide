@@ -58,7 +58,7 @@ USE_ALL_VARIABLES_CANDIDATE_SET = False
 # for this run we must always use k=3 instead.
 FORCED_NB_TOP_FEATURES_TO_KEEP = 3
 
-FILE_PATH = "newDataset.pkl"
+FILE_PATH = "dataMay2023andLater_2026firstAIPrototype_truncated.pkl"
 STRESSOR_VARS_MINMAX_SCALER = 0
 PAIN_REMOVE_OUTLIERS = 0
 SPLIT_PERCENT_TRAINVAL_TEST = 0.75
