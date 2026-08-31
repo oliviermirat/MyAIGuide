@@ -152,12 +152,12 @@ def _fmt_pearson_r_title(r: float) -> str:
 
 
 def _figure2_panel_title(name: str, r_display: str) -> str:
-    """Plain experiment name + mathtext with bold ``r = …`` (matches Table 1 correlation)."""
+    """Plain experiment name, then mathtext with bold ``r = …`` on its own line below (matches Table 1 correlation)."""
     if r_display == "NA":
         math_r = r"\mathbf{r = \mathrm{NA}}"
     else:
         math_r = rf"\mathbf{{r = {r_display}}}"
-    return f"{name} (${math_r}$)"
+    return f"{name}\n(${math_r}$)"
 
 
 def save_figure2(
