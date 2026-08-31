@@ -210,6 +210,8 @@ def save_figure2(
     subs1: list[pd.DataFrame] = []
     rs0: list[float] = []
     rs1: list[float] = []
+    stats0: list[dict[str, float]] = []
+    stats1: list[dict[str, float]] = []
 
     for exp_key in EXPERIMENT_FOLDER_ORDER_2:
         df0 = data_by_exp[exp_key]
@@ -224,8 +226,12 @@ def save_figure2(
             raise ValueError(f"No complete rows for Figure 2 (0.8 quartile) in {_summary_path(exp_key)}")
         subs0.append(sub0)
         subs1.append(sub1)
-        rs0.append(validation_vs_test_correlations(df0)["r_mean_custom"])
-        rs1.append(validation_vs_test_correlations(df1)["r_mean_custom"])
+        cor0 = validation_vs_test_correlations(df0)
+        cor1 = validation_vs_test_correlations(df1)
+        rs0.append(cor0["r_mean_custom"])
+        rs1.append(cor1["r_mean_custom"])
+        stats0.append({"p": cor0["p_mean_custom"], "n": len(sub0)})
+        stats1.append({"p": cor1["p_mean_custom"], "n": len(sub1)})
 
     x0 = np.concatenate([s["mean_custom_score"].to_numpy(dtype=float) for s in subs0])
     y0 = np.concatenate([s["mean_test_roc_auc"].to_numpy(dtype=float) for s in subs0])
@@ -233,6 +239,13 @@ def save_figure2(
     y1 = np.concatenate([s["mean_test_roc_auc"].to_numpy(dtype=float) for s in subs1])
     lo0, hi0 = _square_axis_limits_pooled(x0, y0)
     lo1, hi1 = _square_axis_limits_pooled(x1, y1)
+
+    print("Figure 2 panels — Pearson r (validation mean_custom_score vs test mean_test_roc_auc):")
+    for j, exp_key in enumerate(EXPERIMENT_FOLDER_ORDER_2):
+        name = _experiment_folder_display_name(exp_key)
+        print(
+            f"  {name}: r={rs0[j]:.3f}, p={stats0[j]['p']:.3g}, n={stats0[j]['n']}"
+        )
 
     for j, exp_key in enumerate(EXPERIMENT_FOLDER_ORDER_2):
         name = _experiment_folder_display_name(exp_key)
