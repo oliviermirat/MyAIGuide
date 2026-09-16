@@ -246,7 +246,7 @@ if removeBlankScreenSaverTimes:
         year = row[1][delimit[1] + 1 : delimit[1] + 5]
         date = year + "-" + month + "-" + day
         hours = int(row[3][0:1]) * 60 + int(row[3][2:4])
-        if date <= yesterday_date_str:
+        if date <= yesterday_date_str and date in data.index:
           data.loc[date, "manicTimeRealTime"] -= hours
 
 if addPhoneScreenTimes:

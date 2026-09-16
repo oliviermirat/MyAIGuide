@@ -75,8 +75,8 @@ def _test_set_thresholds_for_day(
 
     mu = float(np.mean(hist_p))
     sigma = float(np.std(hist_p, ddof=1)) if len(hist_p) > 1 else 0.0
-    yellow_thresh = mu + 2.0 * sigma
-    red_thresh = mu + 3.0 * sigma
+    yellow_thresh = mu + 0.5 * sigma
+    red_thresh = mu + 1.0 * sigma
     return yellow_thresh, red_thresh
 
 

@@ -486,11 +486,19 @@ def run_testing2_for_pain(
     trainingDatasetJustBeforeTesting: str,
     run_paths: RunPaths,
     candidates_config: Optional[dict] = None,
+    return_daily_arrays: bool = False,
 ) -> Tuple[float, float]:
     """
     Extended evaluation script with additional publication-ready plots.
     Returns (percent_above_red, percent_yellow_only) on the test set using the rolling
     traffic-light rule (same quantities aggregated into percent_above_thresholds_traffic_light.xlsx).
+
+    If ``return_daily_arrays`` is True, a third element is returned: a dict with the
+    per-day ``dates``, ``actual_pain``, ``risk_probs`` (ensemble-averaged predicted
+    probabilities, post rolling-aggregation if USE_ROLLING_LAST_5_DAYS_FOR_RISK_PROBS
+    is enabled), and ``traffic_light`` ('red'/'orange'/'green' per day, matching the
+    per-day zone used to color the plotted lines) underlying this same figure, for
+    external statistics/re-plotting without duplicating the ensemble-training logic.
     """
     figtitle = _traffic_light_figtitle(pain_type)
 
@@ -751,6 +759,19 @@ def run_testing2_for_pain(
     if ens_roc == -10000:
         ens_roc = float("nan")
     _update_ensemble_test_roc_auc_file(run_paths, pain_type, ens_roc)
+
+    if return_daily_arrays:
+        traffic_light = [
+            _test_set_classify_day(risk_probs, actual_pain, d) for d in range(n_test)
+        ]
+        daily_arrays = {
+            "dates": results.index,
+            "actual_pain": actual_pain,
+            "risk_probs": risk_probs,
+            "traffic_light": traffic_light,
+            "pain_type": pain_type,
+        }
+        return pct_above_red, pct_yellow_only, daily_arrays
 
     return pct_above_red, pct_yellow_only
 

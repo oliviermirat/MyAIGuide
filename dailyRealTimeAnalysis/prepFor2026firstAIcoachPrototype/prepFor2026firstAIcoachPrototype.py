@@ -44,7 +44,7 @@ with open(pathToRealTimeManicTime, newline="") as csvfile:
             data.loc[date, "manicTimeRealTime"] += hours
 
   
-with open(pathToRealTimeManicTime, newline="", encoding='utf-8') as csvfile:
+with open(pathToRealTimeManicTimeBlank, newline="", encoding='utf-8') as csvfile:
   spamreader = csv.reader(csvfile)
   count = 0
   for row in spamreader:
