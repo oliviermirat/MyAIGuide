@@ -25,7 +25,7 @@ Figure -> data mapping (see README pipeline stages and pipeline/testing2_ensembl
   Figure 5 (face, same extended test set, before/after the ergonomic intervention):
       5a = same extended test set as Figure 4, "manicTimeRealTime" (time on computer) unscaled
            from 2025-11-01 onward (multiplier = 1.0, i.e. actually recorded values).
-      5b = same extended test set, "manicTimeRealTime" multiplied by 0.65 from 2025-11-01 onward
+      5b = same extended test set, "manicTimeRealTime" multiplied by 0.7 from 2025-11-01 onward
            (the attenuation coefficient reported in the paper).
 
 Ground-truth "flare" definition (Scenario A -- see Methods, "Evaluation metric at the body
@@ -57,7 +57,7 @@ Outputs (all under results/RF_evaluationStatistics/):
   - publication_summary_correlations_figure5ProbabilityComparison.xlsx: mean daily predicted
     flare probability for face pain after the ergonomic intervention, WITHOUT vs WITH the
     attenuation coefficient (Figure 5a vs 5b), plus a paired t-test and Wilcoxon signed-rank test.
-  - figure2/, figure4_noScaling/, figure5a_unscaled/, figure5b_scaled0.65/: the official
+  - figure2/, figure4_noScaling/, figure5a_unscaled/, figure5b_scaled0.7/: the official
     trafficLights_<pain>.png/.pdf republished by the unmodified plotting code (for a direct
     visual comparison against the published manuscript figures).
   - groundTruthCheck_<figure>_<pain>.png: pain trace colored by the traffic light, with the
@@ -102,7 +102,7 @@ EXTENDED_TEST_END_DATE = "2026-06-25"
 
 FACE_SCALING_COLUMN = "manicTimeRealTime"
 FACE_SCALING_CUTOFF_DATE = "2025-11-01"
-FACE_ATTENUATION_MULTIPLIER = 0.65
+FACE_ATTENUATION_MULTIPLIER = 0.7
 
 STRESSOR_VARS_MINMAX_SCALER = 0
 PAIN_REMOVE_OUTLIERS = 0
@@ -324,7 +324,7 @@ def compare_post_intervention_probabilities(
     Paired comparison, over the days strictly after `cutoff_date`, of the ensemble's daily
     predicted flare probability for face pain: WITHOUT the attenuation coefficient (arrays_unscaled,
     i.e. Figure 5a's actually-recorded 'time spent on computer' input) vs WITH it (arrays_scaled,
-    i.e. Figure 5b's 0.65-multiplied input). Same calendar days, same trained models, only the
+    i.e. Figure 5b's 0.7-multiplied input). Same calendar days, same trained models, only the
     'manicTimeRealTime' input feature after the cutoff differs -- so this is a paired design, and
     both a paired t-test and a Wilcoxon signed-rank test (parametric / non-parametric) are reported.
     """
@@ -486,7 +486,7 @@ def main() -> None:
         )
         process_region("Figure 4", display, arrays, run_paths_fig4.figures_dir)
 
-    # ---------------- Figure 5: extended test set, face, unscaled vs 0.65-attenuated ----------------
+    # ---------------- Figure 5: extended test set, face, unscaled vs 0.7-attenuated ----------------
     print("\n=== Figure 5a (face, extended test set, unadjusted / actually recorded values) ===")
     run_paths_fig5a = make_run_paths("figure5a_unscaled")
     arrays_5a = run_region(
@@ -494,15 +494,15 @@ def main() -> None:
     )
     process_region("Figure 5a (unadjusted)", "Face", arrays_5a, run_paths_fig5a.figures_dir)
 
-    print("\n=== Figure 5b (face, extended test set, 0.65 attenuation coefficient) ===")
-    _dfTrainAndVal_ext2, _dfTrain_ext2, dfTest_ext_scaled065 = load_extended_dataset_test(
+    print("\n=== Figure 5b (face, extended test set, 0.7 attenuation coefficient) ===")
+    _dfTrainAndVal_ext2, _dfTrain_ext2, dfTest_ext_scaled07 = load_extended_dataset_test(
         scale_face_multiplier=FACE_ATTENUATION_MULTIPLIER
     )
-    run_paths_fig5b = make_run_paths("figure5b_scaled0.65")
+    run_paths_fig5b = make_run_paths("figure5b_scaled0.7")
     arrays_5b = run_region(
-        "facePain", dfTrainAndVal_ext, dfTrain_ext, dfTest_ext_scaled065, run_paths_fig5b
+        "facePain", dfTrainAndVal_ext, dfTrain_ext, dfTest_ext_scaled07, run_paths_fig5b
     )
-    process_region("Figure 5b (0.65 attenuation)", "Face", arrays_5b, run_paths_fig5b.figures_dir)
+    process_region("Figure 5b (0.7 attenuation)", "Face", arrays_5b, run_paths_fig5b.figures_dir)
 
     # ---------------- Figure 5: post-intervention flare-probability comparison ----------------
     print("\n=== Comparing post-intervention flare probability: with vs without attenuation ===")
@@ -527,8 +527,8 @@ def main() -> None:
         ("Figure 4", "Arm", "Red or Orange"),
         ("Figure 5a (unadjusted)", "Face", "Red only"),
         ("Figure 5a (unadjusted)", "Face", "Red or Orange"),
-        ("Figure 5b (0.65 attenuation)", "Face", "Red only"),
-        ("Figure 5b (0.65 attenuation)", "Face", "Red or Orange"),
+        ("Figure 5b (0.7 attenuation)", "Face", "Red only"),
+        ("Figure 5b (0.7 attenuation)", "Face", "Red or Orange"),
     ]
     col_index = pd.MultiIndex.from_tuples(
         column_order, names=["Figure", "Pain region", "Warning definition"]

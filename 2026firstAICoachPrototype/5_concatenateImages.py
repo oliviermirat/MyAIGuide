@@ -81,7 +81,7 @@ if __name__ == "__main__":
     target_dir = "results/extendedTestSetFaceCounterfactual"
     
     base_name_top = "trafficLights_facePain_1.0"
-    base_name_bot = "trafficLights_facePain_0.65"
+    base_name_bot = "trafficLights_facePain_0.7"
     base_name_out = "trafficLights_facePain_combined"
 
     # 1. Process PNGs
